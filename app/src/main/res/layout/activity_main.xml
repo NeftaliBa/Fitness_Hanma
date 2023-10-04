@@ -6,13 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <androidx.fragment.app.FragmentContainerView
+        android:name="com.example.fitnes_hanma.Navbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="uwu"
-        android:textAlignment="center"
-        android:textSize="20dp"
-        android:layout_marginTop="50dp"
-        />
+        android:layout_alignParentBottom="true"
+        android:id="@+id/fragment_navbar"
+        tools:layout="@layout/fragment_navbar" />
+
+
 
 </RelativeLayout>
