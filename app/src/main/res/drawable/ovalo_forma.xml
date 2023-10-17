@@ -4,11 +4,8 @@
     <item>
         <shape
             android:shape="rectangle">
-<<<<<<< HEAD
             <solid android:color="@color/verde2" />
-=======
             <solid android:color="#00F1B8" />
->>>>>>> f3454e509a6c1ac47124b17319c6e715ac558aff
             <corners
                 android:bottomLeftRadius="50dp"
                 android:bottomRightRadius="50dp"
@@ -19,13 +16,11 @@
 
     <!-- Relleno interno (blanco en este caso) -->
     <item
-<<<<<<< HEAD
         android:start="5dp"
         android:end="5dp"
-=======
+
         android:left="5dp"
         android:right="5dp"
->>>>>>> f3454e509a6c1ac47124b17319c6e715ac558aff
         android:top="5dp"
         android:bottom="5dp">
         <shape
@@ -38,8 +33,4 @@
                 android:topRightRadius="45dp" />
         </shape>
     </item>
-<<<<<<< HEAD
 </layer-list>
-=======
-</layer-list>
->>>>>>> f3454e509a6c1ac47124b17319c6e715ac558aff
