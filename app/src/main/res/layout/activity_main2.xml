@@ -34,13 +34,7 @@
         android:layout_below="@+id/viEn"/>
 
 
-    <androidx.fragment.app.FragmentContainerView
-        android:name="com.example.fitnes_hanma.Instructor.fragments.Navbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/fragment_navbar"
-        tools:layout="@layout/fragment_navbar" />
+
 
 
 

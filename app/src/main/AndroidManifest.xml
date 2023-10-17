@@ -14,19 +14,18 @@
         tools:targetApi="31">
         <activity
             android:name=".Instructor.home.Home"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".Cliente.principal"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Cliente.asistencia"
             android:exported="false" />
@@ -60,30 +59,6 @@
         <activity
             android:name=".Admin.AdCliente"
             android:exported="false" />
-        <activity
-            android:name=".Admin.AdServicios"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.prueba"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.AdPersonal"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.AdInstructor"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.AdCliente"
-            android:exported="false" />
-        <activity
-            android:name=".Instructor.home.MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".Instructor.calendario.Calendario_semanal"
             android:exported="false" />
