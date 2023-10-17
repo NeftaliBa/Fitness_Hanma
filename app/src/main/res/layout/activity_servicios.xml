@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Cliente.servicios">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/cliente_navbar"
@@ -29,10 +29,29 @@
             android:padding="16dp"
             android:shadowColor="#000000"
             android:shadowRadius="10"
-            android:text="Inicio"
+            android:text="Servicios"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="25sp"></TextView>
+            android:textSize="25sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="90dp"
+        android:fontFamily="@font/salsa_font"
+        android:textAlignment="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Servicios Disponibles"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:background="@drawable/rounded_border"
+            />
     </LinearLayout>
 
 </RelativeLayout>

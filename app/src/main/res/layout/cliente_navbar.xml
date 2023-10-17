@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Navbar">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#00C596">
+        <ImageView
+            android:id="@+id/iconoUsuario"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:layout_weight="5"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/usuario" />
+        <ImageView
+            android:id="@+id/iconoMenus"
+            android:layout_width="60dp"
+            android:layout_weight="5"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/menu"/>
+        <ImageView
+            android:id="@+id/iconoCalendario"
+            android:layout_width="60dp"
+            android:layout_weight="5"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/calendario" />
+        <ImageView
+            android:id="@+id/iconoSocial"
+            android:layout_width="60dp"
+            android:layout_weight="5"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/charlar" />
+        <ImageView
+            android:id="@+id/iconoAjustes"
+            android:layout_width="60dp"
+            android:layout_weight="5"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ajustes"/>
+
+    </LinearLayout>
+
+</FrameLayout>

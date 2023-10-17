@@ -13,6 +13,24 @@
         android:theme="@style/Theme.Fitnes_Hanma"
         tools:targetApi="31">
         <activity
+            android:name=".Cliente.asistencia"
+            android:exported="false" />
+        <activity
+            android:name=".Cliente.servicios"
+            android:exported="false" />
+        <activity
+            android:name=".recuperarconstrasena"
+            android:exported="true" />
+        <activity
+            android:name=".inicio"
+            android:exported="true" />
+        <activity
+            android:name=".register"
+            android:exported="false" />
+        <activity
+            android:name=".login"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

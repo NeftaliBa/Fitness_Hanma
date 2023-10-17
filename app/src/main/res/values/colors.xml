@@ -2,4 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="aqua_default">#0f928c</color>
+    <color name="gray">#DDDDDD</color>
+    <color name="titulos">#a8a7a7</color>
 </resources>
