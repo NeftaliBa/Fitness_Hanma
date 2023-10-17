@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.fitnes_hanma.Admin.AdInstructor;
+import com.example.fitnes_hanma.Cliente.principal;
+import com.example.fitnes_hanma.Instructor.home.Home;
 
 public class MainActivity extends AppCompatActivity {
     Button ViAd, ViCl, ViEn;
@@ -30,14 +32,14 @@ public class MainActivity extends AppCompatActivity {
         ViCl.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                i = new Intent(MainActivity.this, AdInstructor.class);
+                i = new Intent(MainActivity.this, principal.class);
                 startActivity(i);
             }
         });
         ViEn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                i = new Intent(MainActivity.this, AdInstructor.class);
+                i = new Intent(MainActivity.this, Home.class);
                 startActivity(i);
             }
         });

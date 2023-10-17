@@ -42,7 +42,7 @@
         android:text="Bienvenido!"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="40dp"></TextView>
+        android:textSize="40dp"/>
 
     <TextView
         android:id="@+id/crearCuenta"
@@ -81,8 +81,7 @@
             android:text="Ya tienes cuenta?"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="20dp"></TextView>
-
+            android:textSize="20dp"/>
         <TextView
             android:id="@+id/iniciarSesion"
             android:layout_width="50dp"
