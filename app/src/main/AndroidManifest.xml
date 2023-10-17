@@ -31,7 +31,51 @@
             android:name=".login"
             android:exported="false" />
         <activity
+            android:name=".Admin.AdServicios"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.prueba"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.AdPersonal"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.AdInstructor"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.AdCliente"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.AdServicios"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.prueba"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.AdPersonal"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.AdInstructor"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.AdCliente"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
+=======
+            android:name=".Instructor.calendario.Calendario_semanal"
+            android:exported="false" />
+        <activity
+            android:name=".Instructor.calendario.Calendario"
+            android:exported="false" />
+        <activity
+            android:name=".Instructor.configuraciones.Configuraciones"
+            android:exported="false" />
+        <activity
+            android:name=".Instructor.grupo.Grupo"
+            android:exported="false" />
+        <activity
+            android:name=".Instructor.home.Home"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
