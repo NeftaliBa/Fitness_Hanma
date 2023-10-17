@@ -13,6 +13,21 @@
         android:theme="@style/Theme.Fitnes_Hanma"
         tools:targetApi="31">
         <activity
+            android:name=".Instructor.home.Home"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Cliente.principal"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".Cliente.asistencia"
             android:exported="false" />
         <activity
@@ -61,8 +76,15 @@
             android:name=".Admin.AdCliente"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
-=======
+            android:name=".Instructor.home.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".Instructor.calendario.Calendario_semanal"
             android:exported="false" />
         <activity
@@ -74,15 +96,6 @@
         <activity
             android:name=".Instructor.grupo.Grupo"
             android:exported="false" />
-        <activity
-            android:name=".Instructor.home.Home"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>
