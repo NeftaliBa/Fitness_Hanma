@@ -1,4 +1,4 @@
-package com.example.fitnes_hanma;
+package com.example.fitnes_hanma.Instructor.home;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import com.example.fitnes_hanma.Admin.AdInstructor;
 
+<<<<<<< HEAD:app/src/main/java/com/example/fitnes_hanma/MainActivity.java
 public class MainActivity extends AppCompatActivity {
     Intent i;
     Button ViAdmin, ViCliente, ViEntrenador;
@@ -26,5 +27,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+=======
+import com.example.fitnes_hanma.R;
+
+public class Home extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home);
+>>>>>>> f3454e509a6c1ac47124b17319c6e715ac558aff:app/src/main/java/com/example/fitnes_hanma/Instructor/home/Home.java
     }
 }

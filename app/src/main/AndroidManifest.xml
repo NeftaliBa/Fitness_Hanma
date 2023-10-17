@@ -13,6 +13,7 @@
         android:theme="@style/Theme.Fitnes_Hanma"
         tools:targetApi="31">
         <activity
+<<<<<<< HEAD
             android:name=".Admin.AdServicios"
             android:exported="false" />
         <activity
@@ -29,6 +30,21 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+=======
+            android:name=".Instructor.calendario.Calendario_semanal"
+            android:exported="false" />
+        <activity
+            android:name=".Instructor.calendario.Calendario"
+            android:exported="false" />
+        <activity
+            android:name=".Instructor.configuraciones.Configuraciones"
+            android:exported="false" />
+        <activity
+            android:name=".Instructor.grupo.Grupo"
+            android:exported="false" />
+        <activity
+            android:name=".Instructor.home.Home"
+>>>>>>> f3454e509a6c1ac47124b17319c6e715ac558aff
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
