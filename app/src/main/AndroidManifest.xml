@@ -13,7 +13,39 @@
         android:theme="@style/Theme.Fitnes_Hanma"
         tools:targetApi="31">
         <activity
-<<<<<<< HEAD
+            android:name=".Cliente.asistencia"
+            android:exported="false" />
+        <activity
+            android:name=".Cliente.servicios"
+            android:exported="false" />
+        <activity
+            android:name=".recuperarconstrasena"
+            android:exported="true" />
+        <activity
+            android:name=".inicio"
+            android:exported="true" />
+        <activity
+            android:name=".register"
+            android:exported="false" />
+        <activity
+            android:name=".login"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.AdServicios"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.prueba"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.AdPersonal"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.AdInstructor"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.AdCliente"
+            android:exported="false" />
+        <activity
             android:name=".Admin.AdServicios"
             android:exported="false" />
         <activity
@@ -44,7 +76,6 @@
             android:exported="false" />
         <activity
             android:name=".Instructor.home.Home"
->>>>>>> f3454e509a6c1ac47124b17319c6e715ac558aff
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

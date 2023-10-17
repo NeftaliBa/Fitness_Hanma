@@ -25,4 +25,7 @@
     <color name="private_account">#E6A326</color>
     <color name="security">#D95F69</color>
 >>>>>>> f3454e509a6c1ac47124b17319c6e715ac558aff
+    <color name="aqua_default">#0f928c</color>
+    <color name="gray">#DDDDDD</color>
+    <color name="titulos">#a8a7a7</color>
 </resources>
