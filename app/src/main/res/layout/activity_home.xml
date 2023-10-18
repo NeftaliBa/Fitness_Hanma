@@ -1,19 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/back_bg"
     tools:context=".Instructor.home.Home">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:name="com.example.fitnes_hanma.Instructor.fragments.Navbar"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="40dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/qr_icon" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Explorar"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:layout_marginLeft="5dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp">
+
+                <EditText
+                    android:layout_width="340dp"
+                    android:layout_height="55dp"
+                    android:hint="Search"
+                    android:textSize="14dp"
+                    android:background="@drawable/search_bg"
+                    android:paddingLeft="30dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"/>
+
+                <ImageView
+                    android:id="@+id/privateAccountIcon"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/round_back_secondary_100"
+                    android:padding="12dp"
+                    android:src="@drawable/search_icon" />
+
+            </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Actividad Principal"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:layout_marginTop="15dp"
+                android:textColor="#000"
+                android:layout_marginLeft="40dp"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="88dp"
+                    android:background="@drawable/card_1"
+                    android:layout_gravity="center" />
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="88dp"
+                    android:background="@drawable/card_2"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="12dp"/>
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="88dp"
+                    android:background="@drawable/card_3"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="12dp"/>
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="88dp"
+                    android:background="@drawable/card_4"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="12dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hoy"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="30dp"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="160dp">
+
+                <ListView
+                    android:id="@+id/eventListView"
+                    android:layout_width="360dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="IMC"
+                android:textSize="25dp"
+                android:layout_marginTop="30dp"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:layout_marginLeft="40dp"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </ScrollView>
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/fragment_navbar"
-        tools:layout="@layout/fragment_navbar" />
+        android:layout_marginTop="10dp">
 
+        <androidx.fragment.app.FragmentContainerView
+            android:name="com.example.fitnes_hanma.Instructor.fragments.Navbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/fragment_navbar"
+            tools:layout="@layout/fragment_navbar" />
 
-
-</RelativeLayout>
+    </RelativeLayout>
+</FrameLayout>

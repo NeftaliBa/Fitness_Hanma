@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -341,6 +341,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="40dp"
+            android:layout_marginBottom="80dp"
             android:orientation="vertical"
             android:padding="15dp">
 
@@ -360,7 +361,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="Seguridad &amp; Privacidad"
+                    android:text="Log Out"
                     android:textColor="#FFFFFF"
                     android:textStyle="bold"
                     android:layout_toEndOf="@+id/logOutIcon"/>
@@ -373,21 +374,20 @@
                     android:layout_centerVertical="true"/>
             </RelativeLayout>
         </LinearLayout>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
-
-                <androidx.fragment.app.FragmentContainerView
-                    android:name="com.example.fitnes_hanma.Instructor.fragments.Navbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:id="@+id/fragment_navbar"
-                    tools:layout="@layout/fragment_navbar" />
-
-            </RelativeLayout>
         </LinearLayout>
-
     </ScrollView>
-</LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:name="com.example.fitnes_hanma.Instructor.fragments.Navbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/fragment_navbar"
+            tools:layout="@layout/fragment_navbar" />
+
+    </RelativeLayout>
+</FrameLayout>

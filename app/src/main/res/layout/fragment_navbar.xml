@@ -6,39 +6,47 @@
     tools:context=".Instructor.fragments.Navbar">
 
     <LinearLayout
-        android:layout_width="370dp"
-        android:layout_height="50dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="15dp"
         android:background="@drawable/ovalo_forma">
         <ImageView
             android:id="@+id/iconoUsuario"
-            android:layout_width="40dp"
+            android:layout_width="match_parent"
             android:layout_height="30dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginVertical="10dp"
             android:layout_weight="5"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
             android:src="@drawable/usuario" />
         <ImageView
             android:id="@+id/iconoCalendario"
-            android:layout_width="40dp"
-            android:layout_weight="5"
+            android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginVertical="10dp"
+            android:layout_weight="5"
             android:src="@drawable/calendario" />
         <ImageView
             android:id="@+id/iconoSocial"
-            android:layout_width="40dp"
-            android:layout_weight="5"
+            android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginVertical="10dp"
+            android:layout_weight="5"
             android:src="@drawable/charlar" />
         <ImageView
             android:id="@+id/iconoAjustes"
-            android:layout_width="40dp"
-            android:layout_weight="5"
+            android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginVertical="10dp"
+            android:layout_weight="5"
             android:src="@drawable/ajustes"/>
     </LinearLayout>
 

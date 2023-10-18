@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Fitnes_Hanma"
         tools:targetApi="31">
         <activity
+            android:name=".Instructor.grupo.Grupo_post"
+            android:exported="false" />
+        <activity
+            android:name=".Instructor.grupo.Grupo_mi_post"
+            android:exported="false" />
+        <activity
             android:name=".Instructor.calendario.Calendario_semanal"
             android:exported="false" />
         <activity
