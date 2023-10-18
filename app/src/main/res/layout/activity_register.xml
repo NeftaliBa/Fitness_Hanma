@@ -50,7 +50,7 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/nombre"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginStart="20dp"
@@ -65,7 +65,7 @@
             android:textSize="16dp" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/correo"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginStart="20dp"
@@ -80,7 +80,7 @@
             android:textSize="16dp" />
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/contrasena"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginStart="20dp"
@@ -95,7 +95,7 @@
             android:textSize="16dp" />
 
         <EditText
-            android:id="@+id/editText4"
+            android:id="@+id/confirmContrasena"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginStart="20dp"
@@ -120,6 +120,7 @@
             android:fontFamily="@font/salsa_font"
             android:text="Aceptar"
             android:textColor="@color/white"
+            android:id="@+id/btn_registro"
             android:textSize="16dp" />
     </LinearLayout>
 
