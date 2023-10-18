@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "997409372661",
+    "project_id": "hanma2",
+    "storage_bucket": "hanma2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:997409372661:android:f8b9e3628b948b30bd48bc",
+        "android_client_info": {
+          "package_name": "com.example.fitnes_hanma"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAqwsdukFtpJ-MIrhC3l9iIz--n944QL0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
