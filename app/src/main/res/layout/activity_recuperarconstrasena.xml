@@ -74,7 +74,7 @@
             android:backgroundTint="@color/aqua_default"
             android:fontFamily="@font/salsa_font"
             android:text="Aceptar"
-            android:textSize="16dp"></Button>
+            android:textSize="16dp"/>
     </LinearLayout>
 
 </RelativeLayout>
