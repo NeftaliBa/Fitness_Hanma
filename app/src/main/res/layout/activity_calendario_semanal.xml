@@ -64,7 +64,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="DOM"
-                    android:textColor="@color/verde_gris"
+                    android:textColor="@color/secondary"
                     android:textAlignment="center"
                     android:textSize="16sp"/>
 
@@ -73,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="LUN"
-                    android:textColor="@color/verde_gris"
+                    android:textColor="@color/secondary"
                     android:textAlignment="center"
                     android:textSize="16sp"/>
 
@@ -82,7 +82,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="MAR"
-                    android:textColor="@color/verde_gris"
+                    android:textColor="@color/secondary"
                     android:textAlignment="center"
                     android:textSize="16sp"/>
 
@@ -91,7 +91,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="MIE"
-                    android:textColor="@color/verde_gris"
+                    android:textColor="@color/secondary"
                     android:textAlignment="center"
                     android:textSize="16sp"/>
 
@@ -100,7 +100,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="JUE"
-                    android:textColor="@color/verde_gris"
+                    android:textColor="@color/secondary"
                     android:textAlignment="center"
                     android:textSize="16sp"/>
 
@@ -109,7 +109,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="VIE"
-                    android:textColor="@color/verde_gris"
+                    android:textColor="@color/secondary"
                     android:textAlignment="center"
                     android:textSize="16sp"/>
 
@@ -118,7 +118,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="SAB"
-                    android:textColor="@color/verde_gris"
+                    android:textColor="@color/secondary"
                     android:textAlignment="center"
                     android:textSize="16sp"/>
 
