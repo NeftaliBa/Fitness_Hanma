@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Admin.AdPersonal">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Personal"
+        android:id="@+id/tex"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/verde_gris"
+        android:textSize="30sp"
+        android:textStyle="bold"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tex"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/cuadro_texto"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/AggPer"
+            android:layout_marginStart="20sp"
+            android:layout_marginVertical="20dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Agregar"
+                android:textColor="@color/white"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:src="@drawable/right_arrow"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/AggPer"
+            android:layout_marginHorizontal="10sp"
+            android:background="@drawable/line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/ConPer"
+            android:layout_below="@id/AggPer"
+            android:layout_marginStart="20sp"
+            android:layout_marginVertical="20dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Consultar informacion"
+                android:textColor="@color/white"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:src="@drawable/right_arrow"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/ConPer"
+            android:layout_marginHorizontal="10sp"
+            android:background="@drawable/line" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/EdiInfPer"
+            android:layout_below="@id/ConPer"
+            android:layout_marginStart="20sp"
+            android:layout_marginVertical="20dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Editar informacion"
+                android:textColor="@color/white"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:src="@drawable/right_arrow"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="10sp"
+            android:layout_height="1dp"
+            android:layout_below="@id/EdiInfPer"
+            android:background="@drawable/line" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/DelPer"
+            android:layout_below="@id/EdiInfPer"
+            android:layout_marginVertical="20dp">
+            <TextView
+                android:layout_marginStart="20sp"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Eliminar"
+                android:textColor="@color/white"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:src="@drawable/right_arrow"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_admin_navbar"
+        android:name="com.example.fitnes_hanma.Admin.Adnavbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        tools:layout="@layout/fragment_adnavbar" />
+
+</RelativeLayout>

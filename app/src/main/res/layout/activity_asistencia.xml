@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Cliente.asistencia">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#00C596">
+
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/salsa_font"
+            android:padding="16dp"
+            android:shadowColor="#000000"
+            android:shadowRadius="10"
+            android:text="Asistencia"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:text="Escanea el codigo QR"
+        android:textAlignment="center"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="(este codigo QR es personal)"
+        android:textAlignment="center"
+        android:layout_marginTop="250dp"
+        android:textSize="20sp">
+    </TextView>
+
+</RelativeLayout>
