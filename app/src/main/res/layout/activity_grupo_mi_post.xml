@@ -21,7 +21,7 @@
         <Button
             android:id="@+id/general"
             android:layout_width="120dp"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:text="General"
             android:textColor="@color/white"
             android:backgroundTint="@color/secondary"
@@ -31,7 +31,7 @@
         <Button
             android:id="@+id/mi_post"
             android:layout_width="120dp"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:text="Mi Post"
             android:textColor="@color/white"
             android:backgroundTint="@color/secondary"

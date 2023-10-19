@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-<<<<<<< HEAD
     <solid android:color="@color/secondary" />
-=======
-    <solid android:color="@color/verde2" />
->>>>>>> 2d58f893094fc1ceb666de356d3531d9f2630936
     <corners android:radius="50dp" /> <!-- Radio de las esquinas (50dp hará que sea completamente redondo) -->
 </shape>
