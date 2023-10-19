@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:src="@drawable/arrow_left"
-                android:onClick="previousMonthAction"
+                android:id="@+id/anteriormes"
                 android:textSize="20sp"/>
 
             <TextView
@@ -52,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:src="@drawable/right_arrow2"
-                android:onClick="nextMonthAction"
+                android:id="@+id/siguientemes"
                 android:textSize="20sp"/>
 
         </LinearLayout>
