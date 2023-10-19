@@ -19,7 +19,7 @@
             android:name=".Admin.Secundarias.AdModIns"
             android:exported="false" />
         <activity
-            android:name=".Admin.Secundarias.AdModSe"
+            android:name=".Admin.Secundarias.AdModCl"
             android:exported="false" />
         <activity
             android:name=".Admin.Principal.SeeViews"
@@ -44,12 +44,7 @@
             android:exported="false" />
         <activity
             android:name=".inicio"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
       <activity
             android:name=".register"
             android:exported="false" />
@@ -57,7 +52,7 @@
             android:name=".login"
             android:exported="false" />
         <activity
-            android:name=".Admin.Principal.AdServicios"
+            android:name=".Admin.Principal.AdClases"
             android:exported="false" />
         <activity
             android:name=".Admin.prueba"
@@ -67,7 +62,12 @@
             android:exported="false" />
         <activity
             android:name=".Admin.Principal.AdInstructor"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Admin.Principal.AdCliente"
             android:exported="false" />
