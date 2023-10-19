@@ -24,6 +24,7 @@ import java.util.Map;
 
 public class register extends AppCompatActivity {
 
+
     Button btn_register;
     EditText name, email, password;
     FirebaseFirestore mFirestore;
