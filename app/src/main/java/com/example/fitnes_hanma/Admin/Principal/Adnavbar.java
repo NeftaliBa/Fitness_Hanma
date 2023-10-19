@@ -50,19 +50,19 @@ public class Adnavbar extends Fragment {
         final int[] selectedButton = {sharedPreferences.getInt("selected_button", R.id.instruc)};
 
 // Establecer los fondos según el estado guardado
-        instructor.setBackgroundResource(selectedButton[0] == R.id.instruc ? R.drawable.testbackfull : R.drawable.testbacknull);
-        servicio.setBackgroundResource(selectedButton[0] == R.id.serv ? R.drawable.testbackfull : R.drawable.testbacknull);
-        cliente.setBackgroundResource(selectedButton[0] == R.id.clien ? R.drawable.testbackfull : R.drawable.testbacknull);
-        personal.setBackgroundResource(selectedButton[0] == R.id.perso ? R.drawable.testbackfull : R.drawable.testbacknull);
+        instructor.setBackgroundResource(selectedButton[0] == R.id.instruc ? R.drawable.testbacknull : R.drawable.adminbackfull);
+        servicio.setBackgroundResource(selectedButton[0] == R.id.serv ? R.drawable.testbacknull : R.drawable.adminbackfull);
+        cliente.setBackgroundResource(selectedButton[0] == R.id.clien ? R.drawable.testbacknull : R.drawable.adminbackfull);
+        personal.setBackgroundResource(selectedButton[0] == R.id.perso ? R.drawable.testbacknull : R.drawable.adminbackfull);
 
         instructor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (selectedButton[0] != R.id.instruc) {
-                    instructor.setBackgroundResource(R.drawable.testbackfull);
-                    servicio.setBackgroundResource(R.drawable.testbacknull);
-                    cliente.setBackgroundResource(R.drawable.testbacknull);
-                    personal.setBackgroundResource(R.drawable.testbacknull);
+                    instructor.setBackgroundResource(R.drawable.testbacknull);
+                    servicio.setBackgroundResource(R.drawable.adminbackfull);
+                    cliente.setBackgroundResource(R.drawable.adminbackfull);
+                    personal.setBackgroundResource(R.drawable.adminbackfull);
 
                     // Guardar el estado de selección en SharedPreferences
                     SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -80,10 +80,10 @@ public class Adnavbar extends Fragment {
             @Override
             public void onClick(View v) {
                 if (selectedButton[0] != R.id.serv) {
-                    servicio.setBackgroundResource(R.drawable.testbackfull);
-                    instructor.setBackgroundResource(R.drawable.testbacknull);
-                    cliente.setBackgroundResource(R.drawable.testbacknull);
-                    personal.setBackgroundResource(R.drawable.testbacknull);
+                    servicio.setBackgroundResource(R.drawable.testbacknull);
+                    instructor.setBackgroundResource(R.drawable.adminbackfull);
+                    cliente.setBackgroundResource(R.drawable.adminbackfull);
+                    personal.setBackgroundResource(R.drawable.adminbackfull);
 
                     // Guardar el estado de selección en SharedPreferences
                     SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -91,7 +91,7 @@ public class Adnavbar extends Fragment {
                     editor.apply();
 
                     selectedButton[0] = R.id.serv;
-                    Intent intent = new Intent(getActivity(), AdServicios.class);
+                    Intent intent = new Intent(getActivity(), AdClases.class);
                     startActivity(intent);
                 }
             }
@@ -101,10 +101,10 @@ public class Adnavbar extends Fragment {
             @Override
             public void onClick(View v) {
                 if (selectedButton[0] != R.id.clien) {
-                    cliente.setBackgroundResource(R.drawable.testbackfull);
-                    servicio.setBackgroundResource(R.drawable.testbacknull);
-                    instructor.setBackgroundResource(R.drawable.testbacknull);
-                    personal.setBackgroundResource(R.drawable.testbacknull);
+                    cliente.setBackgroundResource(R.drawable.testbacknull);
+                    servicio.setBackgroundResource(R.drawable.adminbackfull);
+                    instructor.setBackgroundResource(R.drawable.adminbackfull);
+                    personal.setBackgroundResource(R.drawable.adminbackfull);
 
                     // Guardar el estado de selección en SharedPreferences
                     SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -122,10 +122,10 @@ public class Adnavbar extends Fragment {
             @Override
             public void onClick(View v) {
                 if (selectedButton[0] != R.id.perso) {
-                    personal.setBackgroundResource(R.drawable.testbackfull);
-                    servicio.setBackgroundResource(R.drawable.testbacknull);
-                    cliente.setBackgroundResource(R.drawable.testbacknull);
-                    instructor.setBackgroundResource(R.drawable.testbacknull);
+                    personal.setBackgroundResource(R.drawable.testbacknull);
+                    servicio.setBackgroundResource(R.drawable.adminbackfull);
+                    cliente.setBackgroundResource(R.drawable.adminbackfull);
+                    instructor.setBackgroundResource(R.drawable.adminbackfull);
 
                     // Guardar el estado de selección en SharedPreferences
                     SharedPreferences.Editor editor = sharedPreferences.edit();
