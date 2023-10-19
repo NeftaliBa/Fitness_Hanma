@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.fitnes_hanma.Admin.Principal.AdInstructor;
-import com.example.fitnes_hanma.Admin.Principal.AdServicios;
 import com.example.fitnes_hanma.R;
 
 public class AdModIns extends AppCompatActivity {
