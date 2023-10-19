@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="lavender">#8692f7</color>
     <color name="verde1">#00C596</color>
+    <color name="verde2">#00F1B8</color>
     <color name="verde_gris">#1F8D89</color>
     <color name="gris1">#CFCFCF</color>
     <color name="primari">#1B023B</color>
@@ -21,4 +22,6 @@
     <color name="gray">#DDDDDD</color>
     <color name="aqua_default">#0f928c</color>
     <color name="security">#D95F69</color>
+    <color name="red">#CC0011</color>
+
 </resources>
