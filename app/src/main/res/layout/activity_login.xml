@@ -50,7 +50,7 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/correo"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginStart="20dp"
@@ -58,14 +58,14 @@
             android:layout_marginEnd="20dp"
             android:background="@drawable/rounded_border"
             android:fontFamily="@font/salsa_font"
-            android:hint="Nombre completo"
+            android:hint="Correo electronico"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:textColorHint="@color/gray"
             android:textSize="16dp" />
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/contrasena"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginStart="20dp"
@@ -81,12 +81,14 @@
 
 
         <Button
+            android:id="@+id/btn_loguear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="75dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="75dp"
             android:backgroundTint="@color/aqua_default"
+            android:textColor="@color/gray"
             android:fontFamily="@font/salsa_font"
             android:text="Aceptar"
             android:textSize="16dp"

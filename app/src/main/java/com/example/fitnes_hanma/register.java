@@ -75,7 +75,7 @@ public class register extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void unused) {
                         finish();
-                        startActivity(new Intent(register.this, principal .class));
+                        startActivity(new Intent(register.this, login .class));
                         Toast.makeText(register.this, "Usuario registrado con éxito", Toast.LENGTH_SHORT).show();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
