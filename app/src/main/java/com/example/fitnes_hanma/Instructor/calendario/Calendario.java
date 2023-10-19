@@ -1,32 +1,68 @@
 package com.example.fitnes_hanma.Instructor.calendario;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.view.View;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 import com.example.fitnes_hanma.R;
 
 public class Calendario extends AppCompatActivity {
 
+    private RecyclerView calendarRecyclerView;
+    private TextView monthYearTV;
+    private ImageView anteriormes, siguientemes;
+    private Calendar calendar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendario);
-        ImageView semana;
 
-        semana = (ImageView) findViewById(R.id.semanal);
+        calendar = Calendar.getInstance();
+        calendarRecyclerView = findViewById(R.id.calendarRecyclerView);
+        monthYearTV = findViewById(R.id.monthYearTV);
+        anteriormes = findViewById(R.id.anteriormes);
+        siguientemes = findViewById(R.id.siguientemes);
 
+
+        anteriormes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calendar.add(Calendar.MONTH, -1);
+                updateCalendar();
+            }
+        });
+
+        siguientemes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calendar.add(Calendar.MONTH, 1);
+                updateCalendar();
+            }
+        });
+
+        ImageView semana = findViewById(R.id.semanal);
         semana.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Navegar a la página MainActivity
                 Intent intent = new Intent(Calendario.this, Calendario_semanal.class);
                 startActivity(intent);
             }
         });
+    }
+
+    private void updateCalendar() {
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM yyyy", Locale.getDefault());
+        monthYearTV.setText(sdf.format(calendar.getTime()));
+
     }
 }

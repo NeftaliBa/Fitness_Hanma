@@ -13,6 +13,18 @@
         android:theme="@style/Theme.Fitnes_Hanma"
         tools:targetApi="31">
         <activity
+            android:name=".Instructor.home.Home_QR"
+            android:exported="false" />
+        <activity
+            android:name=".Instructor.home.Home"
+            android:exported="false" />
+        <activity
+            android:name=".Cliente.principal"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".Admin.Secundarias.AdModPer"
             android:exported="false" />
         <activity
@@ -43,11 +55,20 @@
             android:name=".recuperarconstrasena"
             android:exported="false" />
         <activity
+            android:name=".Cliente.asistencia"
+            android:exported="false" />
+        <activity
+            android:name=".Cliente.servicios"
+            android:exported="false" />
+        <activity
+            android:name=".recuperarconstrasena"
+            android:exported="true" />
+        <activity
             android:name=".inicio"
             android:exported="false" />
         <activity
             android:name=".register"
-          android:exported="true">
+            android:exported="true">
           <intent-filter>
               <action android:name="android.intent.action.MAIN" />
               <category android:name="android.intent.category.LAUNCHER" />
@@ -57,10 +78,22 @@
             android:name=".login"
             android:exported="false" />
         <activity
+            android:name=".Admin.AdServicios"
+            android:exported="false" />
+        <activity
             android:name=".Admin.Principal.AdServicios"
             android:exported="false" />
         <activity
             android:name=".Admin.prueba"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.AdPersonal"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.AdInstructor"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.AdCliente"
             android:exported="false" />
         <activity
             android:name=".Admin.Principal.AdPersonal"
