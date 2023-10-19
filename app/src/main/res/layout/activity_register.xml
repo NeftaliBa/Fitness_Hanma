@@ -49,6 +49,7 @@
         android:layout_marginTop="370dp"
         android:orientation="vertical">
 
+
         <EditText
             android:id="@+id/nombre"
             android:layout_width="match_parent"
@@ -94,8 +95,6 @@
             android:textColorHint="@color/gray"
             android:textSize="16dp" />
 
-
-
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -109,5 +108,5 @@
             android:textColor="@color/white"
             android:id="@+id/btn_registro"
             android:textSize="16dp" />
-
+    </LinearLayout>
 </RelativeLayout>
