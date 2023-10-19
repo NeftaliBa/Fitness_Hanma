@@ -24,6 +24,7 @@ import java.util.Map;
 
 public class register extends AppCompatActivity {
 
+
     Button btn_register;
     EditText name, email, password;
     FirebaseFirestore mFirestore;
@@ -75,7 +76,7 @@ public class register extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void unused) {
                         finish();
-                        startActivity(new Intent(register.this, principal .class));
+                        startActivity(new Intent(register.this, login .class));
                         Toast.makeText(register.this, "Usuario registrado con éxito", Toast.LENGTH_SHORT).show();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
