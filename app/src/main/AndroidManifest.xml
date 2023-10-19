@@ -34,9 +34,6 @@
             android:name=".Cliente.principal"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
             android:name=".Cliente.asistencia"
             android:exported="false" />
         <activity
