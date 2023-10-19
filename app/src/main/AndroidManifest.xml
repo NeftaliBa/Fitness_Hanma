@@ -13,8 +13,23 @@
         android:theme="@style/Theme.Fitnes_Hanma"
         tools:targetApi="31">
         <activity
+            android:name=".Admin.Secundarias.AdModPer"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Secundarias.AdModIns"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Secundarias.AdModSe"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Principal.SeeViews"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Secundarias.AdModCli"
+            android:exported="false" />
+        <activity
             android:name=".Instructor.home.Home"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".Cliente.principal"
             android:exported="false" />
@@ -32,32 +47,32 @@
             android:exported="false" />
         <activity
             android:name=".inicio"
-            android:exported="false" />
-        <activity
-            android:name=".register"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+      <activity
+            android:name=".register"
+            android:exported="false" />
         <activity
             android:name=".login"
             android:exported="false" />
         <activity
-            android:name=".Admin.AdServicios"
+            android:name=".Admin.Principal.AdServicios"
             android:exported="false" />
         <activity
             android:name=".Admin.prueba"
             android:exported="false" />
         <activity
-            android:name=".Admin.AdPersonal"
+            android:name=".Admin.Principal.AdPersonal"
             android:exported="false" />
         <activity
-            android:name=".Admin.AdInstructor"
+            android:name=".Admin.Principal.AdInstructor"
             android:exported="false" />
         <activity
-            android:name=".Admin.AdCliente"
+            android:name=".Admin.Principal.AdCliente"
             android:exported="false" />
         <activity
             android:name=".Instructor.calendario.Calendario_semanal"

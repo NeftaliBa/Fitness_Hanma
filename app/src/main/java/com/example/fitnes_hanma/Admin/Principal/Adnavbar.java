@@ -1,4 +1,4 @@
-package com.example.fitnes_hanma.Admin;
+package com.example.fitnes_hanma.Admin.Principal;
 
 import android.content.Context;
 import android.content.Intent;
