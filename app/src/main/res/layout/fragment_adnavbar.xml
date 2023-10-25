@@ -6,55 +6,44 @@
     tools:context=".Admin.Principal.Adnavbar">
 
     <LinearLayout
-        android:layout_marginHorizontal="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="15dp"
+        android:layout_height="60dp"
         android:background="@drawable/navbaradminform">
 
         <ImageView
-            android:id="@+id/instruc"
+            android:id="@+id/clases"
             android:layout_width="match_parent"
-            android:padding="4dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginVertical="10dp"
+            android:layout_height="60dp"
+            android:padding="10dp"
             android:layout_weight="5"
-            android:src="@drawable/usuario" />
+            android:layout_gravity="center"
+            android:src="@drawable/adnavbarclases" />
 
         <ImageView
-            android:id="@+id/serv"
+            android:id="@+id/instructor"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:padding="4dp"
-
-            android:layout_marginStart="5dp"
-            android:layout_marginVertical="10dp"
+            android:layout_height="60dp"
+            android:padding="10dp"
             android:layout_weight="5"
-            android:src="@drawable/calendario" />
+            android:layout_gravity="center"
+            android:src="@drawable/adnavbarinstructor" />
         <ImageView
-            android:id="@+id/clien"
+            android:id="@+id/cliente"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:padding="4dp"
-
-            android:layout_marginStart="5dp"
-            android:layout_marginVertical="10dp"
+            android:layout_height="60dp"
+            android:padding="10dp"
             android:layout_weight="5"
-            android:src="@drawable/charlar" />
+            android:layout_gravity="center"
+            android:src="@drawable/adnavbarcliente" />
 
         <ImageView
-            android:id="@+id/perso"
+            android:id="@+id/personal"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:padding="4dp"
-
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginVertical="10dp"
+            android:layout_height="60dp"
+            android:padding="10dp"
             android:layout_weight="5"
-            android:src="@drawable/ajustes"/>
+            android:layout_gravity="center"
+            android:src="@drawable/adnavbarpersonal"/>
     </LinearLayout>
 
 </FrameLayout>

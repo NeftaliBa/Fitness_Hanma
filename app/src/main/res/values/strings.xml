@@ -11,5 +11,14 @@
     <string name="lastName">Apellido</string>
     <string name="login">Iniciar sesión</string>
     <string name="createAct">Crear cuenta</string>
+    <string name="bote_basura">bote_basura</string>
+    <string name="boton_mas">boton_mas</string>
+    <string name="boton_ver">boton_ver</string>
+    <string name="boton_editar">boton_editar</string>
+    <string name="search">Search</string>
+    <string name="clases">Clases</string>
+    <string name="boton_buscar">boton_buscar</string>
+    <string name="regresar">regresar</string>
+    <string name="cliente">Cliente</string>
 
 </resources>
