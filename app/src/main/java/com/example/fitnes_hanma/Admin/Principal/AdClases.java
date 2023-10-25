@@ -23,11 +23,9 @@ public class AdClases extends AppCompatActivity {
         setContentView(R.layout.activity_ad_clases);
 
         searchClient = (EditText) findViewById(R.id.seCli);
-        name = (TextView) findViewById(R.id.name);
-        email = (TextView) findViewById(R.id.mail);
         ImageView editar = findViewById(R.id.edi);
         ImageView buscar = findViewById(R.id.buscar);
-        RelativeLayout regre = findViewById(R.id.regre);
+        ImageView regre = findViewById(R.id.regre);
 
         regre.setOnClickListener(new View.OnClickListener() {
             @Override
