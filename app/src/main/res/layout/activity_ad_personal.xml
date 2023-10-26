@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Admin.Principal.AdPersonal"
-    android:background="@color/adbackcolor"
-    >
+    android:theme="@style/AdminStatusBar"
+    android:background="@color/adbackcolor">
 
     <ImageView
         android:layout_marginStart="20dp"
@@ -25,11 +25,11 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:fontFamily="@font/salsa_font"
-        android:text="Personal"
+        android:text="@string/personal"
         android:id="@+id/tex"
         android:layout_marginTop="30dp"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="40sp"
         android:textStyle="bold"/>
     <FrameLayout
         android:layout_width="match_parent"

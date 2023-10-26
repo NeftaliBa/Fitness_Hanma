@@ -25,6 +25,9 @@
         <item name="colorSwitchThumbNormal">#FFFFFF</item>
         <item name="android:colorForeground">#99FFFFFF</item>
     </style>
+    <style name="AdminStatusBar">
+        <item name="android:statusBarColor">@color/adbackcolor</item>
+    </style>
 
 
     <style name="Theme.Fitnes_Hanma" parent="Base.Theme.Fitnes_Hanma" />
