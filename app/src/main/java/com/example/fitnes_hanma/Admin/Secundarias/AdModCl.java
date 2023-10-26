@@ -18,6 +18,7 @@ public class AdModCl extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.AdminStatusBar);
         setContentView(R.layout.activity_ad_mod_cla);
         nombre = (EditText) findViewById(R.id.Name);
         email =(EditText) findViewById(R.id.mail);

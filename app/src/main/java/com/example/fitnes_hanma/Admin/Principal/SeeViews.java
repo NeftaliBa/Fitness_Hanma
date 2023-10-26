@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import com.example.fitnes_hanma.Cliente.principal;
 import com.example.fitnes_hanma.Instructor.home.Home;
 import com.example.fitnes_hanma.R;
+import com.example.fitnes_hanma.register;
 
 public class SeeViews extends AppCompatActivity {
     Button ViAd, ViCl, ViEn;
@@ -24,14 +25,6 @@ public class SeeViews extends AppCompatActivity {
         ViEn = (Button) findViewById(R.id.viEn);
 
 
-       //RelativeLayout regre = findViewById(R.id.regre);
-       //regre.setOnClickListener(new View.OnClickListener() {
-       //    @Override
-       //    public void onClick(View v) {
-       //        i = new Intent(SeeViews.this, SeeViews.class);
-       //        startActivity(i);
-       //    }
-       //});
         ViAd.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -43,7 +36,7 @@ public class SeeViews extends AppCompatActivity {
         ViCl.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                i = new Intent(SeeViews.this, principal.class);
+                i = new Intent(SeeViews.this, register.class);
                 startActivity(i);
             }
         });

@@ -41,22 +41,6 @@
         android:padding="5dp"
         >
 
-        <!-- Seguridad-->
-        <RelativeLayout
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:clickable="true"
-            android:id="@+id/regre">
-
-            <ImageView
-                android:id="@+id/reg"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/admin_backreg"
-                android:padding="5dp"
-                android:src="@drawable/admin_reg" />
-
-        </RelativeLayout>
     </LinearLayout>
 
 
