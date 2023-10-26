@@ -49,23 +49,24 @@
         android:layout_marginTop="420dp"
         android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/rounded_border"
-        android:fontFamily="@font/salsa_font"
-        android:hint="Nombre completo"
-        android:padding="16dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:textColorHint="@color/white"
-        android:textSize="16dp" />
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/rounded_border"
+            android:fontFamily="@font/salsa_font"
+            android:hint="Correo electronico"
+            android:padding="16dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColorHint="@color/white"
+            android:textSize="16dp" />
 
         <Button
+            android:id="@+id/aceptar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="75dp"
