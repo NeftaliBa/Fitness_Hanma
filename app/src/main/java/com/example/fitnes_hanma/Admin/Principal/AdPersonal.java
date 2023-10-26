@@ -21,6 +21,7 @@ public class AdPersonal extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.AdminStatusBar);
         setContentView(R.layout.activity_ad_personal);
         searchClient = (EditText) findViewById(R.id.seCli);
         ImageView editar = findViewById(R.id.edi);
