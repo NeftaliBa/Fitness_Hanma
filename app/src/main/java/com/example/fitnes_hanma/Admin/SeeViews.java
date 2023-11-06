@@ -1,4 +1,4 @@
-package com.example.fitnes_hanma.Admin.Principal;
+package com.example.fitnes_hanma.Admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,9 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RelativeLayout;
 
-import com.example.fitnes_hanma.Cliente.principal;
+import com.example.fitnes_hanma.Admin.Principal.AdPClases;
+import com.example.fitnes_hanma.Admin.Principal.AdPCliente;
+import com.example.fitnes_hanma.Admin.Principal.AdPInstructor;
 import com.example.fitnes_hanma.Instructor.home.Home;
 import com.example.fitnes_hanma.R;
 import com.example.fitnes_hanma.register;
@@ -19,7 +20,7 @@ public class SeeViews extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_see_views);
+        setContentView(R.layout.activity_ad_see_views);
         ViAd = (Button) findViewById(R.id.viAd);
         ViCl = (Button) findViewById(R.id.viCl);
         ViEn = (Button) findViewById(R.id.viEn);
@@ -29,7 +30,7 @@ public class SeeViews extends AppCompatActivity {
 
             @Override
             public void onClick(View view){
-                i = new Intent(SeeViews.this, AdInstructor.class);
+                i = new Intent(SeeViews.this, AdPClases.class);
                 startActivity(i);
             }
         });

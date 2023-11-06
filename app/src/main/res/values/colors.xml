@@ -24,7 +24,7 @@
     <color name="security">#D95F69</color>
     <color name="red">#CC0011</color>
     <color name="adbackcolor">#280555</color>
-    <color name="gris_oscuro">#FFFFFF</color>
-
+    <color name="encendido">#FFFFFF</color>
+    <color name="apagado">#8E8E8E</color>
 
 </resources>

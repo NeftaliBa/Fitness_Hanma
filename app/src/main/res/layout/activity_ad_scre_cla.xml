@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/AdminStatusBar"
+    android:background="@color/adbackcolor"
+    tools:context=".Admin.Secundarias.AdSCreCla">
+
+    <TextView
+        android:id="@+id/tex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:fontFamily="@font/salsa_font"
+        android:text="Crear clase"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/campo1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tex"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/cuadro_verde"
+        android:padding="15dp">
+
+        <EditText
+            android:id="@+id/claNa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:backgroundTint="@color/white"
+            android:hint="Nombre de la clase"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/campo2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/campo1"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/cuadro_verde"
+        android:padding="15dp">
+
+        <EditText
+            android:id="@+id/desCla"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:backgroundTint="@color/white"
+            android:hint="Descripcion"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/campo3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/campo2"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/cuadro_verde"
+        android:padding="15dp">
+
+        <EditText
+            android:id="@+id/registros"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:backgroundTint="@color/white"
+            android:hint="Usuarios registrados"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textStyle="bold"
+            android:inputType="number"/>
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchIns"
+        android:layout_below="@+id/campo3"
+        android:layout_marginHorizontal="20dp"
+        >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Nombre del Instructor"
+            android:textSize="20sp"
+            android:id="@+id/naInst"
+            android:textAlignment="center"
+            android:background="@drawable/search"
+            android:autofillHints=""
+            android:inputType="textLongMessage" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/buscar"
+            android:background="@drawable/round_back_secondary_100"
+            android:padding="12dp"
+            android:src="@drawable/search_icon"
+            android:contentDescription="@string/boton_buscar"
+            android:layout_gravity="center_vertical|end" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/IDK"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/searchIns"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <!-- boton wn cl -->
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:backgroundTint="@color/verde_gris"
+            android:text="Calendario"
+            android:id="@+id/calendar"
+            app:icon="@drawable/admin_add_cla_calendario"
+            app:iconTint="@color/white"
+            android:textColor="@color/white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="4"
+            android:background="@drawable/cuadro_verde"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:id="@+id/fecha"
+                android:text="00/00/0000"
+                android:textColor="@color/white"
+                android:textAlignment="center"/>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/IDK2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/IDK"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <!-- boton wn cl -->
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:backgroundTint="@color/verde_gris"
+            android:text="Hora"
+            android:id="@+id/hour"
+            app:icon="@drawable/admin_add_cla_clock"
+            app:iconTint="@color/white"
+            android:textColor="@color/white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="3"
+            android:background="@drawable/cuadro_verde"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:id="@+id/hora"
+                android:text="00:00:00"
+                android:textColor="@color/white"
+                android:textAlignment="center"/>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/IDK2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="40dp"
+        >
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:text="Cancelar"
+            android:textColor="@color/white"
+            android:backgroundTint="#FF5555"/>
+        <Button
+            android:id="@+id/save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:text="Guardar"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/verde1"/>
+    </LinearLayout>
+
+</RelativeLayout>
