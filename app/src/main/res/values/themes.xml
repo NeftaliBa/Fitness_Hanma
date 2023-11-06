@@ -28,7 +28,9 @@
     <style name="AdminStatusBar">
         <item name="android:statusBarColor">@color/adbackcolor</item>
     </style>
-
+    <style name="MyTimePickerDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">#1F8D89</item>
+    </style>
 
     <style name="Theme.Fitnes_Hanma" parent="Base.Theme.Fitnes_Hanma" />
 </resources>

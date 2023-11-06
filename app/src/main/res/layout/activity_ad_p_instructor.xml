@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Admin.Principal.AdPersonal"
+    tools:context=".Admin.Principal.AdPInstructor"
     android:theme="@style/AdminStatusBar"
     android:background="@color/adbackcolor">
 
@@ -25,12 +25,13 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:fontFamily="@font/salsa_font"
-        android:text="@string/personal"
+        android:text="@string/instructor"
         android:id="@+id/tex"
         android:layout_marginTop="30dp"
         android:textColor="@color/white"
         android:textSize="40sp"
         android:textStyle="bold"/>
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -72,6 +73,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="80dp"
         android:layout_below="@+id/search">
+
+        <!--
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -109,12 +112,7 @@
                 android:padding="5dp"
                 android:contentDescription="@string/boton_editar" />
         </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_marginTop="5dp"
-            android:layout_height="1dp"
-            android:background="@drawable/line"
-            android:id="@+id/lineitems"/>
+            -->
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -126,9 +124,9 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_admin_navbar"
-        android:name="com.example.fitnes_hanma.Admin.Principal.Adnavbar"
+        android:name="com.example.fitnes_hanma.Admin.Adnavbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        tools:layout="@layout/fragment_adnavbar" />
+        tools:layout="@layout/a_ad_fragment_adnavbar" />
 </RelativeLayout>

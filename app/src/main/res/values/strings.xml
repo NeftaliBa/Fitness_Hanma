@@ -23,4 +23,11 @@
     <string name="personal">Personal</string>
     <string name="instructor">Instructor</string>
 
+    <!-- Item usuarios -->
+    <string name="Id_u_Item">Id</string>
+    <string name="Uid_u_Item">Uid</string>
+    <string name="Nombre_u_Item">Nombre</string>
+    <string name="Coreo_u_Item">Correo</string>
+
+
 </resources>

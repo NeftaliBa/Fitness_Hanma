@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Admin.Principal.AdCliente"
+    tools:context=".Admin.Principal.AdPClases"
     android:theme="@style/AdminStatusBar"
     android:background="@color/adbackcolor">
 
@@ -18,20 +18,19 @@
         android:background="@drawable/admin_backreg"
         android:padding="5dp"
         android:src="@drawable/admin_reg"
-        android:contentDescription="@string/regresar" />
+        android:contentDescription="@string/regresar"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:fontFamily="@font/salsa_font"
-        android:text="@string/cliente"
+        android:text="@string/clases"
         android:id="@+id/tex"
         android:layout_marginTop="30dp"
         android:textColor="@color/white"
         android:textSize="40sp"
         android:textStyle="bold"/>
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -45,7 +44,7 @@
             android:layout_height="50dp"
             android:hint="@string/search"
             android:textSize="20sp"
-            android:id="@+id/seCli"
+            android:id="@+id/seCla"
             android:textAlignment="center"
             android:background="@drawable/search"
             android:autofillHints=""
@@ -61,6 +60,7 @@
             android:contentDescription="@string/boton_buscar"
             android:layout_gravity="center_vertical|end" />
     </FrameLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -72,6 +72,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="80dp"
         android:layout_below="@+id/search">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -92,6 +93,24 @@
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:id="@+id/plus"
+                android:src="@drawable/admin_add"
+                android:layout_marginHorizontal="10dp"
+                android:background="@drawable/admin_backadd"
+                android:padding="5dp"
+                android:contentDescription="@string/boton_mas" />
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/see"
+                android:src="@drawable/admin_ver"
+                android:layout_marginHorizontal="10dp"
+                android:background="@drawable/admin_backcon"
+                android:padding="5dp"
+                android:contentDescription="@string/boton_ver" />
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:id="@+id/edi"
                 android:src="@drawable/admin_edi"
                 android:layout_marginHorizontal="10dp"
@@ -99,29 +118,22 @@
                 android:padding="5dp"
                 android:contentDescription="@string/boton_editar" />
         </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_marginTop="5dp"
-            android:layout_height="1dp"
-            android:background="@drawable/line"
-            android:id="@+id/lineitems"/>
 
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:padding="20dp"
-            android:id="@+id/AdlistaCL"/>
-    </LinearLayout>
+<ListView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="10dp"
+    android:padding="20dp"
+    android:id="@+id/listViewClases"/>
+</LinearLayout>
 
 
 
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragment_admin_navbar"
-        android:name="com.example.fitnes_hanma.Admin.Principal.Adnavbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        tools:layout="@layout/fragment_adnavbar" />
+<androidx.fragment.app.FragmentContainerView
+android:id="@+id/fragment_admin_navbar"
+android:name="com.example.fitnes_hanma.Admin.Adnavbar"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_alignParentBottom="true"
+tools:layout="@layout/a_ad_fragment_adnavbar" />
 </RelativeLayout>

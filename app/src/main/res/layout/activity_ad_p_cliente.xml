@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Admin.Principal.AdInstructor"
+    tools:context=".Admin.Principal.AdPCliente"
     android:theme="@style/AdminStatusBar"
     android:background="@color/adbackcolor">
 
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:fontFamily="@font/salsa_font"
-        android:text="@string/instructor"
+        android:text="@string/cliente"
         android:id="@+id/tex"
         android:layout_marginTop="30dp"
         android:textColor="@color/white"
@@ -61,7 +61,6 @@
             android:contentDescription="@string/boton_buscar"
             android:layout_gravity="center_vertical|end" />
     </FrameLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -81,6 +80,21 @@
             android:id="@+id/buttons"
             android:textAlignment="center"
             >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_weight="2"
+                android:id="@+id/user"
+                android:text="nombre"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:textSize="20sp"
+                android:id="@+id/correo"
+                android:text="correo"/>
+        <!--
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -93,30 +107,16 @@
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:id="@+id/plus"
-                android:src="@drawable/admin_add"
-                android:layout_marginHorizontal="10dp"
-                android:background="@drawable/admin_backadd"
-                android:padding="5dp"
-                android:contentDescription="@string/boton_mas" />
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
                 android:id="@+id/edi"
                 android:src="@drawable/admin_edi"
                 android:layout_marginHorizontal="10dp"
                 android:background="@drawable/admin_backadd"
                 android:padding="5dp"
                 android:contentDescription="@string/boton_editar" />
+        -->
         </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_marginTop="5dp"
-            android:layout_height="1dp"
-            android:background="@drawable/line"
-            android:id="@+id/lineitems"/>
-        <ListView
+
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
@@ -125,11 +125,13 @@
     </LinearLayout>
 
 
+
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_admin_navbar"
-        android:name="com.example.fitnes_hanma.Admin.Principal.Adnavbar"
+        android:name="com.example.fitnes_hanma.Admin.Adnavbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        tools:layout="@layout/fragment_adnavbar" />
+        tools:layout="@layout/a_ad_fragment_adnavbar" />
 </RelativeLayout>
