@@ -8,17 +8,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.fitnes_hanma.Admin.Principal.AdPersonal;
+import com.example.fitnes_hanma.Admin.Principal.AdPInstructor;
 import com.example.fitnes_hanma.R;
 
-public class AdModPer extends AppCompatActivity {
+public class AdSModIns extends AppCompatActivity {
     EditText nombre,email;
     Button cancelar, guardar;
     Intent i;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ad_mod_per);
+        setContentView(R.layout.activity_ad_s_mod_ins);
         nombre = (EditText) findViewById(R.id.Name);
         email =(EditText) findViewById(R.id.mail);
         cancelar = (Button) findViewById(R.id.cancel);
@@ -26,14 +26,14 @@ public class AdModPer extends AppCompatActivity {
         cancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                i = new Intent(AdModPer.this, AdPersonal.class);
+                i = new Intent(AdSModIns.this, AdPInstructor.class);
                 startActivity(i);
             }
         });
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                i = new Intent(AdModPer.this, AdPersonal.class);
+                i = new Intent(AdSModIns.this, AdPInstructor.class);
                 startActivity(i);
             }
         });

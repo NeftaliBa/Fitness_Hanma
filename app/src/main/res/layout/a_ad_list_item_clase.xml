@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/nombreClaseTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre de la Clase"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/descripcionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descripción de la Clase"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/nombreInstructorTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descripción de la Clase"
+        android:textSize="15sp"/>
+
+
+    <!-- Agrega más vistas para mostrar otros detalles de la clase si es necesario -->
+
+</LinearLayout>

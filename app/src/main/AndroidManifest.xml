@@ -13,28 +13,25 @@
         android:theme="@style/Theme.Fitnes_Hanma"
         tools:targetApi="31">
         <activity
+            android:name=".Admin.Secundarias.AdSCreCla"
+            android:exported="false" />
+        <activity
             android:name=".Instructor.home.Home_QR"
             android:exported="false" />
         <activity
             android:name=".Instructor.home.Home"
             android:exported="false" />
         <activity
-            android:name=".register"
+            android:name=".Admin.Secundarias.AdSModIns"
             android:exported="false" />
         <activity
-            android:name=".Admin.Secundarias.AdModPer"
+            android:name=".Admin.Secundarias.AdSModCla"
             android:exported="false" />
         <activity
-            android:name=".Admin.Secundarias.AdModIns"
+            android:name=".Admin.SeeViews"
             android:exported="false" />
         <activity
-            android:name=".Admin.Secundarias.AdModCl"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.Principal.SeeViews"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.Secundarias.AdModCli"
+            android:name=".Admin.Secundarias.AdSModCli"
             android:exported="false" />
         <activity
             android:name=".Cliente.asistencia"
@@ -50,6 +47,9 @@
             android:exported="false" />
       <activity
             android:name=".login"
+            android:exported="false" />
+        <activity
+            android:name=".register"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -60,19 +60,13 @@
             android:name=".Cliente.principal"
             android:exported="false" />
         <activity
-            android:name=".Admin.Principal.AdClases"
+            android:name=".Admin.Principal.AdPClases"
             android:exported="false" />
         <activity
-            android:name=".Admin.prueba"
+            android:name=".Admin.Principal.AdPInstructor"
             android:exported="false" />
         <activity
-            android:name=".Admin.Principal.AdPersonal"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.Principal.AdInstructor"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.Principal.AdCliente"
+            android:name=".Admin.Principal.AdPCliente"
             android:exported="false" />
         <activity
             android:name=".Instructor.calendario.Calendario_semanal"
