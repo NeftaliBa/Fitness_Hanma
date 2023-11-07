@@ -32,7 +32,7 @@ import java.util.Map;
 public class AdSCreCla extends AppCompatActivity {
     private FirebaseFirestore db;
     private FirebaseAuth auth;
-    EditText nomCla, desCla, nomIns, registros;
+    EditText nomCla, desCla, nomIns, LimCli;
     Button calendar, cancelar, guardar, hour;
     TextView fecha, hora;
     Intent i;
@@ -51,7 +51,7 @@ public class AdSCreCla extends AppCompatActivity {
         nomCla = (EditText) findViewById(R.id.claNa);
         desCla = (EditText) findViewById(R.id.desCla);
         nomIns = (EditText) findViewById(R.id.naInst);
-        registros = (EditText) findViewById(R.id.registros);
+        LimCli = (EditText) findViewById(R.id.limCli);
         fecha = (TextView) findViewById(R.id.fecha);
         hora = (TextView) findViewById(R.id.hora);
 
@@ -131,7 +131,7 @@ public class AdSCreCla extends AppCompatActivity {
                 String nombreInstructor = nomIns.getText().toString();
                 String fechaClase = fecha.getText().toString();
                 String horaClase = hora.getText().toString();
-                String CliRegis =  registros.getText().toString();
+                String limCli =  LimCli.getText().toString();
 
                 Map<String, Object> clase = new HashMap<>();
                 clase.put("nombreClase", nombreClase);
@@ -139,7 +139,7 @@ public class AdSCreCla extends AppCompatActivity {
                 clase.put("nombreInstructor", nombreInstructor);
                 clase.put("fechaClase", fechaClase);
                 clase.put("horaClase", horaClase);
-                clase.put("CliRegis", CliRegis);
+                clase.put("limCli", limCli);
 
                 // Obtén la referencia de la colección "clases" en Firestore
                 // No especificamos un ID para que Firestore genere uno automáticamente
