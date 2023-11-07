@@ -1,4 +1,4 @@
-package com.example.fitnes_hanma.Admin.Objetos;
+package com.example.fitnes_hanma.Objetos;
 
 public class Usuarios {
     String id_usuario, nombre, correo;

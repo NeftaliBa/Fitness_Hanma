@@ -84,39 +84,11 @@
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:id="@+id/Eli"
-                android:src="@drawable/admin_del"
-                android:layout_marginHorizontal="10dp"
-                android:background="@drawable/admin_backcon"
-                android:padding="5dp"
-                android:contentDescription="@string/bote_basura" />
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
                 android:id="@+id/plus"
                 android:src="@drawable/admin_add"
-                android:layout_marginHorizontal="10dp"
                 android:background="@drawable/admin_backadd"
                 android:padding="5dp"
                 android:contentDescription="@string/boton_mas" />
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:id="@+id/see"
-                android:src="@drawable/admin_ver"
-                android:layout_marginHorizontal="10dp"
-                android:background="@drawable/admin_backcon"
-                android:padding="5dp"
-                android:contentDescription="@string/boton_ver" />
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:id="@+id/edi"
-                android:src="@drawable/admin_edi"
-                android:layout_marginHorizontal="10dp"
-                android:background="@drawable/admin_backadd"
-                android:padding="5dp"
-                android:contentDescription="@string/boton_editar" />
         </LinearLayout>
 
 <ListView

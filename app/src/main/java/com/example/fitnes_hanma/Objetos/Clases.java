@@ -1,18 +1,20 @@
-package com.example.fitnes_hanma.Admin.Objetos;
+package com.example.fitnes_hanma.Objetos;
 
 public class Clases {
-    String id_clase, nombreClase, descripcion, nombreInstructor, fechaClase,horaClase;
+    String id_clase, nombreClase, descripcion, nombreInstructor, fechaClase,horaClase, CliRegis;
 
     public Clases() {
     }
 
-    public Clases(String id_clase, String nombreClase, String descripcion, String nombreInstructor, String fechaClase, String horaClase) {
+    public Clases(String id_clase, String nombreClase, String descripcion, String nombreInstructor, String fechaClase, String horaClase, String cliRegis) {
         this.id_clase = id_clase;
         this.nombreClase = nombreClase;
         this.descripcion = descripcion;
         this.nombreInstructor = nombreInstructor;
         this.fechaClase = fechaClase;
         this.horaClase = horaClase;
+        CliRegis = cliRegis;
+
     }
 
     public String getId_clase() {
@@ -61,5 +63,13 @@ public class Clases {
 
     public void setHoraClase(String horaClase) {
         this.horaClase = horaClase;
+    }
+
+    public String getCliRegis() {
+        return CliRegis;
+    }
+
+    public void setCliRegis(String cliRegis) {
+        CliRegis = cliRegis;
     }
 }

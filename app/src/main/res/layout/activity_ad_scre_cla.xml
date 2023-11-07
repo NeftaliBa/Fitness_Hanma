@@ -77,12 +77,12 @@
         android:padding="15dp">
 
         <EditText
-            android:id="@+id/registros"
+            android:id="@+id/limCli"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:backgroundTint="@color/white"
-            android:hint="Usuarios registrados"
+            android:hint="Limite de clientes"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:textStyle="bold"

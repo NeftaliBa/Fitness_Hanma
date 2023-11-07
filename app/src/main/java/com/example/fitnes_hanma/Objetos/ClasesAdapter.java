@@ -1,4 +1,4 @@
-package com.example.fitnes_hanma.Admin.Objetos;
+package com.example.fitnes_hanma.Objetos;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-import com.example.fitnes_hanma.Admin.Objetos.Clases;
+
 import com.example.fitnes_hanma.R;
 
 import java.util.List;
