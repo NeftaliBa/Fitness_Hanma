@@ -22,9 +22,6 @@
             android:name=".Instructor.home.Home"
             android:exported="false" />
         <activity
-            android:name=".Cliente.principal"
-            android:exported="false" />
-        <activity
             android:name=".Admin.Secundarias.AdSModIns"
             android:exported="false" />
         <activity
@@ -48,6 +45,9 @@
         <activity
             android:name=".inicio"
             android:exported="false" />
+      <activity
+            android:name=".login"
+            android:exported="false" />
         <activity
             android:name=".register"
             android:exported="true">
@@ -57,7 +57,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".login"
+            android:name=".Cliente.principal"
             android:exported="false" />
         <activity
             android:name=".Admin.Principal.AdPClases"
