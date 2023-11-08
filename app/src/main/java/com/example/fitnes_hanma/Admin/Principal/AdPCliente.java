@@ -23,6 +23,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
+import android.util.Log;
 
 public class AdPCliente extends AppCompatActivity {
     Intent i;
@@ -52,11 +53,13 @@ public class AdPCliente extends AppCompatActivity {
         userRef.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                Log.d("AdPCliente", "Número de documentos recuperados: " + queryDocumentSnapshots.size());
                 clientList.clear();
 
                 for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
                     Usuarios usuario = documentSnapshot.toObject(Usuarios.class);
                     if (usuario != null) {
+                        Log.d("AdPCliente", "Usuario recuperado: " + usuario.getNombre());
                         clientList.add(usuario);
                     }
                 }

@@ -94,7 +94,7 @@ public class AdPClases extends AppCompatActivity {
                 intent.putExtra("nombreInstructor", claseSeleccionada.getNombreInstructor());
                 intent.putExtra("fechaClase", claseSeleccionada.getFechaClase());
                 intent.putExtra("horaClase", claseSeleccionada.getHoraClase());
-                intent.putExtra("CliRegis", claseSeleccionada.getCliRegis());
+                intent.putExtra("limCli", claseSeleccionada.getCliRegis());
 
                 // Incluso puedes pasar el ID del documento si lo necesitas
                 intent.putExtra("idDocumento", claseSeleccionada.getId_clase());
@@ -102,10 +102,5 @@ public class AdPClases extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-
-
     }
-
 }

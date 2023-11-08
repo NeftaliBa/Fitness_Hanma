@@ -42,8 +42,10 @@ public class AdSCreCla extends AppCompatActivity {
         setTheme(R.style.AdminStatusBar);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ad_scre_cla);
+
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
+
         cancelar = (Button) findViewById(R.id.cancel);
         calendar = (Button) findViewById(R.id.calendar);
         hour = (Button) findViewById(R.id.hour);
@@ -126,12 +128,13 @@ public class AdSCreCla extends AppCompatActivity {
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String id_clase = auth.getCurrentUser().getUid();
                 String nombreClase = nomCla.getText().toString();
                 String descripcion = desCla.getText().toString();
                 String nombreInstructor = nomIns.getText().toString();
                 String fechaClase = fecha.getText().toString();
                 String horaClase = hora.getText().toString();
-                String limCli =  LimCli.getText().toString();
+                String limCli = LimCli.getText().toString();
 
                 Map<String, Object> clase = new HashMap<>();
                 clase.put("nombreClase", nombreClase);
@@ -140,9 +143,10 @@ public class AdSCreCla extends AppCompatActivity {
                 clase.put("fechaClase", fechaClase);
                 clase.put("horaClase", horaClase);
                 clase.put("limCli", limCli);
+                clase.put("id_clase", id_clase);
 
                 // Obtén la referencia de la colección "clases" en Firestore
-                // No especificamos un ID para que Firestore genere uno automáticamente
+                // por ahora no quiero especificar un ID ya que Firestore genera uno automáticamente
                 db.collection("clases")
                         .add(clase)
                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -163,16 +167,5 @@ public class AdSCreCla extends AppCompatActivity {
                         });
             }
         });
-
-
-
-        //fechaAct();
     }
-
-     /*private void fechaAct(){
-        String fechayhora = new SimpleDateFormat("dd-mm-yyyy/hh:mm:ss a",
-                Locale.getDefault()).format(System.currentTimeMillis());
-         fecha.setText(fechayhora);
-     }
-     */
 }

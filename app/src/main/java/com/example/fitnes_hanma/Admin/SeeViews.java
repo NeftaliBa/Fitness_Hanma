@@ -21,13 +21,13 @@ public class SeeViews extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ad_see_views);
+
+
+
         ViAd = (Button) findViewById(R.id.viAd);
         ViCl = (Button) findViewById(R.id.viCl);
         ViEn = (Button) findViewById(R.id.viEn);
-
-
         ViAd.setOnClickListener(new View.OnClickListener(){
-
             @Override
             public void onClick(View view){
                 i = new Intent(SeeViews.this, AdPClases.class);
