@@ -23,7 +23,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Locale;
@@ -41,7 +40,7 @@ public class AdSCreCla extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AdminStatusBar);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ad_scre_cla);
+        setContentView(R.layout.a_ad_scre_cla);
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
         cancelar = (Button) findViewById(R.id.cancel);

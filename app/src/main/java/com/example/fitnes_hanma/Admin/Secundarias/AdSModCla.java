@@ -42,7 +42,7 @@ public class AdSModCla extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTheme(R.style.AdminStatusBar);
-        setContentView(R.layout.activity_ad_s_mod_cla);
+        setContentView(R.layout.a_ad_s_mod_cla);
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
 

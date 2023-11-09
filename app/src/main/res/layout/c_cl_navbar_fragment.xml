@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Cliente.c_cl_navbar_fragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/navbaradminform">
+
+        <ImageView
+            android:id="@+id/servicios"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:padding="10dp"
+            android:layout_weight="5"
+            android:layout_gravity="center"
+            android:src="@drawable/servicios" />
+
+        <ImageView
+            android:id="@+id/horar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:padding="10dp"
+            android:layout_weight="5"
+            android:layout_gravity="center"
+            android:src="@drawable/admin_add_cla_clock" />
+        <ImageView
+            android:id="@+id/asis"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:padding="10dp"
+            android:layout_weight="5"
+            android:layout_gravity="center"
+            android:src="@drawable/asistencia" />
+        <ImageView
+            android:id="@+id/config"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:padding="10dp"
+            android:layout_weight="5"
+            android:layout_gravity="center"
+            android:src="@drawable/configuracion" />
+    </LinearLayout>
+</FrameLayout>

@@ -1,14 +1,12 @@
 package com.example.fitnes_hanma.Cliente;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.fitnes_hanma.Admin.Objetos.Clases;
-import com.example.fitnes_hanma.Admin.Objetos.ClasesAdapter;
 import com.example.fitnes_hanma.Admin.Objetos.ClasesCienteAdapter;
 import com.example.fitnes_hanma.R;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -30,7 +28,7 @@ public class principal extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_principal);
+        setContentView(R.layout.cl_principal);
 
         bienvenidoUsu = findViewById(R.id.bienvenidoUsu);
 

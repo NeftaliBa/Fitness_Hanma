@@ -15,7 +15,6 @@ import com.example.fitnes_hanma.Admin.Secundarias.AdSModCla;
 import com.example.fitnes_hanma.Admin.SeeViews;
 import com.example.fitnes_hanma.R;
 
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +36,7 @@ public class AdPClases extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTheme(R.style.AdminStatusBar);
-        setContentView(R.layout.activity_ad_p_clases);
+        setContentView(R.layout.a_ad_p_clases);
         searchClases = (EditText) findViewById(R.id.seCla);
         ImageView buscar = findViewById(R.id.buscar);
         ImageView regre = findViewById(R.id.regre);

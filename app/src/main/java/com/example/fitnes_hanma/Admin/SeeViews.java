@@ -8,8 +8,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.fitnes_hanma.Admin.Principal.AdPClases;
-import com.example.fitnes_hanma.Admin.Principal.AdPCliente;
-import com.example.fitnes_hanma.Admin.Principal.AdPInstructor;
 import com.example.fitnes_hanma.Instructor.home.Home;
 import com.example.fitnes_hanma.R;
 import com.example.fitnes_hanma.register;
@@ -20,7 +18,7 @@ public class SeeViews extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ad_see_views);
+        setContentView(R.layout.a_ad_see_views);
         ViAd = (Button) findViewById(R.id.viAd);
         ViCl = (Button) findViewById(R.id.viCl);
         ViEn = (Button) findViewById(R.id.viEn);

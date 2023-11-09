@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.fitnes_hanma.Admin.Secundarias.AdSModIns;
 import com.example.fitnes_hanma.Admin.SeeViews;
 import com.example.fitnes_hanma.R;
 
@@ -21,7 +20,7 @@ public class AdPInstructor extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTheme(R.style.AdminStatusBar);
-        setContentView(R.layout.activity_ad_p_instructor);
+        setContentView(R.layout.a_ad_p_instructor);
         searchClient = (EditText) findViewById(R.id.seCli);
         ImageView buscar = findViewById(R.id.buscar);
         ImageView regre = findViewById(R.id.regre);

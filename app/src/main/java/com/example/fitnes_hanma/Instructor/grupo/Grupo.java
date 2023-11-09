@@ -3,7 +3,6 @@ package com.example.fitnes_hanma.Instructor.grupo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +14,7 @@ public class Grupo extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_grupo);
+        setContentView(R.layout.b_cla_grupo);
         Button mi_post, general;
 
         mi_post = (Button) findViewById(R.id.mi_post);

@@ -21,7 +21,7 @@ public class Home_QR extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_qr);
+        setContentView(R.layout.b_cla_home_qr);
 
         EditText editText = findViewById(R.id.text);
         Button button = findViewById(R.id.button);

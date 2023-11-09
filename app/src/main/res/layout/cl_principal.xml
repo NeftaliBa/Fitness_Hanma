@@ -54,6 +54,13 @@
             android:showDividers="middle" />
     </LinearLayout>
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_cliente_navbar"
+        android:name="com.example.fitnes_hanma.Cliente.c_cl_navbar_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        tools:layout="@layout/c_cl_navbar_fragment" />
 
 
 

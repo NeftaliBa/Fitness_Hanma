@@ -6,15 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 
-import com.example.fitnes_hanma.Instructor.calendario.Calendario;
-import com.example.fitnes_hanma.Instructor.calendario.Calendario_semanal;
 import com.example.fitnes_hanma.R;
 
 public class Home extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.b_cla_home);
 
         ImageView QR;
         QR = (ImageView) findViewById(R.id.qr);
