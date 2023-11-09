@@ -25,6 +25,9 @@
         <item name="colorSwitchThumbNormal">#FFFFFF</item>
         <item name="android:colorForeground">#99FFFFFF</item>
     </style>
+    <style name="actividad8" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="android:subMenuArrow">@color/adbackcolor</item>
+    </style>
     <style name="AdminStatusBar">
         <item name="android:statusBarColor">@color/adbackcolor</item>
     </style>

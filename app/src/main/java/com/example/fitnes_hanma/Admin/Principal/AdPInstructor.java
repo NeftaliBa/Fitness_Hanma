@@ -25,8 +25,7 @@ public class AdPInstructor extends AppCompatActivity {
         searchClient = (EditText) findViewById(R.id.seCli);
         ImageView buscar = findViewById(R.id.buscar);
         ImageView regre = findViewById(R.id.regre);
-        //ImageView plus = findViewById(R.id.plus);
-        //ImageView editar = findViewById(R.id.edi);
+        ImageView plus = findViewById(R.id.plus);
 
         regre.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,20 +34,14 @@ public class AdPInstructor extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        //plus.setOnClickListener(new View.OnClickListener() {
-        //    @Override
-        //    public void onClick(View v) {
-        //        i = new Intent(AdPInstructor.this, AdPCliente.class);
-        //        startActivity(i);
-        //    }
-        //});
-        //editar.setOnClickListener(new View.OnClickListener() {
-        //    @Override
-        //    public void onClick(View v) {
-        //        i = new Intent(AdPInstructor.this, AdSModIns.class);
-        //        startActivity(i);
-        //    }
-        //});
+        plus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                i = new Intent(AdPInstructor.this, AdPCliente.class);
+                startActivity(i);
+            }
+        });
+
 
     }
 

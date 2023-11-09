@@ -76,7 +76,6 @@ public class AdPClases extends AppCompatActivity {
                         clasesList.add(clase);
                     }
                 }
-
                 // Notifica al adaptador que los datos han cambiado
                 adapter.notifyDataSetChanged();
             }

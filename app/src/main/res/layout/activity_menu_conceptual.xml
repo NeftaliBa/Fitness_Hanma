@@ -11,23 +11,42 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:textAlignment="center"
+        android:gravity="center"
+        >
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
-            tools:layout_editor_absoluteX="176dp"
-            tools:layout_editor_absoluteY="97dp" />
+            android:textSize="20sp"
+             />
 
         <EditText
-            android:id="@+id/vianomo"
-            android:layout_width="wrap_content"
+            android:id="@+id/name"
+            android:layout_marginHorizontal="40dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
             android:inputType="text"
-            android:text="Name"
-            tools:layout_editor_absoluteX="98dp"
-            tools:layout_editor_absoluteY="138dp" />
+            android:hint="Nombre"
+            />
+        <EditText
+            android:id="@+id/apellido"
+            android:layout_marginHorizontal="40dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="Apellido"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
+            android:text="Boton Contextual"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            />
     </LinearLayout>
 </RelativeLayout>
