@@ -7,12 +7,7 @@
         android:title="Configuracion"
         android:orderInCategory="10"
         app:showAsAction="never"/>
-    <item
-        android:id="@+id/m2"
-        android:icon="@drawable/ic_microfono"
-        android:orderInCategory="11"
-        android:title="Mic"
-        app:showAsAction="always" />
+
     <item
         android:id="@+id/m3"
         android:orderInCategory="12"

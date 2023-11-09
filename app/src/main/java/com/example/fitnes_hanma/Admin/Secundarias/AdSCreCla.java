@@ -39,7 +39,6 @@ public class AdSCreCla extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.AdminStatusBar);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ad_scre_cla);
 

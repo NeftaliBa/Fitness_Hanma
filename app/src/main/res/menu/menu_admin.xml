@@ -4,8 +4,11 @@
 
     <item
         android:id="@+id/i1"
-        android:title="Item 1" />
+        android:title="Vista Clases" />
     <item
         android:id="@+id/i2"
-        android:title="Item 2" />
+        android:title="Vista Instructores" />
+    <item
+        android:id="@+id/i3"
+        android:title="Vista Clientes" />
 </menu>

@@ -8,10 +8,10 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.example.fitnes_hanma.Actividad8.MenuConceptual;
 import com.example.fitnes_hanma.Objetos.ClasesAdapter;
 import com.example.fitnes_hanma.Admin.Secundarias.AdSCreCla;
 import com.example.fitnes_hanma.Admin.Secundarias.AdSModCla;
-import com.example.fitnes_hanma.Admin.SeeViews;
 import com.example.fitnes_hanma.R;
 
 import android.widget.ListView;
@@ -33,8 +33,8 @@ public class AdPClases extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTheme(R.style.AdminStatusBar);
         setContentView(R.layout.activity_ad_p_clases);
+
         searchClases = (EditText) findViewById(R.id.seCla);
         ImageView buscar = findViewById(R.id.buscar);
         ImageView regre = findViewById(R.id.regre);
@@ -42,7 +42,7 @@ public class AdPClases extends AppCompatActivity {
         regre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                i = new Intent(AdPClases.this, SeeViews.class);
+                i = new Intent(AdPClases.this, MenuConceptual.class);
                 startActivity(i);
             }
         });

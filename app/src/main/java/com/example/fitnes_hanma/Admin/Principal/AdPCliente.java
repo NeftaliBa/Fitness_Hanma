@@ -8,11 +8,11 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.example.fitnes_hanma.Actividad8.MenuConceptual;
 import com.example.fitnes_hanma.R;
 import com.example.fitnes_hanma.Objetos.Usuarios;
 import com.example.fitnes_hanma.Objetos.UsuarioAdapter;
 import com.example.fitnes_hanma.Admin.Secundarias.AdSModCli;
-import com.example.fitnes_hanma.Admin.SeeViews;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
@@ -32,14 +32,13 @@ public class AdPCliente extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTheme(R.style.AdminStatusBar);
         setContentView(R.layout.activity_ad_p_cliente);
+
         searchClient = (EditText) findViewById(R.id.seCli);
         ImageView buscar = findViewById(R.id.buscar);
         ImageView regre = findViewById(R.id.regre);
-
-
         ListView listViewClientes = findViewById(R.id.listviewCliente);
+
         List<Usuarios> clientList = new ArrayList<>();
         UsuarioAdapter adapter = new UsuarioAdapter(this, clientList);
 
@@ -80,11 +79,10 @@ public class AdPCliente extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         regre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                i = new Intent(AdPCliente.this, SeeViews.class);
+                i = new Intent(AdPCliente.this, MenuConceptual.class);
                 startActivity(i);
             }
         });
