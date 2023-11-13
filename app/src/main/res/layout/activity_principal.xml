@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".Cliente.principal">
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/cliente_navbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        tools:layout="@layout/cliente_navbar" />
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"

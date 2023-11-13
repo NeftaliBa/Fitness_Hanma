@@ -30,9 +30,8 @@ public class UsuarioAdapter extends ArrayAdapter<Usuarios> {
         TextView correoTextView = convertView.findViewById(R.id.correoTextView);
 
         // Configura las vistas con los datos de la Clases
-        assert usuario != null;
-        nombreTextView.setText(usuario.getNombre());
-        correoTextView.setText(usuario.getCorreo());
+        nombreTextView.setText(usuario.getName());
+        correoTextView.setText(usuario.getEmail());
 
         return convertView;
     }

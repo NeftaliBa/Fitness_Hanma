@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@style/AdminStatusBar"
     android:background="@color/adbackcolor"
     tools:context=".Admin.Secundarias.AdSModCla">
 
@@ -108,7 +107,7 @@
             android:id="@+id/naInst"
             android:textAlignment="center"
             android:background="@drawable/search"
-            android:autofillHints=""
+            android:textColor="@color/black"
             android:inputType="textLongMessage" />
 
         <ImageView

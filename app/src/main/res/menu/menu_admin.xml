@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/i1"
+        android:title="Vista Clases" />
+    <item
+        android:id="@+id/i2"
+        android:title="Vista Instructores" />
+    <item
+        android:id="@+id/i3"
+        android:title="Vista Clientes" />
+</menu>

@@ -7,9 +7,29 @@
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_200</item>
         <item name="colorOnSecondary">@color/black</item>
-        <item name="android:statusBarColor" tools:targetapi = "1">?attr/colorPrimaryVariant</item>
+
+
+        <!-- menubar. -->
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="android:textColorPrimary">@color/white</item>
+
+        <!-- Colores personalizados para mas menus-->
+        <item name="android:textColor">@color/colorMenuText</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu</item>
+
+
+        <!-- status bar -->
+        <item name="android:statusBarColor">@color/primari</item>
+
     </style>
+
+    <style name="PopupMenu" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:popupBackground">@color/colorMenuBackground</item>
+    </style>
+
+
     <style name="nightModeSwitch" parent="Theme.AppCompat.Light">
+
         <item name="colorControlActivated">@color/night_mode</item>
         <item name="colorSwitchThumbNormal">#FFFFFF</item>
         <item name="android:colorForeground">#99FFFFFF</item>
@@ -25,9 +45,7 @@
         <item name="colorSwitchThumbNormal">#FFFFFF</item>
         <item name="android:colorForeground">#99FFFFFF</item>
     </style>
-    <style name="AdminStatusBar">
-        <item name="android:statusBarColor">@color/adbackcolor</item>
-    </style>
+
     <style name="MyTimePickerDialog" parent="Theme.AppCompat.Light.Dialog">
         <item name="colorAccent">#1F8D89</item>
     </style>
