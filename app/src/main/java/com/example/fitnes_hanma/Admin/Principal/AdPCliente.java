@@ -32,7 +32,7 @@ public class AdPCliente extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ad_p_cliente);
+        setContentView(R.layout.a_ad_p_cliente);
 
         searchClient = (EditText) findViewById(R.id.seCli);
         ImageView buscar = findViewById(R.id.buscar);

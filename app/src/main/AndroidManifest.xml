@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools" >
 
     <application
         android:allowBackup="true"
@@ -11,9 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Fitnes_Hanma"
-        tools:targetApi="31">
+        tools:targetApi="31" >
         <activity
-            android:name=".MenuConceptual"
+            android:name=".Cliente.Configuracion"
+            android:exported="false" />
+        <activity
+            android:name=".Cliente.cl_horarios"
             android:exported="false" />
         <activity
             android:name=".Admin.Secundarias.AdSCreCla"
@@ -34,7 +37,7 @@
             android:name=".Admin.Secundarias.AdSModCli"
             android:exported="false" />
         <activity
-            android:name=".Cliente.asistencia"
+            android:name=".Cliente.asistenciaQR"
             android:exported="false" />
         <activity
             android:name=".Cliente.servicios"
@@ -53,9 +56,10 @@
             android:exported="false" />
         <activity
             android:name=".Cliente.principal"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -33,7 +33,7 @@ public class AdPClases extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ad_p_clases);
+        setContentView(R.layout.a_ad_p_clases);
 
         searchClases = (EditText) findViewById(R.id.seCla);
         ImageView buscar = findViewById(R.id.buscar);

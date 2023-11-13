@@ -40,7 +40,7 @@ public class AdSCreCla extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ad_scre_cla);
+        setContentView(R.layout.a_ad_scre_cla);
 
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();

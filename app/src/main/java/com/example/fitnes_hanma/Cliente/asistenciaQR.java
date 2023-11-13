@@ -1,14 +1,16 @@
-package com.example.fitnes_hanma;
+package com.example.fitnes_hanma.Cliente;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class inicio extends AppCompatActivity {
+import com.example.fitnes_hanma.R;
+
+public class asistenciaQR extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.d_inicio);
+        setContentView(R.layout.c_cl_asistencia_qr);
     }
 }

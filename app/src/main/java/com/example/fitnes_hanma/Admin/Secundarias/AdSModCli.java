@@ -18,7 +18,7 @@ public class AdSModCli extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ad_s_mod_cli);
+        setContentView(R.layout.a_ad_s_mod_cli);
         nombre = (EditText) findViewById(R.id.Name);
         email =(EditText) findViewById(R.id.mail);
         cancelar = (Button) findViewById(R.id.cancel);

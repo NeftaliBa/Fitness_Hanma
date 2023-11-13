@@ -7,7 +7,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -25,7 +24,7 @@ public class Calendario extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calendario);
+        setContentView(R.layout.b_cla_calendario);
 
         calendar = Calendar.getInstance();
         calendarRecyclerView = findViewById(R.id.calendarRecyclerView);

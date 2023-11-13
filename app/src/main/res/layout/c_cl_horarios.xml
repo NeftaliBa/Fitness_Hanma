@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Cliente.principal">
+    tools:context=".Cliente.cl_horarios">
+
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/cliente_navbar"
@@ -19,6 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="#00C596">
+
         <TextView
             android:id="@+id/titulo"
             android:layout_width="match_parent"
@@ -28,20 +30,17 @@
             android:padding="16dp"
             android:shadowColor="#000000"
             android:shadowRadius="10"
-            android:text="Inicio"
+            android:text="Horarios"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="25sp"/>
-
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/bienvenidoUsu"
-        android:layout_width="wrap_content"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_cliente_navbar"
+        android:name="com.example.fitnes_hanma.Cliente.c_cl_navbar_fragment"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="90dp"
-        android:layout_marginLeft="30dp"
-        android:text=""
-        android:textSize="20sp" />
-
+        android:layout_alignParentBottom="true"
+        tools:layout="@layout/c_cl_navbar_fragment" />
 </RelativeLayout>

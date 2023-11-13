@@ -11,6 +11,6 @@ public class Grupo_post extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_grupo_post);
+        setContentView(R.layout.b_cla_grupo_post);
     }
 }

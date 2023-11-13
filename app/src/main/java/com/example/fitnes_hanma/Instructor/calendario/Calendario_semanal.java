@@ -11,6 +11,6 @@ public class Calendario_semanal extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calendario_semanal);
+        setContentView(R.layout.b_cla_calendario_semanal);
     }
 }

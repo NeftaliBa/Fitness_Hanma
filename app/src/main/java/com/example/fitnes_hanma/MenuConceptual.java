@@ -19,7 +19,7 @@ import androidx.appcompat.widget.Toolbar;
 import com.example.fitnes_hanma.Admin.Principal.AdPClases;
 import com.example.fitnes_hanma.Admin.Principal.AdPCliente;
 import com.example.fitnes_hanma.Admin.Principal.AdPInstructor;
-import com.example.fitnes_hanma.Cliente.asistencia;
+import com.example.fitnes_hanma.Cliente.asistenciaQR;
 import com.example.fitnes_hanma.Cliente.servicios;
 import com.example.fitnes_hanma.Instructor.calendario.Calendario;
 import com.example.fitnes_hanma.Instructor.configuraciones.Configuraciones;
@@ -139,7 +139,7 @@ public class MenuConceptual extends AppCompatActivity {
             i = new Intent(MenuConceptual.this, recuperarconstrasena.class);
             startActivity(i);
         } else if (item.getItemId() == R.id.bt4) {
-            i = new Intent(MenuConceptual.this, asistencia.class);
+            i = new Intent(MenuConceptual.this, asistenciaQR.class);
             startActivity(i);
         } else if (item.getItemId() == R.id.bt5) {
             i = new Intent(MenuConceptual.this, servicios.class);

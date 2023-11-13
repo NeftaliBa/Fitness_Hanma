@@ -140,6 +140,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:id="@+id/fragment_navbar"
-        tools:layout="@layout/fragment_navbar" />
+        tools:layout="@layout/b_cla_navbar_fragment" />
 
 </RelativeLayout>
