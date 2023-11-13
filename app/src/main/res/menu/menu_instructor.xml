@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/s1"
+        android:title="Vista principal"
+        />
+    <item
+        android:id="@+id/s2"
+        android:title="Horario de clases" />
+    <item
+        android:id="@+id/s3"
+        android:title="Comunidad"
+        />
+    <item
+        android:id="@+id/s4"
+        android:title="Configuraciones" />
+</menu>

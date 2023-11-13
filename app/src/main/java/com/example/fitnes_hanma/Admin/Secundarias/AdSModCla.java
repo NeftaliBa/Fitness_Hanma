@@ -33,7 +33,7 @@ import java.util.Map;
 public class AdSModCla extends AppCompatActivity {
     private FirebaseFirestore db;
     private FirebaseAuth auth;
-    EditText nomCla, desCla, nomIns;
+    EditText nomCla, desCla, nomIns, LimCli;
     Button calendar, cancelar, actualizar, hour;
     TextView fecha, hora;
 
@@ -41,8 +41,7 @@ public class AdSModCla extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTheme(R.style.AdminStatusBar);
-        setContentView(R.layout.a_ad_s_mod_cla);
+        setContentView(R.layout.activity_ad_s_mod_cla);
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
 
@@ -53,6 +52,7 @@ public class AdSModCla extends AppCompatActivity {
         nomCla = (EditText) findViewById(R.id.claNa);
         desCla = (EditText) findViewById(R.id.desCla);
         nomIns = (EditText) findViewById(R.id.naInst);
+        LimCli = (EditText) findViewById(R.id.limCli);
         fecha = (TextView) findViewById(R.id.fecha);
         hora = (TextView) findViewById(R.id.hora);
         final int[] dia = new int[1];
@@ -157,6 +157,7 @@ public class AdSModCla extends AppCompatActivity {
                     String nuevoNombreInstructor = nomIns.getText().toString();
                     String nuevaFechaClase = fecha.getText().toString();
                     String nuevaHoraClase = hora.getText().toString();
+                    String limCli =  LimCli.getText().toString();
 
                     // Obtén una referencia al documento del ID obtenido
                     DocumentReference claseRef = clasesRef.document(idDocumento);
@@ -168,6 +169,7 @@ public class AdSModCla extends AppCompatActivity {
                     nuevosDatos.put("nombreInstructor", nuevoNombreInstructor);
                     nuevosDatos.put("fechaClase", nuevaFechaClase);
                     nuevosDatos.put("horaClase", nuevaHoraClase);
+                    nuevosDatos.put("limCli", limCli);
 
                     // Actualiza los datos en Firestore
                     claseRef.set(nuevosDatos)

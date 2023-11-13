@@ -23,6 +23,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Locale;
@@ -31,18 +32,19 @@ import java.util.Map;
 public class AdSCreCla extends AppCompatActivity {
     private FirebaseFirestore db;
     private FirebaseAuth auth;
-    EditText nomCla, desCla, nomIns, registros;
+    EditText nomCla, desCla, nomIns, LimCli;
     Button calendar, cancelar, guardar, hour;
     TextView fecha, hora;
     Intent i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.AdminStatusBar);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.a_ad_scre_cla);
+        setContentView(R.layout.activity_ad_scre_cla);
+
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
+
         cancelar = (Button) findViewById(R.id.cancel);
         calendar = (Button) findViewById(R.id.calendar);
         hour = (Button) findViewById(R.id.hour);
@@ -50,7 +52,7 @@ public class AdSCreCla extends AppCompatActivity {
         nomCla = (EditText) findViewById(R.id.claNa);
         desCla = (EditText) findViewById(R.id.desCla);
         nomIns = (EditText) findViewById(R.id.naInst);
-        registros = (EditText) findViewById(R.id.registros);
+        LimCli = (EditText) findViewById(R.id.limCli);
         fecha = (TextView) findViewById(R.id.fecha);
         hora = (TextView) findViewById(R.id.hora);
 
@@ -125,12 +127,13 @@ public class AdSCreCla extends AppCompatActivity {
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String id_clase = auth.getCurrentUser().getUid();
                 String nombreClase = nomCla.getText().toString();
                 String descripcion = desCla.getText().toString();
                 String nombreInstructor = nomIns.getText().toString();
                 String fechaClase = fecha.getText().toString();
                 String horaClase = hora.getText().toString();
-                String CliRegis =  registros.getText().toString();
+                String limCli = LimCli.getText().toString();
 
                 Map<String, Object> clase = new HashMap<>();
                 clase.put("nombreClase", nombreClase);
@@ -138,10 +141,11 @@ public class AdSCreCla extends AppCompatActivity {
                 clase.put("nombreInstructor", nombreInstructor);
                 clase.put("fechaClase", fechaClase);
                 clase.put("horaClase", horaClase);
-                clase.put("CliRegis", CliRegis);
+                clase.put("limCli", limCli);
+                clase.put("id_clase", id_clase);
 
                 // Obtén la referencia de la colección "clases" en Firestore
-                // No especificamos un ID para que Firestore genere uno automáticamente
+                // por ahora no quiero especificar un ID ya que Firestore genera uno automáticamente
                 db.collection("clases")
                         .add(clase)
                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -162,16 +166,5 @@ public class AdSCreCla extends AppCompatActivity {
                         });
             }
         });
-
-
-
-        //fechaAct();
     }
-
-     /*private void fechaAct(){
-        String fechayhora = new SimpleDateFormat("dd-mm-yyyy/hh:mm:ss a",
-                Locale.getDefault()).format(System.currentTimeMillis());
-         fecha.setText(fechayhora);
-     }
-     */
 }

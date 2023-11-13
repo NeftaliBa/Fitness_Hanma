@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@style/AdminStatusBar"
     android:background="@color/adbackcolor"
     tools:context=".Admin.Secundarias.AdSModCla">
 
@@ -67,12 +66,36 @@
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/campo3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/campo2"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/cuadro_verde"
+        android:padding="15dp">
+
+        <EditText
+            android:id="@+id/limCli"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:backgroundTint="@color/white"
+            android:hint="Limite de clientes"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textStyle="bold"
+            android:inputType="number"/>
     </LinearLayout>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/searchIns"
-        android:layout_below="@+id/campo2"
+        android:layout_below="@+id/campo3"
         android:layout_marginHorizontal="20dp"
         >
 
@@ -84,6 +107,7 @@
             android:id="@+id/naInst"
             android:textAlignment="center"
             android:background="@drawable/search"
+            android:textColor="@color/black"
             android:inputType="textLongMessage" />
 
         <ImageView
@@ -138,6 +162,8 @@
                 android:textColor="@color/white"
                 android:textAlignment="center"/>
         </LinearLayout>
+
+
 
     </LinearLayout>
 
@@ -202,15 +228,14 @@
             android:text="Cancelar"
             android:textColor="@color/white"
             android:backgroundTint="#FF5555"/>
-
         <Button
             android:id="@+id/save"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="5"
-            android:backgroundTint="@color/verde1"
-            android:text="Actualizar"
-            android:textColor="@color/white" />
+            android:text="Guardar"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/verde1"/>
     </LinearLayout>
 
 </RelativeLayout>

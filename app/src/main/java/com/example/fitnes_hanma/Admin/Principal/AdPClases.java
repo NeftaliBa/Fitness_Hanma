@@ -7,18 +7,17 @@ import android.content.Intent;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.example.fitnes_hanma.Admin.Objetos.ClasesAdapter;
+import com.example.fitnes_hanma.MenuConceptual;
+import com.example.fitnes_hanma.Objetos.ClasesAdapter;
 import com.example.fitnes_hanma.Admin.Secundarias.AdSCreCla;
 import com.example.fitnes_hanma.Admin.Secundarias.AdSModCla;
-import com.example.fitnes_hanma.Admin.SeeViews;
 import com.example.fitnes_hanma.R;
 
 import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
-import com.example.fitnes_hanma.Admin.Objetos.Clases;
+import com.example.fitnes_hanma.Objetos.Clases;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -31,21 +30,19 @@ public class AdPClases extends AppCompatActivity {
 
     Intent i;
     EditText searchClases;
-    TextView name, email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTheme(R.style.AdminStatusBar);
-        setContentView(R.layout.a_ad_p_clases);
+        setContentView(R.layout.activity_ad_p_clases);
+
         searchClases = (EditText) findViewById(R.id.seCla);
         ImageView buscar = findViewById(R.id.buscar);
         ImageView regre = findViewById(R.id.regre);
         ImageView plus = findViewById(R.id.plus);
-        ImageView editar = findViewById(R.id.edi);
         regre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                i = new Intent(AdPClases.this, SeeViews.class);
+                i = new Intent(AdPClases.this, MenuConceptual.class);
                 startActivity(i);
             }
         });
@@ -56,21 +53,14 @@ public class AdPClases extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        editar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                i = new Intent(AdPClases.this, AdSModCla.class);
-                startActivity(i);
-            }
-        });
         ListView listViewClases = findViewById(R.id.listViewClases);
         List<Clases> clasesList = new ArrayList<>();
         ClasesAdapter adapter = new ClasesAdapter(this, clasesList);
 
-// Configura el adaptador con el ListView
+        // Configura el adaptador con el ListView
         listViewClases.setAdapter(adapter);
 
-// Recupera las clases de Firebase Firestore y agrega a la lista
+        // Recupera las clases de Firebase Firestore y agrega a la lista
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         CollectionReference clasesRef = db.collection("clases");
 
@@ -86,7 +76,6 @@ public class AdPClases extends AppCompatActivity {
                         clasesList.add(clase);
                     }
                 }
-
                 // Notifica al adaptador que los datos han cambiado
                 adapter.notifyDataSetChanged();
             }
@@ -104,6 +93,7 @@ public class AdPClases extends AppCompatActivity {
                 intent.putExtra("nombreInstructor", claseSeleccionada.getNombreInstructor());
                 intent.putExtra("fechaClase", claseSeleccionada.getFechaClase());
                 intent.putExtra("horaClase", claseSeleccionada.getHoraClase());
+                intent.putExtra("limCli", claseSeleccionada.getCliRegis());
 
                 // Incluso puedes pasar el ID del documento si lo necesitas
                 intent.putExtra("idDocumento", claseSeleccionada.getId_clase());
@@ -111,10 +101,5 @@ public class AdPClases extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-
-
     }
-
 }

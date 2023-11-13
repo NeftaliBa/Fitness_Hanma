@@ -1,46 +1,88 @@
 package com.example.fitnes_hanma.Admin.Principal;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.content.Intent;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.example.fitnes_hanma.Admin.SeeViews;
+import com.example.fitnes_hanma.MenuConceptual;
 import com.example.fitnes_hanma.R;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.example.fitnes_hanma.Objetos.Usuarios;
+import com.example.fitnes_hanma.Objetos.UsuarioAdapter;
+import com.example.fitnes_hanma.Admin.Secundarias.AdSModCli;
+
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import android.widget.ListView;
+import java.util.ArrayList;
+import java.util.List;
+import android.util.Log;
 
 public class AdPCliente extends AppCompatActivity {
     Intent i;
     EditText searchClient;
-    TextView name, email;
-    RecyclerView clientes;
-    FirebaseDatabase frdb;
-    DatabaseReference BD_clientes;
-    FirebaseAuth firebaseAuth;
-    FirebaseUser firebaseUser;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTheme(R.style.AdminStatusBar);
-        setContentView(R.layout.a_ad_p_cliente);
+        setContentView(R.layout.activity_ad_p_cliente);
+
         searchClient = (EditText) findViewById(R.id.seCli);
         ImageView buscar = findViewById(R.id.buscar);
         ImageView regre = findViewById(R.id.regre);
+        ListView listViewClientes = findViewById(R.id.listviewCliente);
 
+        List<Usuarios> clientList = new ArrayList<>();
+        UsuarioAdapter adapter = new UsuarioAdapter(this, clientList);
+
+        // Configura el adaptador con el ListView
+        listViewClientes.setAdapter(adapter);
+
+        // Recupera las clases de Firebase Firestore y agrega a la lista
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        CollectionReference userRef = db.collection("user");
+
+        userRef.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                Log.d("AdPCliente", "Número de documentos recuperados: " + queryDocumentSnapshots.size());
+                clientList.clear();
+
+                for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                    Usuarios usuario = documentSnapshot.toObject(Usuarios.class);
+                    if (usuario != null) {
+                        Log.d("AdPCliente", "Usuario recuperado: " + usuario.setName());
+                        clientList.add(usuario);
+                    }
+                }
+                // Notifica al adaptador que los datos han cambiado
+                adapter.notifyDataSetChanged();
+            }
+        });
+        listViewClientes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Obtén la clase seleccionada
+                Usuarios clienteSeleccionado = clientList.get(position);
+
+                // Pasa los datos necesarios a AdSModCla
+                Intent intent = new Intent(AdPCliente.this, AdSModCli.class);
+                intent.putExtra("name", clienteSeleccionado.setName());
+                intent.putExtra("email", clienteSeleccionado.getEmail());
+                startActivity(intent);
+            }
+        });
         regre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                i = new Intent(AdPCliente.this, SeeViews.class);
+                i = new Intent(AdPCliente.this, MenuConceptual.class);
                 startActivity(i);
             }
         });

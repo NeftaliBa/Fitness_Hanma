@@ -63,6 +63,7 @@ public class register extends AppCompatActivity {
                 String nameUser = name.getText().toString().trim();
                 String emailUser = email.getText().toString().trim();
                 String passUser = password.getText().toString().trim();
+                String role = "1";
 
                 if (nameUser.isEmpty() && emailUser.isEmpty() && passUser.isEmpty()) {
                     Toast.makeText(register.this, "Complete los datos", Toast.LENGTH_SHORT).show();
@@ -70,14 +71,14 @@ public class register extends AppCompatActivity {
                     mDialog.setMessage("Registrando cuenta...");
                     mDialog.setCanceledOnTouchOutside(false);
                     mDialog.show();
-                    registerUser(nameUser, emailUser, passUser);
+                    registerUser(nameUser, emailUser, passUser, role);
                 }
             }
         });
 
     }
 
-    private void registerUser(String nameUser, String emailUser, String passUser) {
+    private void registerUser(String nameUser, String emailUser, String passUser, String role) {
         mAuth.createUserWithEmailAndPassword(emailUser, passUser).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -87,6 +88,7 @@ public class register extends AppCompatActivity {
                 map.put("name", nameUser);
                 map.put("email", emailUser);
                 map.put("password", passUser);
+                map.put("role", role);
 
                 mFirestore.collection("user").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

@@ -1,0 +1,20 @@
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    app:theme="@style/Base.Theme.Fitnes_Hanma">
+
+    <item
+        android:id="@+id/bt1"
+        android:title="Vista Registro" />
+    <item
+        android:id="@+id/bt2"
+        android:title="Vista Login" />
+    <item
+        android:id="@+id/bt3"
+        android:title="Vista Contraseña olvidada" />
+    <item
+        android:id="@+id/bt4"
+        android:title="Vista Asistencia" />
+    <item
+        android:id="@+id/bt5"
+        android:title="Vista Servicios" />
+</menu>

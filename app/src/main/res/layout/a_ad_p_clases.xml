@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Admin.Principal.AdPClases"
-    android:theme="@style/AdminStatusBar"
     android:background="@color/adbackcolor">
 
     <ImageView
@@ -15,7 +14,6 @@
         android:id="@+id/regre"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:background="@drawable/admin_backreg"
         android:padding="5dp"
         android:src="@drawable/admin_reg"
         android:contentDescription="@string/regresar"/>
@@ -84,39 +82,11 @@
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:id="@+id/Eli"
-                android:src="@drawable/admin_del"
-                android:layout_marginHorizontal="10dp"
-                android:background="@drawable/admin_backcon"
-                android:padding="5dp"
-                android:contentDescription="@string/bote_basura" />
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
                 android:id="@+id/plus"
                 android:src="@drawable/admin_add"
-                android:layout_marginHorizontal="10dp"
                 android:background="@drawable/admin_backadd"
                 android:padding="5dp"
                 android:contentDescription="@string/boton_mas" />
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:id="@+id/see"
-                android:src="@drawable/admin_ver"
-                android:layout_marginHorizontal="10dp"
-                android:background="@drawable/admin_backcon"
-                android:padding="5dp"
-                android:contentDescription="@string/boton_ver" />
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:id="@+id/edi"
-                android:src="@drawable/admin_edi"
-                android:layout_marginHorizontal="10dp"
-                android:background="@drawable/admin_backadd"
-                android:padding="5dp"
-                android:contentDescription="@string/boton_editar" />
         </LinearLayout>
 
 <ListView
@@ -136,4 +106,5 @@ android:layout_width="match_parent"
 android:layout_height="wrap_content"
 android:layout_alignParentBottom="true"
 tools:layout="@layout/a_ad_fragment_adnavbar" />
+
 </RelativeLayout>
