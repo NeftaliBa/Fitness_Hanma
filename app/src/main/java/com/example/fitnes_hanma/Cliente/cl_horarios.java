@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.fitnes_hanma.R;
 
-public class servicios extends AppCompatActivity {
+public class cl_horarios extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.c_cl_servicios);
+        setContentView(R.layout.c_cl_horarios);
     }
 }

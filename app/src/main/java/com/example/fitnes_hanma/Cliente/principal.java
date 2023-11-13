@@ -28,7 +28,7 @@ public class principal extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.cl_principal);
+        setContentView(R.layout.c_cl_principal);
 
         bienvenidoUsu = findViewById(R.id.bienvenidoUsu);
 

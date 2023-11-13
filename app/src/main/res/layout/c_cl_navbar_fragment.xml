@@ -11,6 +11,14 @@
         android:background="@drawable/navbaradminform">
 
         <ImageView
+            android:id="@+id/principal"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:padding="10dp"
+            android:layout_weight="5"
+            android:layout_gravity="center"
+            android:src="@drawable/principal" />
+        <ImageView
             android:id="@+id/servicios"
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -18,7 +26,6 @@
             android:layout_weight="5"
             android:layout_gravity="center"
             android:src="@drawable/servicios" />
-
         <ImageView
             android:id="@+id/horar"
             android:layout_width="match_parent"

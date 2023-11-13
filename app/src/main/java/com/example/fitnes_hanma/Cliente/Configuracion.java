@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.fitnes_hanma.R;
 
-public class qr extends AppCompatActivity {
+public class Configuracion extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.cl_qr);
+        setContentView(R.layout.c_cl_configuracion);
     }
 }

@@ -14,9 +14,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.fitnes_hanma.Admin.AdPreferenceManager;
-import com.example.fitnes_hanma.Admin.Principal.AdPClases;
-import com.example.fitnes_hanma.Admin.Principal.AdPCliente;
-import com.example.fitnes_hanma.Admin.Principal.AdPInstructor;
 import com.example.fitnes_hanma.R;
 
 public class c_cl_navbar_fragment extends Fragment {
@@ -49,50 +46,35 @@ public class c_cl_navbar_fragment extends Fragment {
         ImageView horarios = view.findViewById(R.id.horar);
         ImageView asis = view.findViewById(R.id.asis);
         ImageView configuracion = view.findViewById(R.id.config);
+        ImageView principal = view.findViewById(R.id.principal);
 
-        final ImageView[] selectedImageView = new ImageView[1];
-        selectedImageView[0] = servicios;
 
-        // Cargar la vista seleccionada desde SharedPreferences
-        String selectedView = AdPreferenceManager.getSelectedView(requireContext());
 
-        if (selectedView.equals("servicios")) {
-            servicios.setColorFilter(ContextCompat.getColor(requireContext(), R.color.encendido));
-            horarios.setColorFilter(ContextCompat.getColor(requireContext(), R.color.apagado));
-            asis.setColorFilter(ContextCompat.getColor(requireContext(), R.color.apagado));
-            configuracion.setColorFilter(ContextCompat.getColor(requireContext(), R.color.apagado));
-        } else if (selectedView.equals("horar")) {
-            horarios.setColorFilter(ContextCompat.getColor(requireContext(), R.color.encendido));
-            servicios.setColorFilter(ContextCompat.getColor(requireContext(), R.color.apagado));
-            asis.setColorFilter(ContextCompat.getColor(requireContext(), R.color.apagado));
-            configuracion.setColorFilter(ContextCompat.getColor(requireContext(), R.color.apagado));
-            selectedImageView[0] = horarios;
-        } else if (selectedView.equals("asis")) {
-            asis.setColorFilter(ContextCompat.getColor(requireContext(), R.color.encendido));
-            servicios.setColorFilter(ContextCompat.getColor(requireContext(), R.color.apagado));
-            horarios.setColorFilter(ContextCompat.getColor(requireContext(), R.color.apagado));
-            configuracion.setColorFilter(ContextCompat.getColor(requireContext(), R.color.apagado));
-            selectedImageView[0] = asis;
-        }   else if (selectedView.equals("configuracion")) {
-            configuracion.setColorFilter(ContextCompat.getColor(requireContext(), R.color.encendido));
-            servicios.setColorFilter(ContextCompat.getColor(requireContext(), R.color.apagado));
-            horarios.setColorFilter(ContextCompat.getColor(requireContext(), R.color.apagado));
-            asis.setColorFilter(ContextCompat.getColor(requireContext(), R.color.apagado));
-            selectedImageView[0] = configuracion;
-        }
-
+        principal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Luego, inicia la actividad relacionada
+                Intent intent = new Intent(getActivity(), principal.class);
+                startActivity(intent);
+                principal.setSelected(true);
+                servicios.setSelected(false);
+                horarios.setSelected(false);
+                asis.setSelected(false);
+                configuracion.setSelected(false);
+                startActivity(intent);
+            }
+        });
         servicios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selectedImageView[0].setColorFilter(ContextCompat.getColor(requireContext(), R.color.apagado));
-                servicios.setColorFilter(ContextCompat.getColor(requireContext(), R.color.encendido));
-                selectedImageView[0] = servicios;
-
-                // Guardar la vista seleccionada en SharedPreferences
-                AdPreferenceManager.setSelectedView(requireContext(), "servicios");
-
                 // Luego, inicia la actividad relacionada
                 Intent intent = new Intent(getActivity(), servicios.class);
+                startActivity(intent);
+                servicios.setSelected(true);
+                principal.setSelected(false);
+                horarios.setSelected(false);
+                asis.setSelected(false);
+                configuracion.setSelected(false);
                 startActivity(intent);
             }
         });
@@ -100,15 +82,15 @@ public class c_cl_navbar_fragment extends Fragment {
         horarios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selectedImageView[0].setColorFilter(ContextCompat.getColor(requireContext(), R.color.apagado));
-                horarios.setColorFilter(ContextCompat.getColor(requireContext(), R.color.encendido));
-                selectedImageView[0] = horarios;
-
-                // Guardar la vista seleccionada en SharedPreferences
-                AdPreferenceManager.setSelectedView(requireContext(), "horarios");
 
                 // Luego, inicia la actividad relacionada
-                Intent intent = new Intent(getActivity(), AdPInstructor.class);
+                Intent intent = new Intent(getActivity(), cl_horarios.class);
+                startActivity(intent);
+                principal.setSelected(true);
+                servicios.setSelected(false);
+                horarios.setSelected(false);
+                asis.setSelected(false);
+                configuracion.setSelected(false);
                 startActivity(intent);
             }
         });
@@ -116,30 +98,29 @@ public class c_cl_navbar_fragment extends Fragment {
         asis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selectedImageView[0].setColorFilter(ContextCompat.getColor(requireContext(), R.color.apagado));
-                asis.setColorFilter(ContextCompat.getColor(requireContext(), R.color.encendido));
-                selectedImageView[0] = asis;
-
-                // Guardar la vista seleccionada en SharedPreferences
-                AdPreferenceManager.setSelectedView(requireContext(), "asis");
 
                 // Luego, inicia la actividad relacionada
-                Intent intent = new Intent(getActivity(), AdPCliente.class);
+                Intent intent = new Intent(getActivity(), asistenciaQR.class);
+                startActivity(intent);
+                asis.setSelected(true);
+                servicios.setSelected(false);
+                horarios.setSelected(false);
+                principal.setSelected(false);
+                configuracion.setSelected(false);
                 startActivity(intent);
             }
         });
         configuracion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selectedImageView[0].setColorFilter(ContextCompat.getColor(requireContext(), R.color.apagado));
-                configuracion.setColorFilter(ContextCompat.getColor(requireContext(), R.color.encendido));
-                selectedImageView[0] = configuracion;
-
-                // Guardar la vista seleccionada en SharedPreferences
-                AdPreferenceManager.setSelectedView(requireContext(), "configuracion");
-
                 // Luego, inicia la actividad relacionada
-                Intent intent = new Intent(getActivity(), AdPCliente.class);
+                Intent intent = new Intent(getActivity(), Configuracion.class);
+                startActivity(intent);
+                configuracion.setSelected(true);
+                servicios.setSelected(false);
+                horarios.setSelected(false);
+                asis.setSelected(false);
+                principal.setSelected(false);
                 startActivity(intent);
             }
         });

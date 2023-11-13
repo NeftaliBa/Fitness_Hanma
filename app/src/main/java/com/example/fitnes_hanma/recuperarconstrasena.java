@@ -28,7 +28,7 @@ public class recuperarconstrasena extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.cl_forgetpass);
+        setContentView(R.layout.d_forgetpass);
 
         mAuth = FirebaseAuth.getInstance();
         mDialog = new ProgressDialog(this);

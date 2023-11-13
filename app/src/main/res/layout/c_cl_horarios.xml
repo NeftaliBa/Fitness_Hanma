@@ -4,15 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Cliente.servicios">
+    tools:context=".Cliente.cl_horarios">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/cliente_navbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="0dp"
-        tools:layout="@layout/c_cl_navbar_fragment" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,29 +21,17 @@
             android:padding="16dp"
             android:shadowColor="#000000"
             android:shadowRadius="10"
-            android:text="Servicios"
+            android:text="Horarios"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="25sp"/>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="210dp"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_cliente_navbar"
+        android:name="com.example.fitnes_hanma.Cliente.c_cl_navbar_fragment"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="90dp"
-        android:fontFamily="@font/salsa_font"
-        android:textAlignment="center">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Servicios Disponibles"
-            android:textColor="@color/white"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            android:background="@drawable/rounded_border"
-            />
-    </LinearLayout>
-
+        android:layout_alignParentBottom="true"
+        tools:layout="@layout/c_cl_navbar_fragment" />
 </RelativeLayout>
