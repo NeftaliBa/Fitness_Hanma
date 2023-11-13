@@ -6,30 +6,30 @@
     android:viewportWidth="392.533"
     android:viewportHeight="392.533">
     <path
-        android:fillColor="#000000"
+        android:fillColor="@color/white"
         android:pathData="M187.433,270.696c-10.714,4.946-20.899,10.838-30.433,17.592V445h97V334.319 C220.917,328.679,194.521,303.488,187.433,270.696z"
         tools:ignore="VectorPath" />
     <path
-        android:fillColor="#000000"
+        android:fillColor="@color/white"
         android:pathData="M268.065,305.528c26.536,0,48.525-19.752,52.029-45.363c-16.547-4.625-33.996-7.101-52.029-7.101 c-18.032,0-35.482,2.476-52.028,7.101C219.541,285.776,241.53,305.528,268.065,305.528z"
         tools:ignore="VectorPath" />
     <path
-        android:fillColor="#000000"
+        android:fillColor="@color/white"
         android:pathData="M348.698,270.696c-6.955,32.172-32.491,57.038-64.698,63.292V445h176 C460,367.386,414.414,301.031,348.698,270.696z" />
 
     <path
-        android:fillColor="#000000"
+        android:fillColor="@color/white"
         android:pathData="M269,119v30H168.422c12.868,42.846,52.607,74.064,99.643,74.064c57.455,0,104.032-46.577,104.032-104.032 S325.52,15,268.065,15c-47.013,0-86.735,31.188-99.624,74H108v30H269z" />
 
     <!-- Rectángulo movido 12 unidades hacia la derecha -->
     <path
-        android:fillColor="#000000"
+        android:fillColor="@color/white"
         android:pathData="M42,253 H109 V285 H42 Z"
         tools:ignore="VectorPath" />
 
     <!-- Polígono movido 12 unidades hacia la derecha -->
     <path
-        android:fillColor="#000000"
+        android:fillColor="@color/white"
         android:pathData="M139,283 L109,283 L109,313 H42 V283 L12,283 L12,445 L139,445 Z"
         tools:ignore="VectorPath" />
 

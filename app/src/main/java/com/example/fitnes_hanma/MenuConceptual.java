@@ -1,4 +1,4 @@
-package com.example.fitnes_hanma.Actividad8;
+package com.example.fitnes_hanma;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,9 +11,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import androidx.appcompat.widget.Toolbar;
 
 
@@ -21,17 +20,11 @@ import com.example.fitnes_hanma.Admin.Principal.AdPClases;
 import com.example.fitnes_hanma.Admin.Principal.AdPCliente;
 import com.example.fitnes_hanma.Admin.Principal.AdPInstructor;
 import com.example.fitnes_hanma.Cliente.asistencia;
-import com.example.fitnes_hanma.Cliente.principal;
 import com.example.fitnes_hanma.Cliente.servicios;
 import com.example.fitnes_hanma.Instructor.calendario.Calendario;
 import com.example.fitnes_hanma.Instructor.configuraciones.Configuraciones;
 import com.example.fitnes_hanma.Instructor.grupo.Grupo;
 import com.example.fitnes_hanma.Instructor.home.Home;
-import com.example.fitnes_hanma.R;
-import com.example.fitnes_hanma.inicio;
-import com.example.fitnes_hanma.login;
-import com.example.fitnes_hanma.recuperarconstrasena;
-import com.example.fitnes_hanma.register;
 
 public class MenuConceptual extends AppCompatActivity {
 

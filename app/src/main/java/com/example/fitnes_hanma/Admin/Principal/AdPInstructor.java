@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.fitnes_hanma.Actividad8.MenuConceptual;
+import com.example.fitnes_hanma.MenuConceptual;
 import com.example.fitnes_hanma.R;
 
 public class AdPInstructor extends AppCompatActivity {

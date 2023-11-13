@@ -107,7 +107,7 @@
             android:id="@+id/naInst"
             android:textAlignment="center"
             android:background="@drawable/search"
-            android:autofillHints=""
+            android:textColor="@color/black"
             android:inputType="textLongMessage" />
 
         <ImageView

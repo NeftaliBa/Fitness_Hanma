@@ -8,7 +8,7 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import com.example.fitnes_hanma.Actividad8.MenuConceptual;
+import com.example.fitnes_hanma.MenuConceptual;
 import com.example.fitnes_hanma.Objetos.ClasesAdapter;
 import com.example.fitnes_hanma.Admin.Secundarias.AdSCreCla;
 import com.example.fitnes_hanma.Admin.Secundarias.AdSModCla;
