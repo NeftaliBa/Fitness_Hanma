@@ -6,26 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".Cliente.servicios">
 
-
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="#00C596">
+        android:layout_height="?attr/actionBarSize"
+        android:background="#00083E"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
+        <!-- Título de la barra de herramientas -->
         <TextView
-            android:id="@+id/titulo"
-            android:layout_width="match_parent"
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/salsa_font"
-            android:padding="16dp"
-            android:shadowColor="#000000"
-            android:shadowRadius="10"
             android:text="Servicios"
-            android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="25sp"/>
-    </LinearLayout>
+            android:textSize="20sp"
+            android:layout_gravity="center"/>
+    </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
         android:layout_width="210dp"

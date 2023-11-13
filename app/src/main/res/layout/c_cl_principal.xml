@@ -5,29 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Cliente.principal"
-    android:background="@color/adbackcolor"
-    >
+    android:background="@color/adbackcolor">
 
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:id="@+id/loco"
-        android:layout_height="70dp"
-        android:background="#00C596">
-        <TextView
-            android:id="@+id/titulo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/salsa_font"
-            android:padding="16dp"
-            android:shadowColor="#000000"
-            android:shadowRadius="10"
-            android:text="Inicio"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="25sp"/>
+        android:layout_height="?attr/actionBarSize"
+        android:background="#00083E"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-    </LinearLayout>
+        <!-- Título de la barra de herramientas -->
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Menu Principal"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:layout_gravity="center"/>
+    </androidx.appcompat.widget.Toolbar>
 
     <TextView
         android:id="@+id/bienvenidoUsu"
@@ -41,7 +37,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/loco"
+        android:layout_below="@+id/toolbar"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
         android:orientation="horizontal">
@@ -61,7 +57,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         tools:layout="@layout/c_cl_navbar_fragment" />
-
 
 
 </RelativeLayout>

@@ -42,13 +42,5 @@
             android:layout_weight="5"
             android:layout_gravity="center"
             android:src="@drawable/asistencia" />
-        <ImageView
-            android:id="@+id/config"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:padding="10dp"
-            android:layout_weight="5"
-            android:layout_gravity="center"
-            android:src="@drawable/configuracion" />
     </LinearLayout>
 </FrameLayout>

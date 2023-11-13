@@ -45,7 +45,6 @@ public class c_cl_navbar_fragment extends Fragment {
         ImageView servicios = view.findViewById(R.id.servicios);
         ImageView horarios = view.findViewById(R.id.horar);
         ImageView asis = view.findViewById(R.id.asis);
-        ImageView configuracion = view.findViewById(R.id.config);
         ImageView principal = view.findViewById(R.id.principal);
 
 
@@ -60,7 +59,6 @@ public class c_cl_navbar_fragment extends Fragment {
                 servicios.setSelected(false);
                 horarios.setSelected(false);
                 asis.setSelected(false);
-                configuracion.setSelected(false);
                 startActivity(intent);
             }
         });
@@ -74,7 +72,6 @@ public class c_cl_navbar_fragment extends Fragment {
                 principal.setSelected(false);
                 horarios.setSelected(false);
                 asis.setSelected(false);
-                configuracion.setSelected(false);
                 startActivity(intent);
             }
         });
@@ -90,7 +87,6 @@ public class c_cl_navbar_fragment extends Fragment {
                 servicios.setSelected(false);
                 horarios.setSelected(false);
                 asis.setSelected(false);
-                configuracion.setSelected(false);
                 startActivity(intent);
             }
         });
@@ -105,21 +101,6 @@ public class c_cl_navbar_fragment extends Fragment {
                 asis.setSelected(true);
                 servicios.setSelected(false);
                 horarios.setSelected(false);
-                principal.setSelected(false);
-                configuracion.setSelected(false);
-                startActivity(intent);
-            }
-        });
-        configuracion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Luego, inicia la actividad relacionada
-                Intent intent = new Intent(getActivity(), Configuracion.class);
-                startActivity(intent);
-                configuracion.setSelected(true);
-                servicios.setSelected(false);
-                horarios.setSelected(false);
-                asis.setSelected(false);
                 principal.setSelected(false);
                 startActivity(intent);
             }
