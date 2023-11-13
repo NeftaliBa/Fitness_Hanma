@@ -13,9 +13,6 @@
         android:theme="@style/Theme.Fitnes_Hanma"
         tools:targetApi="31">
         <activity
-            android:name=".MenuConceptual"
-            android:exported="false" />
-        <activity
             android:name=".Admin.Secundarias.AdSCreCla"
             android:exported="false" />
         <activity
@@ -34,7 +31,7 @@
             android:name=".Admin.Secundarias.AdSModCli"
             android:exported="false" />
         <activity
-            android:name=".Cliente.asistencia"
+            android:name=".Cliente.asistenciaQR"
             android:exported="false" />
         <activity
             android:name=".Cliente.servicios"
@@ -62,6 +59,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MenuConceptual"
+            android:exported="false" />
         <activity
             android:name=".Admin.Principal.AdPInstructor"
             android:exported="false" />
