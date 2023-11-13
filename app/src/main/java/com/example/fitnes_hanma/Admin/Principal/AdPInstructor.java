@@ -19,7 +19,7 @@ public class AdPInstructor extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ad_p_instructor);
+        setContentView(R.layout.a_ad_p_instructor);
 
         searchClient = (EditText) findViewById(R.id.seCli);
         ImageView buscar = findViewById(R.id.buscar);

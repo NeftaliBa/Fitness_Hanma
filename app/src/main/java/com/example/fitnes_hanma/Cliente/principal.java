@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.fitnes_hanma.Admin.Objetos.Clases;
-import com.example.fitnes_hanma.Admin.Objetos.ClasesCienteAdapter;
+import com.example.fitnes_hanma.Objetos.Clases;
+import com.example.fitnes_hanma.Objetos.ClasesCienteAdapter;
 import com.example.fitnes_hanma.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
