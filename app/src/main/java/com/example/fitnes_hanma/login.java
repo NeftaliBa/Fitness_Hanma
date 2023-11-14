@@ -38,13 +38,22 @@ public class login extends AppCompatActivity {
         password = findViewById(R.id.contrasena);
         btn_login = findViewById(R.id.btn_loguear);
 
-        TextView textViewButton = findViewById(R.id.crearCuenta);
-        textViewButton.setOnClickListener(new View.OnClickListener() {
+        TextView textViewRecuperar = findViewById(R.id.recuperar);
+        textViewRecuperar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Aquí define la lógica para redirigir a otro apartado de la aplicación
-                // Puedes usar un Intent para iniciar otra actividad, por ejemplo:
+                // Lógica para redirigir a la actividad de recuperación de contraseña
                 Intent intent = new Intent(login.this, recuperarconstrasena.class);
+                startActivity(intent);
+            }
+        });
+
+        TextView textViewCrearCuenta = findViewById(R.id.crearCuenta);
+        textViewCrearCuenta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Lógica para redirigir a la actividad de registro
+                Intent intent = new Intent(login.this, register.class);
                 startActivity(intent);
             }
         });

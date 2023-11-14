@@ -98,10 +98,10 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/crearCuenta"
+        android:id="@+id/recuperar"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="650dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="610dp"
         android:layout_marginLeft="45dp"
         android:background="?android:attr/selectableItemBackground"
         android:fontFamily="@font/salsa_font"
@@ -111,10 +111,28 @@
         android:shadowColor="#000000"
         android:shadowRadius="10"
         android:textAlignment="center"
-
         android:text="Olvidaste tu contraseña?"
         android:textColor="#FFFFFF"
         android:textSize="20dp">
+    </TextView>
+    <TextView
+        android:id="@+id/crearCuenta"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/recuperar"
+        android:layout_marginLeft="45dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:fontFamily="@font/salsa_font"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="16dp"
+        android:shadowColor="#000000"
+        android:shadowRadius="10"
+        android:textAlignment="center"
+        android:text="Registrarse"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp">
+
     </TextView>
 
 </RelativeLayout>

@@ -16,6 +16,7 @@ import com.example.fitnes_hanma.Instructor.configuraciones.Configuraciones;
 import com.example.fitnes_hanma.MenuConceptual;
 import com.example.fitnes_hanma.Objetos.Clases;
 import com.example.fitnes_hanma.Objetos.ClasesCienteAdapter;
+import com.example.fitnes_hanma.Objetos.claseInscribir;
 import com.example.fitnes_hanma.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -71,7 +72,7 @@ public class principal extends AppCompatActivity {
                 });
         ListView listViewClases = findViewById(R.id.listViewClaCliente);
         List<Clases> clasesList = new ArrayList<>();
-        ClasesCienteAdapter adapter = new ClasesCienteAdapter(this, clasesList);
+        claseInscribir adapter = new claseInscribir(this, clasesList);
 
         // Configura el adaptador con el ListView
         listViewClases.setAdapter(adapter);
