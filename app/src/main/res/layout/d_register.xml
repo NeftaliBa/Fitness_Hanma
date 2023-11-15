@@ -6,15 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".register">
 
-    <ImageView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:src="@drawable/registro">
-    </ImageView>
+        android:layout_height="?attr/actionBarSize"
+        android:background="#00083E"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <!-- Botón de retroceso -->
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_cli"
+            android:layout_gravity="start"
+            android:contentDescription="Botón de retroceso"/>
+
+        <!-- Título de la barra de herramientas -->
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Registrate"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:layout_gravity="center"/>
+    </androidx.appcompat.widget.Toolbar>
 
     <TextView
         android:id="@+id/titulo"
+        android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
@@ -46,16 +67,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="370dp"
+        android:layout_marginTop="335dp"
         android:orientation="vertical">
 
 
         <EditText
-            android:id="@+id/nombre"
+            android:id="@+id/nombreR"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/rounded_border"
             android:fontFamily="@font/salsa_font"
@@ -66,11 +86,11 @@
             android:textSize="16dp" />
 
         <EditText
-            android:id="@+id/correo"
+            android:id="@+id/correoR"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/rounded_border"
             android:fontFamily="@font/salsa_font"
@@ -78,18 +98,35 @@
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:textColorHint="@color/gray"
-            android:textSize="16dp" />
+            android:textSize="16dp"/>
+
 
         <EditText
-            android:id="@+id/contrasena"
+            android:id="@+id/contrasenaR"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/rounded_border"
             android:fontFamily="@font/salsa_font"
             android:hint="Contraseña"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColorHint="@color/gray"
+            android:inputType="textPassword"
+            android:textSize="16dp" />
+
+        <EditText
+            android:id="@+id/confirmContraR"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/rounded_border"
+            android:fontFamily="@font/salsa_font"
+            android:hint="Confirmar contraseña"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:textColorHint="@color/gray"
@@ -112,38 +149,22 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="680dp"
-        android:textAlignment="center">
-        <TextView
-            android:id="@+id/textoBottom"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:padding="2dp"
-            android:shadowColor="#000000"
-            android:shadowRadius="1"
-            android:text="Ya tienes cuenta?"
-            android:textAlignment="viewEnd"
-            android:textColor="#FFFFFF"
-            android:textSize="20dp"
-            android:fontFamily="@font/salsa_font"
-            />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="680dp">
         <TextView
             android:id="@+id/iniciarSesion"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?android:attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
             android:fontFamily="@font/salsa_font"
-            android:padding="2dp"
+            android:padding="10dp"
             android:shadowColor="#000000"
             android:shadowRadius="10"
-            android:text=" Iniciar Sesion"
+            android:text="Ya tengo una cuenta"
             android:textColor="#FFFFFF"
             android:textSize="20dp"
             tools:ignore="TouchTargetSizeCheck"/>

@@ -22,7 +22,8 @@
             android:text="Menu Principal"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:fontFamily="@font/salsa_font" />
     </androidx.appcompat.widget.Toolbar>
 
     <TextView
