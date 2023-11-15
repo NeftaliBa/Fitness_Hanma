@@ -1,16 +1,17 @@
 package com.example.fitnes_hanma.Objetos;
 
 public class Usuarios {
-    String id, name, email, password;
+    String id, name, email, password, role;
 
     public Usuarios() {
     }
 
-    public Usuarios(String id, String name, String email, String password) {
+    public Usuarios(String id, String name, String email, String password, String role) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
+        this.role = role;
     }
 
     public String getId() {
@@ -25,9 +26,8 @@ public class Usuarios {
         return name;
     }
 
-    public boolean setName() {
+    public void setName(String name) {
         this.name = name;
-        return false;
     }
 
     public String getEmail() {
@@ -44,5 +44,13 @@ public class Usuarios {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

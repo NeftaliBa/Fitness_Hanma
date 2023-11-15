@@ -1,29 +1,57 @@
 package com.example.fitnes_hanma.Objetos;
 
 public class Instructor {
-    String nombreInstructor, email;
+    String Contraseña, Correo, Nombre, Role, id;
 
     public Instructor() {
     }
 
-    public Instructor(String nombreInstructor, String email) {
-        this.nombreInstructor = nombreInstructor;
-        this.email = email;
+    public Instructor(String contraseña, String correo, String nombre, String role, String id) {
+        Contraseña = contraseña;
+        Correo = correo;
+        Nombre = nombre;
+        Role = role;
+        this.id = id;
     }
 
-    public String getNombreInstructor() {
-        return nombreInstructor;
+    public String getContraseña() {
+        return Contraseña;
     }
 
-    public void setNombreInstructor(String nombreInstructor) {
-        this.nombreInstructor = nombreInstructor;
+    public void setContraseña(String contraseña) {
+        Contraseña = contraseña;
     }
 
-    public String getEmail() {
-        return email;
+    public String getCorreo() {
+        return Correo;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCorreo(String correo) {
+        Correo = correo;
+    }
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public void setNombre(String nombre) {
+        Nombre = nombre;
+    }
+
+
+    public String getRole() {
+        return Role;
+    }
+
+    public void setRole(String role) {
+        Role = role;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

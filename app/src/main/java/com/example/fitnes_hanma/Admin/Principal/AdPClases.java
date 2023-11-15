@@ -91,9 +91,8 @@ public class AdPClases extends AppCompatActivity {
                 intent.putExtra("nombreClase", claseSeleccionada.getNombreClase());
                 intent.putExtra("descripcion", claseSeleccionada.getDescripcion());
                 intent.putExtra("nombreInstructor", claseSeleccionada.getNombreInstructor());
-                intent.putExtra("fechaClase", claseSeleccionada.getFechaClase());
                 intent.putExtra("horaClase", claseSeleccionada.getHoraClase());
-                intent.putExtra("limCli", claseSeleccionada.getCliRegis());
+                intent.putExtra("limCli", claseSeleccionada.getLimCli());
 
                 // Incluso puedes pasar el ID del documento si lo necesitas
                 intent.putExtra("idDocumento", claseSeleccionada.getId_clase());

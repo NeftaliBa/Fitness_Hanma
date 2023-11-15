@@ -7,10 +7,16 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -29,93 +35,41 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-public class AdSCreCla extends AppCompatActivity {
+public class AdSCreCla extends AppCompatActivity implements /*View.OnClickListener,*/ AdapterView.OnItemSelectedListener {
+
     private FirebaseFirestore db;
     private FirebaseAuth auth;
     EditText nomCla, desCla, nomIns, LimCli;
-    Button calendar, cancelar, guardar, hour;
+    Button newH, cancelar, guardar, hour;
     TextView fecha, hora;
     Intent i;
+    String[] Semana = {"Seleccionar dia", "Lunes", "Martes", "Miercoles", "Jueves", "Sabado", "Domingo"};
+    Spinner semsem;
+    LinearLayout horarioContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.a_ad_scre_cla);
 
+        //ArrayAdapter<String> aa = new ArrayAdapter<String>(
+        //        AdSCreCla.this, androidx.constraintlayout.widget.R.layout.support_simple_spinner_dropdown_item, Semana);
+
+
+
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
 
         cancelar = (Button) findViewById(R.id.cancel);
-        calendar = (Button) findViewById(R.id.calendar);
-        hour = (Button) findViewById(R.id.hour);
         guardar = (Button) findViewById(R.id.save);
         nomCla = (EditText) findViewById(R.id.claNa);
         desCla = (EditText) findViewById(R.id.desCla);
         nomIns = (EditText) findViewById(R.id.naInst);
         LimCli = (EditText) findViewById(R.id.limCli);
-        fecha = (TextView) findViewById(R.id.fecha);
-        hora = (TextView) findViewById(R.id.hora);
+        hour = (Button) findViewById(R.id.hourButton);
 
-        final int[] dia = new int[1];
-        final int[] mes = new int[1];
-        final int[] año = new int[1];
-
-        calendar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Calendar calendario = Calendar.getInstance();
-                dia[0] = calendario.get(Calendar.DAY_OF_MONTH);
-                mes[0] = calendario.get(Calendar.MONTH);
-                año[0] = calendario.get(Calendar.YEAR);
-                DatePickerDialog datePickerDialog =new DatePickerDialog(AdSCreCla.this, R.style.MyTimePickerDialog,  new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        String diaF, mesF;
-                        if (dayOfMonth<10){
-                            diaF = 0+String.valueOf(dayOfMonth);
-                        }else {
-                            diaF = String.valueOf(dayOfMonth);
-                        }
-                        int Mes = month + 1;
-                        if (month<10){
-                            mesF = 0+String.valueOf(month);
-                        }else {
-                            mesF = String.valueOf(month);
-                        }
-                        fecha.setText(diaF + "/" + mesF + "/" + year);
-                    }
-                }, año[0], mes[0], dia[0]);
-                datePickerDialog.show();
-            }
-        });
-        hour.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Calendar calendario = Calendar.getInstance();
-                int horaActual = calendario.get(Calendar.HOUR_OF_DAY);
-                int minutoActual = calendario.get(Calendar.MINUTE);
-
-                TimePickerDialog timePickerDialog = new TimePickerDialog(AdSCreCla.this, R.style.MyTimePickerDialog, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        // Verifica si es AM o PM
-                        String amPm;
-                        if (hourOfDay < 12) {
-                            amPm = "AM";
-                        } else {
-                            amPm = "PM";
-                            if (hourOfDay > 12) {
-                                hourOfDay -= 12;
-                            }
-                        }
-                        String horaSeleccionada = String.format(Locale.getDefault(), "%02d:%02d %s", hourOfDay, minute, amPm);
-                        hora.setText(horaSeleccionada);
-                    }
-                }, horaActual, minutoActual, false); // El último argumento es "false" para utilizar el formato de 12 horas
-
-                timePickerDialog.show();
-            }
-        });
+        //newH = (Button) findViewById(R.id.newH);
+        //horarioContainer = findViewById(R.id.horarioContainer);
 
         cancelar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,16 +85,14 @@ public class AdSCreCla extends AppCompatActivity {
                 String nombreClase = nomCla.getText().toString();
                 String descripcion = desCla.getText().toString();
                 String nombreInstructor = nomIns.getText().toString();
-                String fechaClase = fecha.getText().toString();
-                String horaClase = hora.getText().toString();
+                //String horaClase = hora.getText().toString();
                 String limCli = LimCli.getText().toString();
 
                 Map<String, Object> clase = new HashMap<>();
                 clase.put("nombreClase", nombreClase);
                 clase.put("descripcion", descripcion);
                 clase.put("nombreInstructor", nombreInstructor);
-                clase.put("fechaClase", fechaClase);
-                clase.put("horaClase", horaClase);
+                //clase.put("horaClase", horaClase);
                 clase.put("limCli", limCli);
                 clase.put("id_clase", id_clase);
 
@@ -166,5 +118,100 @@ public class AdSCreCla extends AppCompatActivity {
                         });
             }
         });
+
+        hour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Calendar calendario = Calendar.getInstance();
+                int horaActual = calendario.get(Calendar.HOUR_OF_DAY);
+                int minutoActual = calendario.get(Calendar.MINUTE);
+                TimePickerDialog timePickerDialog = new TimePickerDialog(AdSCreCla.this, R.style.MyTimePickerDialog, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        // Verifica si es AM o PM
+                        String amPm;
+                        if (hourOfDay < 12) {
+                            amPm = "AM";
+                        } else {
+                            amPm = "PM";
+                            if (hourOfDay > 12) {
+                                hourOfDay -= 12;
+                            }
+                        }
+                        String horaSeleccionada = String.format(Locale.getDefault(), "%02d:%02d %s", hourOfDay, minute, amPm);
+                        hour.setText(horaSeleccionada);
+                    }
+                }, horaActual, minutoActual, false); // El último argumento es "false" para utilizar el formato de 12 horas
+                timePickerDialog.show();
+            }
+        });
+        //newH.setOnClickListener(this);
+
+    }
+    //@Override
+    //public void onClick(View v) {
+    //    if (v.getId() == R.id.newH) {
+    //        // Inflar el diseño del LinearLayout
+    //        LayoutInflater inflater = getLayoutInflater();
+    //        View horarioView = inflater.inflate(R.layout.a_ad_agregar_horarios_a_adscrecla, null);
+//
+    //        // Agregar el LinearLayout al contenedor
+    //        horarioContainer.addView(horarioView);
+//
+    //        // Buscar y encontrar los elementos dentro del diseño del horario
+    //        semsem = horarioView.findViewById(R.id.day);
+    //        hour = horarioView.findViewById(R.id.hour);
+//
+    //        // Resto de tu código para configurar el Spinner y el Button
+    //        ArrayAdapter<String> aa = new ArrayAdapter<String>(
+    //                AdSCreCla.this, androidx.constraintlayout.widget.R.layout.support_simple_spinner_dropdown_item, Semana);
+//
+    //        semsem.setAdapter(aa);
+    //        semsem.setOnItemSelectedListener(this);
+//
+    //        hour.setOnClickListener(new View.OnClickListener() {
+    //            @Override
+    //            public void onClick(View v) {
+    //                final Calendar calendario = Calendar.getInstance();
+    //                int horaActual = calendario.get(Calendar.HOUR_OF_DAY);
+    //                int minutoActual = calendario.get(Calendar.MINUTE);
+    //                TimePickerDialog timePickerDialog = new TimePickerDialog(AdSCreCla.this, R.style.MyTimePickerDialog, new TimePickerDialog.OnTimeSetListener() {
+    //                    @Override
+    //                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+    //                        // Verifica si es AM o PM
+    //                        String amPm;
+    //                        if (hourOfDay < 12) {
+    //                            amPm = "AM";
+    //                        } else {
+    //                            amPm = "PM";
+    //                            if (hourOfDay > 12) {
+    //                                hourOfDay -= 12;
+    //                            }
+    //                        }
+    //                        String horaSeleccionada = String.format(Locale.getDefault(), "%02d:%02d %s", hourOfDay, minute, amPm);
+    //                        hour.setText(horaSeleccionada);
+    //                    }
+    //                }, horaActual, minutoActual, false); // El último argumento es "false" para utilizar el formato de 12 horas
+    //                timePickerDialog.show();
+    //            }
+    //        });
+    //    }
+    //}
+
+
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        if (parent.getId() == R.id.day) {
+            // Tu código para el Spinner con id "day"
+            // Puedes acceder al id del Spinner seleccionado usando parent.getId()
+            // Ejemplo: int spinnerId = parent.getId();
+        }
+    }
+
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

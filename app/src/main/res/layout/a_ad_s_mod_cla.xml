@@ -23,11 +23,19 @@
         android:textStyle="bold" />
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:orientation="vertical"
+        android:id="@+id/all"
+        android:layout_below="@+id/tex">
+
+
+
+    <LinearLayout
         android:id="@+id/campo1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tex"
-        android:layout_marginHorizontal="20dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/cuadro_verde"
         android:padding="15dp">
@@ -50,8 +58,6 @@
         android:id="@+id/campo2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/campo1"
-        android:layout_marginHorizontal="20dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/cuadro_verde"
         android:padding="15dp">
@@ -73,14 +79,12 @@
         android:id="@+id/campo3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/campo2"
-        android:layout_marginHorizontal="20dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/cuadro_verde"
         android:padding="15dp">
 
         <EditText
-            android:id="@+id/limCli"
+            android:id="@+id/limCliM"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -95,8 +99,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/searchIns"
-        android:layout_below="@+id/campo3"
-        android:layout_marginHorizontal="20dp"
         >
 
         <EditText
@@ -121,58 +123,14 @@
             android:layout_gravity="center_vertical|end" />
     </FrameLayout>
 
+
+
+
+
     <LinearLayout
         android:id="@+id/IDK"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/searchIns"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
-
-        <!-- boton wn cl -->
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:backgroundTint="@color/verde_gris"
-            android:text="Calendario"
-            android:id="@+id/calendar"
-            app:icon="@drawable/admin_add_cla_calendario"
-            app:iconTint="@color/white"
-            android:textColor="@color/white" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_weight="4"
-            android:background="@drawable/cuadro_verde"
-            android:layout_gravity="center"
-            android:layout_marginStart="10dp"
-            >
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textSize="20sp"
-                android:id="@+id/fecha"
-                android:text="00/00/0000"
-                android:textColor="@color/white"
-                android:textAlignment="center"/>
-        </LinearLayout>
-
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/IDK2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/IDK"
-        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
         android:orientation="horizontal">
 
@@ -213,12 +171,13 @@
 
     </LinearLayout>
 
+    </LinearLayout>
     <LinearLayout
-        android:layout_below="@+id/IDK2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="40dp"
+        android:layout_below="@+id/all"
+        android:layout_marginHorizontal="20dp"
         >
         <Button
             android:id="@+id/cancel"
@@ -237,5 +196,4 @@
             android:textColor="@color/white"
             android:backgroundTint="@color/verde1"/>
     </LinearLayout>
-
 </RelativeLayout>
