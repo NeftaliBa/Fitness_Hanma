@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".menuRL"
+    android:background="#300667">
+    
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="250dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/salsa_font"
+            android:textColor="#FFFFFF"
+            android:text="Fitness Hanma"
+            android:textSize="30dp"
+            android:layout_centerVertical="true"
+
+            />
+        
+        <Button
+            android:id="@+id/irLogin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Login"
+            android:backgroundTint="@color/aqua_default"
+            android:textColor="@color/gray"
+            android:fontFamily="@font/salsa_font"
+            android:textSize="16dp"
+            android:padding="15dp"/>
+        <Button
+            android:id="@+id/irRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Registro"
+            android:backgroundTint="@color/aqua_default"
+            android:textColor="@color/gray"
+            android:fontFamily="@font/salsa_font"
+            android:textSize="16dp"
+            android:padding="15dp"/>
+
+        
+    </LinearLayout>
+    
+
+
+</RelativeLayout>

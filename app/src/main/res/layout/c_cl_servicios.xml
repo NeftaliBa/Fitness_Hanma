@@ -4,46 +4,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Cliente.servicios">
+    tools:context=".Cliente.servicios"
+    android:background="#300667">
 
 
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="#00C596">
+        android:layout_height="?attr/actionBarSize"
+        android:background="#00083E"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
+        <!-- Título de la barra de herramientas -->
         <TextView
-            android:id="@+id/titulo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/salsa_font"
-            android:padding="16dp"
-            android:shadowColor="#000000"
-            android:shadowRadius="10"
-            android:text="Servicios"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="25sp"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="210dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="90dp"
-        android:fontFamily="@font/salsa_font"
-        android:textAlignment="center">
-
-        <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Servicios Disponibles"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/salsa_font"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/titulito"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/salsa_font"
+        android:textAlignment="center"
+        android:layout_marginLeft="27dp">
+
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:text="Clases disponibles para inscribirte"
             android:textColor="@color/white"
             android:textAlignment="center"
             android:textSize="18sp"
-            android:background="@drawable/rounded_border"
-            />
+            android:background="@drawable/bordes_redondos_marinos"
+            android:padding="15dp"
+            android:fontFamily="@font/salsa_font"
+        />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titulito"
+        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="20dp"
+        android:orientation="horizontal">
+
+        <ListView
+            android:id="@+id/listViewClaCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/divisor"
+            android:showDividers="middle" />
     </LinearLayout>
 
 

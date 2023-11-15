@@ -4,52 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Cliente.asistenciaQR">
+    tools:context=".Cliente.asistenciaQR"
+    android:background="#300667">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/cliente_navbar"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="0dp"
-        tools:layout="@layout/cliente_navbar" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="#00C596">
+        android:layout_height="?attr/actionBarSize"
+        android:background="#00083E"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
+        <!-- Título de la barra de herramientas -->
         <TextView
-            android:id="@+id/titulo"
-            android:layout_width="match_parent"
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/salsa_font"
-            android:padding="16dp"
-            android:shadowColor="#000000"
-            android:shadowRadius="10"
-            android:text="Asistencia"
-            android:textAlignment="center"
+            android:text="Horarios"
             android:textColor="#FFFFFF"
-            android:textSize="25sp"/>
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:text="Escanea el codigo QR"
-        android:textAlignment="center"
-        android:textSize="30sp"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="(este codigo QR es personal)"
-        android:textAlignment="center"
-        android:layout_marginTop="250dp"
-        android:textSize="20sp">
-    </TextView>
-
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/salsa_font"/>
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_cliente_navbar"
@@ -58,4 +33,40 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         tools:layout="@layout/c_cl_navbar_fragment" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:text="Escanea el codigo QR"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/salsa_font"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="para recibir la asistencia de la clase"
+        android:textAlignment="center"
+        android:layout_marginTop="250dp"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/salsa_font">
+    </TextView>
+
+    <Button
+        android:id="@+id/scanButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Escanear"
+        android:textColor="@color/white"
+        android:backgroundTint="#00083E"
+        android:shadowColor="#000000"
+        android:shadowRadius="10"
+        android:layout_marginTop="340dp"
+        android:layout_marginLeft="57dp"
+        />
+
+
 </RelativeLayout>
