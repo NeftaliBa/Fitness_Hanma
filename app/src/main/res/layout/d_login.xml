@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login">
+    tools:context=".login"
+    android:background="@drawable/desbanecido_inicios">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -28,6 +29,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:fontFamily="@font/salsa_font"
+
             android:text="Iniciar sesión"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
@@ -49,55 +52,55 @@
         android:layout_marginTop="15dp">
     </TextView>
 
-    <TextView
-        android:id="@+id/titulo1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/salsa_font"
-        android:padding="5dp"
-        android:shadowColor="#000000"
-        android:shadowRadius="10"
-        android:text="Iniciar Sesión"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="30sp"
-        android:layout_marginTop="280dp">
-    </TextView>
-
     <LinearLayout
+        android:id="@+id/form"
+        android:layout_below="@id/titulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="370dp"
-        android:orientation="vertical">
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="47dp"
+        android:background="@drawable/bordes_formulario_blanco"
+        android:orientation="vertical"
+        android:padding="15dp">"
+
+        <TextView
+            android:id="@+id/titulo1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/salsa_font"
+            android:padding="5dp"
+            android:text="Iniciar Sesión"
+            android:textAlignment="center"
+            android:textColorHint="#4A4A4A"
+            android:textSize="30sp">
+    </TextView>
 
         <EditText
             android:id="@+id/correo"
+            android:hint="Correo electronico"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/rounded_border"
+            android:background="@drawable/borde_azul_claro"
             android:fontFamily="@font/salsa_font"
-            android:hint="Correo electronico"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:textColorHint="@color/gray"
+            android:paddingHorizontal="16dp"
+            android:textColorHint="@color/encendido"
             android:textSize="16dp" />
 
         <EditText
             android:id="@+id/contrasena"
+            android:hint="Contraseña"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/rounded_border"
+            android:background="@drawable/borde_azul_claro"
             android:fontFamily="@font/salsa_font"
-            android:hint="Contraseña"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:textColorHint="@color/gray"
+            android:paddingHorizontal="16dp"
+            android:textColorHint="@color/encendido"
             android:inputType="textPassword"
             android:textSize="16dp" />
 
@@ -106,54 +109,58 @@
             android:id="@+id/btn_loguear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Aceptar"
             android:layout_marginStart="75dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="75dp"
-            android:backgroundTint="@color/aqua_default"
-            android:textColor="@color/gray"
+            android:backgroundTint="#4B61FF"
             android:fontFamily="@font/salsa_font"
-            android:text="Aceptar"
+            android:padding="16dp"
+            android:textColor="@color/encendido"
             android:textSize="16dp"
-            android:padding="15dp"
             />
     </LinearLayout>
 
     <TextView
-        android:id="@+id/recuperar"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="610dp"
-        android:layout_marginLeft="45dp"
-        android:background="?android:attr/selectableItemBackground"
-        android:fontFamily="@font/salsa_font"
-        android:clickable="true"
-        android:focusable="true"
-        android:padding="16dp"
-        android:shadowColor="#000000"
-        android:shadowRadius="10"
-        android:textAlignment="center"
-        android:text="Olvidaste tu contraseña?"
-        android:textColor="#FFFFFF"
-        android:textSize="20dp">
-    </TextView>
-    <TextView
         android:id="@+id/crearCuenta"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_below="@+id/recuperar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/form"
         android:layout_marginLeft="45dp"
+        android:layout_marginTop="100dp"
         android:background="?android:attr/selectableItemBackground"
-        android:fontFamily="@font/salsa_font"
         android:clickable="true"
         android:focusable="true"
+        android:fontFamily="@font/salsa_font"
         android:padding="16dp"
         android:shadowColor="#000000"
         android:shadowRadius="10"
-        android:textAlignment="center"
         android:text="Registrarse"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="20dp">
 
+    </TextView>
+
+    <TextView
+        android:id="@+id/recuperar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/crearCuenta"
+        android:layout_marginLeft="45dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:fontFamily="@font/salsa_font"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="16dp"
+        android:shadowColor="#000000"
+        android:shadowRadius="10"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true"
+        android:text="Olvidaste tu contraseña?"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp">
     </TextView>
 
 </RelativeLayout>

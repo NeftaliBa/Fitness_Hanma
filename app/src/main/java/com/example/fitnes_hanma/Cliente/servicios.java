@@ -11,13 +11,17 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.fitnes_hanma.Instructor.configuraciones.Configuraciones;
 import com.example.fitnes_hanma.Objetos.Clases;
 import com.example.fitnes_hanma.Objetos.ClasesCienteAdapter;
 import com.example.fitnes_hanma.Objetos.claseInscribir;
 import com.example.fitnes_hanma.R;
+import com.example.fitnes_hanma.menuRL;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -29,10 +33,16 @@ import java.util.List;
 public class servicios extends AppCompatActivity {
     Intent i;
 
+    FirebaseAuth firebaseAuth;
+    FirebaseUser user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.c_cl_servicios);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
 
         // Configurar el Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -42,6 +52,9 @@ public class servicios extends AppCompatActivity {
         // Configurar el título de la barra de herramientas
         TextView toolbarTitle = findViewById(R.id.toolbarTitle);
         toolbarTitle.setText("Servicios");
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
 
         ListView listViewClases = findViewById(R.id.listViewClaCliente);
         List<Clases> clasesList = new ArrayList<>();
@@ -88,8 +101,10 @@ public class servicios extends AppCompatActivity {
         if (item.getItemId() == R.id.m1) {
             i = new Intent(servicios.this, Configuracion.class);
             startActivity(i);
-        } else if (item.getItemId() == R.id.m3) {
-            finish();
+        } else if (item.getItemId() == R.id.m2) {
+            firebaseAuth.signOut();
+            startActivity(new Intent(servicios.this, menuRL.class));
+            Toast.makeText(this, "Cerraste sesion", Toast.LENGTH_SHORT).show();
         }
         return true;
     }
