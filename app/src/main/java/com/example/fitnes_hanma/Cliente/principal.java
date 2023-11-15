@@ -9,8 +9,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.fitnes_hanma.Instructor.configuraciones.Configuraciones;
 import com.example.fitnes_hanma.MenuConceptual;
@@ -18,6 +20,8 @@ import com.example.fitnes_hanma.Objetos.Clases;
 import com.example.fitnes_hanma.Objetos.ClasesCienteAdapter;
 import com.example.fitnes_hanma.Objetos.claseInscribir;
 import com.example.fitnes_hanma.R;
+import com.example.fitnes_hanma.login;
+import com.example.fitnes_hanma.menuRL;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -33,8 +37,9 @@ public class principal extends AppCompatActivity {
 
     TextView bienvenidoUsu;
     String nameUser;
+    FirebaseAuth firebaseAuth;
+    FirebaseUser user;
     Intent i;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +58,11 @@ public class principal extends AppCompatActivity {
 
         bienvenidoUsu = findViewById(R.id.bienvenidoUsu);
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
+
+
         String userId = user.getUid();
 
         FirebaseFirestore.getInstance().collection("users").document(userId)
@@ -114,8 +123,10 @@ public class principal extends AppCompatActivity {
         if (item.getItemId() == R.id.m1) {
             i = new Intent(principal.this, Configuracion.class);
             startActivity(i);
-        } else if (item.getItemId() == R.id.m3) {
-            finish();
+        } else if (item.getItemId() == R.id.m2) {
+            firebaseAuth.signOut();
+            startActivity(new Intent(principal.this, menuRL.class));
+            Toast.makeText(this, "Cerraste sesion", Toast.LENGTH_SHORT).show();
         }
         return true;
     }
