@@ -34,7 +34,7 @@ public class AdSModCla extends AppCompatActivity {
     private FirebaseFirestore db;
     private FirebaseAuth auth;
     EditText nomCla, desCla, nomIns, LimCli;
-    Button calendar, cancelar, actualizar, hour;
+    Button cancelar, actualizar, hour;
     TextView fecha, hora;
 
     Intent i;
@@ -46,47 +46,15 @@ public class AdSModCla extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
 
         cancelar = (Button) findViewById(R.id.cancel);
-        calendar = (Button) findViewById(R.id.calendar);
         hour = (Button) findViewById(R.id.hour);
         actualizar = (Button) findViewById(R.id.save);
         nomCla = (EditText) findViewById(R.id.claNa);
         desCla = (EditText) findViewById(R.id.desCla);
         nomIns = (EditText) findViewById(R.id.naInst);
-        LimCli = (EditText) findViewById(R.id.limCli);
-        fecha = (TextView) findViewById(R.id.fecha);
+        LimCli = (EditText) findViewById(R.id.limCliM);
         hora = (TextView) findViewById(R.id.hora);
-        final int[] dia = new int[1];
-        final int[] mes = new int[1];
-        final int[] año = new int[1];
 
-        calendar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Calendar calendario = Calendar.getInstance();
-                dia[0] = calendario.get(Calendar.DAY_OF_MONTH);
-                mes[0] = calendario.get(Calendar.MONTH);
-                año[0] = calendario.get(Calendar.YEAR);
-                DatePickerDialog datePickerDialog =new DatePickerDialog(AdSModCla.this, R.style.MyTimePickerDialog,  new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        String diaF, mesF;
-                        if (dayOfMonth<10){
-                            diaF = 0+String.valueOf(dayOfMonth);
-                        }else {
-                            diaF = String.valueOf(dayOfMonth);
-                        }
-                        int Mes = month + 1;
-                        if (month<10){
-                            mesF = 0+String.valueOf(month);
-                        }else {
-                            mesF = String.valueOf(month);
-                        }
-                        fecha.setText(diaF + "/" + mesF + "/" + year);
-                    }
-                }, año[0], mes[0], dia[0]);
-                datePickerDialog.show();
-            }
-        });
+
         hour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,8 +96,8 @@ public class AdSModCla extends AppCompatActivity {
             String nombreClase = intent.getStringExtra("nombreClase");
             String descripcion = intent.getStringExtra("descripcion");
             String nombreInstructor = intent.getStringExtra("nombreInstructor");
-            String fechaClase = intent.getStringExtra("fechaClase");
             String horaClase = intent.getStringExtra("horaClase");
+            String LimCliM = intent.getStringExtra("limCli");
 
             // Obtén una referencia a la colección "clases" en Firestore
             FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -145,8 +113,8 @@ public class AdSModCla extends AppCompatActivity {
             nomCla.setText(nombreClase);
             desCla.setText(descripcion);
             nomIns.setText(nombreInstructor);
-            fecha.setText(fechaClase);
             hora.setText(horaClase);
+            LimCli.setText(LimCliM);
 
             actualizar.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -155,9 +123,8 @@ public class AdSModCla extends AppCompatActivity {
                     String nuevoNombreClase = nomCla.getText().toString();
                     String nuevaDescripcion = desCla.getText().toString();
                     String nuevoNombreInstructor = nomIns.getText().toString();
-                    String nuevaFechaClase = fecha.getText().toString();
                     String nuevaHoraClase = hora.getText().toString();
-                    String limCli =  LimCli.getText().toString();
+                    String nlimCli =  LimCli.getText().toString();
 
                     // Obtén una referencia al documento del ID obtenido
                     DocumentReference claseRef = clasesRef.document(idDocumento);
@@ -167,9 +134,8 @@ public class AdSModCla extends AppCompatActivity {
                     nuevosDatos.put("nombreClase", nuevoNombreClase);
                     nuevosDatos.put("descripcion", nuevaDescripcion);
                     nuevosDatos.put("nombreInstructor", nuevoNombreInstructor);
-                    nuevosDatos.put("fechaClase", nuevaFechaClase);
                     nuevosDatos.put("horaClase", nuevaHoraClase);
-                    nuevosDatos.put("limCli", limCli);
+                    nuevosDatos.put("limCli", nlimCli);
 
                     // Actualiza los datos en Firestore
                     claseRef.set(nuevosDatos)

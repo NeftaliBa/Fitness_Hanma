@@ -58,7 +58,7 @@ public class AdPCliente extends AppCompatActivity {
                 for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
                     Usuarios usuario = documentSnapshot.toObject(Usuarios.class);
                     if (usuario != null) {
-                        Log.d("AdPCliente", "Usuario recuperado: " + usuario.setName());
+                        Log.d("AdPCliente", "Usuario recuperado: " + usuario.getName());
                         clientList.add(usuario);
                     }
                 }
@@ -74,8 +74,9 @@ public class AdPCliente extends AppCompatActivity {
 
                 // Pasa los datos necesarios a AdSModCla
                 Intent intent = new Intent(AdPCliente.this, AdSModCli.class);
-                intent.putExtra("name", clienteSeleccionado.setName());
+                intent.putExtra("name", clienteSeleccionado.getName());
                 intent.putExtra("email", clienteSeleccionado.getEmail());
+                intent.putExtra("role", clienteSeleccionado.getRole());
                 startActivity(intent);
             }
         });

@@ -38,7 +38,6 @@ public class ClasesCienteAdapter extends ArrayAdapter<Clases> {
         nombreClaseTextView.setText(clase.getNombreClase());
         nombreInstructorTextView.setText(clase.getNombreInstructor());
         descrip.setText(clase.getDescripcion());
-        Horario.setText(clase.getFechaClase());
         hora.setText(clase.getHoraClase());
 
 

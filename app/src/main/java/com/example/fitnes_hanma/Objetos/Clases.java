@@ -1,20 +1,18 @@
 package com.example.fitnes_hanma.Objetos;
 
 public class Clases {
-    String id_clase, nombreClase, descripcion, nombreInstructor, fechaClase,horaClase, CliRegis;
+    String id_clase, nombreClase, descripcion, nombreInstructor ,horaClase, limCli;
 
     public Clases() {
     }
 
-    public Clases(String id_clase, String nombreClase, String descripcion, String nombreInstructor, String fechaClase, String horaClase, String cliRegis) {
+    public Clases(String id_clase, String nombreClase, String descripcion, String nombreInstructor, String horaClase, String limCli) {
         this.id_clase = id_clase;
         this.nombreClase = nombreClase;
         this.descripcion = descripcion;
         this.nombreInstructor = nombreInstructor;
-        this.fechaClase = fechaClase;
         this.horaClase = horaClase;
-        CliRegis = cliRegis;
-
+        this.limCli = limCli;
     }
 
     public String getId_clase() {
@@ -49,14 +47,6 @@ public class Clases {
         this.nombreInstructor = nombreInstructor;
     }
 
-    public String getFechaClase() {
-        return fechaClase;
-    }
-
-    public void setFechaClase(String fechaClase) {
-        this.fechaClase = fechaClase;
-    }
-
     public String getHoraClase() {
         return horaClase;
     }
@@ -65,11 +55,11 @@ public class Clases {
         this.horaClase = horaClase;
     }
 
-    public String getCliRegis() {
-        return CliRegis;
+    public String getLimCli() {
+        return limCli;
     }
 
-    public void setCliRegis(String cliRegis) {
-        CliRegis = cliRegis;
+    public void setLimCli(String limCli) {
+        this.limCli = limCli;
     }
 }

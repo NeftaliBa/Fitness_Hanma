@@ -28,6 +28,18 @@
     <string name="Uid_u_Item">Uid</string>
     <string name="Nombre_u_Item">Nombre</string>
     <string name="Coreo_u_Item">Correo</string>
+    <string name="hora">00:00:00</string>
+    <array name="Semana">
+        <item>Lunes</item>
+        <item>Martes</item>
+        <item>Miércoles</item>
+        <item>Jueves</item>
+        <item>Viernes</item>
+        <item>Sábado</item>
+        <item>Domingo</item>
+    </array>
+
+    <string name="seleccionar_dia">Seleccionar día</string>
 
 
 </resources>

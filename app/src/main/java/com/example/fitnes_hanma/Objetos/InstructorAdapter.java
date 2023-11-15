@@ -33,8 +33,9 @@ public class InstructorAdapter extends ArrayAdapter<Instructor> {
         TextView correoInstTextView = convertView.findViewById(R.id.correoInstTextView);
 
         // Configura las vistas con los datos de la Clases
-        nombreInstTextView.setText(instruc.getNombreInstructor());
-        correoInstTextView.setText(instruc.getEmail());
+        assert instruc != null;
+        nombreInstTextView.setText(instruc.getNombre());
+        correoInstTextView.setText(instruc.getCorreo());
 
         return convertView;
     }
