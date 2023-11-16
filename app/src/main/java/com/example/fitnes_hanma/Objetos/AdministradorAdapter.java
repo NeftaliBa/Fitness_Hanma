@@ -11,39 +11,39 @@ import com.example.fitnes_hanma.R;
 
 import java.util.List;
 
+public class AdministradorAdapter extends ArrayAdapter<Administrador> {
 
-
-public class InstructorAdapter extends ArrayAdapter<Instructor> {
-
-    public InstructorAdapter(Context context, List<Instructor> intructList) {
-        super(context, 0, intructList);
+    public AdministradorAdapter(Context context, List<Administrador> adminList) {
+        super(context, 0, adminList);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Obtén el objeto Clases para esta posición
-        Instructor instruc = getItem(position);
+        Administrador admin = getItem(position);
 
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.a_ad_list_item_instruc, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.a_ad_list_item_admin, parent, false);
         }
 
         // Encuentra las vistas en el diseño personalizado
-        TextView nombreInstTextView = convertView.findViewById(R.id.nombreInstTextView);
-        TextView correoInstTextView = convertView.findViewById(R.id.correoInstTextView);
+        TextView nombreAdminTextView = convertView.findViewById(R.id.nombreAdminTextView);
+        TextView correoAdminTextView = convertView.findViewById(R.id.correoAdminTextView);
 
         // Configura las vistas con los datos de la Clases
-        assert instruc != null;
-        nombreInstTextView.setText(instruc.getTname());
-        correoInstTextView.setText(instruc.getTemail());
+        assert admin != null;
+        nombreAdminTextView.setText(admin.getAname());
+        correoAdminTextView.setText(admin.getAemail());
 
         return convertView;
     }
-    public void setData(List<Instructor> dataList) {
+    public void setData(List<Administrador> dataList) {
         clear(); // Limpia la lista actual del adaptador
         if (dataList != null) {
             addAll(dataList); // Agrega todos los elementos de la nueva lista
         }
     }
 }
+
+
 

@@ -15,7 +15,7 @@
         android:fontFamily="@font/salsa_font"
         android:text="Actualizar informacion del cliente"
         android:id="@+id/tex"
-        android:layout_margin="40dp"
+        android:layout_margin="10dp"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold"/>

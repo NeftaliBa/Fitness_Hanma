@@ -2,6 +2,10 @@ package com.example.fitnes_hanma.Admin.Principal;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import android.text.Editable;
+import android.text.TextWatcher;
+
 import android.view.View;
 import android.content.Intent;
 import android.widget.AdapterView;
@@ -30,6 +34,10 @@ public class AdPClases extends AppCompatActivity {
 
     Intent i;
     EditText searchClases;
+    List<Clases> clasesList;  // Declarar como variable de instancia
+    List<Clases> filteredList;  // Lista temporal para la búsqueda
+    ClasesAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,9 +61,31 @@ public class AdPClases extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        // Inicializa las listas
+        clasesList = new ArrayList<>();
+        filteredList = new ArrayList<>();
+
+        searchClases.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                // No es necesario implementar este método
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                // Filtra la lista de clases según el texto ingresado
+                filterClasses(charSequence.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                // No es necesario implementar este método
+            }
+        });
+
         ListView listViewClases = findViewById(R.id.listViewClases);
-        List<Clases> clasesList = new ArrayList<>();
-        ClasesAdapter adapter = new ClasesAdapter(this, clasesList);
+        adapter = new ClasesAdapter(this, filteredList);
 
         // Configura el adaptador con el ListView
         listViewClases.setAdapter(adapter);
@@ -67,8 +97,9 @@ public class AdPClases extends AppCompatActivity {
         clasesRef.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                // Borra la lista de clases actual
+                // Limpia las listas antes de agregar elementos
                 clasesList.clear();
+                filteredList.clear();
 
                 for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
                     Clases clase = documentSnapshot.toObject(Clases.class);
@@ -76,15 +107,20 @@ public class AdPClases extends AppCompatActivity {
                         clasesList.add(clase);
                     }
                 }
+
+                // Inicializa la lista temporal con todas las clases
+                filteredList.addAll(clasesList);
+
                 // Notifica al adaptador que los datos han cambiado
                 adapter.notifyDataSetChanged();
             }
         });
+
         listViewClases.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Obtén la clase seleccionada
-                Clases claseSeleccionada = clasesList.get(position);
+                Clases claseSeleccionada = filteredList.get(position);
 
                 // Pasa los datos necesarios a AdSModCla
                 Intent intent = new Intent(AdPClases.this, AdSModCla.class);
@@ -100,5 +136,25 @@ public class AdPClases extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void filterClasses(String searchText) {
+        filteredList.clear();  // Limpia la lista temporal
+
+        // Si el searchText está vacío, cargar todas las clases
+        if (searchText.isEmpty()) {
+            filteredList.addAll(clasesList);
+        } else {
+            // Filtra por nombre de instructor o nombre de clase
+            for (Clases clase : clasesList) {
+                if (clase.getNombreInstructor().toLowerCase().contains(searchText.toLowerCase()) ||
+                        clase.getNombreClase().toLowerCase().contains(searchText.toLowerCase())) {
+                    filteredList.add(clase);
+                }
+            }
+        }
+
+        // Notifica al adaptador que los datos han cambiado
+        adapter.notifyDataSetChanged();
     }
 }

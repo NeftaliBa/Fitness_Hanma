@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
-
+    xmlns:tools="http://schemas.android.com/tools" >
     <!-- Añade el permiso para la cámara -->
     <uses-permission android:name="android.permission.CAMERA" /> <!-- Añade la característica de hardware de la cámara -->
     <uses-permission android:name="android.permission.INTERNET" />
+
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
@@ -18,8 +18,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Fitnes_Hanma"
-        tools:targetApi="31">
-
+        tools:targetApi="31" >
+        <activity
+            android:name=".Admin.Secundarias.AdSModAdm"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Principal.AdPAdmin"
+            android:exported="false" />
         <activity
             android:name=".menuRL"
             android:exported="false" />
@@ -58,12 +63,7 @@
             android:exported="false" />
         <activity
             android:name=".pantalla_carga"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".login"
             android:exported="false" />
@@ -75,7 +75,13 @@
             android:exported="false" />
         <activity
             android:name=".Admin.Principal.AdPClases"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".MenuConceptual"
             android:exported="false" />

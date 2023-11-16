@@ -4,26 +4,25 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import com.example.fitnes_hanma.Admin.Secundarias.AdSModCli;
 import com.example.fitnes_hanma.Admin.Secundarias.AdSModIns;
 import com.example.fitnes_hanma.MenuConceptual;
 import com.example.fitnes_hanma.Objetos.Instructor;
 import com.example.fitnes_hanma.Objetos.InstructorAdapter;
-import com.example.fitnes_hanma.Objetos.UsuarioAdapter;
-import com.example.fitnes_hanma.Objetos.Usuarios;
 import com.example.fitnes_hanma.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
@@ -31,61 +30,75 @@ import java.util.List;
 
 public class AdPInstructor extends AppCompatActivity {
     Intent i;
-    EditText searchClient;
-    TextView name, email;
+    EditText searchInstructor; // Cambié el nombre del EditText a searchInstructor
+    String userId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.a_ad_p_instructor);
 
-        searchClient = (EditText) findViewById(R.id.seCli);
+        searchInstructor = findViewById(R.id.seCli); // Cambié el ID a coincidir con el layout actual
         ImageView buscar = findViewById(R.id.buscar);
         ImageView regre = findViewById(R.id.regre);
         ImageView plus = findViewById(R.id.plus);
 
         ListView listViewInstructor = findViewById(R.id.listViewInstructor);
 
-
-        List<Instructor> intructList = new ArrayList<>();
-        InstructorAdapter adapter = new InstructorAdapter(this, intructList);
+        List<Instructor> instructorList = new ArrayList<>();
+        InstructorAdapter adapter = new InstructorAdapter(this, instructorList);
 
         // Configura el adaptador con el ListView
         listViewInstructor.setAdapter(adapter);
 
         // Recupera las clases de Firebase Firestore y agrega a la lista
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        CollectionReference userRef = db.collection("Instructor");
+        CollectionReference instructorRef = db.collection("trainer");
 
-        userRef.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        // Obtén todos los instructores por defecto
+        obtenerInstructores(instructorRef, adapter, instructorList);
+
+        // Agrega un TextWatcher al EditText para escuchar los cambios en el texto de búsqueda
+        searchInstructor.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                Log.d("AdPInstructor", "Número de documentos recuperados: " + queryDocumentSnapshots.size());
-                intructList.clear();
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                Log.d("TextWatcher", "beforeTextChanged: " + charSequence.toString());
+            }
 
-                for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-                    Instructor instruc = documentSnapshot.toObject(Instructor.class);
-                    if (instruc != null) {
-                        Log.d("AdPInstructor", "Usuario recuperado: " + instruc.getNombre());
-                        intructList.add(instruc);
-                    }
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                Log.d("TextWatcher", "onTextChanged: " + charSequence.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                Log.d("TextWatcher", "afterTextChanged: " + editable.toString());
+                String searchText = editable.toString().trim();
+                Log.d("SearchText", "Search Text: " + searchText);
+                if (searchText.isEmpty()) {
+                    // Si el campo de búsqueda está vacío, obtén todos los instructores nuevamente
+                    obtenerInstructores(instructorRef, adapter, instructorList);
+                } else {
+                    // Filtra la lista de instructores al escribir en el EditText
+                    filtrarInstructores(instructorRef, adapter, instructorList, searchText);
                 }
-                // Notifica al adaptador que los datos han cambiado
-                adapter.notifyDataSetChanged();
             }
         });
+
         listViewInstructor.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Obtén la clase seleccionada
-                Instructor instructorSelec = intructList.get(position);
+                // Obtén el instructor seleccionado
+                Instructor instructorSeleccionado = instructorList.get(position);
 
-                // Pasa los datos necesarios a AdSModCla
+                // Pasa los datos necesarios a AdSModIns
                 Intent intent = new Intent(AdPInstructor.this, AdSModIns.class);
-                intent.putExtra("Nombre", instructorSelec.getNombre());
-                intent.putExtra("Correo", instructorSelec.getCorreo());
+                intent.putExtra("Tname", instructorSeleccionado.getTname());
+                intent.putExtra("Temail", instructorSeleccionado.getTemail());
                 startActivity(intent);
             }
         });
+
         regre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,11 +106,66 @@ public class AdPInstructor extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
         plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 i = new Intent(AdPInstructor.this, AdPCliente.class);
                 startActivity(i);
+            }
+        });
+    }
+
+    private void obtenerInstructores(CollectionReference instructorRef, InstructorAdapter adapter, List<Instructor> instructorList) {
+        instructorRef.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                try {
+                    Log.d("AdPInstructor", "Número de documentos recuperados: " + queryDocumentSnapshots.size());
+                    instructorList.clear();
+
+                    for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                        Instructor instructor = documentSnapshot.toObject(Instructor.class);
+                        if (instructor != null) {
+                            Log.d("AdPInstructor", "Instructor recuperado: " + instructor.getTname());
+                            instructorList.add(instructor);
+                        }
+                    }
+                    // Notifica al adaptador que los datos han cambiado
+                    adapter.notifyDataSetChanged();
+                } catch (Exception e) {
+                    Log.e("AdPInstructor", "Error al procesar documentos", e);
+                }
+            }
+        });
+    }
+
+    private void filtrarInstructores(CollectionReference instructorRef, InstructorAdapter adapter, List<Instructor> instructorList, String searchText) {
+        // Filtra los instructores por el campo 'temail'
+        Query query = instructorRef.whereGreaterThanOrEqualTo("temail", searchText)
+                .whereLessThanOrEqualTo("temail", searchText + "\uf8ff");
+
+        Log.d("FiltrarInstructores", "Search Text: " + searchText);
+
+        query.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                try {
+                    Log.d("AdPInstructor", "Número de documentos recuperados: " + queryDocumentSnapshots.size());
+                    instructorList.clear();
+
+                    for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                        Instructor instructor = documentSnapshot.toObject(Instructor.class);
+                        if (instructor != null) {
+                            Log.d("AdPInstructor", "Instructor recuperado: " + instructor.getTname());
+                            instructorList.add(instructor);
+                        }
+                    }
+                    // Notifica al adaptador que los datos han cambiado
+                    adapter.notifyDataSetChanged();
+                } catch (Exception e) {
+                    Log.e("AdPInstructor", "Error al procesar documentos", e);
+                }
             }
         });
     }

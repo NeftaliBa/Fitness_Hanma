@@ -22,19 +22,17 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class AdSModCli extends AppCompatActivity {
+public class AdSModAdm extends AppCompatActivity {
     EditText nombre, email;
     Button cancelar, guardar;
     String userId; // Move the userId declaration here
 
     SwitchCompat trainer, admin;
     Intent i;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.a_ad_s_mod_cli);
-        nombre = (EditText) findViewById(R.id.Name);
+        setContentView(R.layout.activity_ad_smod_adm);nombre = (EditText) findViewById(R.id.Name);
         email = (EditText) findViewById(R.id.mail);
         trainer = (SwitchCompat) findViewById(R.id.trainer);
         admin = (SwitchCompat) findViewById(R.id.admin);
@@ -288,5 +286,4 @@ public class AdSModCli extends AppCompatActivity {
                 });
     }
 }
-
 

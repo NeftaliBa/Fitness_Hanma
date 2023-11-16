@@ -2,6 +2,11 @@ package com.example.fitnes_hanma.Admin.Principal;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import android.text.Editable;
+import android.text.TextWatcher;
+
+import android.util.Log;
 import android.view.View;
 import android.content.Intent;
 import android.widget.AdapterView;
@@ -18,12 +23,12 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
-import android.util.Log;
 
 public class AdPCliente extends AppCompatActivity {
     Intent i;
@@ -49,23 +54,36 @@ public class AdPCliente extends AppCompatActivity {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         CollectionReference userRef = db.collection("user");
 
-        userRef.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                Log.d("AdPCliente", "Número de documentos recuperados: " + queryDocumentSnapshots.size());
-                clientList.clear();
+        // Obtén todos los usuarios por defecto
+        obtenerUsuarios(userRef, adapter, clientList);
 
-                for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-                    Usuarios usuario = documentSnapshot.toObject(Usuarios.class);
-                    if (usuario != null) {
-                        Log.d("AdPCliente", "Usuario recuperado: " + usuario.getName());
-                        clientList.add(usuario);
-                    }
+        // Agrega un TextWatcher al EditText para escuchar los cambios en el texto de búsqueda
+        searchClient.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                Log.d("TextWatcher", "beforeTextChanged: " + charSequence.toString());
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                Log.d("TextWatcher", "onTextChanged: " + charSequence.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                Log.d("TextWatcher", "afterTextChanged: " + editable.toString());
+                String searchText = editable.toString().trim();
+                Log.d("SearchText", "Search Text: " + searchText);
+                if (searchText.isEmpty()) {
+                    // Si el campo de búsqueda está vacío, obtén todos los usuarios nuevamente
+                    obtenerUsuarios(userRef, adapter, clientList);
+                } else {
+                    // Filtra la lista de usuarios al escribir en el EditText
+                    filtrarUsuarios(userRef, adapter, clientList, searchText);
                 }
-                // Notifica al adaptador que los datos han cambiado
-                adapter.notifyDataSetChanged();
             }
         });
+
         listViewClientes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -77,6 +95,7 @@ public class AdPCliente extends AppCompatActivity {
                 intent.putExtra("name", clienteSeleccionado.getName());
                 intent.putExtra("email", clienteSeleccionado.getEmail());
                 intent.putExtra("role", clienteSeleccionado.getRole());
+                intent.putExtra("id", clienteSeleccionado.getId());
                 startActivity(intent);
             }
         });
@@ -87,7 +106,60 @@ public class AdPCliente extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+    private void obtenerUsuarios(CollectionReference userRef, UsuarioAdapter adapter, List<Usuarios> clientList) {
+        userRef.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                try {
+                    Log.d("AdPCliente", "Número de documentos recuperados: " + queryDocumentSnapshots.size());
+                    clientList.clear();
 
+                    for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                        Usuarios usuario = documentSnapshot.toObject(Usuarios.class);
+                        if (usuario != null) {
+                            Log.d("AdPCliente", "Usuario recuperado: " + usuario.getName());
+                            clientList.add(usuario);
+                        }
+                    }
+                    // Notifica al adaptador que los datos han cambiado
+                    adapter.notifyDataSetChanged();
+                } catch (Exception e) {
+                    Log.e("AdPCliente", "Error al procesar documentos", e);
+                }
+            }
+        });
     }
 
+    private void filtrarUsuarios(CollectionReference userRef, UsuarioAdapter adapter, List<Usuarios> clientList, String searchText) {
+        // Filtra los usuarios por el campo 'email'
+        Query query = userRef.whereGreaterThanOrEqualTo("email", searchText)
+                .whereLessThanOrEqualTo("email", searchText + "\uf8ff"); // \uf8ff es un carácter Unicode alto para garantizar el final del rango
+
+        Log.d("FiltrarUsuarios", "Search Text: " + searchText);
+
+        query.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                try {
+                    Log.d("AdPCliente", "Número de documentos recuperados: " + queryDocumentSnapshots.size());
+                    clientList.clear();
+
+                    for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                        Usuarios usuario = documentSnapshot.toObject(Usuarios.class);
+                        if (usuario != null) {
+                            Log.d("AdPCliente", "Usuario recuperado: " + usuario.getName());
+                            clientList.add(usuario);
+                        }
+                    }
+                    // Notifica al adaptador que los datos han cambiado
+                    adapter.notifyDataSetChanged();
+                } catch (Exception e) {
+                    Log.e("AdPCliente", "Error al procesar documentos", e);
+                }
+            }
+        });
+    }
 }
+
+

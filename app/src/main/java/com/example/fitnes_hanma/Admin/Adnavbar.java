@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import com.example.fitnes_hanma.Admin.Principal.AdPAdmin;
 import com.example.fitnes_hanma.Admin.Principal.AdPClases;
 import com.example.fitnes_hanma.Admin.Principal.AdPCliente;
 import com.example.fitnes_hanma.Admin.Principal.AdPInstructor;
@@ -44,6 +45,7 @@ public class Adnavbar extends Fragment {
         ImageView instructor = view.findViewById(R.id.instructor);
         ImageView clases = view.findViewById(R.id.clases);
         ImageView cliente = view.findViewById(R.id.cliente);
+        ImageView admin = view.findViewById(R.id.administrador);
 
         final ImageView[] selectedImageView = new ImageView[1];
         selectedImageView[0] = clases;
@@ -55,16 +57,28 @@ public class Adnavbar extends Fragment {
             clases.setColorFilter(ContextCompat.getColor(requireContext(), R.color.encendido));
             instructor.setColorFilter(ContextCompat.getColor(requireContext(), R.color.apagado));
             cliente.setColorFilter(ContextCompat.getColor(requireContext(), R.color.apagado));
+            admin.setColorFilter(ContextCompat.getColor(requireContext(), R.color.apagado));
+
         } else if (selectedView.equals("instructor")) {
             instructor.setColorFilter(ContextCompat.getColor(requireContext(), R.color.encendido));
             clases.setColorFilter(ContextCompat.getColor(requireContext(), R.color.apagado));
             cliente.setColorFilter(ContextCompat.getColor(requireContext(), R.color.apagado));
+            admin.setColorFilter(ContextCompat.getColor(requireContext(), R.color.apagado));
+
             selectedImageView[0] = instructor;
         } else if (selectedView.equals("cliente")) {
             cliente.setColorFilter(ContextCompat.getColor(requireContext(), R.color.encendido));
             clases.setColorFilter(ContextCompat.getColor(requireContext(), R.color.apagado));
             instructor.setColorFilter(ContextCompat.getColor(requireContext(), R.color.apagado));
+            admin.setColorFilter(ContextCompat.getColor(requireContext(), R.color.apagado));
+
             selectedImageView[0] = cliente;
+        } else if (selectedView.equals("administrador")) {
+            admin.setColorFilter(ContextCompat.getColor(requireContext(), R.color.encendido));
+            clases.setColorFilter(ContextCompat.getColor(requireContext(), R.color.apagado));
+            instructor.setColorFilter(ContextCompat.getColor(requireContext(), R.color.apagado));
+            cliente.setColorFilter(ContextCompat.getColor(requireContext(), R.color.apagado));
+            selectedImageView[0] = admin;
         }
 
         clases.setOnClickListener(new View.OnClickListener() {
@@ -111,6 +125,21 @@ public class Adnavbar extends Fragment {
 
                 // Luego, inicia la actividad relacionada
                 Intent intent = new Intent(getActivity(), AdPCliente.class);
+                startActivity(intent);
+            }
+        });
+        admin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectedImageView[0].setColorFilter(ContextCompat.getColor(requireContext(), R.color.apagado));
+                admin.setColorFilter(ContextCompat.getColor(requireContext(), R.color.encendido));
+                selectedImageView[0] = admin;
+
+                // Guardar la vista seleccionada en SharedPreferences
+                AdPreferenceManager.setSelectedView(requireContext(), "administrador");
+
+                // Luego, inicia la actividad relacionada
+                Intent intent = new Intent(getActivity(), AdPAdmin.class);
                 startActivity(intent);
             }
         });
