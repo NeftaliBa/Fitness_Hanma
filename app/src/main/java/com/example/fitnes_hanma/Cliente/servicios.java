@@ -13,9 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.fitnes_hanma.Instructor.configuraciones.Configuraciones;
 import com.example.fitnes_hanma.Objetos.Clases;
-import com.example.fitnes_hanma.Objetos.ClasesCienteAdapter;
 import com.example.fitnes_hanma.Objetos.claseInscribir;
 import com.example.fitnes_hanma.R;
 import com.example.fitnes_hanma.menuRL;

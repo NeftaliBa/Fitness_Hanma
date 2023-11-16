@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.fitnes_hanma.Instructor.configuraciones.Configuraciones;
 import com.example.fitnes_hanma.R;
 import com.example.fitnes_hanma.menuRL;
 import com.google.firebase.auth.FirebaseAuth;

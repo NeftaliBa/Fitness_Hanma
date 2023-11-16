@@ -22,7 +22,7 @@ import com.example.fitnes_hanma.Admin.Principal.AdPInstructor;
 import com.example.fitnes_hanma.Cliente.asistenciaQR;
 import com.example.fitnes_hanma.Cliente.servicios;
 import com.example.fitnes_hanma.Instructor.calendario.Calendario;
-import com.example.fitnes_hanma.Instructor.configuraciones.Configuraciones;
+import com.example.fitnes_hanma.Instructor.configuraciones.ConfiguracionIns;
 import com.example.fitnes_hanma.Instructor.grupo.Grupo;
 import com.example.fitnes_hanma.Instructor.home.Home;
 
@@ -81,7 +81,7 @@ public class MenuConceptual extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.m1) {
-            i = new Intent(MenuConceptual.this, Configuraciones.class);
+            i = new Intent(MenuConceptual.this, ConfiguracionIns.class);
             startActivity(i);
         } else if (item.getItemId() == R.id.m3) {
             finish();
@@ -125,7 +125,7 @@ public class MenuConceptual extends AppCompatActivity {
             i = new Intent(MenuConceptual.this, Grupo.class);
             startActivity(i);
         } else if (item.getItemId() == R.id.s4) {
-            i = new Intent(MenuConceptual.this, Configuraciones.class);
+            i = new Intent(MenuConceptual.this, ConfiguracionIns.class);
             startActivity(i);
 
             //Cliente

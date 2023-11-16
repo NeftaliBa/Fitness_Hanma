@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -15,7 +14,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.fitnes_hanma.Instructor.configuraciones.Configuraciones;
 import com.example.fitnes_hanma.R;
 import com.example.fitnes_hanma.menuRL;
 import com.google.firebase.auth.FirebaseAuth;
