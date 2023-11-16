@@ -69,7 +69,7 @@ public class register extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         // Configurar el título de la barra de herramientas
         TextView toolbarTitle = findViewById(R.id.toolbarTitle);
-        toolbarTitle.setText("Registrarse");
+        toolbarTitle.setText("Registrate");
 
 
 

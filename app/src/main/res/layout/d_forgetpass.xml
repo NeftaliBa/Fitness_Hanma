@@ -4,17 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".recuperarconstrasena">
+    tools:context=".recuperarconstrasena"
+    android:background="@drawable/desbanecido_inicios">>
 
-    <ImageView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:src="@drawable/recuperarcontra">
-    </ImageView>
+        android:layout_height="?attr/actionBarSize"
+        android:background="#00083E"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <!-- Botón de retroceso -->
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:contentDescription="Botón de retroceso"
+            android:src="@drawable/back_cli" />
+
+        <!-- Título de la barra de herramientas -->
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Recupera tu contraseña"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+    </androidx.appcompat.widget.Toolbar>
 
     <TextView
         android:id="@+id/titulo"
+        android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
@@ -28,54 +50,57 @@
         android:layout_marginTop="15dp">
     </TextView>
 
-    <TextView
-        android:id="@+id/titulo1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/salsa_font"
-        android:padding="5dp"
-        android:shadowColor="#000000"
-        android:shadowRadius="10"
-        android:text="Recupera tu contraseña"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="30sp"
-        android:layout_marginTop="380dp">
-    </TextView>
-
     <LinearLayout
+        android:id="@+id/form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="420dp"
-        android:orientation="vertical">
+        android:layout_below="@id/titulo"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/bordes_formulario_blanco"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/titulo1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/salsa_font"
+            android:padding="5dp"
+            android:text="Recupera tu contraseña"
+            android:textAlignment="center"
+            android:textColorHint="#4A4A4A"
+            android:textSize="30sp">
+        </TextView>
 
         <EditText
             android:id="@+id/editTextEmail"
+            android:hint="Correo electronico"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/rounded_border"
+            android:background="@drawable/borde_azul_claro"
             android:fontFamily="@font/salsa_font"
-            android:hint="Correo electronico"
-            android:padding="16dp"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:textColorHint="@color/white"
+            android:paddingHorizontal="16dp"
+            android:textColorHint="@color/encendido"
             android:textSize="16dp" />
 
         <Button
             android:id="@+id/aceptar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="75dp"
-            android:layout_marginTop="55dp"
-            android:layout_marginEnd="75dp"
-            android:backgroundTint="@color/aqua_default"
-            android:fontFamily="@font/salsa_font"
             android:text="Aceptar"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="75dp"
+            android:backgroundTint="#4B61FF"
+            android:fontFamily="@font/salsa_font"
+            android:padding="16dp"
+            android:textColor="@color/encendido"
             android:textSize="16dp"/>
+
     </LinearLayout>
 
 </RelativeLayout>

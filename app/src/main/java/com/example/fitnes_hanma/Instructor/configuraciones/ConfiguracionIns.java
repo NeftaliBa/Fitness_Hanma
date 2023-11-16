@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.fitnes_hanma.R;
 
-public class Configuraciones extends AppCompatActivity {
+public class ConfiguracionIns extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

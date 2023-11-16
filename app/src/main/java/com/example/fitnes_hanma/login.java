@@ -54,7 +54,7 @@ public class login extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         // Configurar el título de la barra de herramientas
         TextView toolbarTitle = findViewById(R.id.toolbarTitle);
-        toolbarTitle.setText("Iniciar sesión");
+        toolbarTitle.setText("Inicia sesión");
 
         mAuth = FirebaseAuth.getInstance();
         mDialog = new ProgressDialog(this);

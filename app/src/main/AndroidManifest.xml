@@ -98,7 +98,7 @@
             android:name=".Instructor.calendario.Calendario"
             android:exported="false" />
         <activity
-            android:name=".Instructor.configuraciones.Configuraciones"
+            android:name=".Instructor.configuraciones.ConfiguracionIns"
             android:exported="false" />
         <activity
             android:name=".Instructor.grupo.Grupo"

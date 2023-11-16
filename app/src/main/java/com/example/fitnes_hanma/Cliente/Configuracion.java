@@ -1,10 +1,8 @@
 package com.example.fitnes_hanma.Cliente;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +13,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.fitnes_hanma.Instructor.configuraciones.Configuraciones;
+import com.example.fitnes_hanma.Instructor.configuraciones.ConfiguracionIns;
 import com.example.fitnes_hanma.R;
 
 public class Configuracion extends AppCompatActivity {
@@ -59,7 +57,7 @@ public class Configuracion extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.m1) {
-            i = new Intent(Configuracion.this, Configuraciones.class);
+            i = new Intent(Configuracion.this, ConfiguracionIns.class);
             startActivity(i);
         } else if (item.getItemId() == R.id.m3) {
             finish();
