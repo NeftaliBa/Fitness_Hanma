@@ -69,7 +69,6 @@ public class AdSModCli extends AppCompatActivity {
                 admin.setChecked(false);
             }
             // Agregar listener para el SwitchCompat "trainer"
-            // Agregar listener para el SwitchCompat "trainer"
             trainer.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
