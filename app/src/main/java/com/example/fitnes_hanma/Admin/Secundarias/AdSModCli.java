@@ -25,8 +25,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class AdSModCli extends AppCompatActivity {
     EditText nombre, email;
     Button cancelar, guardar;
-    String userId; // Move the userId declaration here
-
+    String userId;
     SwitchCompat trainer, admin;
     Intent i;
 
@@ -170,7 +169,7 @@ public class AdSModCli extends AppCompatActivity {
                     });
         } else {
             // Si ninguno está activado, cambia el rol a 1
-            userRef.update("role", 1)
+            userRef.update("role", "1")
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {

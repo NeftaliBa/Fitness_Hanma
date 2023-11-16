@@ -9,16 +9,19 @@
     tools:context=".Admin.Secundarias.AdSModAdm">
 
   <TextView
+      android:id="@+id/tex"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:textAlignment="center"
+      android:layout_marginStart="10dp"
+      android:layout_marginTop="10dp"
+      android:layout_marginEnd="10dp"
+      android:layout_marginBottom="10dp"
       android:fontFamily="@font/salsa_font"
-      android:text="Actualizar informacion del cliente"
-      android:id="@+id/tex"
-      android:layout_margin="10dp"
+      android:text="Actualizar informacion del Administrador"
+      android:textAlignment="center"
       android:textColor="@color/white"
       android:textSize="30sp"
-      android:textStyle="bold"/>
+      android:textStyle="bold" />
 
   <LinearLayout
       android:id="@+id/campo1"
@@ -31,12 +34,12 @@
       android:padding="15dp">
 
     <EditText
-        android:id="@+id/Name"
+        android:id="@+id/anameModAdm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:backgroundTint="@color/white"
-        android:hint="Nombre del cliente"
+        android:hint="Nombre del Administrador"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:textStyle="bold" />
@@ -55,7 +58,7 @@
       android:padding="15dp">
 
     <EditText
-        android:id="@+id/mail"
+        android:id="@+id/aemailModAdm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -88,7 +91,7 @@
         android:textStyle="bold" />
 
     <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/admin"
+        android:id="@+id/adminModAdm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
@@ -116,7 +119,7 @@
         android:textColor="#FFFFFF"
         android:textStyle="bold"/>
     <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/trainer"
+        android:id="@+id/trainerModAdm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:switchMinWidth="50dp"
@@ -131,7 +134,7 @@
       android:layout_marginTop="40dp"
       >
     <Button
-        android:id="@+id/cancel"
+        android:id="@+id/cancelModAdm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="5"
@@ -139,7 +142,7 @@
         android:textColor="@color/white"
         android:backgroundTint="#FF5555"/>
     <Button
-        android:id="@+id/save"
+        android:id="@+id/saveModAdm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="5"

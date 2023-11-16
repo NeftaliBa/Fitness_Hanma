@@ -38,7 +38,7 @@ public class AdPInstructor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.a_ad_p_instructor);
 
-        searchInstructor = findViewById(R.id.seCli); // Cambié el ID a coincidir con el layout actual
+        searchInstructor = findViewById(R.id.seIns); // Cambié el ID a coincidir con el layout actual
         ImageView buscar = findViewById(R.id.buscar);
         ImageView regre = findViewById(R.id.regre);
         ImageView plus = findViewById(R.id.plus);
@@ -93,8 +93,10 @@ public class AdPInstructor extends AppCompatActivity {
 
                 // Pasa los datos necesarios a AdSModIns
                 Intent intent = new Intent(AdPInstructor.this, AdSModIns.class);
-                intent.putExtra("Tname", instructorSeleccionado.getTname());
-                intent.putExtra("Temail", instructorSeleccionado.getTemail());
+                intent.putExtra("tname", instructorSeleccionado.getTname());
+                intent.putExtra("temail", instructorSeleccionado.getTemail());
+                intent.putExtra("trole", instructorSeleccionado.getTrole());
+                intent.putExtra("tid", instructorSeleccionado.getTid());
                 startActivity(intent);
             }
         });
@@ -110,7 +112,7 @@ public class AdPInstructor extends AppCompatActivity {
         plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                i = new Intent(AdPInstructor.this, AdPCliente.class);
+                i = new Intent(AdPInstructor.this, AdSModIns.class);
                 startActivity(i);
             }
         });

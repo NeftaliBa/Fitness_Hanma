@@ -33,6 +33,7 @@ import java.util.List;
 public class AdPCliente extends AppCompatActivity {
     Intent i;
     EditText searchClient;
+    String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

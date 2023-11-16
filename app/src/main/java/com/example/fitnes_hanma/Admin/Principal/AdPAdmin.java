@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 
-import com.example.fitnes_hanma.Admin.Secundarias.AdSModCli;
+import com.example.fitnes_hanma.Admin.Secundarias.AdSModAdm;
 import com.example.fitnes_hanma.MenuConceptual;
 import com.example.fitnes_hanma.Objetos.Administrador;
 import com.example.fitnes_hanma.Objetos.AdministradorAdapter;
@@ -86,12 +86,12 @@ public class AdPAdmin extends AppCompatActivity {
                 // Obtén la clase seleccionada
                 Administrador adminSeleccionado = adminList.get(position);
 
-                // Pasa los datos necesarios a AdSModCli
-                Intent intent = new Intent(AdPAdmin.this, AdSModCli.class);
-                intent.putExtra("Aname", adminSeleccionado.getAname());
-                intent.putExtra("Aemail", adminSeleccionado.getAemail());
-                intent.putExtra("Arole", adminSeleccionado.getArole());
-                intent.putExtra("Aid", adminSeleccionado.getAid());
+                // Pasa los datos necesarios a AdSModAdm
+                Intent intent = new Intent(AdPAdmin.this, AdSModAdm.class);
+                intent.putExtra("aname", adminSeleccionado.getAname());
+                intent.putExtra("aemail", adminSeleccionado.getAemail());
+                intent.putExtra("arole", adminSeleccionado.getArole());
+                intent.putExtra("aid", adminSeleccionado.getAid());
                 startActivity(intent);
             }
         });
