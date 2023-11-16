@@ -63,7 +63,6 @@ public class AdPInstructor extends AppCompatActivity {
         toolbarTitle.setText("Menú de Instructor");
 
         searchInstructor = findViewById(R.id.seIns); // Cambié el ID a coincidir con el layout actual
-        ImageView plus = findViewById(R.id.plus);
 
         ListView listViewInstructor = findViewById(R.id.listViewInstructor);
 
@@ -120,14 +119,6 @@ public class AdPInstructor extends AppCompatActivity {
                 intent.putExtra("trole", instructorSeleccionado.getTrole());
                 intent.putExtra("tid", instructorSeleccionado.getTid());
                 startActivity(intent);
-            }
-        });
-
-        plus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                i = new Intent(AdPInstructor.this, AdSModIns.class);
-                startActivity(i);
             }
         });
     }
