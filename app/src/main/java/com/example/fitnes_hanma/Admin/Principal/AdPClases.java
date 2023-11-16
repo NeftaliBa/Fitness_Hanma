@@ -82,7 +82,6 @@ public class AdPClases extends AppCompatActivity {
 
 
         searchClases = (EditText) findViewById(R.id.seCla);
-        ImageView buscar = findViewById(R.id.buscar);
         ImageView plus = findViewById(R.id.plus);
 
         plus.setOnClickListener(new View.OnClickListener() {
