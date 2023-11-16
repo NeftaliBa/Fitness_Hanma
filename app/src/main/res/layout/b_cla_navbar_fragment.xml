@@ -6,48 +6,35 @@
     tools:context=".Instructor.fragments.Navbar">
 
     <LinearLayout
-        android:layout_marginHorizontal="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="15dp"
-        android:background="@drawable/ovalo_forma">
+        android:layout_height="60dp"
+        android:background="@drawable/navbaradminform">
+
         <ImageView
             android:id="@+id/iconoUsuario"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginVertical="10dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
             android:layout_weight="5"
-            android:src="@drawable/usuario" />
+            android:padding="10dp"
+            android:src="@drawable/principal" />
+
         <ImageView
             android:id="@+id/iconoCalendario"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginVertical="10dp"
+            android:layout_height="60dp"
+            android:padding="10dp"
             android:layout_weight="5"
-            android:src="@drawable/calendario" />
+            android:layout_gravity="center"
+            android:src="@drawable/admin_add_cla_clock" />
         <ImageView
             android:id="@+id/iconoSocial"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginVertical="10dp"
+            android:layout_height="60dp"
+            android:padding="10dp"
             android:layout_weight="5"
-            android:src="@drawable/charlar" />
-        <ImageView
-            android:id="@+id/iconoAjustes"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginVertical="10dp"
-            android:layout_weight="5"
-            android:src="@drawable/ajustes"/>
+            android:layout_gravity="center"
+            android:src="@drawable/avisos" />
     </LinearLayout>
 
 </FrameLayout>

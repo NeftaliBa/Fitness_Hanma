@@ -14,10 +14,11 @@
             android:id="@+id/principal"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:padding="10dp"
-            android:layout_weight="5"
             android:layout_gravity="center"
+            android:layout_weight="5"
+            android:padding="10dp"
             android:src="@drawable/principal" />
+
         <ImageView
             android:id="@+id/servicios"
             android:layout_width="match_parent"

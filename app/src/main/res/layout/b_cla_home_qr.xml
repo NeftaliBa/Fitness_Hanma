@@ -4,28 +4,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp"
-    tools:context=".Instructor.home.Home_QR">
+    tools:context=".Instructor.home.Home_QR"
+    android:background="#300667">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#00083E"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <!-- Botón de retroceso -->
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_cli"
+            android:layout_gravity="start"
+            android:contentDescription="Botón de retroceso"/>
+
+        <!-- Título de la barra de herramientas -->
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Generar codigo QR"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:layout_gravity="center"/>
+    </androidx.appcompat.widget.Toolbar>
 
     <EditText
         android:id="@+id/text"
-        android:hint="Introduce una palabra"
-        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="49dp"
+        android:gravity="center"
+        android:hint="Introduce un nombre"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"/>
+
     <Button
         android:id="@+id/button"
-        android:layout_width="171dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/text"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/secondary"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="110dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="112dp"
-        android:text="Generador"/>
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="75dp"
+        android:backgroundTint="#4B61FF"
+        android:fontFamily="@font/salsa_font"
+        android:padding="16dp"
+        android:text="Generar"
+        android:textColor="@color/encendido"
+        android:layout_centerHorizontal="true"
+        android:textSize="16dp"/>
     
     <ImageView
         android:id="@+id/qr_code"
@@ -34,14 +68,5 @@
         android:layout_below="@+id/button"
         android:layout_marginTop="15dp"
         android:scaleType="fitCenter"/>
-
-    <androidx.fragment.app.FragmentContainerView
-        android:name="com.example.fitnes_hanma.Instructor.fragments.Navbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/fragment_navbar"
-        tools:layout="@layout/b_cla_navbar_fragment" />
-
 
 </RelativeLayout>

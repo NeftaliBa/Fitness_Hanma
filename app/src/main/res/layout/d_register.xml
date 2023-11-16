@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.and
+    roid.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".register">
+    tools:context=".register"
+    android:background="@drawable/desbanecido_inicios">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -18,19 +20,20 @@
             android:id="@+id/backButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/back_cli"
             android:layout_gravity="start"
-            android:contentDescription="Botón de retroceso"/>
+            android:contentDescription="Botón de retroceso"
+            android:src="@drawable/back_cli" />
 
         <!-- Título de la barra de herramientas -->
         <TextView
             android:id="@+id/toolbarTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/salsa_font"
             android:text="Registrate"
             android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:layout_gravity="center"/>
+            android:textSize="20sp" />
     </androidx.appcompat.widget.Toolbar>
 
     <TextView
@@ -49,56 +52,55 @@
         android:layout_marginTop="15dp">
     </TextView>
 
-    <TextView
-        android:id="@+id/titulo1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/salsa_font"
-        android:padding="5dp"
-        android:shadowColor="#000000"
-        android:shadowRadius="10"
-        android:text="Registro"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="30sp"
-        android:layout_marginTop="280dp">
-    </TextView>
 
     <LinearLayout
+        android:id="@+id/form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="335dp"
-        android:orientation="vertical">
+        android:layout_below="@id/titulo"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="47dp"
+        android:background="@drawable/bordes_formulario_blanco"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/titulo1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/salsa_font"
+            android:padding="7dp"
+            android:text="Registro"
+            android:textAlignment="center"
+            android:textColorHint="#4A4A4A"
+            android:textSize="30sp"></TextView>
 
 
         <EditText
             android:id="@+id/nombreR"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/rounded_border"
-            android:fontFamily="@font/salsa_font"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="5dp"
             android:hint="Nombre completo"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:textColorHint="@color/gray"
+            android:background="@drawable/borde_azul_claro"
+            android:fontFamily="@font/salsa_font"
+            android:paddingHorizontal="16dp"
+            android:textColorHint="@color/encendido"
             android:textSize="16dp" />
 
         <EditText
             android:id="@+id/correoR"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginHorizontal="20dp"
             android:layout_marginTop="15dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/rounded_border"
+            android:background="@drawable/borde_azul_claro"
             android:fontFamily="@font/salsa_font"
             android:hint="Correo electronico"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:textColorHint="@color/gray"
-            android:textSize="16dp"/>
+            android:paddingHorizontal="16dp"
+            android:textColorHint="@color/encendido"
+            android:textSize="16dp" />
 
 
         <EditText
@@ -108,13 +110,13 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/rounded_border"
+            android:background="@drawable/borde_azul_claro"
             android:fontFamily="@font/salsa_font"
             android:hint="Contraseña"
+            android:inputType="textPassword"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:textColorHint="@color/gray"
-            android:inputType="textPassword"
+            android:textColorHint="@color/encendido"
             android:textSize="16dp" />
 
         <EditText
@@ -124,35 +126,36 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/rounded_border"
+            android:background="@drawable/borde_azul_claro"
             android:fontFamily="@font/salsa_font"
             android:hint="Confirmar contraseña"
+            android:inputType="textPassword"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:textColorHint="@color/gray"
-            android:inputType="textPassword"
+            android:textColorHint="@color/encendido"
             android:textSize="16dp" />
 
         <Button
+            android:id="@+id/btn_registro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="75dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="75dp"
-            android:padding="16dp"
-            android:backgroundTint="@color/aqua_default"
+            android:backgroundTint="#4B61FF"
             android:fontFamily="@font/salsa_font"
+            android:padding="16dp"
             android:text="Aceptar"
-            android:textColor="@color/white"
-            android:id="@+id/btn_registro"
+            android:textColor="@color/encendido"
             android:textSize="16dp" />
     </LinearLayout>
 
     <LinearLayout
+        android:layout_below="@+id/form"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="680dp">
+        android:layout_marginTop="30dp">
         <TextView
             android:id="@+id/iniciarSesion"
             android:layout_width="wrap_content"

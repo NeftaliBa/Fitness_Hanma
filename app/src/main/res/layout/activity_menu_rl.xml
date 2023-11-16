@@ -5,23 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".menuRL"
-    android:background="#300667">
-    
+    android:background="@drawable/desbanecido_inicios">
+
+    <ImageView
+        android:id="@+id/logofitness"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:src="@drawable/logo_fitness"></ImageView>
+
     <LinearLayout
+        android:layout_below="@id/logofitness"
         android:layout_width="350dp"
+        android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="250dp"
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/salsa_font"
             android:textColor="#FFFFFF"
             android:text="Fitness Hanma"
-            android:textSize="30dp"
+            android:textSize="40dp"
             android:layout_centerVertical="true"
+            android:textAlignment="center"
 
             />
         
@@ -30,21 +40,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Login"
-            android:backgroundTint="@color/aqua_default"
-            android:textColor="@color/gray"
+            android:backgroundTint="#4B61FF"
             android:fontFamily="@font/salsa_font"
+            android:padding="16dp"
+            android:textColor="@color/encendido"
             android:textSize="16dp"
-            android:padding="15dp"/>
+            android:layout_marginTop="10dp"/>
         <Button
             android:id="@+id/irRegistro"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Registro"
-            android:backgroundTint="@color/aqua_default"
-            android:textColor="@color/gray"
+            android:backgroundTint="#4B61FF"
             android:fontFamily="@font/salsa_font"
-            android:textSize="16dp"
-            android:padding="15dp"/>
+            android:padding="16dp"
+            android:textColor="@color/encendido"
+            android:textSize="16dp"/>
 
         
     </LinearLayout>

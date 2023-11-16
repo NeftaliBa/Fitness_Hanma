@@ -1,167 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/back_bg"
-    tools:context=".Instructor.home.Home">
+    tools:context=".Instructor.home.Home"
+    android:background="#300667">
 
-    <ScrollView
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="?attr/actionBarSize"
+        android:background="#00083E"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-        <LinearLayout
+        <!-- Título de la barra de herramientas -->
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/salsa_font"
+            android:text="Menu Principal"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+            android:layout_below="@id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="40dp">
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="Explorar"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:gravity="center"
+                    />
 
                 <ImageView
                     android:id="@+id/qr"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_alignParentRight="true"
                     android:background="@drawable/qr_icon" />
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/search"
+                android:padding="10dp"
+                android:layout_marginHorizontal="20dp">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="@string/search"
+                    android:textSize="20sp"
+                    android:id="@+id/buscador"
+                    android:textAlignment="center"
+                    android:background="@drawable/search"
+                    android:autofillHints=""
+                    android:inputType="textLongMessage" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/btnbuscar"
+                    android:background="@drawable/round_back_secondary_100"
+                    android:padding="12dp"
+                    android:src="@drawable/search_icon"
+                    android:contentDescription="@string/boton_buscar"
+                    android:layout_gravity="center_vertical|end" />
+            </FrameLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginHorizontal="20dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Explorar"
+                    android:text="Mis clases"
+                    android:textColor="#FFFFFF"
                     android:textSize="25dp"
                     android:textStyle="bold"
-                    android:textColor="#000"
-                    android:layout_marginLeft="5dp"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp">
-
-                <EditText
-                    android:layout_width="340dp"
-                    android:layout_height="55dp"
-                    android:hint="Search"
-                    android:textSize="14dp"
-                    android:background="@drawable/search_bg"
-                    android:paddingLeft="30dp"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginRight="40dp"/>
-
-                <ImageView
-                    android:id="@+id/privateAccountIcon"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/round_back_secondary_100"
-                    android:padding="12dp"
-                    android:src="@drawable/search_icon" />
-
-            </RelativeLayout>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Actividad Principal"
-                android:textSize="25dp"
-                android:textStyle="bold"
-                android:layout_marginTop="15dp"
-                android:textColor="#000"
-                android:layout_marginLeft="40dp"/>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:layout_marginTop="20dp">
-
-
-                <ImageView
-                    android:layout_width="70dp"
-                    android:layout_height="88dp"
-                    android:background="@drawable/card_1"
-                    android:layout_gravity="center" />
-
-                <ImageView
-                    android:layout_width="70dp"
-                    android:layout_height="88dp"
-                    android:background="@drawable/card_2"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="12dp"/>
-
-                <ImageView
-                    android:layout_width="70dp"
-                    android:layout_height="88dp"
-                    android:background="@drawable/card_3"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="12dp"/>
-
-                <ImageView
-                    android:layout_width="70dp"
-                    android:layout_height="88dp"
-                    android:background="@drawable/card_4"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="12dp"/>
-
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hoy"
-                android:textSize="25dp"
-                android:textStyle="bold"
-                android:textColor="#000"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="30dp"/>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="160dp">
+                    android:layout_gravity="center"/>
 
                 <ListView
                     android:id="@+id/eventListView"
-                    android:layout_width="360dp"
-                    android:layout_marginLeft="40dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="5"/>
-
+                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:divider="@drawable/divisor"
+                    android:showDividers="middle"
+                    />
             </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="IMC"
-                android:textSize="25dp"
-                android:layout_marginTop="30dp"
-                android:textStyle="bold"
-                android:textColor="#000"
-                android:layout_marginLeft="40dp"/>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
-
-
-
-            </RelativeLayout>
         </LinearLayout>
-
-    </ScrollView>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
 
         <androidx.fragment.app.FragmentContainerView
             android:name="com.example.fitnes_hanma.Instructor.fragments.Navbar"
@@ -170,6 +118,4 @@
             android:layout_alignParentBottom="true"
             android:id="@+id/fragment_navbar"
             tools:layout="@layout/b_cla_navbar_fragment" />
-
-    </RelativeLayout>
-</FrameLayout>
+</RelativeLayout>
