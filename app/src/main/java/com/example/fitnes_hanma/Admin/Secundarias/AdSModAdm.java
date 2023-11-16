@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
+import com.example.fitnes_hanma.Admin.Principal.AdPAdmin;
 import com.example.fitnes_hanma.Admin.Principal.AdPInstructor;
 import com.example.fitnes_hanma.Objetos.Administrador;
 import com.example.fitnes_hanma.Objetos.Instructor;
@@ -32,7 +33,7 @@ public class AdSModAdm extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ad_smod_adm);
+        setContentView(R.layout.a_ad_s_mod_adm);
         nombre = (EditText) findViewById(R.id.anameModAdm);
         email =(EditText) findViewById(R.id.aemailModAdm);
         admin = (SwitchCompat) findViewById(R.id.adminModAdm);

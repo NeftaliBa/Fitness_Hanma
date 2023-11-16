@@ -7,24 +7,32 @@
     android:background="@color/adbackcolor"
     tools:context=".Admin.Secundarias.AdSCreCla">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#00083E"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <!-- Título de la barra de herramientas -->
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Editar instructor"
+            android:layout_gravity="center"
+            android:fontFamily="@font/salsa_font"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"/>
+    </androidx.appcompat.widget.Toolbar>
+
     <LinearLayout
+        android:layout_marginTop="80dp"
+        android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginBottom="40dp"
         android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/tex"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="40dp"
-        android:fontFamily="@font/salsa_font"
-        android:text="Crear clase"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        android:textStyle="bold" />
 
         <ScrollView
             android:layout_width="match_parent"

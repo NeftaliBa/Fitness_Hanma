@@ -7,32 +7,39 @@
     tools:context=".Admin.Principal.AdPAdmin"
     android:background="@color/adbackcolor">
 
-    <ImageView
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:clickable="true"
-        android:id="@+id/regre"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:padding="5dp"
-        android:src="@drawable/admin_reg"
-        android:contentDescription="@string/regresar" />
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#00083E"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <!-- Botón de retroceso -->
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_cli"
+            android:layout_gravity="start"
+            android:contentDescription="Botón de retroceso"/>
+
+        <!-- Título de la barra de herramientas -->
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Menú de Administrador"
+            android:layout_gravity="center"
+            android:fontFamily="@font/salsa_font"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"/>
+    </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/regre"
+        android:layout_below="@+id/toolbar"
         android:orientation="vertical">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:fontFamily="@font/salsa_font"
-        android:text="Administrador"
-        android:id="@+id/tex"
-        android:textColor="@color/white"
-        android:textSize="40sp"
-        android:textStyle="bold"/>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -53,16 +60,6 @@
             android:autofillHints=""
             android:textColor="@color/black"
             android:inputType="textLongMessage" />
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:id="@+id/buscarAdm"
-            android:background="@drawable/round_back_secondary_100"
-            android:padding="12dp"
-            android:src="@drawable/search_icon"
-            android:contentDescription="@string/boton_buscar"
-            android:layout_gravity="center_vertical|end" />
     </FrameLayout>
     <LinearLayout
         android:layout_width="match_parent"

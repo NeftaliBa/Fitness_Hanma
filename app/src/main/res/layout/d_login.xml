@@ -30,7 +30,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/salsa_font"
-
             android:text="Iniciar sesión"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />

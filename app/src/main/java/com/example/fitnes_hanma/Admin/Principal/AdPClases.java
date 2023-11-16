@@ -1,17 +1,25 @@
 package com.example.fitnes_hanma.Admin.Principal;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import android.os.Bundle;
 
 import android.text.Editable;
 import android.text.TextWatcher;
 
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.content.Intent;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.example.fitnes_hanma.Cliente.Configuracion;
+import com.example.fitnes_hanma.Cliente.principal;
 import com.example.fitnes_hanma.MenuConceptual;
 import com.example.fitnes_hanma.Objetos.ClasesAdapter;
 import com.example.fitnes_hanma.Admin.Secundarias.AdSCreCla;
@@ -19,10 +27,15 @@ import com.example.fitnes_hanma.Admin.Secundarias.AdSModCla;
 import com.example.fitnes_hanma.R;
 
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 import com.example.fitnes_hanma.Objetos.Clases;
+import com.example.fitnes_hanma.menuRL;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -37,23 +50,41 @@ public class AdPClases extends AppCompatActivity {
     List<Clases> clasesList;  // Declarar como variable de instancia
     List<Clases> filteredList;  // Lista temporal para la búsqueda
     ClasesAdapter adapter;
+    FirebaseAuth firebaseAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.a_ad_p_clases);
 
-        searchClases = (EditText) findViewById(R.id.seCla);
-        ImageView buscar = findViewById(R.id.buscar);
-        ImageView regre = findViewById(R.id.regre);
-        ImageView plus = findViewById(R.id.plus);
-        regre.setOnClickListener(new View.OnClickListener() {
+        // Configurar el Toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        // Configurar el botón de retroceso
+        ImageView backButton = findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                i = new Intent(AdPClases.this, MenuConceptual.class);
-                startActivity(i);
+                // Al presionar el botón de retroceso, ir al activity principal
+                Intent intent = new Intent(AdPClases.this, MenuConceptual.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+                finish();
             }
         });
+
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        // Configurar el título de la barra de herramientas
+        TextView toolbarTitle = findViewById(R.id.toolbarTitle);
+        toolbarTitle.setText("Menú de Clases");
+
+
+        searchClases = (EditText) findViewById(R.id.seCla);
+        ImageView buscar = findViewById(R.id.buscar);
+        ImageView plus = findViewById(R.id.plus);
+
         plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -156,5 +187,24 @@ public class AdPClases extends AppCompatActivity {
 
         // Notifica al adaptador que los datos han cambiado
         adapter.notifyDataSetChanged();
+    }
+
+
+    //1. Opciones Toolbar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_admin_opciones, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.m2) {
+            firebaseAuth.signOut();
+            startActivity(new Intent(AdPClases.this, menuRL.class));
+            Toast.makeText(this, "Cerraste sesion", Toast.LENGTH_SHORT).show();
+        }
+        return true;
     }
 }

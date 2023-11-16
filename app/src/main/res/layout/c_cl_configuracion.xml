@@ -28,9 +28,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Configuración"
+            android:layout_gravity="center"
+            android:fontFamily="@font/salsa_font"
             android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:layout_gravity="center"/>
+            android:textSize="20sp"/>
     </androidx.appcompat.widget.Toolbar>
 
 </RelativeLayout>
