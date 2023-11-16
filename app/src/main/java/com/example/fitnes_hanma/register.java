@@ -153,13 +153,13 @@ public class register extends AppCompatActivity {
 
         //Obtener la identifiacion de usuario actual
         String id = firebaseAuth.getUid();
-
+        String role = "1";
         Map<String, Object> userData = new HashMap<>();
         userData.put("id", id);
         userData.put("email", email);
         userData.put("name", name);
         userData.put("password", password);
-        userData.put("role", 1);
+        userData.put("role", role);
 
         // Obtener una referencia a la colección "user" en Firestore
         FirebaseFirestore db = FirebaseFirestore.getInstance();

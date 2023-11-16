@@ -34,12 +34,12 @@
         android:padding="15dp">
 
         <EditText
-            android:id="@+id/Name"
+            android:id="@+id/tnameModIns"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:backgroundTint="@color/white"
-            android:hint="Nombre del cliente"
+            android:hint="Nombre del Instructor"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:textStyle="bold" />
@@ -58,7 +58,7 @@
         android:padding="15dp">
 
         <EditText
-            android:id="@+id/mail"
+            android:id="@+id/temailModIns"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -91,6 +91,7 @@
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/adminModIns"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -118,12 +119,10 @@
             android:textColor="#FFFFFF"
             android:textStyle="bold"/>
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/trainerModIns"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
             android:switchMinWidth="50dp"
-            android:id="@+id/trainer"
             android:theme="@style/nightModeSwitch"/>
     </LinearLayout>
 
@@ -135,15 +134,15 @@
         android:layout_marginTop="40dp"
         >
         <Button
-            android:id="@+id/cancel"
+            android:id="@+id/cancelModIns"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="5"
             android:text="Cancelar"
-            android:textColor="@color/black"
-            android:backgroundTint="@color/gris"/>
+            android:textColor="@color/white"
+            android:backgroundTint="#FF5555"/>
         <Button
-            android:id="@+id/save"
+            android:id="@+id/saveModIns"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="5"

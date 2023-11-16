@@ -1,57 +1,56 @@
 package com.example.fitnes_hanma.Objetos;
 
 public class Instructor {
-    String Contraseña, Correo, Nombre, Role, id;
+    String Temail, Tid, Tname, Tpassword, Trole;
 
     public Instructor() {
     }
 
-    public Instructor(String contraseña, String correo, String nombre, String role, String id) {
-        Contraseña = contraseña;
-        Correo = correo;
-        Nombre = nombre;
-        Role = role;
-        this.id = id;
+    public Instructor(String temail, String tid, String tname, String tpassword, String trole) {
+        Temail = temail;
+        Tid = tid;
+        Tname = tname;
+        Tpassword = tpassword;
+        Trole = trole;
     }
 
-    public String getContraseña() {
-        return Contraseña;
+    public String getTemail() {
+        return Temail;
     }
 
-    public void setContraseña(String contraseña) {
-        Contraseña = contraseña;
+    public void setTemail(String temail) {
+        Temail = temail;
     }
 
-    public String getCorreo() {
-        return Correo;
+    public String getTid() {
+        return Tid;
     }
 
-    public void setCorreo(String correo) {
-        Correo = correo;
+    public void setTid(String tid) {
+        Tid = tid;
     }
 
-    public String getNombre() {
-        return Nombre;
+    public String getTname() {
+        return Tname;
     }
 
-    public void setNombre(String nombre) {
-        Nombre = nombre;
+    public void setTname(String tname) {
+        Tname = tname;
     }
 
-
-    public String getRole() {
-        return Role;
+    public String getTpassword() {
+        return Tpassword;
     }
 
-    public void setRole(String role) {
-        Role = role;
+    public void setTpassword(String tpassword) {
+        Tpassword = tpassword;
     }
 
-    public String getId() {
-        return id;
+    public String getTrole() {
+        return Trole;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setTrole(String trole) {
+        Trole = trole;
     }
 }

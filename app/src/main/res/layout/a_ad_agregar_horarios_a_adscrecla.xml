@@ -4,7 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginVertical="40dp"
     android:background="@drawable/cuadro_verde"
     android:padding="15dp"
     >
@@ -15,7 +14,9 @@
         android:layout_weight="5"
         android:id="@+id/day"
         android:textSize="15dp"
-        android:autofillHints="Seleccionar dia"/>
+        android:autofillHints="Seleccionar dia"
+
+        />
 
     <Button
         android:layout_width="match_parent"

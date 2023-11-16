@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
+import com.example.fitnes_hanma.Admin.Principal.AdPAdmin;
 import com.example.fitnes_hanma.Admin.Principal.AdPCliente;
 import com.example.fitnes_hanma.Objetos.Administrador;
 import com.example.fitnes_hanma.Objetos.Instructor;
@@ -22,38 +23,38 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class AdSModCli extends AppCompatActivity {
+public class AdSModAdm extends AppCompatActivity {
     EditText nombre, email;
     Button cancelar, guardar;
-    String userId;
+    String userId; // Move the userId declaration here
+
     SwitchCompat trainer, admin;
     Intent i;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.a_ad_s_mod_cli);
-        nombre = (EditText) findViewById(R.id.Name);
-        email = (EditText) findViewById(R.id.mail);
-        trainer = (SwitchCompat) findViewById(R.id.trainer);
-        admin = (SwitchCompat) findViewById(R.id.admin);
-        cancelar = (Button) findViewById(R.id.cancel);
-        guardar = (Button) findViewById(R.id.save);
+        setContentView(R.layout.activity_ad_smod_adm);
+        nombre = (EditText) findViewById(R.id.anameModAdm);
+        email = (EditText) findViewById(R.id.aemailModAdm);
+        trainer = (SwitchCompat) findViewById(R.id.trainerModAdm);
+        admin = (SwitchCompat) findViewById(R.id.adminModAdm);
+        cancelar = (Button) findViewById(R.id.cancelModAdm);
+        guardar = (Button) findViewById(R.id.saveModAdm);
         Intent intent = getIntent();
         if (intent != null) {
-            String name = intent.getStringExtra("name");
-            String correo = intent.getStringExtra("email");
-            String SuserRole = intent.getStringExtra("role");
-            userId = intent.getStringExtra("id");
+            String aname = intent.getStringExtra("aname");
+            String aemail = intent.getStringExtra("aemail");
+            String SuserRole = intent.getStringExtra("arole");
+            userId = intent.getStringExtra("aid");
 
 
             // Obtén una referencia a la colección "clases" en Firestore
             FirebaseFirestore db = FirebaseFirestore.getInstance();
-            CollectionReference clieRef = db.collection("user");
+            CollectionReference clieRef = db.collection("admin");
 
             // Configura los campos con los datos
-            nombre.setText(name);
-            email.setText(correo);
+            nombre.setText(aname);
+            email.setText(aemail);
 
             int userRole = Integer.parseInt(SuserRole);
 
@@ -68,7 +69,6 @@ public class AdSModCli extends AppCompatActivity {
                 trainer.setChecked(false);
                 admin.setChecked(false);
             }
-            // Agregar listener para el SwitchCompat "trainer"
             // Agregar listener para el SwitchCompat "trainer"
             trainer.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
@@ -95,7 +95,7 @@ public class AdSModCli extends AppCompatActivity {
                 public void onClick(View v) {
                     // Actualizar el rol y los datos solo cuando se presiona el botón "Guardar"
                     updateDataAndRoleInFirestore();
-                    i = new Intent(AdSModCli.this, AdPCliente.class);
+                    i = new Intent(AdSModAdm.this, AdPAdmin.class);
                     startActivity(i);
                 }
             });
@@ -103,7 +103,7 @@ public class AdSModCli extends AppCompatActivity {
             cancelar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    i = new Intent(AdSModCli.this, AdPCliente.class);
+                    i = new Intent(AdSModAdm.this, AdPAdmin.class);
                     startActivity(i);
                 }
             });
@@ -113,10 +113,10 @@ public class AdSModCli extends AppCompatActivity {
     private void updateDataAndRoleInFirestore() {
         // Obtener una referencia al documento del usuario en Firestore
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        DocumentReference userRef = db.collection("user").document(userId);
+        DocumentReference userRef = db.collection("admin").document(userId);
 
         // Actualizar el campo de nombre y correo en Firestore
-        userRef.update("name", nombre.getText().toString(), "email", email.getText().toString())
+        userRef.update("aname", nombre.getText().toString(), "aemail", email.getText().toString())
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -137,7 +137,7 @@ public class AdSModCli extends AppCompatActivity {
         // Actualizar el campo de rol según el estado de los Switch "trainer" y "admin"
         if (isTrainerChecked && !isAdminChecked) {
             // Si "trainer" está activado y "admin" no está activado, cambia el rol a 3
-            userRef.update("role", "3")
+            userRef.update("arole", "3")
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
@@ -153,7 +153,7 @@ public class AdSModCli extends AppCompatActivity {
                     });
         } else if (isAdminChecked && !isTrainerChecked) {
             // Si "admin" está activado y "trainer" no está activado, cambia el rol a 5
-            userRef.update("role", "5")
+            userRef.update("arole", "5")
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
@@ -169,7 +169,7 @@ public class AdSModCli extends AppCompatActivity {
                     });
         } else {
             // Si ninguno está activado, cambia el rol a 1
-            userRef.update("role", "1")
+            userRef.update("arole", "1")
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
@@ -188,7 +188,7 @@ public class AdSModCli extends AppCompatActivity {
     private void moveUserToTrainerCollection() {
         // Obtener una referencia al documento del usuario en Firestore
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        DocumentReference userRef = db.collection("user").document(userId);
+        DocumentReference userRef = db.collection("admin").document(userId);
 
         // Obtener los datos del usuario
         userRef.get()
@@ -198,15 +198,15 @@ public class AdSModCli extends AppCompatActivity {
                         // Verificar si el documento existe
                         if (documentSnapshot.exists()) {
                             // Obtener los datos del usuario
-                            String userEmail = documentSnapshot.getString("email");
-                            String userName = documentSnapshot.getString("name");
-                            String userPassword = documentSnapshot.getString("password");
+                            String adminEmail = documentSnapshot.getString("aemail");
+                            String adminName = documentSnapshot.getString("aname");
+                            String adminPassword = documentSnapshot.getString("apassword");
 
                             // Crear una referencia para el nuevo documento en la colección "trainer"
                             DocumentReference trainerRef = db.collection("trainer").document(userId);
 
                             // Guardar los datos en la colección "trainer"
-                            trainerRef.set(new Instructor(userEmail, userId, userName, userPassword, "3"))
+                            trainerRef.set(new Instructor(adminEmail, userId, adminName, adminPassword, "3"))
                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void aVoid) {
@@ -238,15 +238,15 @@ public class AdSModCli extends AppCompatActivity {
                         // Verificar si el documento existe
                         if (documentSnapshot.exists()) {
                             // Obtener los datos del usuario
-                            String userEmail = documentSnapshot.getString("email");
-                            String userName = documentSnapshot.getString("name");
-                            String userPassword = documentSnapshot.getString("password");
+                            String adminEmail = documentSnapshot.getString("aemail");
+                            String adminName = documentSnapshot.getString("aname");
+                            String adminPassword = documentSnapshot.getString("apassword");
 
-                            // Crear una referencia para el nuevo documento en la colección "admin"
-                            DocumentReference adminRef = db.collection("admin").document(userId);
+                            // Crear una referencia para el nuevo documento en la colección "user"
+                            DocumentReference adminRef = db.collection("user").document(userId);
 
                             // Guardar los datos en la colección "admin"
-                            adminRef.set(new Administrador(userEmail, userId, userName, userPassword, "5"))
+                            adminRef.set(new Administrador(adminEmail, userId, adminName, adminPassword, "1"))
                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void aVoid) {
@@ -268,7 +268,7 @@ public class AdSModCli extends AppCompatActivity {
     private void deleteUserFromUserCollection() {
         // Obtener una referencia al documento del usuario en Firestore
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        DocumentReference userRef = db.collection("user").document(userId);
+        DocumentReference userRef = db.collection("admin").document(userId);
 
         // Eliminar el usuario de la colección "user"
         userRef.delete()
@@ -287,5 +287,4 @@ public class AdSModCli extends AppCompatActivity {
                 });
     }
 }
-
 

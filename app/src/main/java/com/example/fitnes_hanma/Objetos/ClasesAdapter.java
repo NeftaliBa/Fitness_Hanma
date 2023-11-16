@@ -38,4 +38,10 @@ public class ClasesAdapter extends ArrayAdapter<Clases> {
 
         return convertView;
     }
+    public void setData(List<Clases> dataList) {
+        clear(); // Limpia la lista actual del adaptador
+        if (dataList != null) {
+            addAll(dataList); // Agrega todos los elementos de la nueva lista
+        }
+    }
 }

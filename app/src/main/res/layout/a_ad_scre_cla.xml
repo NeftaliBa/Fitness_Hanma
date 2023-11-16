@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="40dp"
         android:orientation="vertical">
 
     <TextView
@@ -29,6 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:id="@+id/scroll"
             >
             <LinearLayout
                 android:layout_width="match_parent"
@@ -120,12 +122,15 @@
                     android:contentDescription="@string/boton_buscar"
                     android:layout_gravity="center_vertical|end" />
             </FrameLayout>
-                <!--
+
                 <Button
+                    android:layout_marginTop="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Agregar horario"
                     android:id="@+id/newH"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/verde_gris"
                     />
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -135,71 +140,34 @@
                     android:orientation="vertical"
                     >
                 </LinearLayout>
-                -->
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent"
 
-                    <include layout="@layout/a_ad_day_1lunes"
-                        android:id="@+id/lun"/>
+                    >
 
-                    <include layout="@layout/a_ad_day_2martes"
-                        android:id="@+id/mar"/>
+                    <Button
+                        android:id="@+id/cancelCreCla"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Cancelar"
+                        android:textColor="@color/white"
+                        android:backgroundTint="#FF5555"/>
 
-                    <include layout="@layout/a_ad_day_3miercoles"
-                        android:id="@+id/mie"/>
-
-                    <include layout="@layout/a_ad_day_4jueves"
-                        android:id="@+id/jue"/>
-
-                    <include layout="@layout/a_ad_day_5viernes"
-                        android:id="@+id/vie"/>
-
-                    <include layout="@layout/a_ad_day_6sabado"
-                        android:id="@+id/sab"/>
-
-                    <include layout="@layout/a_ad_day_7domingo"
-                        android:id="@+id/dom"/>
+                    <Button
+                        android:id="@+id/save"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Guardar"
+                        android:textColor="@color/white"
+                        android:backgroundTint="@color/verde1"/>
                 </LinearLayout>
-
-
-
-
-
-
             </LinearLayout>
         </ScrollView>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginVertical="40dp"
-            >
-            <!-- Contenido principal de tu aplicación -->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentBottom="true">
 
-                <Button
-                    android:id="@+id/cancel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Cancelar"
-                    android:textColor="@color/white"
-                    android:backgroundTint="#FF5555"/>
-
-                <Button
-                    android:id="@+id/save"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Guardar"
-                    android:textColor="@color/white"
-                    android:backgroundTint="@color/verde1"/>
-            </LinearLayout>
-        </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>

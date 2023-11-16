@@ -3,6 +3,7 @@ package com.example.fitnes_hanma.Admin.Secundarias;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -35,7 +36,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-public class AdSCreCla extends AppCompatActivity implements /*View.OnClickListener,*/ AdapterView.OnItemSelectedListener {
+public class AdSCreCla extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
     private FirebaseFirestore db;
     private FirebaseAuth auth;
@@ -47,6 +48,7 @@ public class AdSCreCla extends AppCompatActivity implements /*View.OnClickListen
     Spinner semsem;
     LinearLayout horarioContainer;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,16 +62,15 @@ public class AdSCreCla extends AppCompatActivity implements /*View.OnClickListen
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
 
-        cancelar = (Button) findViewById(R.id.cancel);
+        cancelar = (Button) findViewById(R.id.cancelCreCla);
         guardar = (Button) findViewById(R.id.save);
         nomCla = (EditText) findViewById(R.id.claNa);
         desCla = (EditText) findViewById(R.id.desCla);
         nomIns = (EditText) findViewById(R.id.naInst);
         LimCli = (EditText) findViewById(R.id.limCli);
         hour = (Button) findViewById(R.id.hourButton);
-
-        //newH = (Button) findViewById(R.id.newH);
-        //horarioContainer = findViewById(R.id.horarioContainer);
+        newH = (Button) findViewById(R.id.newH);
+        horarioContainer = findViewById(R.id.horarioContainer);
 
         cancelar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,84 +120,58 @@ public class AdSCreCla extends AppCompatActivity implements /*View.OnClickListen
             }
         });
 
-        hour.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Calendar calendario = Calendar.getInstance();
-                int horaActual = calendario.get(Calendar.HOUR_OF_DAY);
-                int minutoActual = calendario.get(Calendar.MINUTE);
-                TimePickerDialog timePickerDialog = new TimePickerDialog(AdSCreCla.this, R.style.MyTimePickerDialog, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        // Verifica si es AM o PM
-                        String amPm;
-                        if (hourOfDay < 12) {
-                            amPm = "AM";
-                        } else {
-                            amPm = "PM";
-                            if (hourOfDay > 12) {
-                                hourOfDay -= 12;
-                            }
-                        }
-                        String horaSeleccionada = String.format(Locale.getDefault(), "%02d:%02d %s", hourOfDay, minute, amPm);
-                        hour.setText(horaSeleccionada);
-                    }
-                }, horaActual, minutoActual, false); // El último argumento es "false" para utilizar el formato de 12 horas
-                timePickerDialog.show();
-            }
-        });
-        //newH.setOnClickListener(this);
+        newH.setOnClickListener(this);
 
     }
-    //@Override
-    //public void onClick(View v) {
-    //    if (v.getId() == R.id.newH) {
-    //        // Inflar el diseño del LinearLayout
-    //        LayoutInflater inflater = getLayoutInflater();
-    //        View horarioView = inflater.inflate(R.layout.a_ad_agregar_horarios_a_adscrecla, null);
-//
-    //        // Agregar el LinearLayout al contenedor
-    //        horarioContainer.addView(horarioView);
-//
-    //        // Buscar y encontrar los elementos dentro del diseño del horario
-    //        semsem = horarioView.findViewById(R.id.day);
-    //        hour = horarioView.findViewById(R.id.hour);
-//
-    //        // Resto de tu código para configurar el Spinner y el Button
-    //        ArrayAdapter<String> aa = new ArrayAdapter<String>(
-    //                AdSCreCla.this, androidx.constraintlayout.widget.R.layout.support_simple_spinner_dropdown_item, Semana);
-//
-    //        semsem.setAdapter(aa);
-    //        semsem.setOnItemSelectedListener(this);
-//
-    //        hour.setOnClickListener(new View.OnClickListener() {
-    //            @Override
-    //            public void onClick(View v) {
-    //                final Calendar calendario = Calendar.getInstance();
-    //                int horaActual = calendario.get(Calendar.HOUR_OF_DAY);
-    //                int minutoActual = calendario.get(Calendar.MINUTE);
-    //                TimePickerDialog timePickerDialog = new TimePickerDialog(AdSCreCla.this, R.style.MyTimePickerDialog, new TimePickerDialog.OnTimeSetListener() {
-    //                    @Override
-    //                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-    //                        // Verifica si es AM o PM
-    //                        String amPm;
-    //                        if (hourOfDay < 12) {
-    //                            amPm = "AM";
-    //                        } else {
-    //                            amPm = "PM";
-    //                            if (hourOfDay > 12) {
-    //                                hourOfDay -= 12;
-    //                            }
-    //                        }
-    //                        String horaSeleccionada = String.format(Locale.getDefault(), "%02d:%02d %s", hourOfDay, minute, amPm);
-    //                        hour.setText(horaSeleccionada);
-    //                    }
-    //                }, horaActual, minutoActual, false); // El último argumento es "false" para utilizar el formato de 12 horas
-    //                timePickerDialog.show();
-    //            }
-    //        });
-    //    }
-    //}
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.newH) {
+            // Inflar el diseño del LinearLayout
+            LayoutInflater inflater = getLayoutInflater();
+            View horarioView = inflater.inflate(R.layout.a_ad_agregar_horarios_a_adscrecla, null);
+
+            // Agregar el LinearLayout al contenedor
+            horarioContainer.addView(horarioView);
+
+            // Buscar y encontrar los elementos dentro del diseño del horario
+            semsem = horarioView.findViewById(R.id.day);
+            hour = horarioView.findViewById(R.id.hour);
+
+            // Resto de tu código para configurar el Spinner y el Button
+            ArrayAdapter<String> aa = new ArrayAdapter<String>(
+                    AdSCreCla.this, androidx.constraintlayout.widget.R.layout.support_simple_spinner_dropdown_item, Semana);
+
+            semsem.setAdapter(aa);
+            semsem.setOnItemSelectedListener(this);
+
+            hour.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final Calendar calendario = Calendar.getInstance();
+                    int horaActual = calendario.get(Calendar.HOUR_OF_DAY);
+                    int minutoActual = calendario.get(Calendar.MINUTE);
+                    TimePickerDialog timePickerDialog = new TimePickerDialog(AdSCreCla.this, R.style.MyTimePickerDialog, new TimePickerDialog.OnTimeSetListener() {
+                        @Override
+                        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                            // Verifica si es AM o PM
+                            String amPm;
+                            if (hourOfDay < 12) {
+                                amPm = "AM";
+                            } else {
+                                amPm = "PM";
+                                if (hourOfDay > 12) {
+                                    hourOfDay -= 12;
+                                }
+                            }
+                            String horaSeleccionada = String.format(Locale.getDefault(), "%02d:%02d %s", hourOfDay, minute, amPm);
+                            hour.setText(horaSeleccionada);
+                        }
+                    }, horaActual, minutoActual, false); // El último argumento es "false" para utilizar el formato de 12 horas
+                    timePickerDialog.show();
+                }
+            });
+        }
+    }
 
 
 
