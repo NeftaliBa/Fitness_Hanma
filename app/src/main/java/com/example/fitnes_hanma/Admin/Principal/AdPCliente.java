@@ -1,6 +1,8 @@
 package com.example.fitnes_hanma.Admin.Principal;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import android.os.Bundle;
 
 import android.text.Editable;
@@ -13,6 +15,8 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.example.fitnes_hanma.Cliente.Configuracion;
+import com.example.fitnes_hanma.Cliente.principal;
 import com.example.fitnes_hanma.MenuConceptual;
 import com.example.fitnes_hanma.R;
 import com.example.fitnes_hanma.Objetos.Usuarios;
@@ -27,6 +31,8 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import android.widget.ListView;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,9 +46,30 @@ public class AdPCliente extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.a_ad_p_cliente);
 
+        // Configurar el Toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        // Configurar el botón de retroceso
+        ImageView backButton = findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Al presionar el botón de retroceso, ir al activity principal
+                Intent intent = new Intent(AdPCliente.this, MenuConceptual.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        // Configurar el título de la barra de herramientas
+        TextView toolbarTitle = findViewById(R.id.toolbarTitle);
+        toolbarTitle.setText("Menú de Clientes");
+
+
         searchClient = (EditText) findViewById(R.id.seCli);
-        ImageView buscar = findViewById(R.id.buscar);
-        ImageView regre = findViewById(R.id.regre);
         ListView listViewClientes = findViewById(R.id.listviewCliente);
 
         List<Usuarios> clientList = new ArrayList<>();
@@ -98,13 +125,6 @@ public class AdPCliente extends AppCompatActivity {
                 intent.putExtra("role", clienteSeleccionado.getRole());
                 intent.putExtra("id", clienteSeleccionado.getId());
                 startActivity(intent);
-            }
-        });
-        regre.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                i = new Intent(AdPCliente.this, MenuConceptual.class);
-                startActivity(i);
             }
         });
     }

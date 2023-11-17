@@ -1,6 +1,7 @@
 package com.example.fitnes_hanma.Admin.Principal;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.fitnes_hanma.Admin.Secundarias.AdSModIns;
 import com.example.fitnes_hanma.MenuConceptual;
@@ -38,9 +40,29 @@ public class AdPInstructor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.a_ad_p_instructor);
 
+        // Configurar el Toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        // Configurar el botón de retroceso
+        ImageView backButton = findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Al presionar el botón de retroceso, ir al activity principal
+                Intent intent = new Intent(AdPInstructor.this, MenuConceptual.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        // Configurar el título de la barra de herramientas
+        TextView toolbarTitle = findViewById(R.id.toolbarTitle);
+        toolbarTitle.setText("Menú de Instructor");
+
         searchInstructor = findViewById(R.id.seIns); // Cambié el ID a coincidir con el layout actual
-        ImageView buscar = findViewById(R.id.buscar);
-        ImageView regre = findViewById(R.id.regre);
         ImageView plus = findViewById(R.id.plus);
 
         ListView listViewInstructor = findViewById(R.id.listViewInstructor);
@@ -98,14 +120,6 @@ public class AdPInstructor extends AppCompatActivity {
                 intent.putExtra("trole", instructorSeleccionado.getTrole());
                 intent.putExtra("tid", instructorSeleccionado.getTid());
                 startActivity(intent);
-            }
-        });
-
-        regre.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                i = new Intent(AdPInstructor.this, MenuConceptual.class);
-                startActivity(i);
             }
         });
 
