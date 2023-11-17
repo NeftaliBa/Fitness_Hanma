@@ -41,18 +41,7 @@ public class AdSModIns extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // Configurar el botón de retroceso
-        ImageView backButton = findViewById(R.id.backButton);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Al presionar el botón de retroceso, ir al activity principal
-                Intent intent = new Intent(AdSModIns.this, AdPInstructor.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                startActivity(intent);
-                finish();
-            }
-        });
+
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         // Configurar el título de la barra de herramientas

@@ -19,7 +19,7 @@
             android:id="@+id/toolbarTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Editar instructor"
+            android:text="Crear clases"
             android:layout_gravity="center"
             android:fontFamily="@font/salsa_font"
             android:textColor="#FFFFFF"
@@ -59,6 +59,7 @@
                     android:layout_marginStart="10dp"
                     android:backgroundTint="@color/white"
                     android:hint="Nombre de la clase"
+                    android:minHeight="48dp"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
                     android:textStyle="bold" />
@@ -79,6 +80,7 @@
                     android:layout_marginStart="10dp"
                     android:backgroundTint="@color/white"
                     android:hint="Descripcion"
+                    android:minHeight="48dp"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
                     android:textStyle="bold" />
@@ -99,10 +101,11 @@
                     android:layout_marginStart="10dp"
                     android:backgroundTint="@color/white"
                     android:hint="Limite de clientes"
+                    android:inputType="number"
+                    android:minHeight="48dp"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
-                    android:textStyle="bold"
-                    android:inputType="number"/>
+                    android:textStyle="bold" />
             </LinearLayout>
             <FrameLayout
                 android:layout_width="match_parent"
@@ -120,15 +123,6 @@
                     android:autofillHints=""
                     android:inputType="textLongMessage" />
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:id="@+id/buscar"
-                    android:background="@drawable/round_back_secondary_100"
-                    android:padding="12dp"
-                    android:src="@drawable/search_icon"
-                    android:contentDescription="@string/boton_buscar"
-                    android:layout_gravity="center_vertical|end" />
             </FrameLayout>
 
                 <Button
