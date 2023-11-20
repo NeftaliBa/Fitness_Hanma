@@ -74,26 +74,6 @@
         android:layout_marginBottom="80dp"
         android:layout_below="@+id/search">
 
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginStart="30dp"
-            android:id="@+id/buttons"
-            android:textAlignment="center"
-            >
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:id="@+id/plus"
-                android:src="@drawable/admin_add"
-                android:layout_marginHorizontal="10dp"
-                android:background="@drawable/admin_backadd"
-                android:padding="5dp"
-                android:contentDescription="@string/boton_mas" />
-        </LinearLayout>
-
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

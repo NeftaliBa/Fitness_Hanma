@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,8 +35,7 @@ import java.util.regex.Pattern;
 
 public class register extends AppCompatActivity {
     EditText nombre, correo, contrasena, confirmContra;
-    Button btn_registro;
-    TextView iniciarSesion;
+    LinearLayout btn_registro, iniciarSesion;
     Intent i;
 
     FirebaseAuth firebaseAuth;
@@ -77,8 +77,8 @@ public class register extends AppCompatActivity {
         correo = (EditText) findViewById(R.id.correoR);
         contrasena = (EditText) findViewById(R.id.contrasenaR);
         confirmContra = (EditText) findViewById(R.id.confirmContraR);
-        btn_registro = (Button) findViewById(R.id.btn_registro);
-        iniciarSesion = (TextView) findViewById(R.id.iniciarSesion);
+        btn_registro = (LinearLayout) findViewById(R.id.btn_registro);
+        iniciarSesion = (LinearLayout) findViewById(R.id.iniciarSesion);
 
         firebaseAuth = FirebaseAuth.getInstance();
 

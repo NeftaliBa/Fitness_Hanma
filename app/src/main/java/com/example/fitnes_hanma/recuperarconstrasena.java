@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class recuperarconstrasena extends AppCompatActivity {
 
     private EditText mEditTextEmail;
-    private Button mButtonResetPassword;
+    private LinearLayout mButtonResetPassword;
 
     private String email = "";
 
@@ -60,7 +61,7 @@ public class recuperarconstrasena extends AppCompatActivity {
         mDialog = new ProgressDialog(this);
 
         mEditTextEmail = (EditText) findViewById(R.id.editTextEmail);
-        mButtonResetPassword = (Button) findViewById(R.id.aceptar);
+        mButtonResetPassword = (LinearLayout) findViewById(R.id.aceptar);
 
         mButtonResetPassword.setOnClickListener(new View.OnClickListener() {
             @Override

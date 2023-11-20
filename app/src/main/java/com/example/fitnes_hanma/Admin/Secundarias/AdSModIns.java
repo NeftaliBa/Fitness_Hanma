@@ -11,15 +11,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.fitnes_hanma.Admin.Principal.AdPAdmin;
-
 import com.example.fitnes_hanma.Admin.Principal.AdPInstructor;
-import com.example.fitnes_hanma.MenuConceptual;
 import com.example.fitnes_hanma.Objetos.Administrador;
-import com.example.fitnes_hanma.Objetos.Instructor;
 import com.example.fitnes_hanma.Objetos.Usuarios;
 import com.example.fitnes_hanma.R;
 import com.google.android.gms.tasks.OnFailureListener;

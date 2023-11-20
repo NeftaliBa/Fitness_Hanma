@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          
     xmlns:tools="http://schemas.android.com/tools">
-    <!-- Añade el permiso para la cámara -->
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.fitnes_hanma" >
+
+
     <uses-permission android:name="android.permission.CAMERA" /> <!-- Añade la característica de hardware de la cámara -->
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -22,7 +26,10 @@
         <activity
             android:name=".c_cl_perfil_clases"
             android:exported="false" />
-
+        tools:targetApi="31" >
+        <meta-data
+            android:name="com.google.android.gms.games.APP_ID"
+            android:value="@string/app_id" />
         <activity
             android:name=".Admin.Secundarias.AdSModAdm"
             android:exported="false" />
@@ -47,7 +54,6 @@
         <activity
             android:name=".Instructor.home.Home"
             android:exported="false" />
-
         <activity
             android:name=".Admin.Secundarias.AdSModIns"
             android:exported="false" />
@@ -83,12 +89,11 @@
         <activity
             android:name=".Cliente.principal"
             android:exported="false" />
-
         <activity
             android:name=".Admin.Principal.AdPClases"
             android:exported="false" />
         <activity
-            android:name=".MenuConceptual"
+            android:name=".Admin.SeeOtherViews"
             android:exported="false" />
         <activity
             android:name=".Admin.Principal.AdPInstructor"
@@ -109,5 +114,4 @@
             android:name=".Instructor.grupo.Grupo"
             android:exported="false" />
     </application>
-
 </manifest>

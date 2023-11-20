@@ -1,5 +1,6 @@
 package com.example.fitnes_hanma.Admin.Principal;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -8,19 +9,28 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.fitnes_hanma.Admin.Secundarias.AdSModAdm;
-import com.example.fitnes_hanma.MenuConceptual;
+import com.example.fitnes_hanma.Admin.SeeOtherViews;
+import com.example.fitnes_hanma.Instructor.configuraciones.ConfiguracionIns;
+import com.example.fitnes_hanma.Instructor.home.Home;
 import com.example.fitnes_hanma.Objetos.Administrador;
 import com.example.fitnes_hanma.Objetos.AdministradorAdapter;
 import com.example.fitnes_hanma.R;
+import com.example.fitnes_hanma.menuRL;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -32,12 +42,17 @@ import java.util.List;
 
 public class AdPAdmin extends AppCompatActivity {
     Intent i;
+
+    FirebaseAuth firebaseAuth;
+    FirebaseUser user;
     EditText searchAdmin; // Cambié el nombre del EditText a searchAdmin
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.a_ad_p_admin);
 
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
         // Configurar el Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -48,7 +63,7 @@ public class AdPAdmin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Al presionar el botón de retroceso, ir al activity principal
-                Intent intent = new Intent(AdPAdmin.this, MenuConceptual.class);
+                Intent intent = new Intent(AdPAdmin.this, SeeOtherViews.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
                 finish();
@@ -173,5 +188,23 @@ public class AdPAdmin extends AppCompatActivity {
                 }
             }
         });
+    }
+    //1. Opciones Toolbar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_admin_opciones, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.m1) {
+            firebaseAuth.signOut();
+            finish();
+            startActivity(new Intent(AdPAdmin.this, menuRL.class));
+            Toast.makeText(this, "Cerraste sesion", Toast.LENGTH_SHORT).show();
+        }
+        return true;
     }
 }

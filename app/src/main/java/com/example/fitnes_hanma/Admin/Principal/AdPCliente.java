@@ -1,5 +1,6 @@
 package com.example.fitnes_hanma.Admin.Principal;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -9,15 +10,16 @@ import android.text.Editable;
 import android.text.TextWatcher;
 
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.content.Intent;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import com.example.fitnes_hanma.Cliente.Configuracion;
-import com.example.fitnes_hanma.Cliente.principal;
-import com.example.fitnes_hanma.MenuConceptual;
+import com.example.fitnes_hanma.Admin.SeeOtherViews;
 import com.example.fitnes_hanma.R;
 import com.example.fitnes_hanma.Objetos.Usuarios;
 import com.example.fitnes_hanma.Objetos.UsuarioAdapter;
@@ -25,6 +27,8 @@ import com.example.fitnes_hanma.Admin.Secundarias.AdSModCli;
 
 import com.example.fitnes_hanma.menuRL;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -33,6 +37,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +46,8 @@ public class AdPCliente extends AppCompatActivity {
     Intent i;
     EditText searchClient;
     String userId;
-
+    FirebaseAuth firebaseAuth;
+    FirebaseUser user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,11 +59,13 @@ public class AdPCliente extends AppCompatActivity {
 
         // Configurar el botón de retroceso
         ImageView backButton = findViewById(R.id.backButton);
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Al presionar el botón de retroceso, ir al activity principal
-                Intent intent = new Intent(AdPCliente.this, MenuConceptual.class);
+                Intent intent = new Intent(AdPCliente.this, SeeOtherViews.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
                 finish();
@@ -181,6 +189,24 @@ public class AdPCliente extends AppCompatActivity {
                 }
             }
         });
+    }
+    //1. Opciones Toolbar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_admin_opciones, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.m1) {
+            firebaseAuth.signOut();
+            finish();
+            startActivity(new Intent(AdPCliente.this, menuRL.class));
+            Toast.makeText(this, "Cerraste sesion", Toast.LENGTH_SHORT).show();
+        }
+        return true;
     }
 }
 

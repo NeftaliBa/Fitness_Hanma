@@ -1,0 +1,8 @@
+<!-- res/drawable/spinner_text_color.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <solid android:color="#4B61FF" />
+        </shape>
+    </item>
+</selector>

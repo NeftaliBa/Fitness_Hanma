@@ -26,9 +26,12 @@
     <color name="adbackcolor">#280555</color>
     <color name="encendido">#FFFFFF</color>
     <color name="apagado">#8E8E8E</color>
-
+    <color name="sincolor">#00FFFFFF</color>
     <color name="colorMenuText">#000000</color>
     <color name="colorMenuBackground">#FFFFFF</color>
+
+
+    <color name="spinnerText">#FAFAFA</color>
 
 
 </resources>
