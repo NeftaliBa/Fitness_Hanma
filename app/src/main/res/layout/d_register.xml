@@ -46,7 +46,7 @@
         android:shadowColor="#000000"
         android:shadowRadius="10"
         android:fontFamily="@font/salsa_font"
-        android:text="Fitness Hamna"
+        android:text="Fitness Hanma"
         android:textColor="#FFFFFF"
         android:textSize="50sp"
         android:layout_marginTop="15dp">
@@ -73,7 +73,7 @@
             android:text="Registro"
             android:textAlignment="center"
             android:textColorHint="#4A4A4A"
-            android:textSize="30sp"></TextView>
+            android:textSize="30sp"/>
 
 
         <EditText
@@ -135,41 +135,44 @@
             android:textColorHint="@color/encendido"
             android:textSize="16dp" />
 
-        <Button
-            android:id="@+id/btn_registro"
+        <LinearLayout
+            android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="75dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="75dp"
-            android:backgroundTint="#4B61FF"
-            android:fontFamily="@font/salsa_font"
-            android:padding="16dp"
-            android:text="Aceptar"
-            android:textColor="@color/encendido"
-            android:textSize="16dp" />
-    </LinearLayout>
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="75dp"
+            android:padding="7dp"
+            android:id="@+id/btn_registro"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/alayer_list_background">
+            <TextView
+                android:fontFamily="@font/salsa_font"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:text="Aceptar"
+                android:textSize="15dp"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
 
+    </LinearLayout>
     <LinearLayout
         android:layout_below="@+id/form"
-        android:layout_width="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp">
+        android:orientation="horizontal"
+        android:padding="7dp"
+        android:id="@+id/iniciarSesion"
+        android:layout_marginHorizontal="75dp"
+        android:background="@drawable/alayer_list_background">
         <TextView
-            android:id="@+id/iniciarSesion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
             android:fontFamily="@font/salsa_font"
-            android:padding="10dp"
-            android:shadowColor="#000000"
-            android:shadowRadius="10"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
             android:text="Ya tengo una cuenta"
-            android:textColor="#FFFFFF"
-            android:textSize="20dp"
-            tools:ignore="TouchTargetSizeCheck"/>
+            android:textSize="16dp"
+            android:textColor="#FFFFFF"/>
     </LinearLayout>
 </RelativeLayout>

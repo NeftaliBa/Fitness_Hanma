@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "597709671741",
+    "firebase_url": "https://fitness-hanma-default-rtdb.firebaseio.com",
     "project_id": "fitness-hanma",
     "storage_bucket": "fitness-hanma.appspot.com"
   },
@@ -12,7 +13,20 @@
           "package_name": "com.example.fitnes_hanma"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "597709671741-158thjtmnq65k5e0pa681tndvjn4cvj5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fitnes_hanma",
+            "certificate_hash": "bf426154871624e2f8b631027eb38b45615bef8c"
+          }
+        },
+        {
+          "client_id": "597709671741-0oe7k2373gk4h4lsnpuq37du7pv6amo9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCYtpdMIVDFcaehjwR8jAj3iJ1Vb-D8fTw"
@@ -20,7 +34,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "597709671741-0oe7k2373gk4h4lsnpuq37du7pv6amo9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

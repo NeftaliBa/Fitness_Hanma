@@ -1,5 +1,6 @@
 package com.example.fitnes_hanma.Admin.Principal;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -8,19 +9,26 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.fitnes_hanma.Admin.Secundarias.AdSModIns;
-import com.example.fitnes_hanma.MenuConceptual;
+import com.example.fitnes_hanma.Admin.SeeOtherViews;
 import com.example.fitnes_hanma.Objetos.Instructor;
 import com.example.fitnes_hanma.Objetos.InstructorAdapter;
 import com.example.fitnes_hanma.R;
+import com.example.fitnes_hanma.menuRL;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -34,12 +42,15 @@ public class AdPInstructor extends AppCompatActivity {
     Intent i;
     EditText searchInstructor; // Cambié el nombre del EditText a searchInstructor
     String userId;
+    FirebaseAuth firebaseAuth;
+    FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.a_ad_p_instructor);
-
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
         // Configurar el Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -50,7 +61,7 @@ public class AdPInstructor extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Al presionar el botón de retroceso, ir al activity principal
-                Intent intent = new Intent(AdPInstructor.this, MenuConceptual.class);
+                Intent intent = new Intent(AdPInstructor.this, SeeOtherViews.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
                 finish();
@@ -175,5 +186,24 @@ public class AdPInstructor extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    //1. Opciones Toolbar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_admin_opciones, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.m2) {
+            firebaseAuth.signOut();
+            finish();
+            startActivity(new Intent(AdPInstructor.this, menuRL.class));
+            Toast.makeText(this, "Cerraste sesion", Toast.LENGTH_SHORT).show();
+        }
+        return true;
     }
 }

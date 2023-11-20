@@ -45,7 +45,7 @@
         android:shadowColor="#000000"
         android:shadowRadius="10"
         android:fontFamily="@font/salsa_font"
-        android:text="Fitness Hamna"
+        android:text="Fitness Hanma"
         android:textColor="#FFFFFF"
         android:textSize="50sp"
         android:layout_marginTop="15dp">
@@ -60,7 +60,7 @@
         android:layout_marginTop="47dp"
         android:background="@drawable/bordes_formulario_blanco"
         android:orientation="vertical"
-        android:padding="15dp">"
+        android:padding="15dp">
 
         <TextView
             android:id="@+id/titulo1"
@@ -68,98 +68,130 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/salsa_font"
             android:padding="5dp"
-            android:text="Iniciar Sesión"
+            android:text="@string/iniciar_sesi_n"
             android:textAlignment="center"
             android:textColorHint="#4A4A4A"
-            android:textSize="30sp">
-    </TextView>
+            android:textSize="30sp"/>
 
         <EditText
             android:id="@+id/correo"
             android:hint="Correo electronico"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginHorizontal="20dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="20dp"
             android:background="@drawable/borde_azul_claro"
             android:fontFamily="@font/salsa_font"
             android:paddingHorizontal="16dp"
             android:textColorHint="@color/encendido"
-            android:textSize="16dp" />
+            android:textSize="16dp"/>
 
         <EditText
             android:id="@+id/contrasena"
             android:hint="Contraseña"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginHorizontal="20dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="20dp"
             android:background="@drawable/borde_azul_claro"
             android:fontFamily="@font/salsa_font"
             android:paddingHorizontal="16dp"
             android:textColorHint="@color/encendido"
             android:inputType="textPassword"
-            android:textSize="16dp" />
+            android:textSize="16dp"/>
 
 
-        <Button
-            android:id="@+id/btn_loguear"
+
+        <LinearLayout
+            android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Aceptar"
-            android:layout_marginStart="75dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="75dp"
-            android:backgroundTint="#4B61FF"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="75dp"
+            android:padding="7dp"
+            android:id="@+id/btn_loguear"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/alayer_list_background">
+            <TextView
+                android:fontFamily="@font/salsa_font"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:text="Iniciar sesión"
+                android:textSize="15dp"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+        <TextView
+            android:layout_gravity="center"
+            android:id="@+id/recuperar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/salsa_font"
-            android:padding="16dp"
-            android:textColor="@color/encendido"
-            android:textSize="16dp"
-            />
+            android:clickable="true"
+            android:focusable="true"
+            android:shadowRadius="10"
+            android:text="¿Olvidaste tu contraseña?"
+            android:textColor="#000000"
+            android:textSize="16dp"/>
+
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/crearCuenta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_below="@+id/form"
-        android:layout_marginLeft="45dp"
-        android:layout_marginTop="100dp"
-        android:background="?android:attr/selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
-        android:fontFamily="@font/salsa_font"
-        android:padding="16dp"
-        android:shadowColor="#000000"
-        android:shadowRadius="10"
-        android:text="Registrarse"
-        android:layout_centerHorizontal="true"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="20dp">
-
-    </TextView>
-
-    <TextView
-        android:id="@+id/recuperar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/crearCuenta"
-        android:layout_marginLeft="45dp"
-        android:background="?android:attr/selectableItemBackground"
-        android:fontFamily="@font/salsa_font"
-        android:clickable="true"
-        android:focusable="true"
-        android:padding="16dp"
-        android:shadowColor="#000000"
-        android:shadowRadius="10"
-        android:textAlignment="center"
-        android:layout_centerHorizontal="true"
-        android:text="Olvidaste tu contraseña?"
-        android:textColor="#FFFFFF"
-        android:textSize="20dp">
-    </TextView>
+        android:orientation="vertical"
+        android:gravity="center_vertical">
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/salsa_font"
+            android:text="¿Eres nuevo?"
+            android:textColor="#FFFFFF"
+            android:textSize="16dp"
+            android:layout_marginBottom="5dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="40dp"
+            android:padding="7dp"
+            android:id="@+id/crearCuenta"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/alayer_list_background">
+            <TextView
+                android:fontFamily="@font/salsa_font"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:text="Crear cuenta nueva"
+                android:textSize="15dp"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/login_google"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="40dp"
+            android:padding="7dp"
+            android:background="@drawable/alayer_list_background"
+            >
+            <ImageView
+                android:id="@+id/btnlogin_google"
+                android:layout_width="wrap_content"
+                android:layout_height="37dp"
+                android:src="@drawable/google" />
+            <TextView
+                android:layout_marginStart="35dp"
+                android:fontFamily="@font/salsa_font"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Iniciar sesion con google"
+                android:textSize="15dp"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>

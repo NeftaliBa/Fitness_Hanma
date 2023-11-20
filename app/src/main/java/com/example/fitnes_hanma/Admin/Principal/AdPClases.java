@@ -18,9 +18,7 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import com.example.fitnes_hanma.Cliente.Configuracion;
-import com.example.fitnes_hanma.Cliente.principal;
-import com.example.fitnes_hanma.MenuConceptual;
+import com.example.fitnes_hanma.Admin.SeeOtherViews;
 import com.example.fitnes_hanma.Objetos.ClasesAdapter;
 import com.example.fitnes_hanma.Admin.Secundarias.AdSCreCla;
 import com.example.fitnes_hanma.Admin.Secundarias.AdSModCla;
@@ -36,6 +34,7 @@ import com.example.fitnes_hanma.Objetos.Clases;
 import com.example.fitnes_hanma.menuRL;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -51,13 +50,15 @@ public class AdPClases extends AppCompatActivity {
     List<Clases> filteredList;  // Lista temporal para la búsqueda
     ClasesAdapter adapter;
     FirebaseAuth firebaseAuth;
-
+    FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.a_ad_p_clases);
 
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
         // Configurar el Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -68,7 +69,7 @@ public class AdPClases extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Al presionar el botón de retroceso, ir al activity principal
-                Intent intent = new Intent(AdPClases.this, MenuConceptual.class);
+                Intent intent = new Intent(AdPClases.this, SeeOtherViews.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
                 finish();
@@ -160,8 +161,8 @@ public class AdPClases extends AppCompatActivity {
                 intent.putExtra("horaClase", claseSeleccionada.getHoraClase());
                 intent.putExtra("limCli", claseSeleccionada.getLimCli());
 
-                // Incluso puedes pasar el ID del documento si lo necesitas
-                intent.putExtra("idDocumento", claseSeleccionada.getId_clase());
+
+                intent.putExtra("id_clase", claseSeleccionada.getId_clase());
 
                 startActivity(intent);
             }
@@ -201,6 +202,7 @@ public class AdPClases extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.m2) {
             firebaseAuth.signOut();
+            finish();
             startActivity(new Intent(AdPClases.this, menuRL.class));
             Toast.makeText(this, "Cerraste sesion", Toast.LENGTH_SHORT).show();
         }

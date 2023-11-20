@@ -22,6 +22,7 @@
     <string name="cliente">Cliente</string>
     <string name="personal">Personal</string>
     <string name="instructor">Instructor</string>
+    <string name="app_id">597709671741-158thjtmnq65k5e0pa681tndvjn4cvj5.apps.googleusercontent.com</string>
 
     <!-- Item usuarios -->
     <string name="Id_u_Item">Id</string>
@@ -40,6 +41,7 @@
     </array>
 
     <string name="seleccionar_dia">Seleccionar día</string>
+    <string name="iniciar_sesi_n">Iniciar Sesión</string>
 
 
 </resources>
