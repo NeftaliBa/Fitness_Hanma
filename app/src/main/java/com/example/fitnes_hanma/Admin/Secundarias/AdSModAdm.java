@@ -19,6 +19,7 @@ import com.example.fitnes_hanma.Objetos.Usuarios;
 import com.example.fitnes_hanma.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -30,6 +31,7 @@ public class AdSModAdm extends AppCompatActivity {
     String userId;
     SwitchCompat trainer, admin;
     Intent i;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

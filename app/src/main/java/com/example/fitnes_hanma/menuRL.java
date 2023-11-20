@@ -7,10 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 public class menuRL extends AppCompatActivity {
 
-    Button irLogin, irRegistro;
+    LinearLayout irLogin, irRegistro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

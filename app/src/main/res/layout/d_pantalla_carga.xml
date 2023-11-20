@@ -31,7 +31,7 @@
         android:shadowColor="#000000"
         android:shadowRadius="10"
         android:fontFamily="@font/salsa_font"
-        android:text="Fitness Hamna"
+        android:text="Fitness Hanma"
         android:textColor="#FFFFFF"
         android:textSize="50sp"
         android:layout_below="@id/logofitness">

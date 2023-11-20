@@ -38,11 +38,12 @@ public class Home extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         // Configurar el título de la barra de herramientas
         TextView toolbarTitle = findViewById(R.id.toolbarTitle);
-        toolbarTitle.setText("Menu Principal");
+        toolbarTitle.setText("Menu de vistas");
 
         ImageView QR;
         QR = (ImageView) findViewById(R.id.qr);
-
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
         QR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

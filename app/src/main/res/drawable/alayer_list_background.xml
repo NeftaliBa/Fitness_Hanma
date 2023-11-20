@@ -1,0 +1,4 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/login_google" />
+    <item android:drawable="@drawable/aripple_effect" />
+</layer-list>

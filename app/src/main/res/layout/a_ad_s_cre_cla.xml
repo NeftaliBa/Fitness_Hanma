@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/adbackcolor"
+    android:background="@drawable/desbanecido_inicios"
     tools:context=".Admin.Secundarias.AdSCreCla">
 
     <androidx.appcompat.widget.Toolbar
@@ -27,145 +27,225 @@
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
-        android:layout_marginTop="80dp"
-        android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+
         android:layout_marginHorizontal="20dp"
-        android:orientation="vertical">
+
+        android:layout_marginTop="125dp"
+        android:background="@drawable/bordes_formulario_blanco"
+        android:orientation="vertical"
+        android:padding="15dp">
 
         <ScrollView
+            android:id="@+id/scroll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:id="@+id/scroll"
-            >
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+            android:layout_marginTop="20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/cuadro_verde"
-                android:padding="15dp">
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="20dp"
+                android:orientation="vertical">
 
                 <EditText
                     android:id="@+id/claNa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:backgroundTint="@color/white"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/borde_azul_claro"
+                    android:fontFamily="@font/salsa_font"
                     android:hint="Nombre de la clase"
                     android:minHeight="48dp"
+                    android:paddingStart="16dp"
                     android:textColor="@color/white"
-                    android:textColorHint="@color/white"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/cuadro_verde"
-                android:padding="15dp">
+                    android:textColorHint="@color/white" />
 
                 <EditText
                     android:id="@+id/desCla"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:backgroundTint="@color/white"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/borde_azul_claro"
+                    android:fontFamily="@font/salsa_font"
                     android:hint="Descripcion"
                     android:minHeight="48dp"
+                    android:paddingStart="16dp"
                     android:textColor="@color/white"
-                    android:textColorHint="@color/white"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/cuadro_verde"
-                android:padding="15dp">
+                    android:textColorHint="@color/white" />
 
                 <EditText
                     android:id="@+id/limCli"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:backgroundTint="@color/white"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/borde_azul_claro"
+                    android:fontFamily="@font/salsa_font"
                     android:hint="Limite de clientes"
                     android:inputType="number"
                     android:minHeight="48dp"
+                    android:paddingStart="16dp"
                     android:textColor="@color/white"
-                    android:textColorHint="@color/white"
-                    android:textStyle="bold" />
-            </LinearLayout>
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
+                    android:textColorHint="@color/white" />
 
                 <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="Nombre del Instructor"
-                    android:textSize="20sp"
                     android:id="@+id/naInst"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/search_mod"
+                    android:fontFamily="@font/salsa_font"
+                    android:hint="Nombre del Instructor"
+                    android:minHeight="48dp"
+                    android:paddingStart="16dp"
                     android:textAlignment="center"
-                    android:background="@drawable/search"
-                    android:autofillHints=""
-                    android:inputType="textLongMessage" />
+                    android:textColor="#4B61FF"
+                    android:textColorHint="#4B61FF"
+                    android:textStyle="bold" />
 
-            </FrameLayout>
 
-                <Button
-                    android:layout_marginTop="20dp"
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Agregar horario"
-                    android:id="@+id/newH"
-                    android:textColor="@color/white"
-                    android:backgroundTint="@color/verde_gris"
-                    />
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/salsa_font"
+                    android:text="Dia 1"
+                    android:textColor="@color/black" />
+
                 <LinearLayout
+                    android:id="@+id/horario1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="20dp"
-                    android:id="@+id/horarioContainer"
-                    android:orientation="vertical"
-                    >
+                    android:background="@drawable/borde_azul_claro"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:id="@+id/day1"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="5"
+                        android:fontFamily="@font/salsa_font"
+                        android:popupBackground="@drawable/spinner_text_color"
+                        android:textSize="15dp" />
+
+
+                    <Button
+                        android:id="@+id/hour1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:backgroundTint="@color/sincolor"
+                        android:fontFamily="@font/salsa_font"
+                        android:text="Seleccionar hora"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        app:iconTint="@color/white" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/salsa_font"
+                    android:text="Dia 2"
+                    android:textColor="@color/black" />
+
+                <LinearLayout
+                    android:id="@+id/horario2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/borde_azul_claro"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:id="@+id/day2"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="5"
+                        android:fontFamily="@font/salsa_font"
+                        android:popupBackground="@drawable/spinner_text_color"
+                        android:textSize="15dp" />
+
+                    <Button
+                        android:id="@+id/hour2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:backgroundTint="@color/sincolor"
+                        android:fontFamily="@font/salsa_font"
+                        android:text="Seleccionar hora"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        app:iconTint="@color/white" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/salsa_font"
+                    android:text="Dia 3"
+                    android:textColor="@color/black" />
+
+                <LinearLayout
+                    android:id="@+id/horario3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/borde_azul_claro"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:id="@+id/day3"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="5"
+                        android:fontFamily="@font/salsa_font"
+                        android:popupBackground="@drawable/spinner_text_color"
+                        android:textSize="15dp" />
+
+                    <Button
+                        android:id="@+id/hour3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:backgroundTint="@color/sincolor"
+                        android:fontFamily="@font/salsa_font"
+                        android:text="Seleccionar hora"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        app:iconTint="@color/white" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-
-                    >
+                    android:layout_marginTop="20dp">
 
                     <Button
                         android:id="@+id/cancelCreCla"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:backgroundTint="#B50000"
                         android:text="Cancelar"
-                        android:textColor="@color/white"
-                        android:backgroundTint="#FF5555"/>
+                        android:textColor="@color/white" />
 
                     <Button
                         android:id="@+id/save"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:backgroundTint="#00AF55"
                         android:text="Guardar"
-                        android:textColor="@color/white"
-                        android:backgroundTint="@color/verde1"/>
+                        android:textColor="@color/white" />
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>

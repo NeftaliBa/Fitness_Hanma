@@ -19,7 +19,7 @@
             android:id="@+id/toolbarTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Editar cliente"
+            android:text="Editar Clase"
             android:layout_gravity="center"
             android:fontFamily="@font/salsa_font"
             android:textColor="#FFFFFF"

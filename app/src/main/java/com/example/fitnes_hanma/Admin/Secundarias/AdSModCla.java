@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.fitnes_hanma.Admin.Principal.AdPInstructor;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.OnFailureListener;
 
@@ -37,6 +38,8 @@ public class AdSModCla extends AppCompatActivity {
     Button cancelar, actualizar, hour;
     TextView fecha, hora;
 
+    String classId;
+
     Intent i;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,51 +48,14 @@ public class AdSModCla extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
 
-        cancelar = (Button) findViewById(R.id.cancel);
-        hour = (Button) findViewById(R.id.hour);
-        actualizar = (Button) findViewById(R.id.save);
         nomCla = (EditText) findViewById(R.id.claNa);
         desCla = (EditText) findViewById(R.id.desCla);
         nomIns = (EditText) findViewById(R.id.naInst);
         LimCli = (EditText) findViewById(R.id.limCliM);
+        cancelar = (Button) findViewById(R.id.cancel);
+        hour = (Button) findViewById(R.id.hour);
+        actualizar = (Button) findViewById(R.id.save);
         hora = (TextView) findViewById(R.id.hora);
-
-
-        hour.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Calendar calendario = Calendar.getInstance();
-                int horaActual = calendario.get(Calendar.HOUR_OF_DAY);
-                int minutoActual = calendario.get(Calendar.MINUTE);
-
-                TimePickerDialog timePickerDialog = new TimePickerDialog(AdSModCla.this, R.style.MyTimePickerDialog, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        // Verifica si es AM o PM
-                        String amPm;
-                        if (hourOfDay < 12) {
-                            amPm = "AM";
-                        } else {
-                            amPm = "PM";
-                            if (hourOfDay > 12) {
-                                hourOfDay -= 12;
-                            }
-                        }
-                        String horaSeleccionada = String.format(Locale.getDefault(), "%02d:%02d %s", hourOfDay, minute, amPm);
-                        hora.setText(horaSeleccionada);
-                    }
-                }, horaActual, minutoActual, false); // El último argumento es "false" para utilizar el formato de 12 horas
-
-                timePickerDialog.show();
-            }
-        });
-        cancelar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                i = new Intent(AdSModCla.this, AdPClases.class);
-                startActivity(i);
-            }
-        });
 
         Intent intent = getIntent();
         if (intent != null) {
@@ -98,6 +64,8 @@ public class AdSModCla extends AppCompatActivity {
             String nombreInstructor = intent.getStringExtra("nombreInstructor");
             String horaClase = intent.getStringExtra("horaClase");
             String LimCliM = intent.getStringExtra("limCli");
+            classId = intent.getStringExtra("id_clase");
+
 
             // Obtén una referencia a la colección "clases" en Firestore
             FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -116,45 +84,72 @@ public class AdSModCla extends AppCompatActivity {
             hora.setText(horaClase);
             LimCli.setText(LimCliM);
 
+            hour.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final Calendar calendario = Calendar.getInstance();
+                    int horaActual = calendario.get(Calendar.HOUR_OF_DAY);
+                    int minutoActual = calendario.get(Calendar.MINUTE);
+
+                    TimePickerDialog timePickerDialog = new TimePickerDialog(AdSModCla.this, R.style.MyTimePickerDialog, new TimePickerDialog.OnTimeSetListener() {
+                        @Override
+                        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                            // Verifica si es AM o PM
+                            String amPm;
+                            if (hourOfDay < 12) {
+                                amPm = "AM";
+                            } else {
+                                amPm = "PM";
+                                if (hourOfDay > 12) {
+                                    hourOfDay -= 12;
+                                }
+                            }
+                            String horaSeleccionada = String.format(Locale.getDefault(), "%02d:%02d %s", hourOfDay, minute, amPm);
+                            hora.setText(horaSeleccionada);
+                        }
+                    }, horaActual, minutoActual, false); // El último argumento es "false" para utilizar el formato de 12 horas
+
+                    timePickerDialog.show();
+                }
+            });
+            cancelar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    i = new Intent(AdSModCla.this, AdPClases.class);
+                    startActivity(i);
+                }
+            });
             actualizar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // Obtiene los nuevos valores de los campos
-                    String nuevoNombreClase = nomCla.getText().toString();
-                    String nuevaDescripcion = desCla.getText().toString();
-                    String nuevoNombreInstructor = nomIns.getText().toString();
-                    String nuevaHoraClase = hora.getText().toString();
-                    String nlimCli =  LimCli.getText().toString();
+                    updateClass();
 
-                    // Obtén una referencia al documento del ID obtenido
-                    DocumentReference claseRef = clasesRef.document(idDocumento);
-
-                    // Crea un mapa con los nuevos valores
-                    Map<String, Object> nuevosDatos = new HashMap<>();
-                    nuevosDatos.put("nombreClase", nuevoNombreClase);
-                    nuevosDatos.put("descripcion", nuevaDescripcion);
-                    nuevosDatos.put("nombreInstructor", nuevoNombreInstructor);
-                    nuevosDatos.put("horaClase", nuevaHoraClase);
-                    nuevosDatos.put("limCli", nlimCli);
-
-                    // Actualiza los datos en Firestore
-                    claseRef.set(nuevosDatos)
-                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-                                    // Éxito al actualizar los datos
-                                    Toast.makeText(AdSModCla.this, "Datos actualizados con éxito", Toast.LENGTH_SHORT).show();
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    // Error al actualizar los datos
-                                    Toast.makeText(AdSModCla.this, "Error al actualizar los datos", Toast.LENGTH_SHORT).show();
-                                }
-                            });
                 }
             });
+
         }
+    }
+    private void updateClass() {
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference clasRef = db.collection("clases").document(classId);
+
+        // Actualizar el campo de nombre y correo en Firestore
+        clasRef.update("nombreClase", nomCla.getText().toString(), "descripcion", desCla.getText().toString(),
+                        "nombreInstructor", nomIns.getText().toString(), "limCli", LimCli.getText().toString())
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(AdSModCla.this, "Asi es, soy la mera verga", Toast.LENGTH_SHORT).show();
+                        i = new Intent(AdSModCla.this, AdPClases.class);
+                        startActivity(i);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(AdSModCla.this, "Que pendejo", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }
