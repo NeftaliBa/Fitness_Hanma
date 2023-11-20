@@ -23,7 +23,7 @@ public class claseInscribir extends ArrayAdapter<Clases> {
         Clases clase = getItem(position);
 
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.c_cl_clase_inscribir, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.c_cl_clase_servicios, parent, false);
         }
 
         // Encuentra las vistas en el diseño personalizado

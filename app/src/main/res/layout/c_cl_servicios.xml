@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Cliente.servicios"
-    android:background="#300667">
-
+    android:background="@drawable/desbanecido_interna">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -51,11 +50,15 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/titulito"
-        android:layout_marginTop="15dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/reciveCliente"
+        android:background="@drawable/admin_recli"
+        android:padding="15dp"
         android:layout_marginHorizontal="20dp"
-        android:orientation="horizontal">
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="80dp"
+        android:layout_below="@+id/titulito">
 
         <ListView
             android:id="@+id/listViewClaCliente"

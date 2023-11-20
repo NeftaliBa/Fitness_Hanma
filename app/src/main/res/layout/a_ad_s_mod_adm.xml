@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/adbackcolor"
+    android:background="@drawable/desbanecido_interna"
     tools:context=".Admin.Secundarias.AdSModAdm">
 
   <androidx.appcompat.widget.Toolbar
@@ -28,134 +28,147 @@
   </androidx.appcompat.widget.Toolbar>
 
   <LinearLayout
-      android:layout_marginTop="80dp"
-      android:id="@+id/campo1"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_below="@+id/toolbar"
-      android:layout_marginHorizontal="20dp"
-      android:layout_marginBottom="20dp"
-      android:background="@drawable/cuadro_verde"
-      android:padding="15dp">
-
-    <EditText
-        android:id="@+id/anameModAdm"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:backgroundTint="@color/white"
-        android:hint="Nombre del Administrador"
-        android:minHeight="48dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textStyle="bold" />
-
-  </LinearLayout>
-
-
-  <LinearLayout
-      android:id="@+id/campo2"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_below="@+id/campo1"
-      android:layout_marginHorizontal="20dp"
-      android:layout_marginBottom="20dp"
-      android:background="@drawable/cuadro_verde"
-      android:padding="15dp">
-
-    <EditText
-        android:id="@+id/aemailModAdm"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:backgroundTint="@color/white"
-        android:hint="Correo"
-        android:minHeight="48dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textStyle="bold" />
-  </LinearLayout>
-  <LinearLayout
-      android:id="@+id/campo3"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_below="@+id/campo2"
-      android:layout_marginHorizontal="20dp"
-
-      android:layout_marginBottom="20dp"
-      android:background="@drawable/cuadro_verde"
-      android:orientation="horizontal"
-      android:padding="10dp">
-
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginStart="20dp"
-        android:layout_weight="1"
-        android:text="Administrador"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold" />
-
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/adminModAdm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:switchMinWidth="50dp"
-        android:theme="@style/nightModeSwitch" />
-  </LinearLayout>
-
-  <LinearLayout
-      android:layout_below="@+id/campo3"
-      android:id="@+id/campo4"
-      android:background="@drawable/cuadro_verde"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:orientation="horizontal"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      android:id="@+id/reciveCliente"
+      android:background="@drawable/admin_recli"
       android:padding="10dp"
       android:layout_marginHorizontal="20dp"
-      >
-    <TextView
-        android:layout_marginStart="20dp"
-        android:layout_width="0dp"
-        android:layout_weight="1"
+      android:layout_marginTop="60dp"
+      android:layout_marginBottom="170dp"
+      android:layout_below="@+id/toolbar">
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:id="@+id/campo1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:text="Entrenador"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"/>
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/trainerModAdm"
-        android:layout_width="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/cuadro_verde"
+        android:padding="15dp">
+
+      <EditText
+          android:id="@+id/anameModAdm"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="10dp"
+          android:backgroundTint="@color/white"
+          android:hint="Nombre del Administrador"
+          android:minHeight="48dp"
+          android:textColor="@color/white"
+          android:textColorHint="@color/white"
+          android:textStyle="bold" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/campo2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:switchMinWidth="50dp"
-        android:theme="@style/nightModeSwitch"/>
+        android:layout_below="@+id/campo1"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/cuadro_verde"
+        android:padding="15dp">
+
+      <EditText
+          android:id="@+id/aemailModAdm"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="10dp"
+          android:backgroundTint="@color/white"
+          android:hint="Correo"
+          android:minHeight="48dp"
+          android:textColor="@color/white"
+          android:textColorHint="@color/white"
+          android:textStyle="bold" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/campo3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/campo2"
+        android:layout_marginHorizontal="20dp"
+
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/cuadro_verde"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+      <TextView
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center_vertical"
+          android:layout_marginStart="20dp"
+          android:layout_weight="1"
+          android:text="Administrador"
+          android:textColor="#FFFFFF"
+          android:textStyle="bold" />
+
+      <androidx.appcompat.widget.SwitchCompat
+          android:id="@+id/adminModAdm"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center_vertical"
+          android:switchMinWidth="50dp"
+          android:theme="@style/nightModeSwitch" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/campo3"
+        android:id="@+id/campo4"
+        android:background="@drawable/cuadro_verde"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_marginHorizontal="20dp"
+        >
+      <TextView
+          android:layout_marginStart="20dp"
+          android:layout_width="0dp"
+          android:layout_weight="1"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:text="Entrenador"
+          android:textColor="#FFFFFF"
+          android:textStyle="bold"/>
+      <androidx.appcompat.widget.SwitchCompat
+          android:id="@+id/trainerModAdm"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:switchMinWidth="50dp"
+          android:theme="@style/nightModeSwitch"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/campo4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="40dp"
+        >
+      <Button
+          android:id="@+id/cancelModAdm"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="5"
+          android:text="Cancelar"
+          android:textColor="@color/white"
+          android:backgroundTint="#FF5555"/>
+      <Button
+          android:id="@+id/saveModAdm"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="5"
+          android:text="Guardar"
+          android:textColor="@color/white"
+          android:backgroundTint="@color/verde1"/>
+    </LinearLayout>
   </LinearLayout>
 
-  <LinearLayout
-      android:layout_below="@+id/campo4"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginHorizontal="20dp"
-      android:layout_marginTop="40dp"
-      >
-    <Button
-        android:id="@+id/cancelModAdm"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="5"
-        android:text="Cancelar"
-        android:textColor="@color/white"
-        android:backgroundTint="#FF5555"/>
-    <Button
-        android:id="@+id/saveModAdm"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="5"
-        android:text="Guardar"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/verde1"/>
-  </LinearLayout>
 
 </RelativeLayout>

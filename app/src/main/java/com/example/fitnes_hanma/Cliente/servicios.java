@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,6 +18,7 @@ import android.widget.Toast;
 import com.example.fitnes_hanma.Objetos.Clases;
 import com.example.fitnes_hanma.Objetos.claseInscribir;
 import com.example.fitnes_hanma.R;
+import com.example.fitnes_hanma.c_cl_perfil_clases;
 import com.example.fitnes_hanma.menuRL;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -80,6 +83,26 @@ public class servicios extends AppCompatActivity {
 
                 // Notifica al adaptador que los datos han cambiado
                 adapter.notifyDataSetChanged();
+            }
+        });
+        listViewClases.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Obtén la clase seleccionada
+                Clases claseSeleccionada = clasesList.get(position);
+
+                // Pasa los datos necesarios a AdSModCla
+                Intent intent = new Intent(servicios.this, c_cl_perfil_clases.class);
+                intent.putExtra("nombreClase", claseSeleccionada.getNombreClase());
+                intent.putExtra("descripcion", claseSeleccionada.getDescripcion());
+                intent.putExtra("nombreInstructor", claseSeleccionada.getNombreInstructor());
+                intent.putExtra("horaClase", claseSeleccionada.getHoraClase());
+                intent.putExtra("limCli", claseSeleccionada.getLimCli());
+
+                // Incluso puedes pasar el ID del documento si lo necesitas
+                intent.putExtra("idDocumento", claseSeleccionada.getId_clase());
+
+                startActivity(intent);
             }
         });
     }

@@ -20,6 +20,7 @@ import com.example.fitnes_hanma.MenuConceptual;
 import com.example.fitnes_hanma.Objetos.Instructor;
 import com.example.fitnes_hanma.Objetos.InstructorAdapter;
 import com.example.fitnes_hanma.R;
+import com.example.fitnes_hanma.menuRL;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
