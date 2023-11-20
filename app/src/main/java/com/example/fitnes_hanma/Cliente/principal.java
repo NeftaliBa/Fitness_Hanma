@@ -9,13 +9,19 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.fitnes_hanma.Admin.Principal.AdPClases;
+import com.example.fitnes_hanma.Admin.Secundarias.AdSModCla;
 import com.example.fitnes_hanma.Objetos.Clases;
+import com.example.fitnes_hanma.Objetos.ClasesQueElClienteTiene;
 import com.example.fitnes_hanma.Objetos.claseInscribir;
 import com.example.fitnes_hanma.R;
+import com.example.fitnes_hanma.c_cl_perfil_clases;
 import com.example.fitnes_hanma.menuRL;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -76,7 +82,7 @@ public class principal extends AppCompatActivity {
                 });
         ListView listViewClases = findViewById(R.id.listViewClaCliente);
         List<Clases> clasesList = new ArrayList<>();
-        claseInscribir adapter = new claseInscribir(this, clasesList);
+        ClasesQueElClienteTiene adapter = new ClasesQueElClienteTiene(this, clasesList);
 
         // Configura el adaptador con el ListView
         listViewClases.setAdapter(adapter);
@@ -103,6 +109,26 @@ public class principal extends AppCompatActivity {
             }
         });
 
+        listViewClases.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Obtén la clase seleccionada
+                Clases claseSeleccionada = clasesList.get(position);
+
+                // Pasa los datos necesarios a AdSModCla
+                Intent intent = new Intent(principal.this, c_cl_perfil_clases.class);
+                intent.putExtra("nombreClase", claseSeleccionada.getNombreClase());
+                intent.putExtra("descripcion", claseSeleccionada.getDescripcion());
+                intent.putExtra("nombreInstructor", claseSeleccionada.getNombreInstructor());
+                intent.putExtra("horaClase", claseSeleccionada.getHoraClase());
+                intent.putExtra("limCli", claseSeleccionada.getLimCli());
+
+                // Incluso puedes pasar el ID del documento si lo necesitas
+                intent.putExtra("idDocumento", claseSeleccionada.getId_clase());
+
+                startActivity(intent);
+            }
+        });
 
     }
     //1. Opciones Toolbar

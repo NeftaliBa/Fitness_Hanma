@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          
+    xmlns:tools="http://schemas.android.com/tools">
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.fitnes_hanma" >
 
@@ -20,6 +22,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Fitnes_Hanma"
+        tools:targetApi="31">
+        <activity
+            android:name=".c_cl_perfil_clases"
+            android:exported="false" />
         tools:targetApi="31" >
         <meta-data
             android:name="com.google.android.gms.games.APP_ID"
@@ -68,7 +74,7 @@
             android:exported="false" />
         <activity
             android:name=".pantalla_carga"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -107,8 +113,5 @@
         <activity
             android:name=".Instructor.grupo.Grupo"
             android:exported="false" />
-
-
     </application>
-
 </manifest>

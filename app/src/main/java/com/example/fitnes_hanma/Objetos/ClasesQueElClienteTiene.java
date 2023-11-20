@@ -11,9 +11,9 @@ import com.example.fitnes_hanma.R;
 
 import java.util.List;
 
-public class ClasesCienteAdapter extends ArrayAdapter<Clases> {
+public class ClasesQueElClienteTiene extends ArrayAdapter<Clases> {
 
-    public ClasesCienteAdapter(Context context, List<Clases> clasesList) {
+    public ClasesQueElClienteTiene(Context context, List<Clases> clasesList) {
         super(context, 0, clasesList);
     }
 

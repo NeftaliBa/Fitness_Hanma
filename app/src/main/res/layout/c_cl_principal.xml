@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Cliente.principal"
-    android:background="#300667">
+    android:background="@drawable/desbanecido_interna">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -35,11 +35,15 @@
         android:textSize="20sp" />
 
     <LinearLayout
+        android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbar"
-        android:layout_marginHorizontal="20dp"
+        android:layout_height="match_parent"
+        android:id="@+id/reciveCliente"
+        android:background="@drawable/admin_recli"
+        android:padding="15dp"
+        android:layout_marginHorizontal="15dp"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="80dp"
         android:orientation="horizontal">
 
         <ListView

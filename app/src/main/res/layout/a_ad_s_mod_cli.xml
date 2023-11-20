@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/adbackcolor"
+    android:background="@drawable/desbanecido_interna"
     tools:context=".Admin.Secundarias.AdSModCli">
 
     <androidx.appcompat.widget.Toolbar

@@ -52,36 +52,66 @@
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/usuario"/>
+                android:src="@drawable/default_image"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:text="Nefta"
+                android:text="Neftantetaminas"
                 android:textColor="#1F8D89"
                 android:textSize="22sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="+52 621 85 45 69"
-                android:textColor="#1F8D89"
-                android:textSize="12sp"
-                android:layout_gravity="center"/>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
+            <LinearLayout
                 android:layout_marginTop="20dp"
-                android:background="@drawable/round_back_secondary_100"
-                android:paddingStart="30dp"
-                android:paddingEnd="30dp"
-                android:text="Editar Perfil"
-                android:textAllCaps="false"
-                android:textColor="@color/primary" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:background="@drawable/round_back_white10_20"
+                android:orientation="vertical">
+
+                <!-- ImageView para la foto de perfil -->
+
+                <!-- Botón para cambiar la foto de perfil -->
+                <ImageView
+                    android:id="@+id/imageViewProfile"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="20dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/default_image" />
+
+                <Button
+                    android:id="@+id/cambiarFoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cambiar foto"
+                    android:layout_gravity="center_horizontal"/>
+
+                <EditText
+                    android:id="@+id/cambiarNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:hint="Nombre"
+                    android:textColorHint="@color/white"
+                    android:minHeight="48dp"
+                    android:padding="10dp"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/BtnCambiarNombre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cambiar nombre"
+                    android:layout_gravity="center_horizontal"/>
+
+            </LinearLayout>
+
 
             <LinearLayout
                 android:background="@drawable/round_back_white10_20"

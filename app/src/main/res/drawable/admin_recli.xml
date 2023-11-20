@@ -10,10 +10,10 @@
             android:shape="rectangle">
             <solid android:color="#FFFFFF" />
             <corners
-                android:bottomLeftRadius="45dp"
-                android:bottomRightRadius="45dp"
-                android:topLeftRadius="45dp"
-                android:topRightRadius="45dp" />
+                android:bottomLeftRadius="30dp"
+                android:bottomRightRadius="30dp"
+                android:topLeftRadius="30dp"
+                android:topRightRadius="30dp" />
         </shape>
     </item>
 </layer-list>
