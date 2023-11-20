@@ -47,6 +47,7 @@
         <activity
             android:name=".Instructor.home.Home"
             android:exported="false" />
+
         <activity
             android:name=".Admin.Secundarias.AdSModIns"
             android:exported="false" />
@@ -67,7 +68,12 @@
             android:exported="false" />
         <activity
             android:name=".pantalla_carga"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".login"
             android:exported="false" />
@@ -76,12 +82,8 @@
             android:exported="false" />
         <activity
             android:name=".Cliente.principal"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
+
         <activity
             android:name=".Admin.Principal.AdPClases"
             android:exported="false" />
