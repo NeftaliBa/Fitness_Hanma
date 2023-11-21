@@ -199,7 +199,7 @@ public class AdPAdmin extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.m1) {
+        if (item.getItemId() == R.id.m2) {
             firebaseAuth.signOut();
             finish();
             startActivity(new Intent(AdPAdmin.this, menuRL.class));
