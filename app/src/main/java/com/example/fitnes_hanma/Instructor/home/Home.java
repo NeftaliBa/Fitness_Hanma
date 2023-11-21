@@ -29,7 +29,7 @@ public class Home extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.b_cla_home);
+        setContentView(R.layout.b_cla_principal);
 
         // Configurar el Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);

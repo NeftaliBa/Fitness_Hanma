@@ -31,8 +31,6 @@ public class c_cl_perfil_clases extends AppCompatActivity {
         hora =   (TextView) findViewById(R.id.hora);
 
 
-
-
         // Configurar el Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

@@ -74,6 +74,7 @@
                 android:layout_height="wrap_content"
                 android:text="Hora"
                 android:textSize="18dp"/>
+
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

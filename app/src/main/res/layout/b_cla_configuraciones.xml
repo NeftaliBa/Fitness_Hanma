@@ -34,11 +34,19 @@
             android:textSize="20sp"
             android:layout_gravity="center"/>
     </androidx.appcompat.widget.Toolbar>
-    <LinearLayout
-        android:layout_below="@+id/toolbar"
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp">
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="60dp"
+        android:layout_below="@+id/toolbar">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
 
 
         <LinearLayout
@@ -52,14 +60,16 @@
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
+                android:id="@+id/imageProfile"
                 android:src="@drawable/default_image"/>
 
             <TextView
+                android:id="@+id/textViewNombreUsuario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:text="Neftantetaminas"
+                android:text="ejemplo"
                 android:textColor="#1F8D89"
                 android:textSize="22sp"
                 android:textStyle="bold" />
@@ -97,10 +107,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
                     android:hint="Nombre"
-                    android:textColorHint="@color/white"
                     android:minHeight="48dp"
                     android:padding="10dp"
                     android:textColor="#FFFFFF"
+                    android:textColorHint="@color/white"
                     android:textStyle="bold" />
 
                 <Button
@@ -121,7 +131,8 @@
                 android:orientation="vertical"
                 android:padding="15dp"
                 android:divider="@drawable/divisor_conf"
-                android:showDividers="middle">
+                android:showDividers="middle"
+                >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -151,13 +162,11 @@
                         android:layout_gravity="center"
                         android:switchMinWidth="50dp"
                         android:theme="@style/notificationsSwitch"/>
-
-
                 </LinearLayout>
-
 
                 <!-- Seguridad-->
                 <LinearLayout
+                    android:id="@+id/politicas"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -169,6 +178,7 @@
                         android:background="@drawable/round_back_security"
                         android:padding="12dp"/>
                     <TextView
+                        android:id="@+id/politicasss"
                         android:layout_marginStart="20dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -183,7 +193,6 @@
                         android:layout_height="wrap_content"
                         android:src="@drawable/right_arrow"/>
                 </LinearLayout>
-
 
                 <!-- Mandanos mensajes-->
                 <LinearLayout
@@ -273,9 +282,13 @@
                         />
                 </LinearLayout>
             </LinearLayout>
-
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="60dp">
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+    </ScrollView>
 
         <androidx.fragment.app.FragmentContainerView
             android:name="com.example.fitnes_hanma.Instructor.fragments.Navbar"
