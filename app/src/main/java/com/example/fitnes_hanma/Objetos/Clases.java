@@ -1,16 +1,16 @@
 package com.example.fitnes_hanma.Objetos;
 
 public class Clases {
-    String id_clase, nombreClase, descripcion, nombreInstructor ,horaClase, limCli, hor1, hor2, hor3;
+    String id_clase, nombreClase, descripcion, searchInstructor ,horaClase, limCli, hor1, hor2, hor3;
 
     public Clases() {
     }
 
-    public Clases(String id_clase, String nombreClase, String descripcion, String nombreInstructor, String horaClase, String limCli, String hor1, String hor2, String hor3) {
+    public Clases(String id_clase, String nombreClase, String descripcion, String searchInstructor, String horaClase, String limCli, String hor1, String hor2, String hor3) {
         this.id_clase = id_clase;
         this.nombreClase = nombreClase;
         this.descripcion = descripcion;
-        this.nombreInstructor = nombreInstructor;
+        this.searchInstructor = searchInstructor;
         this.horaClase = horaClase;
         this.limCli = limCli;
         this.hor1 = hor1;
@@ -42,12 +42,12 @@ public class Clases {
         this.descripcion = descripcion;
     }
 
-    public String getNombreInstructor() {
-        return nombreInstructor;
+    public String getSearchInstructor() {
+        return searchInstructor;
     }
 
-    public void setNombreInstructor(String nombreInstructor) {
-        this.nombreInstructor = nombreInstructor;
+    public void setSearchInstructor(String searchInstructor) {
+        this.searchInstructor = searchInstructor;
     }
 
     public String getHoraClase() {

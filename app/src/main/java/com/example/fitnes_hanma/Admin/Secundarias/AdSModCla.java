@@ -34,7 +34,7 @@ import java.util.Map;
 public class AdSModCla extends AppCompatActivity {
     private FirebaseFirestore db;
     private FirebaseAuth auth;
-    EditText nomCla, desCla, nomIns, LimCli;
+    EditText nomCla, desCla, emaIns, LimCli;
     Button cancelar, actualizar, hour;
     TextView fecha, hora;
 
@@ -50,7 +50,7 @@ public class AdSModCla extends AppCompatActivity {
 
         nomCla = (EditText) findViewById(R.id.claNa);
         desCla = (EditText) findViewById(R.id.desCla);
-        nomIns = (EditText) findViewById(R.id.naInst);
+        emaIns = (EditText) findViewById(R.id.naInst);
         LimCli = (EditText) findViewById(R.id.limCliM);
         cancelar = (Button) findViewById(R.id.cancel);
         hour = (Button) findViewById(R.id.hour);
@@ -61,7 +61,7 @@ public class AdSModCla extends AppCompatActivity {
         if (intent != null) {
             String nombreClase = intent.getStringExtra("nombreClase");
             String descripcion = intent.getStringExtra("descripcion");
-            String nombreInstructor = intent.getStringExtra("nombreInstructor");
+            String correoInstructor = intent.getStringExtra("correoInstructor");
             String horaClase = intent.getStringExtra("horaClase");
             String LimCliM = intent.getStringExtra("limCli");
             classId = intent.getStringExtra("id_clase");
@@ -80,7 +80,7 @@ public class AdSModCla extends AppCompatActivity {
             // Configura los campos con los datos
             nomCla.setText(nombreClase);
             desCla.setText(descripcion);
-            nomIns.setText(nombreInstructor);
+            emaIns.setText(correoInstructor);
             hora.setText(horaClase);
             LimCli.setText(LimCliM);
 
@@ -136,7 +136,7 @@ public class AdSModCla extends AppCompatActivity {
 
         // Actualizar el campo de nombre y correo en Firestore
         clasRef.update("nombreClase", nomCla.getText().toString(), "descripcion", desCla.getText().toString(),
-                        "nombreInstructor", nomIns.getText().toString(), "limCli", LimCli.getText().toString())
+                        "correoInstructor", emaIns.getText().toString(), "limCli", LimCli.getText().toString())
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {

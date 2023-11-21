@@ -27,7 +27,6 @@
         <activity
             android:name=".c_cl_perfil_clases"
             android:exported="false" />
-
         <meta-data
             android:name="com.google.android.gms.games.APP_ID"
             android:value="@string/app_id" />
