@@ -98,7 +98,7 @@ public class AdSModAdm extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     updateDataAndRoleInFirestore();
-                    i = new Intent(AdSModAdm.this, AdPInstructor.class);
+                    i = new Intent(AdSModAdm.this, AdPAdmin.class);
                     startActivity(i);
                 }
             });

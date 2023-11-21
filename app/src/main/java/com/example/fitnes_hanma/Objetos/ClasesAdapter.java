@@ -34,7 +34,7 @@ public class ClasesAdapter extends ArrayAdapter<Clases> {
         // Configura las vistas con los datos de la Clases
         nombreClaseTextView.setText(clase.getNombreClase());
         descripcionTextView.setText(clase.getDescripcion());
-        nombreInstructorTextView.setText(clase.getNombreInstructor());
+        nombreInstructorTextView.setText(clase.getSearchInstructor());
 
         return convertView;
     }

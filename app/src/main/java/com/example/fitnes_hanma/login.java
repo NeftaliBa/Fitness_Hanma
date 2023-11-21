@@ -135,6 +135,8 @@ public class login extends AppCompatActivity {
 
     // Método para la autenticación con Google
     private void signInWithGoogle() {
+        Log.d("LoginActivity", "Iniciando autenticación con Google");
+
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken("597709671741-158thjtmnq65k5e0pa681tndvjn4cvj5.apps.googleusercontent.com")
                 .requestEmail()
@@ -164,7 +166,6 @@ public class login extends AppCompatActivity {
         }
     }
 
-    // Método para autenticar en Firebase con la cuenta de Google
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
@@ -172,14 +173,17 @@ public class login extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Autenticación exitosa, ahora guarda la información en Firestore
+                            // Autenticación exitosa con Google
+                            Log.d("LoginActivity", "Autenticación exitosa con Google");
                             saveGoogleUserToFirestore(acct);
                         } else {
+                            Log.e("LoginActivity", "Error al autenticar con Firebase", task.getException());
                             Toast.makeText(login.this, "Error al autenticar con Firebase", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
     }
+
 
     // Método para guardar la información del usuario de Google en Firestore
     private void saveGoogleUserToFirestore(GoogleSignInAccount account) {
@@ -197,24 +201,29 @@ public class login extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        // Todo está configurado correctamente
+                        // Escritura exitosa en Firestore
+                        Log.d("LoginActivity", "Escritura exitosa en Firestore");
                         Toast.makeText(login.this, "Inicio de sesión exitoso con Google", Toast.LENGTH_SHORT).show();
-                        // Aquí puedes redirigir a la actividad correspondiente según el role del usuario
+                        // Aquí puedes redirigir a la actividad correspondiente según el rol del usuario
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        Log.e("LoginActivity", "Error al guardar la información en Firestore", e);
                         Toast.makeText(login.this, "Error al guardar la información en Firestore", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
+
     private void loginUser(String emailUser, String passUser) {
         mAuth.signInWithEmailAndPassword(emailUser,passUser).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 mDialog.dismiss();
                 if (task.isSuccessful()){
+                    Log.d("LoginActivity", "Autenticación exitosa con correo y contraseña");
+
                     firebaseAuth = FirebaseAuth.getInstance();
                     FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
                     userId = firebaseUser.getUid();
@@ -243,6 +252,7 @@ public class login extends AppCompatActivity {
                     });
                     Toast.makeText(login.this, "Bienvenido", Toast.LENGTH_SHORT).show();
                 } else {
+                    Log.e("LoginActivity", "Error al iniciar sesión con correo y contraseña", task.getException());
                     Toast.makeText(login.this, "Error", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -250,6 +260,8 @@ public class login extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 mDialog.dismiss();
+                Log.e("LoginActivity", "Error al iniciar sesión con correo y contraseña", e);
+
                 Toast.makeText(login.this, "Error al iniciar sesion", Toast.LENGTH_SHORT).show();
             }
         });
