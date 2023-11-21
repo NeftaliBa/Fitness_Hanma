@@ -19,23 +19,23 @@
             android:id="@+id/backButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/back_cli"
             android:layout_gravity="start"
-            android:contentDescription="Botón de retroceso"/>
+            android:contentDescription="Botón de retroceso"
+            android:src="@drawable/back_cli" />
 
         <!-- Título de la barra de herramientas -->
         <TextView
             android:id="@+id/toolbarTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Clase #"
             android:layout_gravity="center"
             android:fontFamily="@font/salsa_font"
+            android:text="Clase #"
             android:textColor="#FFFFFF"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
     </androidx.appcompat.widget.Toolbar>
 
-        <LinearLayout
+    <LinearLayout
             android:id="@+id/encabezadoPerfil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

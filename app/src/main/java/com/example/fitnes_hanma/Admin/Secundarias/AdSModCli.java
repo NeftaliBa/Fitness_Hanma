@@ -205,7 +205,7 @@ public class AdSModCli extends AppCompatActivity {
                             DocumentReference trainerRef = db.collection("trainer").document(userId);
 
                             // Guardar los datos en la colección "trainer"
-                            trainerRef.set(new Instructor(userEmail, userId, userName, userPassword, "3"))
+                            trainerRef.set(new Instructor(userEmail, userId, userName, userPassword, "3", "supuesta imagen"))
                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void aVoid) {

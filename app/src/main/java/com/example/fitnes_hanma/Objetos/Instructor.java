@@ -1,17 +1,18 @@
 package com.example.fitnes_hanma.Objetos;
 
 public class Instructor {
-    String Temail, Tid, Tname, Tpassword, Trole;
+    String Temail, Tid, Tname, Tpassword, Trole, profileImageUrl;
 
     public Instructor() {
     }
 
-    public Instructor(String temail, String tid, String tname, String tpassword, String trole) {
+    public Instructor(String temail, String tid, String tname, String tpassword, String trole, String profileImageUrl) {
         Temail = temail;
         Tid = tid;
         Tname = tname;
         Tpassword = tpassword;
         Trole = trole;
+        this.profileImageUrl = profileImageUrl;
     }
 
     public String getTemail() {
@@ -34,6 +35,7 @@ public class Instructor {
         return Tname;
     }
 
+
     public void setTname(String tname) {
         Tname = tname;
     }
@@ -52,5 +54,13 @@ public class Instructor {
 
     public void setTrole(String trole) {
         Trole = trole;
+    }
+
+    public String getProfileImageUrl() {
+        return profileImageUrl;
+    }
+
+    public void setProfileImageUrl(String profileImageUrl) {
+        this.profileImageUrl = profileImageUrl;
     }
 }

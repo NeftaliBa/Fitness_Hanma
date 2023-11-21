@@ -64,5 +64,11 @@ dependencies {
 
     implementation (platform("com.google.firebase:firebase-bom:32.3.1"))
 
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
+
+    implementation ("com.squareup.picasso:picasso:2.71828")
+
+
+
 
 }

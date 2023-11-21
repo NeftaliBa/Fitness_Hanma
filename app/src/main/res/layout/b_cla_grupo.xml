@@ -1,68 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Instructor.grupo.Grupo">
+    tools:context=".Instructor.grupo.Grupo"
+    android:background="@drawable/desbanecido_interna">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#00083E"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <!-- Título de la barra de herramientas -->
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/salsa_font"
+            android:text="Menu Principal"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+    </androidx.appcompat.widget.Toolbar>
 
         <TextView
+            android:layout_below="@+id/toolbar"
+            android:id="@+id/titulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Comunidad"
             android:textAlignment="center"
-            android:textSize="30dp"
+            android:fontFamily="@font/salsa_font"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
             android:textStyle="bold"
-            android:textColor="@color/gris"
             android:layout_marginTop="20dp"/>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="75dp">
-            <Button
-                android:id="@+id/general"
-                android:layout_width="120dp"
-                android:layout_height="48dp"
-                android:text="General"
-                android:textColor="@color/white"
-                android:backgroundTint="@color/secondary"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="15dp"
-                android:gravity="center" />
-            <Button
-                android:id="@+id/mi_post"
-                android:layout_width="120dp"
-                android:layout_height="48dp"
-                android:text="Mi Post"
-                android:textColor="@color/white"
-                android:backgroundTint="@color/secondary"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="15dp"
-                android:gravity="center" />
-        </RelativeLayout>
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginTop="120dp"
-                android:orientation="vertical"
-                android:padding="15dp">
-                <ListView
-                    android:id="@+id/publicaciones"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="4" />
-            </LinearLayout>
-
-
-    <RelativeLayout
+    <LinearLayout
+        android:id="@+id/opciones"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/titulo"
         android:layout_marginTop="10dp">
+
+        <Button
+            android:id="@+id/general"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:backgroundTint="@color/secondary"
+            android:text="General"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/mi_post"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:backgroundTint="@color/secondary"
+            android:text="Mi Post"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_below="@id/opciones"
+        android:id="@+id/lista"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="vertical"
+        android:padding="15dp"
+        android:layout_marginBottom="75dp">
+
+        <ListView
+            android:id="@+id/publicaciones"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+    </LinearLayout>
 
         <androidx.fragment.app.FragmentContainerView
             android:name="com.example.fitnes_hanma.Instructor.fragments.Navbar"
@@ -72,7 +95,5 @@
             android:id="@+id/fragment_navbar"
             tools:layout="@layout/b_cla_navbar_fragment" />
 
-    </RelativeLayout>
-
-</FrameLayout>
+</RelativeLayout>
 
