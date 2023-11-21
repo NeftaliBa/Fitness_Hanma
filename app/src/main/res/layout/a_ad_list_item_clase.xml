@@ -27,6 +27,13 @@
         android:text="correo del instructor"
         android:textSize="15sp"/>
 
+    <TextView
+        android:id="@+id/getnameInstructor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="nombre del instructor"
+        android:textSize="15sp"/>
+
 
     <!-- Agrega más vistas para mostrar otros detalles de la clase si es necesario -->
 
