@@ -52,13 +52,13 @@ public class c_cl_perfil_clases extends AppCompatActivity {
         if (intent != null) {
             String nombreClase = intent.getStringExtra("nombreClase");
             String descripcion = intent.getStringExtra("descripcion");
-            String correoInstructor = intent.getStringExtra("correoInstructor");
+            String nombreInstructor = intent.getStringExtra("nombreInstructor");
             String horaClase = intent.getStringExtra("horaClase");
 
             // Configura los campos con los datos
             nomCla.setText(nombreClase);
             desCla.setText(descripcion);
-            nomIns.setText(correoInstructor);
+            nomIns.setText(nombreInstructor);
             hora.setText(horaClase);
         }
     }
