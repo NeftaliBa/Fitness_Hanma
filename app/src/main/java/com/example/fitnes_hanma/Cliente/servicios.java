@@ -94,7 +94,7 @@ public class servicios extends AppCompatActivity {
                 Intent intent = new Intent(servicios.this, c_cl_perfil_clases.class);
                 intent.putExtra("nombreClase", claseSeleccionada.getNombreClase());
                 intent.putExtra("descripcion", claseSeleccionada.getDescripcion());
-                intent.putExtra("correoInstructor", claseSeleccionada.getCorreoInstructor());
+                intent.putExtra("nombreInstructor", claseSeleccionada.getNombreInstructor());
                 intent.putExtra("horaClase", claseSeleccionada.getHoraClase());
                 intent.putExtra("limCli", claseSeleccionada.getLimCli());
 

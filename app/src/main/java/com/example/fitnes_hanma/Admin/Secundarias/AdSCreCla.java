@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -67,8 +68,8 @@ public class AdSCreCla extends AppCompatActivity implements  AdapterView.OnItemS
     Spinner dia1, dia2, dia3;
     FirebaseAuth firebaseAuth;
     String horario1, horario2, horario3;
-    String nameC = "", desC = "", emailI = "", limU = "", hor1 = "", hor2 = "", hor3 = "";
-
+    String nameC = "", desC = "", emailI = "", limU = "", hor1 = "", hor2 = "", hor3 = "", nameI= "";
+    TextView nameInstructor;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -85,6 +86,7 @@ public class AdSCreCla extends AppCompatActivity implements  AdapterView.OnItemS
         nomCla = (EditText) findViewById(R.id.claNa);
         desCla = (EditText) findViewById(R.id.desCla);
         searchInstructor = (EditText) findViewById(R.id.searchInsCreCla);
+        nameInstructor = (TextView) findViewById(R.id.nameInstructor);
         LimCli = (EditText) findViewById(R.id.limCli);
 
         hour1 = (Button) findViewById(R.id.hour1);
@@ -215,6 +217,7 @@ public class AdSCreCla extends AppCompatActivity implements  AdapterView.OnItemS
 
                 // Establece el correo del instructor seleccionado en el EditText
                 searchInstructor.setText(instructorSeleccionado.getTemail());
+                nameInstructor.setText(instructorSeleccionado.getTname());
             }
         });
 
@@ -289,6 +292,7 @@ public class AdSCreCla extends AppCompatActivity implements  AdapterView.OnItemS
         nameC = nomCla.getText().toString().trim();
         desC = desCla.getText().toString().trim();
         emailI = searchInstructor.getText().toString().trim();
+        nameI = nameInstructor.getText().toString().trim();
         limU = LimCli.getText().toString().trim();
         hor1 = horario1;
         hor2 = horario2;
@@ -332,6 +336,7 @@ public class AdSCreCla extends AppCompatActivity implements  AdapterView.OnItemS
         clase.put("nombreClase", nameC);
         clase.put("descripcion", desC);
         clase.put("correoInstructor", emailI);
+        clase.put("nombreInstructor", nameI);
         clase.put("limCli", limU);
         clase.put("hor1", hor1);
         clase.put("hor2", hor2);

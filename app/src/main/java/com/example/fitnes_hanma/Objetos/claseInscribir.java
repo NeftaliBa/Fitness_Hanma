@@ -36,7 +36,7 @@ public class claseInscribir extends ArrayAdapter<Clases> {
 
         // Configura las vistas con los datos de la Clases
         nombreClaseTextView.setText(clase.getNombreClase());
-        nombreInstructorTextView.setText(clase.getCorreoInstructor());
+        nombreInstructorTextView.setText(clase.getNombreInstructor());
         descrip.setText(clase.getDescripcion());
         hora.setText(clase.getHoraClase());
 

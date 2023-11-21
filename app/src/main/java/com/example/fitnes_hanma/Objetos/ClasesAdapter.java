@@ -30,12 +30,15 @@ public class ClasesAdapter extends ArrayAdapter<Clases> {
         TextView nombreClaseTextView = convertView.findViewById(R.id.nombreClaseTextView);
         TextView descripcionTextView = convertView.findViewById(R.id.descripcionTextView);
         TextView getSearchInstructor = convertView.findViewById(R.id.getSearchInstructor);
+        TextView getnameInstructor = convertView.findViewById(R.id.getnameInstructor);
 
         // Configura las vistas con los datos de la Clases
         assert clase != null;
         nombreClaseTextView.setText(clase.getNombreClase());
         descripcionTextView.setText(clase.getDescripcion());
         getSearchInstructor.setText(clase.getCorreoInstructor());
+        getnameInstructor.setText(clase.getNombreInstructor());
+
 
         return convertView;
     }
