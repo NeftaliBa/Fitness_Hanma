@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".c_cl_perfil_clases"
+    tools:context=".Cliente.c_cl_perfil_clases"
     android:background="@drawable/desbanecido_interna">
 
     <androidx.appcompat.widget.Toolbar
@@ -60,7 +60,7 @@
                 android:textSize="30dp" />
 
             <TextView
-                android:id="@+id/nombreInstructorTextView"
+                android:id="@+id/nombreInstructorTextViewc_cl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/salsa_font"

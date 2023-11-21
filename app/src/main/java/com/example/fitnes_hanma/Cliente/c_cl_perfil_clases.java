@@ -1,4 +1,4 @@
-package com.example.fitnes_hanma;
+package com.example.fitnes_hanma.Cliente;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -6,15 +6,10 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.fitnes_hanma.Admin.Principal.AdPClases;
-import com.example.fitnes_hanma.Admin.Secundarias.AdSModCla;
-import com.example.fitnes_hanma.Cliente.principal;
-import com.example.fitnes_hanma.Objetos.Clases;
+import com.example.fitnes_hanma.R;
 
 public class c_cl_perfil_clases extends AppCompatActivity {
 
@@ -27,7 +22,7 @@ public class c_cl_perfil_clases extends AppCompatActivity {
 
         nomCla = (TextView) findViewById(R.id.nombreClaseTextView);
         desCla = (TextView) findViewById(R.id.descripcionTextView);
-        nomIns = (TextView) findViewById(R.id.nombreInstructorTextView);
+        nomIns = (TextView) findViewById(R.id.nombreInstructorTextViewc_cl);
         hora =   (TextView) findViewById(R.id.hora);
 
 
@@ -57,13 +52,13 @@ public class c_cl_perfil_clases extends AppCompatActivity {
         if (intent != null) {
             String nombreClase = intent.getStringExtra("nombreClase");
             String descripcion = intent.getStringExtra("descripcion");
-            String nombreInstructor = intent.getStringExtra("nombreInstructor");
+            String correoInstructor = intent.getStringExtra("correoInstructor");
             String horaClase = intent.getStringExtra("horaClase");
 
             // Configura los campos con los datos
             nomCla.setText(nombreClase);
             desCla.setText(descripcion);
-            nomIns.setText(nombreInstructor);
+            nomIns.setText(correoInstructor);
             hora.setText(horaClase);
         }
     }

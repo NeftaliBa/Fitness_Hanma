@@ -18,7 +18,6 @@ import android.widget.Toast;
 import com.example.fitnes_hanma.Objetos.Clases;
 import com.example.fitnes_hanma.Objetos.claseInscribir;
 import com.example.fitnes_hanma.R;
-import com.example.fitnes_hanma.c_cl_perfil_clases;
 import com.example.fitnes_hanma.menuRL;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
