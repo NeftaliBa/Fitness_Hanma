@@ -119,7 +119,7 @@ public class principal extends AppCompatActivity {
                 Intent intent = new Intent(principal.this, c_cl_perfil_clases.class);
                 intent.putExtra("nombreClase", claseSeleccionada.getNombreClase());
                 intent.putExtra("descripcion", claseSeleccionada.getDescripcion());
-                intent.putExtra("correoInstructor", claseSeleccionada.getSearchInstructor());
+                intent.putExtra("correoInstructor", claseSeleccionada.getCorreoInstructor());
                 intent.putExtra("horaClase", claseSeleccionada.getHoraClase());
                 intent.putExtra("limCli", claseSeleccionada.getLimCli());
 
