@@ -157,7 +157,7 @@ public class AdPClases extends AppCompatActivity {
                 Intent intent = new Intent(AdPClases.this, AdSModCla.class);
                 intent.putExtra("nombreClase", claseSeleccionada.getNombreClase());
                 intent.putExtra("descripcion", claseSeleccionada.getDescripcion());
-                intent.putExtra("correoInstructor", claseSeleccionada.getSearchInstructor());
+                intent.putExtra("correoInstructor", claseSeleccionada.getCorreoInstructor());
                 intent.putExtra("horaClase", claseSeleccionada.getHoraClase());
                 intent.putExtra("limCli", claseSeleccionada.getLimCli());
 
@@ -178,7 +178,7 @@ public class AdPClases extends AppCompatActivity {
         } else {
             // Filtra por nombre de instructor o nombre de clase
             for (Clases clase : clasesList) {
-                if (clase.getSearchInstructor().toLowerCase().contains(searchText.toLowerCase()) ||
+                if (clase.getCorreoInstructor().toLowerCase().contains(searchText.toLowerCase()) ||
                         clase.getNombreClase().toLowerCase().contains(searchText.toLowerCase())) {
                     filteredList.add(clase);
                 }

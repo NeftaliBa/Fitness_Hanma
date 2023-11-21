@@ -36,7 +36,7 @@ public class ClasesQueElClienteTiene extends ArrayAdapter<Clases> {
         // Configura las vistas con los datos de la Clases
         assert clase != null;
         nombreClaseTextView.setText(clase.getNombreClase());
-        correoInsClPrinci.setText(clase.getSearchInstructor());
+        nombreInstructorTextView.setText(clase.getCorreoInstructor());
         descrip.setText(clase.getDescripcion());
         hora.setText(clase.getHoraClase());
 
