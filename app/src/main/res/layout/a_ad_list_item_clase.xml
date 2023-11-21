@@ -21,10 +21,10 @@
         android:textSize="15sp"/>
 
     <TextView
-        android:id="@+id/nombreInstructorTextView"
+        android:id="@+id/getSearchInstructor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Descripción de la Clase"
+        android:text="correo del instructor"
         android:textSize="15sp"/>
 
 
