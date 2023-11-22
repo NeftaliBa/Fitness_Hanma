@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -62,6 +63,9 @@ public class principal extends AppCompatActivity {
 
         String userId = user.getUid();
 
+
+
+
         FirebaseFirestore.getInstance().collection("users").document(userId)
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -83,45 +87,52 @@ public class principal extends AppCompatActivity {
         // Configura el adaptador con el ListView
         listViewClases.setAdapter(adapter);
 
-        // Recupera las clases de Firebase Firestore y agrega a la lista
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        CollectionReference clasesRef = db.collection("clases");
+        CollectionReference inscripcionesRef = db.collection("inscripciones");
 
-        clasesRef.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                // Borra la lista de clases actual
-                clasesList.clear();
+        inscripcionesRef.whereEqualTo("cleinteID", userId)
+                .get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    clasesList.clear();
 
-                for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-                    Clases clase = documentSnapshot.toObject(Clases.class);
-                    if (clase != null) {
-                        clasesList.add(clase);
+                    for (DocumentSnapshot inscripcionSnapshot : queryDocumentSnapshots) {
+                        // se obtiene el id de la clase desde la inscripción
+                        String claseID = inscripcionSnapshot.getString("claseID");
+
+                        if (claseID != null) {
+                            db.collection("clases").document(claseID)
+                                    .get()
+                                    .addOnSuccessListener(documentSnapshot -> {
+                                        Clases clase = documentSnapshot.toObject(Clases.class);
+                                        if (clase != null) {
+                                            clasesList.add(clase);
+                                            adapter.notifyDataSetChanged();
+                                        }
+                                    })
+                                    .addOnFailureListener(e -> {
+                                        Log.e("Error", "Error al obtener detalles de clase", e);
+                                    });
+                        }
                     }
-                }
-
-                // Notifica al adaptador que los datos han cambiado
-                adapter.notifyDataSetChanged();
-            }
-        });
+                })
+                .addOnFailureListener(e -> {
+                    Log.e("Error", "Error al obtener inscripciones", e);
+                });
 
         listViewClases.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Obtén la clase seleccionada
                 Clases claseSeleccionada = clasesList.get(position);
-
-                // Pasa los datos necesarios a AdSModCla
-                Intent intent = new Intent(principal.this, c_cl_perfil_clases.class);
+                Intent intent = new Intent(principal.this, c_cl_perfil_clases_principal.class);
                 intent.putExtra("nombreClase", claseSeleccionada.getNombreClase());
                 intent.putExtra("descripcion", claseSeleccionada.getDescripcion());
                 intent.putExtra("nombreInstructor", claseSeleccionada.getNombreInstructor());
                 intent.putExtra("horaClase", claseSeleccionada.getHoraClase());
                 intent.putExtra("limCli", claseSeleccionada.getLimCli());
-
-                // Incluso puedes pasar el ID del documento si lo necesitas
+                intent.putExtra("hor1", claseSeleccionada.getHor1());
+                intent.putExtra("hor2", claseSeleccionada.getHor2());
+                intent.putExtra("hor3", claseSeleccionada.getHor3());
                 intent.putExtra("idDocumento", claseSeleccionada.getId_clase());
-
                 startActivity(intent);
             }
         });

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Cliente.c_cl_perfil_clases_principal"
+    android:background="@drawable/desbanecido_interna">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarClaPrincipal"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#00083E"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+
+        <!-- Botón de retroceso -->
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:contentDescription="Botón de retroceso"
+            android:src="@drawable/back_cli" />
+
+        <!-- Título de la barra de herramientas -->
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/salsa_font"
+            android:text=""
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbarClaPrincipal"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/admin_recli">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="15dp"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/encabezadoPerfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/borde_limon"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/nameClaPri"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/salsa_font"
+                    android:text="Nombre de clase"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="30dp" />
+
+
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/default_image" />
+
+                <TextView
+                    android:id="@+id/nameInsPrincipal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/salsa_font"
+                    android:text="Nombre del instructor"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="25dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/descrip"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/encabezadoPerfil"
+                android:background="@drawable/c_cl_perfil_bottom"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/salsa_font"
+                    android:text="Descripcíon"
+                    android:textColor="#81707070"
+                    android:textSize="17dp" />
+
+                <TextView
+                    android:id="@+id/decClaPrincipal"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/salsa_font"
+                    android:paddingBottom="10dp"
+                    android:text="Descripción"
+                    android:textColor="@color/black"
+                    android:textSize="17dp" />
+
+                <View
+                    android:id="@+id/separador1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/descrip"
+                    android:layout_marginVertical="10dp"
+                    android:background="@color/apagado" />
+
+                <TextView
+                    android:id="@+id/dia1ClaPrin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/salsa_font"
+                    android:text="dia1"
+                    android:textColor="@color/black"
+                    android:textSize="17dp" />
+
+                <TextView
+                    android:id="@+id/dia2ClaPrin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/salsa_font"
+                    android:text="dia2"
+                    android:textColor="@color/black"
+                    android:textSize="17dp" />
+
+                <TextView
+                    android:id="@+id/dia3ClaPrin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/salsa_font"
+                    android:text="dia3"
+                    android:textColor="@color/black"
+                    android:textSize="17dp" />
+
+
+                <View
+                    android:id="@+id/separador2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/horarioss"
+                    android:layout_marginVertical="10dp"
+                    android:background="@color/apagado" />
+
+                <LinearLayout
+                    android:id="@+id/btnSalir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_marginHorizontal="75dp"
+                    android:background="@drawable/btn_salir_clase"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:fontFamily="@font/salsa_font"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="Abandonar Clase"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15dp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
+
+

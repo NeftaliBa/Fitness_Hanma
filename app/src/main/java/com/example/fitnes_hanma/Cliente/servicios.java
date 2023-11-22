@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -55,6 +56,8 @@ public class servicios extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
+        String userId = user.getUid();
+
 
         ListView listViewClases = findViewById(R.id.listViewClaCliente);
         List<Clases> clasesList = new ArrayList<>();
@@ -73,15 +76,40 @@ public class servicios extends AppCompatActivity {
                 // Borra la lista de clases actual
                 clasesList.clear();
 
-                for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-                    Clases clase = documentSnapshot.toObject(Clases.class);
-                    if (clase != null) {
-                        clasesList.add(clase);
-                    }
-                }
+                // Obtén las clases a las que el usuario ya está inscrito
+                List<String> clasesInscritas = new ArrayList<>();
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                CollectionReference inscripcionesRef = db.collection("inscripciones");
 
-                // Notifica al adaptador que los datos han cambiado
-                adapter.notifyDataSetChanged();
+                inscripcionesRef.whereEqualTo("cleinteID", userId)
+                        .get()
+                        .addOnSuccessListener(queryDocumentSnapshots1 -> {
+                            for (DocumentSnapshot inscripcionSnapshot : queryDocumentSnapshots1) {
+                                // Obtén el ID de la clase desde la inscripción
+                                String claseID = inscripcionSnapshot.getString("claseID");
+                                if (claseID != null) {
+                                    clasesInscritas.add(claseID);
+                                }
+                            }
+
+                            // Itera sobre las clases y agrega solo las no inscritas a la lista
+                            for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                                Clases clase = documentSnapshot.toObject(Clases.class);
+                                if (clase != null) {
+                                    if (!clasesInscritas.contains(clase.getId_clase())) {
+                                        // La clase no está en la lista de clases inscritas, agrégala
+                                        clasesList.add(clase);
+                                    }
+                                }
+                            }
+
+                            // Notifica al adaptador que los datos han cambiado
+                            adapter.notifyDataSetChanged();
+                        })
+                        .addOnFailureListener(e -> {
+                            // Maneja el error al obtener inscripciones del usuario
+                            Log.e("Error", "Error al obtener inscripciones", e);
+                        });
             }
         });
         listViewClases.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -91,7 +119,7 @@ public class servicios extends AppCompatActivity {
                 Clases claseSeleccionada = clasesList.get(position);
 
                 // Pasa los datos necesarios a AdSModCla
-                Intent intent = new Intent(servicios.this, c_cl_perfil_clases.class);
+                Intent intent = new Intent(servicios.this, c_cl_perfil_clases_servicios.class);
                 intent.putExtra("nombreClase", claseSeleccionada.getNombreClase());
                 intent.putExtra("descripcion", claseSeleccionada.getDescripcion());
                 intent.putExtra("nombreInstructor", claseSeleccionada.getNombreInstructor());

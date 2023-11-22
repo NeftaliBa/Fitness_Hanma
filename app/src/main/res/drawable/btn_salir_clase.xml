@@ -1,0 +1,4 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/btn_salir_clase_behind" />
+    <item android:drawable="@drawable/aripple_effect" />
+</layer-list>
