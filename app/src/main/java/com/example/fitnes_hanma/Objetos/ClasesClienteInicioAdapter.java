@@ -11,9 +11,9 @@ import com.example.fitnes_hanma.R;
 
 import java.util.List;
 
-public class ClasesQueElClienteTiene extends ArrayAdapter<Clases> {
+public class ClasesClienteInicioAdapter extends ArrayAdapter<Clases> {
 
-    public ClasesQueElClienteTiene(Context context, List<Clases> clasesList) {
+    public ClasesClienteInicioAdapter(Context context, List<Clases> clasesList) {
         super(context, 0, clasesList);
     }
 
@@ -39,8 +39,6 @@ public class ClasesQueElClienteTiene extends ArrayAdapter<Clases> {
         nombreInstructorTextView.setText(clase.getNombreInstructor());
         descrip.setText(clase.getDescripcion());
         hora.setText(clase.getHoraClase());
-
-
 
         return convertView;
     }

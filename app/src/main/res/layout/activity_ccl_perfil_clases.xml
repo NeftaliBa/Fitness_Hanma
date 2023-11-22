@@ -14,6 +14,7 @@
         android:background="#00083E"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
+
         <!-- Botón de retroceso -->
         <ImageView
             android:id="@+id/backButton"
@@ -30,61 +31,96 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/salsa_font"
-            android:text="Clase #"
+            android:text="(Clase)"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/encendido"
+        android:orientation="vertical">
+
+        <LinearLayout
             android:id="@+id/encabezadoPerfil"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/toolbar"
+            android:layout_height="273dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/borde_limon"
             android:orientation="vertical"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="30dp"
             android:paddingLeft="10dp"
-            android:paddingTop="100dp"
+            android:paddingRight="10dp"
             android:paddingBottom="10dp">
+
 
             <TextView
                 android:id="@+id/nombreClaseTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/salsa_font"
                 android:shadowColor="#000000"
                 android:shadowRadius="10"
                 android:text="Nombre de clase"
+                android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="30dp" />
+
+
+            <ImageView
+                android:id="@+id/imageTextView"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/default_image" />
 
             <TextView
                 android:id="@+id/nombreInstructorTextViewc_cl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/salsa_font"
                 android:shadowColor="#000000"
                 android:shadowRadius="10"
                 android:text="Nombre del instructor"
+                android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="25dp" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/descrip"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="159dp"
             android:layout_below="@id/encabezadoPerfil"
-            android:background="#C8C8C8"
-            android:orientation="horizontal"
             android:layout_marginHorizontal="20dp"
+            android:background="#C8C8C8"
+            android:orientation="vertical"
             android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/salsa_font"
+                android:text="Descripcíon"
+                android:textColor="#81707070"
+                android:textSize="17dp" />
 
             <TextView
                 android:id="@+id/descripcionTextView"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="100dp"
+                android:layout_gravity=""
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/salsa_font"
                 android:paddingBottom="10dp"
                 android:shadowColor="#000000"
@@ -96,48 +132,50 @@
 
         <View
             android:id="@+id/separador"
-            android:layout_below="@id/descrip"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/apagado"
-            android:layout_marginHorizontal="20dp" />
+            android:layout_below="@id/descrip"
+            android:layout_marginHorizontal="20dp"
+            android:background="@color/apagado" />
 
-    <LinearLayout
-        android:id="@+id/horarioss"
-        android:layout_width="match_parent"
-        android:layout_height="98dp"
-        android:layout_below="@id/separador"
-        android:background="#C8C8C8"
-        android:orientation="horizontal"
-        android:layout_marginHorizontal="20dp"
-        android:padding="10dp">
-
-
-        <TextView
+        <LinearLayout
+            android:id="@+id/horarioss"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:fontFamily="@font/salsa_font"
-            android:paddingBottom="10dp"
-            android:shadowColor="#000000"
-            android:shadowRadius="10"
-            android:text="Fecha"
-            android:textColor="@color/white"
-            android:textSize="17dp" />
+            android:layout_height="120dp"
+            android:layout_below="@id/separador"
+            android:layout_marginHorizontal="20dp"
+            android:background="#C8C8C8"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
-        <TextView
-            android:id="@+id/hora"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:fontFamily="@font/salsa_font"
-            android:paddingBottom="10dp"
-            android:shadowColor="#000000"
-            android:shadowRadius="10"
-            android:text="Horarios"
-            android:textColor="@color/white"
-            android:textSize="17dp" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_weight="5"
+                android:fontFamily="@font/salsa_font"
+                android:paddingBottom="10dp"
+                android:shadowColor="#000000"
+                android:shadowRadius="10"
+                android:text="Fecha"
+                android:textColor="@color/white"
+                android:textSize="17dp" />
+
+            <TextView
+                android:id="@+id/hora"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_weight="5"
+                android:fontFamily="@font/salsa_font"
+                android:paddingBottom="10dp"
+                android:shadowColor="#000000"
+                android:shadowRadius="10"
+                android:text="Horarios"
+                android:textColor="@color/white"
+                android:textSize="17dp" />
+
+        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
+
 

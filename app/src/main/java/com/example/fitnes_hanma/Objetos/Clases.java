@@ -2,11 +2,12 @@ package com.example.fitnes_hanma.Objetos;
 
 public class Clases {
     String id_clase, nombreClase, descripcion, correoInstructor, nombreInstructor, horaClase, limCli, hor1, hor2, hor3;
+    Instructor instructor; // Cambiar el tipo de dato de String a Instructor
 
     public Clases() {
     }
 
-    public Clases(String id_clase, String nombreClase, String descripcion, String correoInstructor, String nombreInstructor, String horaClase, String limCli, String hor1, String hor2, String hor3) {
+    public Clases(String id_clase, String nombreClase, String descripcion, String correoInstructor, String nombreInstructor, String horaClase, String limCli, String hor1, String hor2, String hor3, Instructor instructor) {
         this.id_clase = id_clase;
         this.nombreClase = nombreClase;
         this.descripcion = descripcion;
@@ -17,7 +18,10 @@ public class Clases {
         this.hor1 = hor1;
         this.hor2 = hor2;
         this.hor3 = hor3;
+        this.instructor = instructor; // Asignar el objeto Instructor
     }
+
+
 
     public String getId_clase() {
         return id_clase;
@@ -97,5 +101,13 @@ public class Clases {
 
     public void setHor3(String hor3) {
         this.hor3 = hor3;
+    }
+
+    public Instructor getInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
     }
 }
