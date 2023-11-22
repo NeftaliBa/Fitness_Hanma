@@ -28,10 +28,13 @@
             android:name=".contactanos"
             android:exported="false" />
         <activity
+            android:name=".Cliente.c_cl_perfil_clases_principal"
+            android:exported="false" />
+        <activity
             android:name=".politica_privacidad"
             android:exported="false" />
         <activity
-            android:name=".Cliente.c_cl_perfil_clases"
+            android:name=".Cliente.c_cl_perfil_clases_servicios"
             android:exported="false" />
 
         <meta-data
