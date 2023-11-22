@@ -36,7 +36,7 @@ public class c_cl_perfil_clases extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Al presionar el botón de retroceso, ir al activity principal
-                Intent intent = new Intent(c_cl_perfil_clases.this, principal.class);
+                Intent intent = new Intent(c_cl_perfil_clases.this, servicios.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
                 finish();
