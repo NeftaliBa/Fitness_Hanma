@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Cliente.principal"
-    android:background="@drawable/desbanecido_interna">
+    android:background="@drawable/desbanecido_interna"
+    tools:context=".sobre_nosotros">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -14,53 +14,49 @@
         android:background="#00083E"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
+        <!-- Botón de retroceso -->
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_cli"
+            android:layout_gravity="start"
+            android:contentDescription="Botón de retroceso"/>
+
         <!-- Título de la barra de herramientas -->
         <TextView
             android:id="@+id/toolbarTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Menu Principal"
+            android:text="Sobre nosotros"
             android:layout_gravity="center"
             android:fontFamily="@font/salsa_font"
             android:textColor="#FFFFFF"
-            android:textSize="20sp" />
+            android:textSize="20sp"/>
     </androidx.appcompat.widget.Toolbar>
-
-    <TextView
-        android:id="@+id/bienvenidoUsu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="90dp"
-        android:layout_marginLeft="30dp"
-        android:textSize="20sp" />
 
     <LinearLayout
         android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/reciveCliente"
+        android:orientation="vertical"
         android:background="@drawable/admin_recli"
-        android:padding="15dp"
-        android:layout_marginHorizontal="15dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="80dp"
-        android:orientation="horizontal">
+        android:layout_marginBottom="20dp"
+        android:padding="15dp">
 
-        <ListView
-            android:id="@+id/listViewClaCliente"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:divider="@drawable/divisor"
-            android:showDividers="middle" />
+            android:text="Luis Esteban Alcaraz Martinez"
+            android:fontFamily="@font/salsa_font"
+            android:textSize="20dp"
+            android:textAlignment="center">
+        </TextView>
+
+
     </LinearLayout>
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragment_cliente_navbar"
-        android:name="com.example.fitnes_hanma.Cliente.c_cl_navbar_fragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        tools:layout="@layout/c_cl_navbar_fragment" />
-
 
 </RelativeLayout>

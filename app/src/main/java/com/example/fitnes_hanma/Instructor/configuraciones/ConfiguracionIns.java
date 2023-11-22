@@ -25,9 +25,11 @@ import androidx.appcompat.widget.Toolbar;
 import com.bumptech.glide.Glide;
 import com.example.fitnes_hanma.Instructor.home.Home;
 import com.example.fitnes_hanma.R;
+import com.example.fitnes_hanma.contactanos;
 import com.example.fitnes_hanma.login;
 import com.example.fitnes_hanma.menuRL;
 import com.example.fitnes_hanma.politica_privacidad;
+import com.example.fitnes_hanma.sobre_nosotros;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -56,8 +58,7 @@ public class ConfiguracionIns extends AppCompatActivity {
     private Uri imageUri;
     ImageView imageViewProfile, imageProfile;
 
-    LinearLayout IrAPoliticas;
-
+    LinearLayout IrAPoliticas, IrANosotros, IrAContactanos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,6 +91,8 @@ public class ConfiguracionIns extends AppCompatActivity {
         user = firebaseAuth.getCurrentUser();
 
         IrAPoliticas = (LinearLayout) findViewById(R.id.politicas);
+        IrANosotros = (LinearLayout) findViewById(R.id.nosotros);
+        IrAContactanos = (LinearLayout) findViewById(R.id.contactanos);
 
         cambiarNombre = findViewById(R.id.cambiarNombre);
         BtnCambiarNombre = findViewById(R.id.BtnCambiarNombre);
@@ -106,6 +109,25 @@ public class ConfiguracionIns extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        IrANosotros.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ConfiguracionIns.this, sobre_nosotros.class);
+                startActivity(intent);
+            }
+        });
+
+        IrAContactanos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ConfiguracionIns.this, contactanos.class);
+                startActivity(intent);
+            }
+        });
+
+
 
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();

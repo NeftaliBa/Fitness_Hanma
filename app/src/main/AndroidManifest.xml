@@ -22,6 +22,12 @@
         android:theme="@style/Theme.Fitnes_Hanma"
         tools:targetApi="31">
         <activity
+            android:name=".sobre_nosotros"
+            android:exported="false" />
+        <activity
+            android:name=".contactanos"
+            android:exported="false" />
+        <activity
             android:name=".Cliente.c_cl_perfil_clases_principal"
             android:exported="false" />
         <activity

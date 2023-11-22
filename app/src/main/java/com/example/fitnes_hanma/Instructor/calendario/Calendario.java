@@ -48,15 +48,6 @@ public class Calendario extends AppCompatActivity {
                 updateCalendar();
             }
         });
-
-        ImageView semana = findViewById(R.id.semanal);
-        semana.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Calendario.this, Calendario_semanal.class);
-                startActivity(intent);
-            }
-        });
     }
 
     private void updateCalendar() {
