@@ -91,7 +91,7 @@ public class servicios extends AppCompatActivity {
                 Clases claseSeleccionada = clasesList.get(position);
 
                 // Pasa los datos necesarios a AdSModCla
-                Intent intent = new Intent(servicios.this, c_cl_perfil_clases.class);
+                Intent intent = new Intent(servicios.this, c_cl_perfil_clases_servicios.class);
                 intent.putExtra("nombreClase", claseSeleccionada.getNombreClase());
                 intent.putExtra("descripcion", claseSeleccionada.getDescripcion());
                 intent.putExtra("nombreInstructor", claseSeleccionada.getNombreInstructor());
