@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
+    android:background="@drawable/desbanecido_interna"
     tools:context=".politica_privacidad">
 
     <androidx.appcompat.widget.Toolbar
@@ -25,6 +26,7 @@
 
         <!-- Título de la barra de herramientas -->
         <TextView
+            android:fontFamily="@font/salsa_font"
             android:id="@+id/toolbarTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -44,7 +46,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/admin_recli"
+        android:padding="10dp">
 
         <TextView
             android:layout_width="match_parent"

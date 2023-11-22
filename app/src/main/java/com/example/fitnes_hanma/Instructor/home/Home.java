@@ -49,7 +49,7 @@ public class Home extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         // Configurar el título de la barra de herramientas
         TextView toolbarTitle = findViewById(R.id.toolbarTitle);
-        toolbarTitle.setText("Menu de vistas");
+        toolbarTitle.setText("Menu Principal");
 
         ImageView QR;
         QR = (ImageView) findViewById(R.id.qr);

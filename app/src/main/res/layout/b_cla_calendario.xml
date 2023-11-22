@@ -5,22 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/desbanecido_interna"
     tools:context=".Instructor.calendario.Calendario">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#00083E"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <!-- Título de la barra de herramientas -->
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calendario"
+            android:layout_gravity="center"
+            android:fontFamily="@font/salsa_font"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"/>
+    </androidx.appcompat.widget.Toolbar>
+
     <LinearLayout
+        android:padding="15dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/admin_recli"
+        android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="right"
-            android:id="@+id/semanal"
-            android:src="@drawable/calendar"
-            android:padding="12dp"/>
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -45,7 +61,7 @@
                 android:text="Oct 2023"
                 android:textSize="20sp"
                 android:textAlignment="center"
-                android:textColor="@color/black"/>
+                android:textColor="#000000"/>
 
             <ImageView
                 android:layout_width="0dp"
@@ -67,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="DOM"
-                android:textColor="@color/verde_gris"
+                android:textColor="#000000"
                 android:textAlignment="center"
                 android:textSize="16sp"/>
 
@@ -76,7 +92,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="LUN"
-                android:textColor="@color/verde_gris"
+                android:textColor="#000000"
                 android:textAlignment="center"
                 android:textSize="16sp"/>
 
@@ -85,7 +101,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="MAR"
-                android:textColor="@color/verde_gris"
+                android:textColor="#000000"
                 android:textAlignment="center"
                 android:textSize="16sp"/>
 
@@ -94,7 +110,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="MIE"
-                android:textColor="@color/verde_gris"
+                android:textColor="#000000"
                 android:textAlignment="center"
                 android:textSize="16sp"/>
 
@@ -103,7 +119,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="JUE"
-                android:textColor="@color/verde_gris"
+                android:textColor="#000000"
                 android:textAlignment="center"
                 android:textSize="16sp"/>
 
@@ -112,7 +128,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="VIE"
-                android:textColor="@color/verde_gris"
+                android:textColor="#000000"
                 android:textAlignment="center"
                 android:textSize="16sp"/>
 
@@ -121,7 +137,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="SAB"
-                android:textColor="@color/verde_gris"
+                android:textColor="#000000"
                 android:textAlignment="center"
                 android:textSize="16sp"/>
 

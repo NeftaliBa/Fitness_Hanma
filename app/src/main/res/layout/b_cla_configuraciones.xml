@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary"
     android:orientation="vertical"
+    android:background="@drawable/desbanecido_interna"
     tools:context=".Instructor.configuraciones.ConfiguracionIns">
 
     <androidx.appcompat.widget.Toolbar
@@ -30,9 +30,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Configuración"
+            android:layout_gravity="center"
+            android:fontFamily="@font/salsa_font"
             android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:layout_gravity="center"/>
+            android:textSize="20sp"/>
     </androidx.appcompat.widget.Toolbar>
 
     <ScrollView
@@ -45,8 +46,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
 
 
         <LinearLayout
@@ -55,31 +55,40 @@
             android:layout_marginTop="10dp"
             android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:id="@+id/imageProfile"
-                android:src="@drawable/default_image"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:background="@drawable/admin_recli"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textViewNombreUsuario"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:text="ejemplo"
-                android:textColor="#1F8D89"
-                android:textSize="22sp"
-                android:textStyle="bold" />
+                <ImageView
+                    android:id="@+id/imageProfile"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/default_image" />
+
+                <TextView
+                    android:id="@+id/textViewNombreUsuario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:fontFamily="@font/salsa_font"
+                    android:text="ejemplo"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="15dp"
-                android:background="@drawable/round_back_white10_20"
+                android:background="@drawable/admin_recli"
                 android:orientation="vertical">
 
                 <!-- ImageView para la foto de perfil -->
@@ -99,7 +108,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Cambiar foto"
-                    android:layout_gravity="center_horizontal"/>
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/white"
+                    android:backgroundTint="#00083E"
+                    android:shadowColor="#000000"
+                    android:shadowRadius="10"/>
 
                 <EditText
                     android:id="@+id/cambiarNombre"
@@ -110,8 +123,9 @@
                     android:hint="Nombre"
                     android:minHeight="48dp"
                     android:padding="10dp"
-                    android:textColor="#FFFFFF"
-                    android:textColorHint="@color/white"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:backgroundTint="@color/black"
                     android:textStyle="bold" />
 
                 <Button
@@ -119,13 +133,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Cambiar nombre"
-                    android:layout_gravity="center_horizontal"/>
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/white"
+                    android:backgroundTint="#00083E"
+                    android:shadowColor="#000000"
+                    android:shadowRadius="10"/>
 
             </LinearLayout>
 
 
             <LinearLayout
-                android:background="@drawable/round_back_white10_20"
+                android:background="@drawable/admin_recli"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
@@ -153,16 +171,16 @@
                         android:layout_weight="5"
                         android:layout_gravity="center"
                         android:text="Notificaciones"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/black"
                         android:textStyle="bold"/>
 
                     <androidx.appcompat.widget.SwitchCompat
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="5"
                         android:layout_gravity="center"
                         android:switchMinWidth="50dp"
-                        android:theme="@style/notificationsSwitch"/>
+                        android:theme="@style/notificationsSwitch"
+                        android:background="@color/white"/>
                 </LinearLayout>
 
                 <!-- Seguridad-->
@@ -184,7 +202,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Politicas de privacidad"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/black"
                         android:textStyle="bold"
                         android:layout_weight="5"
                         android:layout_gravity="center"/>
@@ -197,6 +215,7 @@
 
                 <!-- Mandanos mensajes-->
                 <LinearLayout
+                    android:id="@+id/contactanos"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -213,7 +232,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Contactanos"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/black"
                         android:textStyle="bold"
                         android:layout_weight="5"
                         android:layout_gravity="center"
@@ -227,6 +246,7 @@
 
                 <!-- Acerca de nosotros-->
                 <LinearLayout
+                    android:id="@+id/nosotros"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -242,7 +262,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Nosotros"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/black"
                         android:textStyle="bold"
                         android:layout_weight="5"
                         android:layout_gravity="center"
@@ -254,34 +274,6 @@
                         android:src="@drawable/right_arrow" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_marginTop="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:id="@+id/logOutIcon"
-                        android:src="@drawable/logout_icon"
-                        android:background="@drawable/round_back_notifications"
-                        android:padding="12dp"/>
-                    <TextView
-                        android:layout_marginStart="20dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Log Out"
-                        android:textColor="#FFFFFF"
-                        android:textStyle="bold"
-                        android:layout_weight="5"
-                        android:layout_gravity="center"
-                        />
-                    <ImageView
-                        android:layout_gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/right_arrow"
-                        />
-                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"

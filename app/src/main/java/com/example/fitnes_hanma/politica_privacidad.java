@@ -24,6 +24,7 @@ public class politica_privacidad extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         // Configurar el botón de retroceso
         ImageView backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -40,7 +41,7 @@ public class politica_privacidad extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         // Configurar el título de la barra de herramientas
         TextView toolbarTitle = findViewById(R.id.toolbarTitle);
-        toolbarTitle.setText("");
+        toolbarTitle.setText("Politicas de privacidad");
 
         n1 = (TextView) findViewById(R.id.n1);
         n2 = (TextView) findViewById(R.id.n2);

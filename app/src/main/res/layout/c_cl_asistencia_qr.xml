@@ -59,6 +59,7 @@
         android:id="@+id/scanButton"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/salsa_font"
         android:text="Escanear"
         android:textColor="@color/white"
         android:backgroundTint="#00083E"
