@@ -24,8 +24,7 @@ public class c_cl_perfil_clases_servicios extends AppCompatActivity {
     TextView nomCla, desCla, nomIns ,dia1, dia2, dia3;
     LinearLayout btnInscribirme;
     FirebaseAuth firebaseAuth;
-    String userId;
-
+    String userId, nombreClase , descripcion, nombreInstructor, horario1, horario2, horario3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,12 +65,12 @@ public class c_cl_perfil_clases_servicios extends AppCompatActivity {
             String idClase = intent.getStringExtra("idDocumento");
             Log.d("ID_CLASE", "ID de la clase: " + idClase);
 
-            String nombreClase = intent.getStringExtra("nombreClase");
-            String descripcion = intent.getStringExtra("descripcion");
-            String nombreInstructor = intent.getStringExtra("nombreInstructor");
-            String horario1 = intent.getStringExtra("hor1");
-            String horario2 = intent.getStringExtra("hor2");
-            String horario3 = intent.getStringExtra("hor3");
+            nombreClase = intent.getStringExtra("nombreClase");
+            descripcion = intent.getStringExtra("descripcion");
+            nombreInstructor = intent.getStringExtra("nombreInstructor");
+            horario1 = intent.getStringExtra("hor1");
+            horario2 = intent.getStringExtra("hor2");
+            horario3 = intent.getStringExtra("hor3");
 
             // Configura los campos con los datos
 
@@ -109,7 +108,7 @@ public class c_cl_perfil_clases_servicios extends AppCompatActivity {
         inscripcionesRef.add(inscripcion)
                 .addOnSuccessListener(documentReference -> {
                     Log.d("Inscripción", "Inscripción guardada con ID: " + documentReference.getId());
-                    Toast.makeText(this, "Se ha incrito a "+nomCla, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Se ha incrito a "+nombreClase, Toast.LENGTH_SHORT).show();
                 })
                 .addOnFailureListener(e -> {
                     // Ocurrió un error al guardar la inscripción

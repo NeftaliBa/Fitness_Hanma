@@ -9,8 +9,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.fitnes_hanma.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class c_cl_perfil_clases_principal extends AppCompatActivity {
 
@@ -73,9 +78,48 @@ public class c_cl_perfil_clases_principal extends AppCompatActivity {
         btnSalir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                eliminarInscripcion();
+                finish();
                 Intent intent = new Intent(c_cl_perfil_clases_principal.this, principal.class);
                 startActivity(intent);
             }
         });
+    }
+
+    private void eliminarInscripcion() {
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+        String userId = firebaseUser.getUid();
+
+        Intent intent = getIntent();
+        if (intent != null) {
+            String claseID = intent.getStringExtra("idDocumento");
+
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            db.collection("inscripciones")
+                    .whereEqualTo("cleinteID", userId)
+                    .whereEqualTo("claseID", claseID)
+                    .get()
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful() && task.getResult() != null) {
+                            for (DocumentSnapshot document : task.getResult().getDocuments()) {
+                                // Elimina la inscripción correspondiente
+                                db.collection("inscripciones")
+                                        .document(document.getId())
+                                        .delete()
+                                        .addOnSuccessListener(aVoid -> {
+                                            Toast.makeText(c_cl_perfil_clases_principal.this, "Inscripción eliminada", Toast.LENGTH_SHORT).show();
+                                            // Vuelve a la actividad principal
+                                            Intent intentPrincipal = new Intent(c_cl_perfil_clases_principal.this, principal.class);
+                                            startActivity(intentPrincipal);
+                                            finish();
+                                        })
+                                        .addOnFailureListener(e -> {
+                                            Toast.makeText(c_cl_perfil_clases_principal.this, "Error al eliminar la inscripción", Toast.LENGTH_SHORT).show();
+                                        });
+                            }
+                        }
+                    });
+        }
     }
 }
