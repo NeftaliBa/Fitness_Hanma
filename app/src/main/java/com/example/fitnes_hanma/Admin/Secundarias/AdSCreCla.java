@@ -68,7 +68,7 @@ public class AdSCreCla extends AppCompatActivity implements  AdapterView.OnItemS
     Spinner dia1, dia2, dia3;
     FirebaseAuth firebaseAuth;
     String horario1, horario2, horario3;
-    String nameC = "", desC = "", emailI = "", limU = "", hor1 = "", hor2 = "", hor3 = "", nameI= "";
+    String nameC = "", desC = "", emailI = "", limU = "", hor1 = "", hor2 = "", hor3 = "", nameI= "", idIns = "", idInstructor;
     TextView nameInstructor;
 
     @SuppressLint("MissingInflatedId")
@@ -218,6 +218,7 @@ public class AdSCreCla extends AppCompatActivity implements  AdapterView.OnItemS
                 // Establece el correo del instructor seleccionado en el EditText
                 searchInstructor.setText(instructorSeleccionado.getTemail());
                 nameInstructor.setText(instructorSeleccionado.getTname());
+                idInstructor = instructorSeleccionado.getTid();
             }
         });
 
@@ -294,6 +295,7 @@ public class AdSCreCla extends AppCompatActivity implements  AdapterView.OnItemS
         emailI = searchInstructor.getText().toString().trim();
         nameI = nameInstructor.getText().toString().trim();
         limU = LimCli.getText().toString().trim();
+        idIns = idInstructor;
         hor1 = horario1;
         hor2 = horario2;
         hor3 = horario3;
@@ -338,6 +340,7 @@ public class AdSCreCla extends AppCompatActivity implements  AdapterView.OnItemS
         clase.put("correoInstructor", emailI);
         clase.put("nombreInstructor", nameI);
         clase.put("limCli", limU);
+        clase.put("iDInstructor", idIns);
         clase.put("hor1", hor1);
         clase.put("hor2", hor2);
         clase.put("hor3", hor3);

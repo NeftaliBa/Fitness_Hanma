@@ -161,6 +161,7 @@ public class AdPClases extends AppCompatActivity {
                 intent.putExtra("nombreInstructor", claseSeleccionada.getNombreInstructor());
                 intent.putExtra("horaClase", claseSeleccionada.getHoraClase());
                 intent.putExtra("limCli", claseSeleccionada.getLimCli());
+                intent.putExtra("iDInstructor", claseSeleccionada.getiDInstructor());
 
 
                 intent.putExtra("id_clase", claseSeleccionada.getId_clase());
