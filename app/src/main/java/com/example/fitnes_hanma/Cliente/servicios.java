@@ -16,7 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fitnes_hanma.Objetos.Clases;
-import com.example.fitnes_hanma.Objetos.claseInscribir;
+import com.example.fitnes_hanma.Objetos.ClasesClienteServicioAdapter;
 import com.example.fitnes_hanma.R;
 import com.example.fitnes_hanma.menuRL;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -58,7 +58,7 @@ public class servicios extends AppCompatActivity {
 
         ListView listViewClases = findViewById(R.id.listViewClaCliente);
         List<Clases> clasesList = new ArrayList<>();
-        claseInscribir adapter = new claseInscribir(this, clasesList);
+        ClasesClienteServicioAdapter adapter = new ClasesClienteServicioAdapter(this, clasesList);
 
         // Configura el adaptador con el ListView
         listViewClases.setAdapter(adapter);
@@ -97,6 +97,9 @@ public class servicios extends AppCompatActivity {
                 intent.putExtra("nombreInstructor", claseSeleccionada.getNombreInstructor());
                 intent.putExtra("horaClase", claseSeleccionada.getHoraClase());
                 intent.putExtra("limCli", claseSeleccionada.getLimCli());
+                intent.putExtra("hor1", claseSeleccionada.getHor1());
+                intent.putExtra("hor2", claseSeleccionada.getHor2());
+                intent.putExtra("hor3", claseSeleccionada.getHor3());
 
                 // Incluso puedes pasar el ID del documento si lo necesitas
                 intent.putExtra("idDocumento", claseSeleccionada.getId_clase());

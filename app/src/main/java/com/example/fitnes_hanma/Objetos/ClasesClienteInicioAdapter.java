@@ -30,8 +30,8 @@ public class ClasesClienteInicioAdapter extends ArrayAdapter<Clases> {
         TextView nombreClaseTextView = convertView.findViewById(R.id.nombreClaseTextView);
         TextView nombreInstructorTextView = convertView.findViewById(R.id.correoInsClPrinci);
         TextView descrip = convertView.findViewById(R.id.descripcionTextView);
-        TextView Horario = convertView.findViewById(R.id.horarios);
         TextView hora = convertView.findViewById(R.id.hora);
+
 
 
         // Configura las vistas con los datos de la Clases

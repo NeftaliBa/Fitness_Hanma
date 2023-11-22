@@ -31,33 +31,21 @@ public class ClasesClienteServicioAdapter extends ArrayAdapter<Clases> {
         TextView nombreClaseTextView = convertView.findViewById(R.id.nombreClaseTextView);
         TextView nombreInstructorTextView = convertView.findViewById(R.id.nombreInstructorTextView);
         TextView descrip = convertView.findViewById(R.id.descripcionTextView);
-        TextView horarios = convertView.findViewById(R.id.horarios);
-        TextView hora = convertView.findViewById(R.id.hora);
-        ImageView imageTextView = convertView.findViewById(R.id.imageTextView);
 
+        TextView dia1 = convertView.findViewById(R.id.dia1CS);
+        TextView dia2 = convertView.findViewById(R.id.dia2CS);
+        TextView dia3 = convertView.findViewById(R.id.dia3CS);
+
+
+        assert clase != null;
         nombreClaseTextView.setText(clase.getNombreClase());
         nombreInstructorTextView.setText(clase.getNombreInstructor());
         descrip.setText(clase.getDescripcion());
-        hora.setText(clase.getHoraClase());
+        dia1.setText(clase.getHor1());
+        dia2.setText(clase.getHor2());
+        dia3.setText(clase.getHor3());
 
-        Instructor instructor = clase.getInstructor();
-        if (instructor != null) {
-            String urlImagenInstructor = instructor.getProfileImageUrl();
 
-            // Agregar un log para imprimir la URL de la imagen recuperada
-            Log.d("URL_IMAGEN", "URL de la imagen del instructor: " + imageTextView);
-
-            // Se adapta la lógica para cargar la imagen con Glide si la URL es válida
-            if (urlImagenInstructor != null && !urlImagenInstructor.isEmpty()) {
-                Glide.with(getContext())
-                        .load(urlImagenInstructor)
-                        .placeholder(R.drawable.default_image)
-                        .into(imageTextView);
-            } else {
-                // Dejar el ImageView sin ninguna imagen si no hay URL válida
-                imageTextView.setImageDrawable(null);
-            }
-        }
 
         return convertView;
     }
