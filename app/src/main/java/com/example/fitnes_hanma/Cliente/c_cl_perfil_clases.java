@@ -13,7 +13,7 @@ import com.example.fitnes_hanma.R;
 
 public class c_cl_perfil_clases extends AppCompatActivity {
 
-    TextView nomCla, desCla, nomIns, hora;
+    TextView nomCla, desCla, nomIns ,dia1, dia2, dia3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,9 @@ public class c_cl_perfil_clases extends AppCompatActivity {
         nomCla = (TextView) findViewById(R.id.nombreClaseTextView);
         desCla = (TextView) findViewById(R.id.descripcionTextView);
         nomIns = (TextView) findViewById(R.id.nombreInstructorTextViewc_cl);
-        hora =   (TextView) findViewById(R.id.hora);
+        dia1 =  (TextView)  findViewById(R.id.dia1Perfil);
+        dia2 =  (TextView)  findViewById(R.id.dia2Perfil);
+        dia3 =  (TextView)  findViewById(R.id.dia3Perfil);
 
 
         // Configurar el Toolbar
@@ -53,13 +55,17 @@ public class c_cl_perfil_clases extends AppCompatActivity {
             String nombreClase = intent.getStringExtra("nombreClase");
             String descripcion = intent.getStringExtra("descripcion");
             String nombreInstructor = intent.getStringExtra("nombreInstructor");
-            String horaClase = intent.getStringExtra("horaClase");
+            String horario1 = intent.getStringExtra("hor1");
+            String horario2 = intent.getStringExtra("hor2");
+            String horario3 = intent.getStringExtra("hor3");
 
             // Configura los campos con los datos
             nomCla.setText(nombreClase);
             desCla.setText(descripcion);
             nomIns.setText(nombreInstructor);
-            hora.setText(horaClase);
+            dia1.setText(horario1);
+            dia2.setText(horario2);
+            dia3.setText(horario3);
         }
     }
 }
