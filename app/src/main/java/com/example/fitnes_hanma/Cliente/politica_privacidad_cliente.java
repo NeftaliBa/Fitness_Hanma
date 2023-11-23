@@ -1,4 +1,4 @@
-package com.example.fitnes_hanma;
+package com.example.fitnes_hanma.Cliente;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -9,16 +9,19 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.fitnes_hanma.Cliente.principal;
+import com.example.fitnes_hanma.Cliente.Configuracion;
 import com.example.fitnes_hanma.Instructor.configuraciones.ConfiguracionIns;
+import com.example.fitnes_hanma.Instructor.politica_privacidad;
+import com.example.fitnes_hanma.R;
 
-public class politica_privacidad extends AppCompatActivity {
+public class politica_privacidad_cliente extends AppCompatActivity {
+
     TextView n1,n2,n3,n4,n5,n6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_politica_privacidad);
+        setContentView(R.layout.activity_politica_privacidad_cliente);
 
         // Configurar el Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -31,7 +34,7 @@ public class politica_privacidad extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Al presionar el botón de retroceso, ir al activity principal
-                Intent intent = new Intent(politica_privacidad.this, ConfiguracionIns.class);
+                Intent intent = new Intent(politica_privacidad_cliente.this, Configuracion.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
                 finish();

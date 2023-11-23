@@ -1,4 +1,4 @@
-package com.example.fitnes_hanma;
+package com.example.fitnes_hanma.Cliente;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -10,9 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.fitnes_hanma.Instructor.configuraciones.ConfiguracionIns;
-import com.example.fitnes_hanma.Instructor.home.Home;
+import com.example.fitnes_hanma.R;
 
-public class sobre_nosotros extends AppCompatActivity {
+public class sobre_nosotros_cliente extends AppCompatActivity {
     TextView d1, d2, d3;
 
     @Override
@@ -35,7 +35,7 @@ public class sobre_nosotros extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Al presionar el botón de retroceso, ir al activity principal
-                Intent intent = new Intent(sobre_nosotros.this, ConfiguracionIns.class);
+                Intent intent = new Intent(sobre_nosotros_cliente.this, Configuracion.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
                 finish();
@@ -46,8 +46,8 @@ public class sobre_nosotros extends AppCompatActivity {
         d2 = findViewById(R.id.d2);
         d3 = findViewById(R.id.d3);
 
-        d1.setText("Desarrollador principiante de Aplicaciones Moviles encargado principalmente de la parte front-end y una gran parte de back-end y gestor de la base de datos, con cosas que mejorar como su adiccion a la morras culonas y la musica triste");
-        d2.setText("Desarrollador principiante de Aplicaciones Moviles encargado principalmente de la base de datos y una gran mayoria en desarrollo Back-end, con cosas a mejorar como el Frond-end y su adiccion a la mota");
+        d1.setText("Desarrollador principiante de Aplicaciones Moviles encargado principalmente de la parte front-end y una gran parte de back-end y gestor de la base de datos, fanatico de Enjambre");
+        d2.setText("Desarrollador principiante de Aplicaciones Moviles encargado principalmente de la base de datos y una gran mayoria en desarrollo Back-end, fanatico de una axolote??");
         d3.setText("Desarrolladora principiante de Aplicaciones Moviles encargado principalmente documentación");
     }
 }

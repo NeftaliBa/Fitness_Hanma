@@ -22,16 +22,25 @@
         android:theme="@style/Theme.Fitnes_Hanma"
         tools:targetApi="31">
         <activity
-            android:name=".sobre_nosotros"
+            android:name=".Cliente.sobre_nosotros_cliente"
             android:exported="false" />
         <activity
-            android:name=".contactanos"
+            android:name=".Cliente.contactanos_cliente"
+            android:exported="false" />
+        <activity
+            android:name=".Cliente.politica_privacidad_cliente"
+            android:exported="false" />
+        <activity
+            android:name=".Instructor.sobre_nosotros"
+            android:exported="false" />
+        <activity
+            android:name=".Instructor.contactanos"
             android:exported="false" />
         <activity
             android:name=".Cliente.c_cl_perfil_clases_principal"
             android:exported="false" />
         <activity
-            android:name=".politica_privacidad"
+            android:name=".Instructor.politica_privacidad"
             android:exported="false" />
         <activity
             android:name=".Cliente.c_cl_perfil_clases_servicios"
