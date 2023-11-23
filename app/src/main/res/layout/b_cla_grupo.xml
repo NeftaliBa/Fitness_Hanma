@@ -9,7 +9,7 @@
     android:background="@drawable/desbanecido_interna">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarComunity"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="#00083E"
@@ -22,62 +22,73 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/salsa_font"
-            android:text="Menu Principal"
+            android:text="Comunidad"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
-        android:layout_below="@+id/toolbarComunity"
-        android:layout_above="@+id/fragment_navbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:id="@+id/messagesSection">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:id="@+id/messages"
-            />
-
+        android:layout_below="@+id/toolbar"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_above="@+id/fragment_navbar"
+        android:background="@drawable/admin_recli"
+        android:padding="15dp">
 
         <LinearLayout
+            android:id="@+id/messagesSection"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="10dp"
-            android:layout_marginHorizontal="10dp">
-            <EditText
-                android:id="@+id/messageEditText"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/fragment_navbar"
+            android:layout_below="@+id/toolbar"
+            android:orientation="vertical">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/messages"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/borde_azul_claro"
-                android:fontFamily="@font/salsa_font"
-                android:hint="Escribe un mensaje"
-                android:paddingHorizontal="16dp"
-                android:textColorHint="@color/white"
-                android:layout_weight="1"
-                android:textSize="16dp" />
+                android:layout_weight="1" />
+
             <LinearLayout
-                android:id="@+id/sendButton"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="5"
-                android:background="@drawable/alayer_list_background"
-                android:gravity="center_vertical|center_horizontal"
-                >
-                <ImageView
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/messageEditText"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/send" />
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/borde_azul_claro"
+                    android:fontFamily="@font/salsa_font"
+                    android:hint="Escribe un mensaje"
+                    android:paddingHorizontal="16dp"
+                    android:textColorHint="@color/white"
+                    android:textSize="16dp" />
+
+                <LinearLayout
+                    android:id="@+id/sendButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="5"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/alayer_list_background"
+                    android:gravity="center_vertical|center_horizontal">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/send" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-
-
-
-
 
 
     </LinearLayout>
