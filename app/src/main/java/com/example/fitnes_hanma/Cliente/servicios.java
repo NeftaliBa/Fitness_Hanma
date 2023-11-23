@@ -122,13 +122,13 @@ public class servicios extends AppCompatActivity {
                 Intent intent = new Intent(servicios.this, c_cl_perfil_clases_servicios.class);
                 intent.putExtra("nombreClase", claseSeleccionada.getNombreClase());
                 intent.putExtra("descripcion", claseSeleccionada.getDescripcion());
+                intent.putExtra("correoInstructor", claseSeleccionada.getCorreoInstructor());
                 intent.putExtra("nombreInstructor", claseSeleccionada.getNombreInstructor());
-                intent.putExtra("horaClase", claseSeleccionada.getHoraClase());
                 intent.putExtra("limCli", claseSeleccionada.getLimCli());
+                intent.putExtra("iDInstructor", claseSeleccionada.getiDInstructor());
                 intent.putExtra("hor1", claseSeleccionada.getHor1());
                 intent.putExtra("hor2", claseSeleccionada.getHor2());
                 intent.putExtra("hor3", claseSeleccionada.getHor3());
-
                 // Incluso puedes pasar el ID del documento si lo necesitas
                 intent.putExtra("idDocumento", claseSeleccionada.getId_clase());
 

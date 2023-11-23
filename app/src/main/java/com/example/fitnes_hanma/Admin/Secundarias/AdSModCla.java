@@ -55,7 +55,7 @@ public class AdSModCla extends AppCompatActivity implements  AdapterView.OnItemS
     String[] Semana = {"Seleccionar dia", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"};
 
     EditText nomCla, desCla, emaIns, LimCli;
-    Button cancelar, actualizar, hour1, hour2, hour3;
+    Button cancelar, actualizar, eliminar, hour1, hour2, hour3;
     Spinner dia1, dia2, dia3;
     String horario1, horario2, horario3;
     TextView nameInstructor;
@@ -63,7 +63,9 @@ public class AdSModCla extends AppCompatActivity implements  AdapterView.OnItemS
 
     Intent i;
 
-    String nameC = "", desC = "", emailI = "", limU = "", hor1 = "", hor2 = "", hor3 = "", nameI= "", idIns = "", idInstructor;
+    String nameC = "", desC = "", emailI = "", limU = "", hor1 = "", hor2 = "", hor3 = "", nameI= "", idIns = "", idInstructor = "";
+    int limlim = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,10 +80,12 @@ public class AdSModCla extends AppCompatActivity implements  AdapterView.OnItemS
         LimCli = (EditText) findViewById(R.id.limCliM);
         cancelar = (Button) findViewById(R.id.cancelModCla);
         actualizar = (Button) findViewById(R.id.save);
-
+        eliminar = (Button) findViewById(R.id.eliminarClase);
         hour1 = (Button) findViewById(R.id.hour1M);
         hour2 = (Button) findViewById(R.id.hour2M);
         hour3 = (Button) findViewById(R.id.hour3M);
+
+        nameInstructor = (TextView) findViewById(R.id.nameInstructor);
 
 
         dia1 = (Spinner) findViewById(R.id.day1M);
@@ -109,8 +113,13 @@ public class AdSModCla extends AppCompatActivity implements  AdapterView.OnItemS
             String nombreClase = intent.getStringExtra("nombreClase");
             String descripcion = intent.getStringExtra("descripcion");
             String correoInstructor = intent.getStringExtra("correoInstructor");
+            String nombreInstructor = intent.getStringExtra("nombreInstructor");
+            String iDInstructor = intent.getStringExtra("iDInstructor");
             String LimCliM = intent.getStringExtra("limCli");
             classId = intent.getStringExtra("id_clase");
+            String hor1 = intent.getStringExtra("hor1");
+            String hor2 = intent.getStringExtra("hor2");
+            String hor3 = intent.getStringExtra("hor3");
 
 
             // Obtén una referencia a la colección "clases" en Firestore
@@ -127,7 +136,47 @@ public class AdSModCla extends AppCompatActivity implements  AdapterView.OnItemS
             nomCla.setText(nombreClase);
             desCla.setText(descripcion);
             emaIns.setText(correoInstructor);
+            nameInstructor.setText(nombreInstructor);
             LimCli.setText(LimCliM);
+            idInstructor = iDInstructor;
+
+
+            assert hor1 != null;
+            if (hor1.equals("")) {
+                // Tengo hambre
+            } else {
+                String[] H1partes = hor1.split(" ", 2);
+                String di1 = H1partes[0];
+                String ho1 = H1partes[1];
+                dia1.setSelection(Arrays.asList(Semana).indexOf(di1));
+                hour1.setText(ho1);
+            }
+
+            assert hor2 != null;
+            if (hor2.equals("")) {
+                // Mucha Hambre
+            } else {
+                String[] H2partes = hor2.split(" ", 2);
+                String di2 = H2partes[0];
+                String ho2 = H2partes[1];
+                dia2.setSelection(Arrays.asList(Semana).indexOf(di2));
+                hour2.setText(ho2);
+            }
+
+            assert hor3 != null;
+            if (hor3.equals("")) {
+                // Demasiada hambre
+            } else {
+                String[] H3partes = hor3.split(" ", 2);
+                String di3 = H3partes[0];
+                String ho3 = H3partes[1];
+                dia3.setSelection(Arrays.asList(Semana).indexOf(di3));
+                hour3.setText(ho3);
+            }
+
+// ...
+
+
 
             hour1.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -250,8 +299,20 @@ public class AdSModCla extends AppCompatActivity implements  AdapterView.OnItemS
                     horario1 = obtenerHorario(dia1, hour1);
                     horario2 = obtenerHorario(dia2, hour2);
                     horario3 = obtenerHorario(dia3, hour3);
-                    ValidarDatos();
 
+                    if (validarCondiciones()) {
+                        ValidarDatos();
+                    } else {
+                        // Muestra un mensaje o realiza acciones adicionales si la validación falla
+                        Toast.makeText(AdSModCla.this, "No se cumplen las condiciones para crear la clase", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+            eliminar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Llama al método para eliminar la clase
+                    eliminarClase();
                 }
             });
 
@@ -308,35 +369,69 @@ public class AdSModCla extends AppCompatActivity implements  AdapterView.OnItemS
         nameI = nameInstructor.getText().toString().trim();
         limU = LimCli.getText().toString().trim();
         idIns = idInstructor;
-        hor1 = horario1;
-        hor2 = horario2;
-        hor3 = horario3;
-
-        // Verifica si los campos obligatorios están vacíos
+        if(horario1.equals("Seleccionar dia Seleccionar hora")){
+            hor1 = "";
+        }else {
+            hor1 = horario1;
+        }
+        if(horario2.equals("Seleccionar dia Seleccionar hora")){
+            hor2 = "";
+        }else {
+            hor2 = horario2;
+        }
+        if(horario3.equals("Seleccionar dia Seleccionar hora")){
+            hor3 = "";
+        }else {
+            hor3 = horario3;
+        }
+        if (TextUtils.isEmpty(limU)) {
+            Toast.makeText(this, "Ingrese el límite de clientes", Toast.LENGTH_SHORT).show();
+        }else {
+            limlim = Integer.parseInt(limU);
+        }
         if (TextUtils.isEmpty(nameC)) {
             Toast.makeText(this, "Ingresa un nombre para la clase", Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(desC)) {
             Toast.makeText(this, "Ingrese una descripción", Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(emailI)) {
             Toast.makeText(this, "Ingrese el nombre del instructor", Toast.LENGTH_SHORT).show();
-        } else if (TextUtils.isEmpty(limU)) {
-            Toast.makeText(this, "Ingrese el límite de clientes", Toast.LENGTH_SHORT).show();
-        } else if (esSeleccionInvalida(dia1) || esSeleccionInvalida(dia2) || esSeleccionInvalida(dia3) ||
-                esSeleccionInvalida(hour1) || esSeleccionInvalida(hour2) || esSeleccionInvalida(hour3)) {
-            // Muestra un mensaje si algún Spinner o botón de hora tiene una selección inválida
-            Toast.makeText(this, "Por favor, rellene todos los campos", Toast.LENGTH_SHORT).show();
-        } else {
+        } else if (limlim >45){
+            Toast.makeText(this, "Ingrese un numero menor a 45", Toast.LENGTH_SHORT).show();
+        }else {
+            limU = Integer.toString(limlim);
             updateClass();
         }
     }
 
-    // Método para verificar si la selección es "Seleccionar día" o "Seleccionar hora"
-    private boolean esSeleccionInvalida(Spinner spinner) {
-        return spinner.getSelectedItem().toString().equals("Seleccionar día");
+
+    private boolean validarCondiciones() {
+        // Obtén valores de días y horas
+        String dia1 = ((Spinner) findViewById(R.id.day1M)).getSelectedItem().toString();
+        String dia2 = ((Spinner) findViewById(R.id.day2M)).getSelectedItem().toString();
+        String dia3 = ((Spinner) findViewById(R.id.day3M)).getSelectedItem().toString();
+        String hour1 = ((Button) findViewById(R.id.hour1M)).getText().toString();
+        String hour2 = ((Button) findViewById(R.id.hour2M)).getText().toString();
+        String hour3 = ((Button) findViewById(R.id.hour3M)).getText().toString();
+
+        // Verificar las condiciones
+        boolean condicion1 = diaEsValido(dia1) && horaEsValida(hour1) && !diaEsValido(dia2) && !horaEsValida(hour2) && !diaEsValido(dia3) && !horaEsValida(hour3);
+        boolean condicion2 = !diaEsValido(dia1) && !horaEsValida(hour1) && diaEsValido(dia2) && horaEsValida(hour2) && !diaEsValido(dia3) && !horaEsValida(hour3);
+        boolean condicion3 = !diaEsValido(dia1) && !horaEsValida(hour1) && !diaEsValido(dia2) && !horaEsValida(hour2) && diaEsValido(dia3) && horaEsValida(hour3);
+        boolean condicion4 = diaEsValido(dia1) && horaEsValida(hour1) && diaEsValido(dia2) && horaEsValida(hour2) && !diaEsValido(dia3) && !horaEsValida(hour3);
+        boolean condicion5 = !diaEsValido(dia1) && !horaEsValida(hour1) && diaEsValido(dia2) && horaEsValida(hour2) && diaEsValido(dia3) && horaEsValida(hour3);
+        boolean condicion6 = diaEsValido(dia1) && horaEsValida(hour1) && !diaEsValido(dia2) && !horaEsValida(hour2) && diaEsValido(dia3) && horaEsValida(hour3);
+        boolean condicion7 = diaEsValido(dia1) && horaEsValida(hour1) && diaEsValido(dia2) && horaEsValida(hour2) && diaEsValido(dia3) && horaEsValida(hour3);
+
+        // Comprobar si alguna de las condiciones se cumple
+        return condicion1 || condicion2 || condicion3 || condicion4 || condicion5 || condicion6 || condicion7;
     }
 
-    private boolean esSeleccionInvalida(Button button) {
-        return button.getText().toString().equals("Seleccionar hora");
+    private boolean diaEsValido(String dia) {
+        return !dia.equals("Seleccionar dia");
+    }
+
+    private boolean horaEsValida(String hora) {
+        return !hora.equals("Seleccionar hora");
     }
 
     private void updateClass() {
@@ -345,12 +440,19 @@ public class AdSModCla extends AppCompatActivity implements  AdapterView.OnItemS
         DocumentReference clasRef = db.collection("clases").document(classId);
 
         // Actualizar el campo de nombre y correo en Firestore
-        clasRef.update("nombreClase", nomCla.getText().toString(), "descripcion", desCla.getText().toString(),
-                        "correoInstructor", emaIns.getText().toString(), "limCli", LimCli.getText().toString())
+        clasRef.update("nombreClase", nameC,
+                        "descripcion", desC,
+                        "correoInstructor", emailI,
+                        "nombreInstructor", nameI,
+                        "limCli", limU,
+                        "iDInstructor", idIns,
+                        "hor1", hor1,
+                        "hor2", hor2,
+                        "hor3", hor3)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Toast.makeText(AdSModCla.this, "Asi es, soy la mera verga", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AdSModCla.this, "Clase actualizada exitosamente", Toast.LENGTH_SHORT).show();
                         i = new Intent(AdSModCla.this, AdPClases.class);
                         startActivity(i);
                     }
@@ -358,7 +460,30 @@ public class AdSModCla extends AppCompatActivity implements  AdapterView.OnItemS
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(AdSModCla.this, "Que pendejo", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AdSModCla.this, "Error al actualizar la clase", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+    private void eliminarClase() {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference clasRef = db.collection("clases").document(classId);
+
+        // Elimina el documento de la colección "clases" en Firestore
+        clasRef.delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(AdSModCla.this, "Clase eliminada exitosamente", Toast.LENGTH_SHORT).show();
+                        // Redirige a la actividad principal de clases después de eliminar la clase
+                        Intent intent = new Intent(AdSModCla.this, AdPClases.class);
+                        startActivity(intent);
+                        finish(); // Finaliza la actividad actual para que no pueda volver atrás
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(AdSModCla.this, "Error al eliminar la clase", Toast.LENGTH_SHORT).show();
                     }
                 });
     }

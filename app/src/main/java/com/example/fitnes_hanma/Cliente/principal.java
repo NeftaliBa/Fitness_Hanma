@@ -127,13 +127,14 @@ public class principal extends AppCompatActivity {
                 intent.putExtra("nombreClase", claseSeleccionada.getNombreClase());
                 intent.putExtra("descripcion", claseSeleccionada.getDescripcion());
                 intent.putExtra("nombreInstructor", claseSeleccionada.getNombreInstructor());
-                intent.putExtra("horaClase", claseSeleccionada.getHoraClase());
                 intent.putExtra("limCli", claseSeleccionada.getLimCli());
                 intent.putExtra("hor1", claseSeleccionada.getHor1());
                 intent.putExtra("hor2", claseSeleccionada.getHor2());
                 intent.putExtra("hor3", claseSeleccionada.getHor3());
                 intent.putExtra("idDocumento", claseSeleccionada.getId_clase());
                 startActivity(intent);
+
+
             }
         });
 

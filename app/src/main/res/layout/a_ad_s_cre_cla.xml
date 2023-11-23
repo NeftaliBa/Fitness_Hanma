@@ -82,7 +82,7 @@
                     android:layout_marginTop="5dp"
                     android:background="@drawable/ad_bordeazul_edittext"
                     android:fontFamily="@font/salsa_font"
-                    android:hint="Limite de clientes"
+                    android:hint="Limite de clientes (max 45)"
                     android:inputType="number"
                     android:minHeight="48dp"
                     android:paddingStart="16dp"
