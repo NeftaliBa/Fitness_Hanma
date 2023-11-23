@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.fitnes_hanma.Cliente.Configuracion;
 import com.example.fitnes_hanma.Cliente.principal;
@@ -59,17 +60,26 @@ public class Home_QR extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
-                try {
-                    BitMatrix bitMatrix = multiFormatWriter.encode(editText.getText().toString(), BarcodeFormat.QR_CODE,300,300);
-                    BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
-                    Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
+                String inputText = editText.getText().toString();
 
-                    imageView.setImageBitmap(bitmap);
-                }catch (WriterException e){
-                    throw new RuntimeException(e);
+                if (inputText.isEmpty()) {
+                    // Si el campo está vacío, mostrar un Toast
+                    Toast.makeText(Home_QR.this, "Ingresa un nombre", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Si hay texto, generar el código QR
+                    MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
+                    try {
+                        BitMatrix bitMatrix = multiFormatWriter.encode(inputText, BarcodeFormat.QR_CODE,300,300);
+                        BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
+                        Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
+
+                        imageView.setImageBitmap(bitmap);
+                    } catch (WriterException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
             }
         });
+
     }
 }
