@@ -65,7 +65,7 @@ public class Comunidad extends AppCompatActivity {
         setContentView(R.layout.b_cla_grupo);
 
         // Configurar el Toolbar
-        Toolbar toolbar = findViewById(R.id.toolbarComunity);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
