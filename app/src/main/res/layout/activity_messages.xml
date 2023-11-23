@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".Cliente.messagesCl"
     android:background="@drawable/desbanecido_interna"
     >
@@ -69,4 +70,3 @@
         tools:layout="@layout/c_cl_navbar_fragment" />
 
 </RelativeLayout>
-

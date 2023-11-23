@@ -92,6 +92,7 @@ public class Comunidad extends AppCompatActivity {
 
         // Agrega un Listener para escuchar los cambios en la colección
         messagesRef.orderBy("timestamp", Query.Direction.ASCENDING)
+
                 .addSnapshotListener((value, error) -> {
                     if (error != null) {
                         // Maneja el error si ocurre
