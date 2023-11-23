@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    android:background="@drawable/c_cla_back_hour">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:background="@drawable/c_cla_back_name">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Nombre de clase"
+            android:id="@+id/className"
+            android:textSize="30dp"
+            android:fontFamily="@font/salsa_font"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/apagado"
+        android:layout_marginBottom="8dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/whatTime1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hora1"
+            android:fontFamily="@font/salsa_font"
+            android:textSize="18dp"/>
+        <TextView
+            android:id="@+id/whatTime2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hora2"
+            android:fontFamily="@font/salsa_font"
+            android:textSize="18dp"/>
+        <TextView
+            android:id="@+id/whatTime3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hora3"
+            android:fontFamily="@font/salsa_font"
+            android:textSize="18dp"/>
+    </LinearLayout>
+
+</LinearLayout>
