@@ -11,7 +11,7 @@
         android:id="@+id/encabezado"
         android:layout_width="match_parent"
         android:layout_height="135dp"
-        android:background="@drawable/borde_limon"
+        android:background="@drawable/desbanecidos_clases"
         android:orientation="vertical"
         android:padding="10dp">
 

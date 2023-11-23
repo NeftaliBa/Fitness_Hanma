@@ -58,7 +58,7 @@
                 android:id="@+id/encabezadoPerfil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/borde_limon"
+                android:background="@drawable/desbanecidos_clases"
                 android:orientation="vertical"
                 android:padding="10dp">
 
