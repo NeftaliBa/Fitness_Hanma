@@ -1,4 +1,4 @@
-package com.example.fitnes_hanma;
+package com.example.fitnes_hanma.Cliente;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -12,15 +12,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fitnes_hanma.Instructor.configuraciones.ConfiguracionIns;
+import com.example.fitnes_hanma.R;
 
-public class contactanos extends AppCompatActivity {
+public class contactanos_cliente extends AppCompatActivity {
 
     EditText comentario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contactanos);
+        setContentView(R.layout.activity_contactanos_cliente);
 
         // Configurar el Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -37,7 +38,7 @@ public class contactanos extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Al presionar el botón de retroceso, ir al activity principal
-                Intent intent = new Intent(contactanos.this, ConfiguracionIns.class);
+                Intent intent = new Intent(contactanos_cliente.this, Configuracion.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
                 finish();
@@ -55,7 +56,7 @@ public class contactanos extends AppCompatActivity {
                 // Verificar si el campo de comentario está vacío
                 if (textoComentario.isEmpty()) {
                     // Si está vacío, mostrar un Toast pidiendo agregar un comentario
-                    Toast.makeText(contactanos.this, "Agrega un comentario", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(contactanos_cliente.this, "Agrega un comentario", Toast.LENGTH_SHORT).show();
                 } else {
                     // Si hay texto, enviar el correo con el comentario
                     enviarCorreo(textoComentario);
@@ -70,7 +71,7 @@ public class contactanos extends AppCompatActivity {
         // Por ejemplo, podrías utilizar la API de JavaMail o la funcionalidad de envío de Android
 
         // En este ejemplo, se muestra un Toast simulando el envío del correo
-        Toast.makeText(contactanos.this, "Enviando correo con comentario: " + comentario, Toast.LENGTH_SHORT).show();
+        Toast.makeText(contactanos_cliente.this, "Enviando correo con comentario: " + comentario, Toast.LENGTH_SHORT).show();
         // También puedes agregar tu lógica real para enviar el correo electrónico aquí
         // utilizando JavaMail u otras formas de envío de correo en Android
     }

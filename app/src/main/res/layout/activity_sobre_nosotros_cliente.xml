@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/desbanecido_interna"
-    tools:context=".Instructor.sobre_nosotros">
+    tools:context=".Cliente.sobre_nosotros_cliente">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"

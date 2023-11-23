@@ -1,7 +1,6 @@
 package com.example.fitnes_hanma.Objetos;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,23 +31,22 @@ public class ClasesClienteServicioAdapter extends ArrayAdapter<Clases> {
         TextView nombreClaseTextView = convertView.findViewById(R.id.nombreClaseTextView);
         TextView nombreInstructorTextView = convertView.findViewById(R.id.nombreInstructorTextView);
         TextView descrip = convertView.findViewById(R.id.descripcionTextView);
-        ImageView imageView = convertView.findViewById(R.id.imageTextView);
+        ImageView imageView = convertView.findViewById(R.id.imageTextView); // Asegúrate de tener un ImageView en tu layout
 
         assert clase != null;
         nombreClaseTextView.setText(clase.getNombreClase());
         nombreInstructorTextView.setText(clase.getNombreInstructor());
         descrip.setText(clase.getDescripcion());
 
-        // Agregar logs para verificar la URL de la imagen
-        String imageUrl = clase.getImagenUrl();
-        Log.d("URL_DEBUG", "URL de la imagen: " + imageUrl);
-
+        // Cargar la imagen desde la URL utilizando Glide
+        String imageUrl = clase.getImagenUrl(); // Suponiendo que tienes un método en tu clase Clases para obtener la URL de la imagen
         if (imageUrl != null && !imageUrl.isEmpty()) {
             Glide.with(getContext())
                     .load(imageUrl)
-                    .placeholder(R.drawable.default_image)
+                    .placeholder(R.drawable.default_image) // Imagen de carga por defecto
                     .into(imageView);
         } else {
+            // Si no hay URL válida, mostrar una imagen por defecto
             imageView.setImageResource(R.drawable.default_image);
         }
 
