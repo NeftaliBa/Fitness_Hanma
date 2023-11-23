@@ -117,7 +117,7 @@
                     android:layout_height="200dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/search_mod"
-                    android:padding="10dp" />
+                    android:padding="15dp" />
 
 
                 <TextView
@@ -262,6 +262,20 @@
                         android:backgroundTint="#00AF55"
                         android:text="Guardar"
                         android:textColor="@color/white" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp">
+
+                    <Button
+                        android:id="@+id/eliminarClase"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="#B50000"
+                        android:text="Eliminar clase"
+                        android:textColor="@color/white" />
+
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>

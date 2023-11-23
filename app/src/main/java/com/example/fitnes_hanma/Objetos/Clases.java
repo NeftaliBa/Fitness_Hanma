@@ -1,28 +1,25 @@
 package com.example.fitnes_hanma.Objetos;
 
 public class Clases {
-    String id_clase, nombreClase, descripcion, correoInstructor, nombreInstructor, iDInstructor,  horaClase, limCli, hor1, hor2, hor3;
+    String id_clase, nombreClase, descripcion, correoInstructor, nombreInstructor, iDInstructor, limCli, hor1, hor2, hor3;
     Instructor instructor; // Cambiar el tipo de dato de String a Instructor
 
     public Clases() {
     }
 
-    public Clases(String id_clase, String nombreClase, String descripcion, String correoInstructor, String nombreInstructor, String iDInstructor, String horaClase, String limCli, String hor1, String hor2, String hor3, Instructor instructor) {
+    public Clases(String id_clase, String nombreClase, String descripcion, String correoInstructor, String nombreInstructor, String iDInstructor, String limCli, String hor1, String hor2, String hor3, Instructor instructor) {
         this.id_clase = id_clase;
         this.nombreClase = nombreClase;
         this.descripcion = descripcion;
         this.correoInstructor = correoInstructor;
         this.nombreInstructor = nombreInstructor;
         this.iDInstructor = iDInstructor;
-        this.horaClase = horaClase;
         this.limCli = limCli;
         this.hor1 = hor1;
         this.hor2 = hor2;
         this.hor3 = hor3;
-        this.instructor = instructor; // Asignar el objeto Instructor
+        this.instructor = instructor;
     }
-
-
 
     public String getId_clase() {
         return id_clase;
@@ -70,14 +67,6 @@ public class Clases {
 
     public void setiDInstructor(String iDInstructor) {
         this.iDInstructor = iDInstructor;
-    }
-
-    public String getHoraClase() {
-        return horaClase;
-    }
-
-    public void setHoraClase(String horaClase) {
-        this.horaClase = horaClase;
     }
 
     public String getLimCli() {

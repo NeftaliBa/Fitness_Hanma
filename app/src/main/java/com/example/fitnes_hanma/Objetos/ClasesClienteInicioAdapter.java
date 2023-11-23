@@ -38,7 +38,6 @@ public class ClasesClienteInicioAdapter extends ArrayAdapter<Clases> {
         nombreClaseTextView.setText(clase.getNombreClase());
         nombreInstructorTextView.setText(clase.getNombreInstructor());
         descrip.setText(clase.getDescripcion());
-        hora.setText(clase.getHoraClase());
 
         return convertView;
     }

@@ -71,6 +71,8 @@ public class AdSCreCla extends AppCompatActivity implements  AdapterView.OnItemS
     String nameC = "", desC = "", emailI = "", limU = "", hor1 = "", hor2 = "", hor3 = "", nameI= "", idIns = "", idInstructor;
     TextView nameInstructor;
 
+    int limlim = 0;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -236,10 +238,15 @@ public class AdSCreCla extends AppCompatActivity implements  AdapterView.OnItemS
                 horario2 = obtenerHorario(dia2, hour2);
                 horario3 = obtenerHorario(dia3, hour3);
 
-                ValidarDatos();
-
+                if (validarCondiciones()) {
+                    ValidarDatos();
+                } else {
+                    // Muestra un mensaje o realiza acciones adicionales si la validación falla
+                    Toast.makeText(AdSCreCla.this, "No se cumplen las condiciones para crear la clase", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+
 
 
 
@@ -253,14 +260,9 @@ public class AdSCreCla extends AppCompatActivity implements  AdapterView.OnItemS
     }
 
     private void buscarInstructores(String searchText, InstructorAdapter adapter, List<Instructor> instructorList) {
-        // Realiza la búsqueda en tu colección de instructores, similar a AdPInstructor
-        // Utiliza el método filtrarInstructores de AdPInstructor
-        // (Asegúrate de adaptar el código según la estructura de tu colección "trainer")
-
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         CollectionReference instructorRef = db.collection("trainer");
 
-        // Filtra los instructores por el campo 'temail'
         Query query = instructorRef.whereGreaterThanOrEqualTo("temail", searchText)
                 .whereLessThanOrEqualTo("temail", searchText + "\uf8ff");
 
@@ -278,7 +280,6 @@ public class AdSCreCla extends AppCompatActivity implements  AdapterView.OnItemS
                             instructorList.add(instructor);
                         }
                     }
-                    // Notifica al adaptador que los datos han cambiado
                     adapter.notifyDataSetChanged();
                 } catch (Exception e) {
                     Log.e("AdSCreCla", "Error al procesar documentos", e);
@@ -296,36 +297,71 @@ public class AdSCreCla extends AppCompatActivity implements  AdapterView.OnItemS
         nameI = nameInstructor.getText().toString().trim();
         limU = LimCli.getText().toString().trim();
         idIns = idInstructor;
-        hor1 = horario1;
-        hor2 = horario2;
-        hor3 = horario3;
-
-        // Verifica si los campos obligatorios están vacíos
+        if(horario1.equals("Seleccionar dia Seleccionar hora")){
+            hor1 = "";
+        }else {
+            hor1 = horario1;
+        }
+        if(horario2.equals("Seleccionar dia Seleccionar hora")){
+            hor2 = "";
+        }else {
+            hor2 = horario2;
+        }
+        if(horario3.equals("Seleccionar dia Seleccionar hora")){
+            hor3 = "";
+        }else {
+            hor3 = horario3;
+        }
+        if (TextUtils.isEmpty(limU)) {
+            Toast.makeText(this, "Ingrese el límite de clientes", Toast.LENGTH_SHORT).show();
+        }else {
+            limlim = Integer.parseInt(limU);
+        }
         if (TextUtils.isEmpty(nameC)) {
             Toast.makeText(this, "Ingresa un nombre para la clase", Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(desC)) {
             Toast.makeText(this, "Ingrese una descripción", Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(emailI)) {
             Toast.makeText(this, "Ingrese el nombre del instructor", Toast.LENGTH_SHORT).show();
-        } else if (TextUtils.isEmpty(limU)) {
-            Toast.makeText(this, "Ingrese el límite de clientes", Toast.LENGTH_SHORT).show();
-        } else if (esSeleccionInvalida(dia1) || esSeleccionInvalida(dia2) || esSeleccionInvalida(dia3) ||
-                esSeleccionInvalida(hour1) || esSeleccionInvalida(hour2) || esSeleccionInvalida(hour3)) {
-            // Muestra un mensaje si algún Spinner o botón de hora tiene una selección inválida
-            Toast.makeText(this, "Por favor, rellene todos los campos", Toast.LENGTH_SHORT).show();
-        } else {
+        } else if (limlim >45){
+            Toast.makeText(this, "Ingrese un numero menor a 45", Toast.LENGTH_SHORT).show();
+        }else {
+            // Si todas las condiciones son válidas, crea la clase
             CrearClase();
         }
     }
 
-    // Método para verificar si la selección es "Seleccionar día" o "Seleccionar hora"
-    private boolean esSeleccionInvalida(Spinner spinner) {
-        return spinner.getSelectedItem().toString().equals("Seleccionar día");
+
+    private boolean validarCondiciones() {
+        // Obtén valores de días y horas
+        String dia1 = ((Spinner) findViewById(R.id.day1)).getSelectedItem().toString();
+        String dia2 = ((Spinner) findViewById(R.id.day2)).getSelectedItem().toString();
+        String dia3 = ((Spinner) findViewById(R.id.day3)).getSelectedItem().toString();
+        String hour1 = ((Button) findViewById(R.id.hour1)).getText().toString();
+        String hour2 = ((Button) findViewById(R.id.hour2)).getText().toString();
+        String hour3 = ((Button) findViewById(R.id.hour3)).getText().toString();
+
+        // Verificar las condiciones
+        boolean condicion1 = diaEsValido(dia1) && horaEsValida(hour1) && !diaEsValido(dia2) && !horaEsValida(hour2) && !diaEsValido(dia3) && !horaEsValida(hour3);
+        boolean condicion2 = !diaEsValido(dia1) && !horaEsValida(hour1) && diaEsValido(dia2) && horaEsValida(hour2) && !diaEsValido(dia3) && !horaEsValida(hour3);
+        boolean condicion3 = !diaEsValido(dia1) && !horaEsValida(hour1) && !diaEsValido(dia2) && !horaEsValida(hour2) && diaEsValido(dia3) && horaEsValida(hour3);
+        boolean condicion4 = diaEsValido(dia1) && horaEsValida(hour1) && diaEsValido(dia2) && horaEsValida(hour2) && !diaEsValido(dia3) && !horaEsValida(hour3);
+        boolean condicion5 = !diaEsValido(dia1) && !horaEsValida(hour1) && diaEsValido(dia2) && horaEsValida(hour2) && diaEsValido(dia3) && horaEsValida(hour3);
+        boolean condicion6 = diaEsValido(dia1) && horaEsValida(hour1) && !diaEsValido(dia2) && !horaEsValida(hour2) && diaEsValido(dia3) && horaEsValida(hour3);
+        boolean condicion7 = diaEsValido(dia1) && horaEsValida(hour1) && diaEsValido(dia2) && horaEsValida(hour2) && diaEsValido(dia3) && horaEsValida(hour3);
+
+        // Comprobar si alguna de las condiciones se cumple
+        return condicion1 || condicion2 || condicion3 || condicion4 || condicion5 || condicion6 || condicion7;
     }
 
-    private boolean esSeleccionInvalida(Button button) {
-        return button.getText().toString().equals("Seleccionar hora");
+    private boolean diaEsValido(String dia) {
+        return !dia.equals("Seleccionar dia");
     }
+
+    private boolean horaEsValida(String hora) {
+        return !hora.equals("Seleccionar hora");
+    }
+
 
 
 

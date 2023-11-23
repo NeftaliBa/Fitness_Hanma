@@ -107,8 +107,16 @@ public class c_cl_perfil_clases_servicios extends AppCompatActivity {
 
         inscripcionesRef.add(inscripcion)
                 .addOnSuccessListener(documentReference -> {
-                    Log.d("Inscripción", "Inscripción guardada con ID: " + documentReference.getId());
-                    Toast.makeText(this, "Se ha incrito a "+nombreClase, Toast.LENGTH_SHORT).show();
+                    String inscripcionID = documentReference.getId();
+                    inscripcionesRef.document(inscripcionID)
+                            .update("inscripcionID", inscripcionID)
+                            .addOnSuccessListener(aVoid -> {
+                                Log.d("Inscripción", "Inscripción guardada con ID: " + inscripcionID);
+                                Toast.makeText(this, "Se ha inscrito a " + nombreClase, Toast.LENGTH_SHORT).show();
+                            })
+                            .addOnFailureListener(e -> {
+                                Log.e("Inscripción", "Error al actualizar el campo inscripcionID", e);
+                            });
                 })
                 .addOnFailureListener(e -> {
                     // Ocurrió un error al guardar la inscripción
