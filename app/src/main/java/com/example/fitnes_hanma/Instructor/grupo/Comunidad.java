@@ -131,9 +131,24 @@ public class Comunidad extends AppCompatActivity {
                         if (documentSnapshot.exists()) {
                             nameUser = documentSnapshot.getString("name");
 
+                            // Verificar si el nombre del usuario se obtuvo correctamente
+                            if (nameUser != null && !nameUser.isEmpty()) {
+                                // Configurar el título de la barra de herramientas con el nombre del usuario
+                                TextView toolbarTitle = findViewById(R.id.toolbarComunityTitle);
+                                toolbarTitle.setText("Comunidad - " + nameUser);
+                            }
                         }
                     }
                 });
+
+
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendMessage();
+            }
+        });
+
 
 
     }
