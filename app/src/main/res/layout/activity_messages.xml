@@ -18,12 +18,12 @@
 
         <!-- Título de la barra de herramientas -->
         <TextView
-            android:id="@+id/toolbarComunityTitle"
+            android:id="@+id/toolbarTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Comunidad"
             android:layout_gravity="center"
             android:fontFamily="@font/salsa_font"
-            android:text="Comunidad"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
     </androidx.appcompat.widget.Toolbar>

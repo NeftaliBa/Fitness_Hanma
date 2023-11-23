@@ -55,14 +55,17 @@ public class messagesCl extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_messages);        // Configurar el Toolbar
+        setContentView(R.layout.activity_messages);
+
+        // Configurar el Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setTitle("Nuevo Título");
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         // Configurar el título de la barra de herramientas
-        TextView toolbarTitle = findViewById(R.id.toolbarComunityTitle);
+        TextView toolbarTitle = findViewById(R.id.toolbarTitle);
         toolbarTitle.setText("Comunidad");
+
 
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
