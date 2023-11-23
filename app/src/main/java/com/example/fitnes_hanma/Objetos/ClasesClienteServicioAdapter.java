@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.fitnes_hanma.Objetos.Clases;
 import com.example.fitnes_hanma.R;
 
 import java.util.List;
@@ -31,21 +32,25 @@ public class ClasesClienteServicioAdapter extends ArrayAdapter<Clases> {
         TextView nombreClaseTextView = convertView.findViewById(R.id.nombreClaseTextView);
         TextView nombreInstructorTextView = convertView.findViewById(R.id.nombreInstructorTextView);
         TextView descrip = convertView.findViewById(R.id.descripcionTextView);
-
-        TextView dia1 = convertView.findViewById(R.id.dia1CS);
-        TextView dia2 = convertView.findViewById(R.id.dia2CS);
-        TextView dia3 = convertView.findViewById(R.id.dia3CS);
-
+        ImageView imageView = convertView.findViewById(R.id.imageTextView);
 
         assert clase != null;
         nombreClaseTextView.setText(clase.getNombreClase());
         nombreInstructorTextView.setText(clase.getNombreInstructor());
         descrip.setText(clase.getDescripcion());
-        dia1.setText(clase.getHor1());
-        dia2.setText(clase.getHor2());
-        dia3.setText(clase.getHor3());
 
+        // Agregar logs para verificar la URL de la imagen
+        String imageUrl = clase.getImagenUrl();
+        Log.d("URL_DEBUG", "URL de la imagen: " + imageUrl);
 
+        if (imageUrl != null && !imageUrl.isEmpty()) {
+            Glide.with(getContext())
+                    .load(imageUrl)
+                    .placeholder(R.drawable.default_image)
+                    .into(imageView);
+        } else {
+            imageView.setImageResource(R.drawable.default_image);
+        }
 
         return convertView;
     }
