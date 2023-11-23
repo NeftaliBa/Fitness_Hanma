@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -21,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fitnes_hanma.Objetos.Message;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -117,13 +119,7 @@ public class Comunidad extends AppCompatActivity {
 
 
         userId = user.getUid();
-        sendButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sendMessage();
-            }
-        });
-        FirebaseFirestore.getInstance().collection("users").document(userId)
+        FirebaseFirestore.getInstance().collection("user").document(userId)
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
@@ -136,10 +132,34 @@ public class Comunidad extends AppCompatActivity {
                                 // Configurar el título de la barra de herramientas con el nombre del usuario
                                 TextView toolbarTitle = findViewById(R.id.toolbarComunityTitle);
                                 toolbarTitle.setText("Comunidad - " + nameUser);
+
+                                // Agregar log para verificar el nombre del usuario
+                                Log.d("Comunidad", "Nombre del usuario: " + nameUser);
+                            } else {
+                                // Agregar log si el nombre del usuario está vacío o nulo
+                                Log.e("Comunidad", "Error: Nombre de usuario vacío o nulo");
                             }
+                        } else {
+                            // Agregar log si el documento no existe
+                            Log.e("Comunidad", "Error: Documento de usuario no encontrado");
                         }
                     }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Agregar log en caso de error en la consulta
+                        Log.e("Comunidad", "Error al obtener datos de usuario", e);
+                    }
                 });
+
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendMessage();
+            }
+        });
+
 
 
         sendButton.setOnClickListener(new View.OnClickListener() {
