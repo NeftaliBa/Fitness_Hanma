@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Instructor.grupo.Comunidad"
-    android:background="@drawable/desbanecido_interna">
+    android:background="@drawable/desbanecido_interna"
+    >
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
