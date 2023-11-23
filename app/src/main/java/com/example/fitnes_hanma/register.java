@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.fitnes_hanma.Security;
 import com.example.fitnes_hanma.Cliente.Configuracion;
 import com.example.fitnes_hanma.Cliente.principal;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -28,7 +29,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
-
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -100,28 +102,24 @@ public class register extends AppCompatActivity {
             }
         });
     }
-    private void ValidarDatos(){
+
+    private void ValidarDatos() {
         name = nombre.getText().toString().trim();
         email = correo.getText().toString().trim();
         password = contrasena.getText().toString().trim();
         confirmpassword = confirmContra.getText().toString().trim();
-        
-        if (TextUtils.isEmpty(name)){
+
+        if (TextUtils.isEmpty(name)) {
             Toast.makeText(this, "Ingresa un nombre", Toast.LENGTH_SHORT).show();
-        }
-        else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            Toast.makeText(this, "Ingrese un correo", Toast.LENGTH_SHORT).show();
-        }
-        else if (TextUtils.isEmpty(password)){
-            Toast.makeText(this, "Ingrese contraseña", Toast.LENGTH_SHORT).show();
-        }
-        else if (TextUtils.isEmpty(confirmpassword)){
-            Toast.makeText(this, "Confirme contraseña", Toast.LENGTH_SHORT).show();
-        }
-        else if (!password.equals(confirmpassword)){
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            Toast.makeText(this, "Ingrese un correo válido", Toast.LENGTH_SHORT).show();
+        } else if (TextUtils.isEmpty(password)) {
+            Toast.makeText(this, "Ingrese una contraseña", Toast.LENGTH_SHORT).show();
+        } else if (TextUtils.isEmpty(confirmpassword)) {
+            Toast.makeText(this, "Confirme la contraseña", Toast.LENGTH_SHORT).show();
+        } else if (!password.equals(confirmpassword)) {
             Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
-        }
-        else{
+        } else {
             CrearCuenta();
         }
     }
@@ -130,35 +128,46 @@ public class register extends AppCompatActivity {
         progressDialog.setMessage("Creando cuenta...");
         progressDialog.show();
 
-        //Crear usuario en firebase
-        firebaseAuth.createUserWithEmailAndPassword(email, password)
-                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                    @Override
-                    public void onSuccess(AuthResult authResult) {
-                        //
-                        GuardarInformacion();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        progressDialog.dismiss();
-                        Toast.makeText(register.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+        try {
+            // Hashear la contraseña antes de crear la cuenta
+            final String hashedPassword = Security.encrypt(password);
+
+            // Crear usuario en firebase
+            firebaseAuth.createUserWithEmailAndPassword(email, hashedPassword)
+                    .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                        @Override
+                        public void onSuccess(AuthResult authResult) {
+                            // Guardar información con la contraseña hasheada
+                            GuardarInformacion(hashedPassword);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            progressDialog.dismiss();
+                            Toast.makeText(register.this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            progressDialog.dismiss();
+            Toast.makeText(register.this, "Error al hashear la contraseña", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    private void GuardarInformacion() {
-        progressDialog.setMessage("Guardado información");
+    private void GuardarInformacion(final String hashedPassword) {
+        progressDialog.setMessage("Guardando información");
         progressDialog.dismiss();
 
-        //Obtener la identifiacion de usuario actual
+        // Obtener la identificación de usuario actual
         String id = firebaseAuth.getUid();
         String role = "1";
         Map<String, Object> userData = new HashMap<>();
         userData.put("id", id);
         userData.put("email", email);
         userData.put("name", name);
-        userData.put("password", password);
+        userData.put("password", hashedPassword);
         userData.put("role", role);
 
         // Obtener una referencia a la colección "user" en Firestore
@@ -169,7 +178,7 @@ public class register extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void unused) {
                         progressDialog.dismiss();
-                        Toast.makeText(register.this, "Cuenta creada con exito", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(register.this, "Cuenta creada con éxito", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(register.this, principal.class));
                         finish();
                     }
@@ -177,9 +186,8 @@ public class register extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         progressDialog.dismiss();
-                        Toast.makeText(register.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(register.this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
-
 }
