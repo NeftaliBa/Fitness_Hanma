@@ -46,6 +46,7 @@ public class c_cl_navbar_fragment extends Fragment {
         ImageView horarios = view.findViewById(R.id.horar);
         ImageView asis = view.findViewById(R.id.asis);
         ImageView principal = view.findViewById(R.id.principal);
+        ImageView messages = view.findViewById(R.id.messages);
 
 
 
@@ -55,11 +56,6 @@ public class c_cl_navbar_fragment extends Fragment {
                 // Luego, inicia la actividad relacionada
                 Intent intent = new Intent(getActivity(), principal.class);
                 startActivity(intent);
-                principal.setSelected(true);
-                servicios.setSelected(false);
-                horarios.setSelected(false);
-                asis.setSelected(false);
-                startActivity(intent);
             }
         });
         servicios.setOnClickListener(new View.OnClickListener() {
@@ -67,11 +63,6 @@ public class c_cl_navbar_fragment extends Fragment {
             public void onClick(View v) {
                 // Luego, inicia la actividad relacionada
                 Intent intent = new Intent(getActivity(), servicios.class);
-                startActivity(intent);
-                servicios.setSelected(true);
-                principal.setSelected(false);
-                horarios.setSelected(false);
-                asis.setSelected(false);
                 startActivity(intent);
             }
         });
@@ -83,11 +74,6 @@ public class c_cl_navbar_fragment extends Fragment {
                 // Luego, inicia la actividad relacionada
                 Intent intent = new Intent(getActivity(), cl_horarios.class);
                 startActivity(intent);
-                principal.setSelected(true);
-                servicios.setSelected(false);
-                horarios.setSelected(false);
-                asis.setSelected(false);
-                startActivity(intent);
             }
         });
 
@@ -98,10 +84,14 @@ public class c_cl_navbar_fragment extends Fragment {
                 // Luego, inicia la actividad relacionada
                 Intent intent = new Intent(getActivity(), asistenciaQR.class);
                 startActivity(intent);
-                asis.setSelected(true);
-                servicios.setSelected(false);
-                horarios.setSelected(false);
-                principal.setSelected(false);
+            }
+        });
+        messages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // Luego, inicia la actividad relacionada
+                Intent intent = new Intent(getActivity(), messagesCl.class);
                 startActivity(intent);
             }
         });

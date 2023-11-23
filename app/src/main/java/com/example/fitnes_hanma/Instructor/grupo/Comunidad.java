@@ -21,9 +21,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fitnes_hanma.Objetos.Message;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -42,7 +45,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Comunidad extends AppCompatActivity {
-
+    String nameUser, userId;
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
     Intent i;
@@ -85,37 +88,51 @@ public class Comunidad extends AppCompatActivity {
         recyclerView.setAdapter(chatAdapter);
 
 
-        // Obtiene la referencia a la colección de mensajes en Firestore
         CollectionReference messagesRef = db.collection("chatMessages");
 
         // Agrega un Listener para escuchar los cambios en la colección
-        messagesRef.addSnapshotListener((value, error) -> {
-            if (error != null) {
-                // Maneja el error si ocurre
-                return;
-            }
+        messagesRef.orderBy("timestamp", Query.Direction.DESCENDING)
+                .addSnapshotListener((value, error) -> {
+                    if (error != null) {
+                        // Maneja el error si ocurre
+                        return;
+                    }
 
-            // Limpia la lista actual de mensajes
-            messageList.clear();
+                    // Limpia la lista actual de mensajes
+                    messageList.clear();
 
-            // Recorre los documentos en la colección y agrega los mensajes a messageList
-            for (QueryDocumentSnapshot document : value) {
-                Message message = document.toObject(Message.class);
-                messageList.add(message);
-            }
+                    // Recorre los documentos en la colección y agrega los mensajes a messageList
+                    for (QueryDocumentSnapshot document : value) {
+                        Message message = document.toObject(Message.class);
+                        messageList.add(message);
+                    }
 
-            // Notifica al adaptador que los datos han cambiado
-            chatAdapter.notifyDataSetChanged();
-        });
+                    // Notifica al adaptador que los datos han cambiado
+                    chatAdapter.notifyDataSetChanged();
+                });
 
 
+
+
+
+        userId = user.getUid();
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 sendMessage();
             }
         });
+        FirebaseFirestore.getInstance().collection("users").document(userId)
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if (documentSnapshot.exists()) {
+                            nameUser = documentSnapshot.getString("name");
 
+                        }
+                    }
+                });
 
 
     }
@@ -130,7 +147,7 @@ public class Comunidad extends AppCompatActivity {
 
                 Map<String, Object> newMessage = new HashMap<>();
                 newMessage.put("senderId", user.getUid());
-                newMessage.put("senderName", user.getDisplayName());
+                newMessage.put("senderName", nameUser);
                 newMessage.put("content", messageContent);
                 newMessage.put("timestamp", FieldValue.serverTimestamp());
 
