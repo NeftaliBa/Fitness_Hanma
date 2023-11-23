@@ -1,8 +1,9 @@
 package com.example.fitnes_hanma.Objetos;
 
 public class Clases {
-    String id_clase, nombreClase, descripcion, correoInstructor, nombreInstructor, iDInstructor, limCli, hor1, hor2, hor3;
-    Instructor instructor; // Cambiar el tipo de dato de String a Instructor
+    String id_clase, nombreClase, descripcion, correoInstructor, nombreInstructor, iDInstructor, limCli, hor1, hor2, hor3, imagenUrl;
+    Instructor instructor;
+
 
     public Clases() {
     }
@@ -18,6 +19,7 @@ public class Clases {
         this.hor1 = hor1;
         this.hor2 = hor2;
         this.hor3 = hor3;
+        this.imagenUrl = imagenUrl;
         this.instructor = instructor;
     }
 
@@ -105,7 +107,11 @@ public class Clases {
         return instructor;
     }
 
-    public void setInstructor(Instructor instructor) {
-        this.instructor = instructor;
+    public String getImagenUrl() {
+        return imagenUrl;
+    }
+
+    public void setImagenUrl(String imagenUrl) {
+        this.imagenUrl = imagenUrl;
     }
 }
