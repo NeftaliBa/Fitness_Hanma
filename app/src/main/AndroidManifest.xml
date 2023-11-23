@@ -114,16 +114,13 @@
             android:name=".Admin.Principal.AdPCliente"
             android:exported="false" />
         <activity
-            android:name=".Instructor.calendario.Calendario_semanal"
-            android:exported="false" />
-        <activity
             android:name=".Instructor.calendario.Calendario"
             android:exported="false" />
         <activity
             android:name=".Instructor.configuraciones.ConfiguracionIns"
             android:exported="false" />
         <activity
-            android:name=".Instructor.grupo.Grupo"
+            android:name=".Instructor.grupo.Comunidad"
             android:exported="false" />
     </application>
 
