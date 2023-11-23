@@ -2,7 +2,7 @@ package com.example.fitnes_hanma.Objetos;
 
 public class Clases {
     String id_clase, nombreClase, descripcion, correoInstructor, nombreInstructor, iDInstructor, limCli, hor1, hor2, hor3;
-    Instructor instructor; // Cambiar el tipo de dato de String a Instructor
+    Instructor instructor;
 
     public Clases() {
     }

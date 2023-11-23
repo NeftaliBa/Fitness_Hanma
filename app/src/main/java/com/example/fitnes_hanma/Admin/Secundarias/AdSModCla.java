@@ -174,10 +174,6 @@ public class AdSModCla extends AppCompatActivity implements  AdapterView.OnItemS
                 hour3.setText(ho3);
             }
 
-// ...
-
-
-
             hour1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

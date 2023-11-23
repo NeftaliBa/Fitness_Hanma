@@ -19,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.fitnes_hanma.Security;
 import com.example.fitnes_hanma.Admin.SeeOtherViews;
 import com.example.fitnes_hanma.Cliente.principal;
 import com.example.fitnes_hanma.Instructor.home.Home;
@@ -121,7 +122,11 @@ public class login extends AppCompatActivity {
                     mDialog.setMessage("Iniciando sesión...");
                     mDialog.setCanceledOnTouchOutside(false);
                     mDialog.show();
-                    loginUser(emailUser, passUser);
+                    try {
+                        loginUser(emailUser, passUser);
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
                 }
             }
         });
@@ -185,7 +190,6 @@ public class login extends AppCompatActivity {
                 });
     }
 
-
     // Método para guardar la información del usuario de Google en Firestore
     private void saveGoogleUserToFirestore(GoogleSignInAccount account) {
         String userId = mAuth.getCurrentUser().getUid();
@@ -217,65 +221,61 @@ public class login extends AppCompatActivity {
                 });
     }
 
-    private void loginUser(String emailUser, String passUser) {
-        mAuth.signInWithEmailAndPassword(emailUser, passUser).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                mDialog.dismiss();
-                if (task.isSuccessful()){
-                    Log.d("LoginActivity", "Autenticación exitosa con correo y contraseña");
-                    firebaseAuth = FirebaseAuth.getInstance();
-                    FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
-                    userId = firebaseUser.getUid();
-                    FirebaseFirestore db = FirebaseFirestore.getInstance();
-                    // Verificar en la colección "admin"
-                    db.collection("admin").document(userId).get().addOnCompleteListener(task0 -> {
-                        if (task0.isSuccessful() && task0.getResult().exists()) {
-                            String aname = task0.getResult().getString("aname");
-                            welcomeUser("Bienvenido " + aname);
-                            startActivityAccordingToRole(SeeOtherViews.class);
+    // Método para iniciar sesión con correo y contraseña
+    private void loginUser(String emailUser, String passUser) throws Exception {
+        mAuth.signInWithEmailAndPassword(emailUser, Security.encrypt(passUser))
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        mDialog.dismiss();
+                        if (task.isSuccessful()) {
+                            Log.d("LoginActivity", "Autenticación exitosa con correo y contraseña");
+                            firebaseAuth = FirebaseAuth.getInstance();
+                            FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+                            userId = firebaseUser.getUid();
+                            FirebaseFirestore db = FirebaseFirestore.getInstance();
+                            // Verificar el rol y redirigir según sea necesario
+                            checkUserRoles();
                         } else {
-                            // Verificar en la colección "trainer"
-                            db.collection("trainer").document(userId).get().addOnCompleteListener(task1 -> {
-                                if (task1.isSuccessful() && task1.getResult().exists()) {
-                                    String tname = task1.getResult().getString("tname");
-                                    welcomeUser("Bienvenido " + tname);
-                                    startActivityAccordingToRole(Home.class);
-                                } else {
-                                    // Si no hay documento en "trainer", asumimos "user"
-                                    db.collection("user").document(userId).get().addOnCompleteListener(task2 -> {
-                                        if (task2.isSuccessful() && task2.getResult().exists()) {
-                                            String name = task2.getResult().getString("name");
-                                            welcomeUser("Bienvenido " + name);
-                                            startActivityAccordingToRole(principal.class);
-                                        }
-                                    });
-                                }
-                            });
+                            Log.e("LoginActivity", "Error al iniciar sesión con correo y contraseña", task.getException());
+                            Toast.makeText(login.this, "Error al iniciar sesión", Toast.LENGTH_SHORT).show();
                         }
-                    });
-                } else {
-                    Log.e("LoginActivity", "Error al iniciar sesión con correo y contraseña", task.getException());
-                    Toast.makeText(login.this, "Error", Toast.LENGTH_SHORT).show();
-                }
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                mDialog.dismiss();
-                Log.e("LoginActivity", "Error al iniciar sesión con correo y contraseña", e);
-                Toast.makeText(login.this, "Error al iniciar sesion", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        mDialog.dismiss();
+                        Log.e("LoginActivity", "Error al iniciar sesión con correo y contraseña", e);
+                        Toast.makeText(login.this, "Error al iniciar sesión", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
 
+    // Método para verificar el rol del usuario y redirigir según sea necesario
+    private void checkUserRoles() {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        // Verificar en la colección "admin"
+        db.collection("admin").document(userId).get().addOnCompleteListener(task0 -> {
+            if (task0.isSuccessful() && task0.getResult().exists()) {
+                // Usuario es un administrador
+                startActivityAccordingToRole(SeeOtherViews.class);
+            } else {
+                // Verificar en la colección "trainer"
+                db.collection("trainer").document(userId).get().addOnCompleteListener(task1 -> {
+                    if (task1.isSuccessful() && task1.getResult().exists()) {
+                        // Usuario es un entrenador
+                        startActivityAccordingToRole(Home.class);
+                    } else {
+                        // Si no hay documento en "trainer", asumimos "user"
+                        startActivityAccordingToRole(principal.class);
+                    }
+                });
             }
         });
     }
 
-    // Método para mostrar el Toast de bienvenida
-    private void welcomeUser(String message) {
-        Toast.makeText(login.this, message, Toast.LENGTH_SHORT).show();
-    }
-
-    // Método para redirigir a la actividad correspondiente según el role del usuario
+    // Método para redirigir a la actividad correspondiente según el rol del usuario
     private void startActivityAccordingToRole(Class<?> cls) {
         Intent intent = new Intent(login.this, cls);
         finish();
