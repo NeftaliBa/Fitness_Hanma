@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Cliente.cl_horarios"
-    android:background="@drawable/desbanecido_interna">
+    android:orientation="vertical"
+    android:background="@drawable/desbanecido_interna"
+    tools:context=".Cliente.cl_horarios">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -19,19 +20,140 @@
             android:id="@+id/toolbarTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Horarios"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
+            android:text="Calendario"
             android:layout_gravity="center"
-            android:fontFamily="@font/salsa_font"/>
+            android:fontFamily="@font/salsa_font"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"/>
     </androidx.appcompat.widget.Toolbar>
 
+    <LinearLayout
+        android:padding="15dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/admin_recli"
+        android:layout_below="@id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:background="@drawable/b_cla_fondo_days"
+            >
+
+            <TextView
+                android:id="@+id/dom"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="DOM"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:gravity="center_vertical|center_horizontal"
+                android:textAlignment="gravity"
+                android:background="@drawable/b_cla_fondo_days"
+                />
+
+            <TextView
+                android:id="@+id/lun"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="LUN"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+
+                android:gravity="center_vertical|center_horizontal"
+                android:textAlignment="gravity"
+                android:background="@drawable/b_cla_fondo_days"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="MAR"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:id="@+id/mar"
+                android:gravity="center_vertical|center_horizontal"
+                android:textAlignment="gravity"
+                android:background="@drawable/b_cla_fondo_days"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="MIE"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:id="@+id/mie"
+                android:gravity="center_vertical|center_horizontal"
+                android:textAlignment="gravity"
+                android:background="@drawable/b_cla_fondo_days"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="JUE"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:id="@+id/jue"
+                android:gravity="center_vertical|center_horizontal"
+                android:textAlignment="gravity"
+                android:background="@drawable/b_cla_fondo_days"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="VIE"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:id="@+id/vie"
+                android:gravity="center_vertical|center_horizontal"
+                android:textAlignment="gravity"
+                android:background="@drawable/b_cla_fondo_days"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="SAB"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:id="@+id/sab"
+                android:gravity="center_vertical|center_horizontal"
+                android:textAlignment="gravity"
+                android:background="@drawable/b_cla_fondo_days"
+                />
+
+        </LinearLayout>
+
+        <ListView
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/calendarListView"/>
+
+
+    </LinearLayout>
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragment_cliente_navbar"
-        android:name="com.example.fitnes_hanma.Cliente.c_cl_navbar_fragment"
+        android:name="com.example.fitnes_hanma.Instructor.fragments.Navbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        tools:layout="@layout/c_cl_navbar_fragment" />
+        android:id="@+id/fragment_navbar"
+        tools:layout="@layout/b_cla_navbar_fragment" />
 
 </RelativeLayout>
