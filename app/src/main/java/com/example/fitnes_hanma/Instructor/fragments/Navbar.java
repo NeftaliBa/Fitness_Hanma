@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.fitnes_hanma.Instructor.calendario.Calendario;
-import com.example.fitnes_hanma.Instructor.grupo.Grupo;
+import com.example.fitnes_hanma.Instructor.grupo.Comunidad;
 import com.example.fitnes_hanma.Instructor.home.Home;
 import com.example.fitnes_hanma.R;
 
@@ -64,7 +64,7 @@ public class Navbar extends Fragment {
         Social.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Intent intent = new Intent(getActivity(), Grupo.class);
+                    Intent intent = new Intent(getActivity(), Comunidad.class);
                     startActivity(intent);
             }
         });
