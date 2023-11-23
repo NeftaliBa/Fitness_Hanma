@@ -13,6 +13,7 @@ import com.example.fitnes_hanma.Instructor.configuraciones.ConfiguracionIns;
 import com.example.fitnes_hanma.Instructor.home.Home;
 
 public class sobre_nosotros extends AppCompatActivity {
+    TextView d1, d2, d3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,5 +41,13 @@ public class sobre_nosotros extends AppCompatActivity {
                 finish();
             }
         });
+
+        d1 = findViewById(R.id.d1);
+        d2 = findViewById(R.id.d2);
+        d3 = findViewById(R.id.d3);
+
+        d1.setText("Desarrollador principiante de Aplicaciones Moviles encargado principalmente de la parte front-end y una gran parte de back-end y gestor de la base de datos, con cosas que mejorar como su adiccion a la morras culonas y la musica triste");
+        d2.setText("Desarrollador principiante de Aplicaciones Moviles encargado principalmente de la base de datos y una gran mayoria en desarrollo Back-end, con cosas a mejorar como el Frond-end y su adiccion a la mota");
+        d3.setText("Desarrolladora principiante de Aplicaciones Moviles encargado principalmente documentación");
     }
 }

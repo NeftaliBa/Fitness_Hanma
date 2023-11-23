@@ -34,39 +34,57 @@
             android:layout_gravity="center"/>
     </androidx.appcompat.widget.Toolbar>
 
-    <EditText
-        android:id="@+id/text"
+    <LinearLayout
+        android:id="@+id/menuQR"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:layout_below="@id/toolbar"
-        android:layout_marginTop="49dp"
-        android:gravity="center"
-        android:hint="Introduce un nombre"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"/>
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/admin_recli"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/text"
-        android:layout_marginStart="75dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="75dp"
-        android:backgroundTint="#4B61FF"
-        android:fontFamily="@font/salsa_font"
-        android:padding="16dp"
-        android:text="Generar"
-        android:textColor="@color/encendido"
-        android:layout_centerHorizontal="true"
-        android:textSize="16dp"/>
-    
-    <ImageView
-        android:id="@+id/qr_code"
-        android:layout_width="match_parent"
-        android:layout_height="569dp"
-        android:layout_below="@+id/button"
-        android:layout_marginTop="15dp"
-        android:scaleType="fitCenter"/>
+        <EditText
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="60dp"
+            android:gravity="center"
+            android:padding="15dp"
+            android:hint="Introduce el nombre del cliente"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:backgroundTint="@color/black"/>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_marginTop="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text"
+            android:backgroundTint="#4B61FF"
+            android:fontFamily="@font/salsa_font"
+            android:padding="15dp"
+            android:text="Generar QR"
+            android:textColor="@color/encendido"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+        <ImageView
+            android:layout_centerHorizontal="true"
+            android:id="@+id/qr_code"
+            android:layout_below="@id/menuQR"
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            android:layout_marginTop="35dp"
+            android:scaleType="fitCenter" />
+
 
 </RelativeLayout>

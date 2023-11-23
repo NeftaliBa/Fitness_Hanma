@@ -31,6 +31,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -53,6 +55,12 @@ public class login extends AppCompatActivity {
     private ProgressDialog mDialog;
     FirebaseAuth firebaseAuth;
     String userId, nameP;
+
+    private boolean isPasswordVisible = false;
+
+    private TextInputLayout passwordTextInputLayout;
+    private TextInputEditText passwordEditText;
+    private Button showHidePasswordButton;
 
 
     @Override
@@ -90,6 +98,7 @@ public class login extends AppCompatActivity {
         btn_login = findViewById(R.id.btn_loguear);
         loGoogle = (LinearLayout) findViewById(R.id.login_google);
         TextView textViewRecuperar = findViewById(R.id.recuperar);
+
         textViewRecuperar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
