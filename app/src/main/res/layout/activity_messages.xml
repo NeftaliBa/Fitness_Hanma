@@ -4,6 +4,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Cliente.messagesCl">
+    tools:context=".Cliente.messagesCl"
+    android:background="@drawable/desbanecido_interna"
+    >
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#00083E"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <!-- Título de la barra de herramientas -->
+        <TextView
+            android:id="@+id/toolbarComunityTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/salsa_font"
+            android:text="Comunidad"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_above="@+id/fragment_cliente_navbar"
+        android:background="@drawable/admin_recli"
+        android:padding="15dp">
+
+        <LinearLayout
+            android:id="@+id/messagesSection"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/fragment_navbar"
+            android:layout_below="@+id/toolbar"
+            android:orientation="vertical">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/messages"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+
+            </LinearLayout>
+
+
+    </LinearLayout>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_cliente_navbar"
+        android:name="com.example.fitnes_hanma.Cliente.c_cl_navbar_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        tools:layout="@layout/c_cl_navbar_fragment" />
 
 </RelativeLayout>
+
